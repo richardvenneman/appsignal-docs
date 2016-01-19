@@ -2,6 +2,9 @@
 # Blog settings
 ###
 
+DOCS_ROOT   = File.expand_path(File.dirname(__FILE__))
+GITHUB_ROOT = "https://github.com/appsignal/appsignal-docs/tree/master"
+
 Time.zone = "Amsterdam"
 
 set :layout, :article
@@ -91,6 +94,11 @@ helpers do
       path,
       :class => ('active' if path == "/#{request.path}")
     )
+  end
+
+  def edit_link
+    page_path = current_page.source_file
+    link_to('Edit page', page_path.gsub(DOCS_ROOT, GITHUB_ROOT))
   end
 end
 set :css_dir, 'stylesheets'
