@@ -1,0 +1,39 @@
+table
+  width: 100%
+  margin: 30px 0
+  vertical-align: middle
+  @extend %t-small
+
+th,
+td
+  padding: 10px 20px
+  border-bottom: 1px solid #fff
+
+th
+  color: #fff
+  background: darken($gray-bg, 30%)
+
+  &:first-child
+    border-radius: 3px 0 0 0
+
+  &:last-child
+    border-radius: 0 3px 0 0
+
+td
+  color: $font-subheading
+  background: $gray-bg
+
+tr td
+  transition: color .04s, background .04s
+
+tr:hover td
+  color: darken($font-subheading, 20%)
+  background: darken($gray-bg, 8%)
+  cursor: default
+
+tr:last-child
+  td:first-child
+    border-radius: 0 0 0 3px
+
+  td:last-child
+    border-radius: 0 0 3px 0

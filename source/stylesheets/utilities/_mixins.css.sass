@@ -1,0 +1,82 @@
+@mixin hide
+  left: -9999px
+  position: absolute
+
+@mixin hide-text
+  text-indent: -100em
+  overflow: hidden
+
+@mixin retina
+  @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)
+    @content
+
+@mixin data-uri-bg($image, $properties: no-repeat)
+  background: inline($image) $properties
+
+@mixin max-width($width)
+  @media (max-width: $width)
+    @content
+
+@mixin min-width($width)
+  @media (min-width: $width)
+    @content
+
+@mixin max-height($height)
+  @media (max-height: $height)
+    @content
+
+@mixin min-height($height)
+  @media (min-height: $height)
+    @content
+
+@mixin calc($property, $expression)
+  #{$property}: -webkit-calc(#{$expression})
+  #{$property}: calc(#{$expression})
+
+@mixin hocus
+  &:active,
+  &:hover,
+  &:focus
+    @content
+
+@mixin padding
+  padding: 100px 0
+
+  +max-width(1200px)
+    padding: 80px 0
+  +max-width(800px)
+    padding: 60px 0
+  +max-width(600px)
+    padding: 40px 0
+
+@mixin padding-top
+  padding-top: 100px
+
+  +max-width(1200px)
+    padding-top: 80px
+  +max-width(800px)
+    padding-top: 60px
+  +max-width(600px)
+    padding-top: 40px
+
+@mixin padding-bottom
+  padding-bottom: 100px
+
+  +max-width(1200px)
+    padding-bottom: 80px
+  +max-width(800px)
+    padding-bottom: 60px
+  +max-width(600px)
+    padding-bottom: 40px
+
+@mixin scrollbar($size, $foreground-color, $background-color:"none", $border-radius:"0")
+  &::-webkit-scrollbar
+    width: $size
+    height: $size
+
+  &::-webkit-scrollbar-thumb
+    background: $foreground-color
+    border-radius: $border-radius
+
+  &::-webkit-scrollbar-track
+    background: $background-color

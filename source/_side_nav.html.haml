@@ -1,0 +1,75 @@
+%nav.mod-side_nav
+  %ul
+    %li
+      %h2 Get things running
+      %ul
+        %li= link_with_active 'Your user account', '/getting-started/your-user-account.html'
+        %li= link_with_active 'Invite new members', '/getting-started/invite-new-members.html'
+        %li= link_with_active 'Manage owners & teams', '/getting-started/manage-owners-teams.html'
+        %li= link_with_active 'Set up a new app', '/getting-started/set-up-a-new-app.html'
+        %li= link_with_active 'Manage an app\'s settings', '/getting-started/manage-app-settings.html'
+        %li= link_with_active 'Life cycle of an AppSignal request', '/getting-started/lifecycle.html'
+        %li= link_with_active 'How AppSignal operates', '/getting-started/how-appsignal-operates.html'
+        %li= link_with_active 'Custom metrics', '/getting-started/custom-metrics.html'
+        %li
+          = link_with_active 'Integrations', '/getting-started/integrations.html'
+          %ul
+            %li= link_with_active 'PagerDuty', '/getting-started/integrations/pagerduty.html'
+            %li= link_with_active 'Jira', '/getting-started/integrations/jira.html'
+            %li= link_with_active 'Intercom', '/getting-started/integrations/intercom.html'
+            %li= link_with_active 'Webhooks', '/getting-started/webhooks.html'
+
+    %li
+      %h2 Billing
+      %ul
+        %li= link_with_active 'Declined charges', '/billing/declined-charges.html'
+
+    %li
+      %h2 A few tweaks in your code
+      %ul
+        %li= link_with_active 'Configure filter parameter logging', '/tweaks-in-your-code/filter-parameter-logging.html'
+        %li= link_with_active 'Handle exceptions', '/tweaks-in-your-code/handle-exceptions.html'
+        %li= link_with_active 'Add integration gems', '/tweaks-in-your-code/integration-gems.html'
+        %li= link_with_active 'Add custom instrumentation', '/tweaks-in-your-code/custom-instrumentation.html'
+        %li= link_with_active 'Link templates', '/tweaks-in-your-code/link-templates.html'
+        %li= link_with_active 'Integrating AppSignal', '/tweaks-in-your-code/integrating-appsignal.html'
+
+    %li
+      %h2 Gem settings
+      %ul
+        %li= link_with_active 'Supported systems & frameworks', '/getting-started/supported-frameworks.html'
+        %li= link_with_active 'Configuration', '/gem-settings/configuration.html'
+        %li= link_with_active 'Ignore actions', '/gem-settings/ignore-actions.html'
+        %Li= link_with_active 'Ignore instrumentation', '/tweaks-in-your-code/ignore-instrumentation.html'
+        %li= link_with_active 'Frontend error catching', '/tweaks-in-your-code/frontend-error-catching.html'
+
+    %li
+      %h2 Background monitoring
+      %ul
+        %li= link_with_active 'Sidekiq', '/background-monitoring/sidekiq.html'
+        %li= link_with_active 'Delayed Job', '/background-monitoring/delayed-job.html'
+        %li= link_with_active 'Resque', '/background-monitoring/resque.html'
+        %li= link_with_active 'Rake', '/background-monitoring/rake.html'
+        %li= link_with_active 'Custom', '/background-monitoring/custom.html'
+
+    %li
+      %h2 Push API
+      %ul
+        // %li= link_with_active 'Errors', ''
+        //%li= link_with_active 'Performance', ''
+        %li= link_with_active 'Deploy markers', '/push-api/deploy-marker.html'
+        //%li= link_with_active 'Hosts', ''
+
+    %li
+      %h2 Using the API <small>(Beta)</small>
+      %ul
+        %li= link_with_active 'Overview', '/api/overview.html'
+        %li= link_with_active 'Samples', '/api/samples.html'
+        %li= link_with_active 'Markers', '/api/markers.html'
+        %li= link_with_active 'Graphs', '/api/graphs.html'
+        %li= link_with_active 'Webhooks', '/getting-started/webhooks.html'
+
+    %li
+      %h2 Security
+      %ul
+        %li= link_with_active 'Security overview', '/security/overview.html'

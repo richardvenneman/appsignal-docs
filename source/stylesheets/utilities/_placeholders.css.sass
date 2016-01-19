@@ -1,0 +1,50 @@
+%clearfix
+  *display: inline-block
+  &:before,
+  &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
+%t-large
+  font-size: 18px
+  line-height: 1.75
+
+%t-normal
+  font-size: 16px
+  line-height: 1.75
+
+%t-small
+  font-size: 14px
+  line-height: 1.75
+
+%h-huge
+  color: $dark
+  font-weight: 300
+  font-size: 50px
+  line-height: 1.5
+  +max-width(1200px)
+    font-size: 40px
+  +max-width(800px)
+    font-size: 35px
+
+%h-large
+  font-weight: 300
+  font-size: 40px
+  line-height: 1.25
+
+  +max-width(800px)
+    font-size: 30px
+
+%h-normal
+  font-weight: 300
+  line-height: 1.5
+  font-size: 25px
+
+%h-small
+  font-weight: 700
+  line-height: 1.5
+  font-size: 13px
+  letter-spacing: 1px
+  text-transform: uppercase

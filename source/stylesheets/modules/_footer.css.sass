@@ -1,0 +1,43 @@
+.mod-footer
+  margin: 0 40px 80px
+
+  .inner
+    background: #fff
+    border: 1px solid $border
+    border-radius: $br
+    +clearfix
+
+  section
+    color: $dark
+    text-decoration: none
+    padding: 20px
+
+    &:first-child
+      border-bottom: 1px solid $border
+
+  h1
+    @extend %h-small
+    margin-bottom: 5px
+
+  p
+    color: $font-subheading
+    @extend %t-small
+    margin-bottom: 10px
+
+  a
+    @extend %t-small
+
+  +min-width(800px)
+    max-width: 800px
+    margin: 0 auto 80px
+    padding: 0 40px
+
+    section
+      display: block
+      width: 50%
+      float: left
+      padding: 40px
+
+      &:first-child
+        border-bottom: 0
+        border-right: 1px solid $border

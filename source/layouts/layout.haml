@@ -1,0 +1,52 @@
+!!! 5
+
+%html{:lang => 'en', :class => "no-js #{data.page.slug || ''}"}
+  %head
+    %meta{:charset => 'utf-8'}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
+    %title
+      - if data.page.title
+        = data.page.title
+        - unless data.page.title_no_brand
+          | AppSignal
+      - else
+        AppSignal: Monitor the crap out of your app.
+
+    = javascript_include_tag 'jquery', 'application'
+
+    = stylesheet_link_tag 'application'
+    /[if lt IE 9]
+      = stylesheet_link_tag 'ie-lt-9'
+      = javascript_include_tag 'html5shiv'
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35502258-1']);
+      _gaq.push(['_setDomainName', 'appsignal.com']);
+      _gaq.push(['_trackPageview']);
+      setTimeout("_gaq.push(['_trackEvent', '60_seconds', 'read'])", 60000);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+  %body
+    %header.mod-header
+      .layout-wrap
+        %h1
+          = link_to '/' do
+            %strong AppSignal
+            %span Documentation
+        = partial 'header_nav'
+
+    .layout-wrap
+      %a.jump{href: "#navigation"} Jump to navigation
+      .layout-main#main
+        = yield
+        = partial 'footer'
+      .layout-side#navigation
+        = partial 'side_nav'
+
+
+    = partial 'adroll'

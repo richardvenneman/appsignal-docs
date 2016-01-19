@@ -1,0 +1,96 @@
+---
+title: "AppSignal configuration"
+---
+
+The AppSignal gem can be configured with a configuration file or through environment variables. The default location for the config file
+is `config/appsignal.yml`. If you follow the installation wizard in the app one will be created by default.
+
+The following list includes all configuration options with the name of the environment variable and the name of the key in the config file.
+
+## `APPSIGNAL_ACTIVE` / `:active`
+Whether AppSignal is active for this environment, can be `true` or `false`.
+
+## `APPSIGNAL_RUNNING_IN_CONTAINER` / `:running_in_container`
+By default AppSignal expects to be running on the same machine between different deploys. Set this key to `true` if you use a container based deployment system
+such as Docker.
+
+## `APPSIGNAL_PUSH_API_KEY` / `:push_api_key`
+The key to authenticate with our push API.
+
+## `APPSIGNAL_APP_NAME` / `:name`
+This app's display name. If you use  Rails the gem will auto-detect the name and you can leave this empty. For other frameworks setting this is mandatory.
+
+## `APPSIGNAL_DEBUG` / `:debug`
+Enable debug logging, this is usually only needed on request from support. Default is `false`.
+
+## `APPSIGNAL_LOG_PATH` / `:log_path`
+Override the location of the path where the appsignal log file can be written to.
+
+## `APPSIGNAL_INSTRUMENT_NET_HTTP`/ `:instrument_net_http`
+
+Whether to add instrumentation for `net/http` calls, can be `true` or `false`. Default is `true`.
+
+## `APPSIGNAL_SKIP_SESSION_DATA` / `:skip_session_data`
+
+Whether to skip adding session data to exception traces, can be `true` or `false`. Default is `false`.
+
+## `APPSIGNAL_ENABLE_FRONTEND_ERROR_CATCHING` / `:enable_frontend_error_catching`
+
+Enable the experimental frontend error catching system. This will add a route to your app on `/appsignal_error_catcher` that can be used to
+catch JavaScript error and send them to AppSignal. You can configure this route with `APPSIGNAL_FRONTEND_ERROR_CATCHING_PATH` or `:frontend_error_catching_path`.
+
+This configuration key can be `true` or `false`. Default is `false`.
+
+## `APPSIGNAL_IGNORE_ERRORS` / `:ignore_errors`
+
+List of classes that should be ignored, they will not be transmitted to AppSignal. You can configure this with a list of errors in the config file:
+
+```yml
+ignore_errors:
+  - SystemExit
+  - ActiveRecord::NotFound
+```
+
+Or by setting the environment variable like this:
+
+```bash
+export APPSIGNAL_IGNORE_ERRORS="SystemExit,ActiveRecord::NotFound"
+```
+
+## `APPSIGNAL_IGNORE_ACTIONS` / `:ignore_actions`
+
+List of actions that should be ignored, everything that happens including exceptions will not be transmitted to AppSignal.
+You can configure this with a list of errors in the config file:
+
+```yml
+ignore_actions:
+  - ApplicationController#isup
+  - SecondController#healthcheck
+```
+
+Or by setting the environment variable like this:
+
+```bash
+export APPSIGNAL_IGNORE_ACTIONS="ApplicationController#isup,SecondController#healthcheck"
+```
+
+See [ignore actions](/gem-settings/ignore-actions.html) for details.
+
+## `APPSIGNAL_HTTP_PROXY` / `:http_proxy`
+
+If you require the agent to connect to the Internet via a proxy set the complete proxy URL in this config key.
+
+The minimum configuration to activate AppSignal via environment variables is:
+
+## `APPSIGNAL_ENABLE_ALLOCATION_TRACKING` / `:enable_allocation_tracking`
+Set this to `false` to disable tracking of the number of allocated objects in Ruby.
+
+## `APPSIGNAL_ENABLE_GC_INSTRUMENTATION` / `:enable_gc_instrumentation`
+Set this to `false` to disable garbage collection instrumentation.
+
+```bash
+export APPSIGNAL_PUSH_API_KEY=1234-1234-1234
+export APPSIGNAL_APP_NAME=App name
+```
+
+All other configuration is optional. If you use Rails you can even skip the app name, we will use the name of your Rails application.

@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500)
+
+body
+  font-family: $font-family
+  color: $font-color
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-rendering: optimizeLegibility
+  @extend %t-normal
+
+a
+  text-decoration: underline
+  color: $blue
+  transition: color .15s
+
+  &:hover,
+  &:focus
+    color: darken($blue,8%)
+
+pre,
+code
+  font-family: $pre-font
+  color: $pre-color
+
+pre
+  font-size: 12px
+  line-height: 2
+
+  code
+    font-size: inherit
+
+p code,
+li code,
+h2 code
+  padding: 2px 4px
+  background-color: $body-bg
+  color: $font-subheading
+  border-radius: 5px
+  font-size: 14px
+
+h2 code
+  font-size: 16px
+  padding: 4px 6px
+  position: relative
+  top: -2px
+
+.highlight
+  overflow: auto
+  margin-bottom: 30px
+  padding: 20px
+  font-family: monaco, monospace
+  border-radius: 5px
+
+  +scrollbar(7px, rgba(white,.4))
+
+
+  pre
+    font-size: 14px
+    line-height: 20px
+
+small
+  font-size: .8em
+  color: $gray
+
+::selection
+  color: #000
+  background: #ccc
+
+::-moz-selection
+  color: #000
+  background: #ccc

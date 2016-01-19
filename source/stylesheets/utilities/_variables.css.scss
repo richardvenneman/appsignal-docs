@@ -1,0 +1,69 @@
+$alt-font: "myriad-pro", Helvetica, sans-serif;
+$icon-font: "FontAwesome";
+
+$font-size: 14px;
+$font-color: #19282d; //same as dark
+$font-heading: #3f4c5c;
+$font-subheading: #6f8087; //same as gray-medium
+$font-family: Roboto;
+
+$border: #eaeef0;
+$divider: #e6edf3;
+$gray-bg: #f2f5f7;
+$gray-dark: #666;
+$blue: #125caf;
+$orange: #c95823;
+
+// More colors used in app
+$dark: #19282d;
+$blue-dark: #112544;
+$blue-light: #e7eef7;
+$cyan: #115c64;
+$brown: #c45621;
+$purple: #791a7d;
+$green: #406021;
+$red: #c31633;
+$yellow: #efaa04;
+$cyan: #115c64;
+$body-bg: #ecf0f2;
+
+// Code fonts
+$pre-font: Monaco, "Courier New", Courier, monospace;
+$pre-color: #c5c8c6;
+
+// Breakpoints
+$bp-XL: 920px;
+$bp-L: 860px;
+$bp-M: 640px;
+$bp-S: 400px;
+
+$bp-header: 700px;
+
+// colors:
+$gray: #131313;
+$gray-very-light: #fafafa;
+$gray-light: #e5e5e5;
+$gray-medium: #6f8087;
+$gray-dark: #666;
+$gray-public: #5d6162; // used for font in public site
+
+$terracotta: #c45621;
+$terracotta_light: #cd6f42;
+
+// Padding + borders
+$padding: 20px;
+$br: 5px;
+
+// Color list
+
+$colors: (
+  ("blue", $blue),
+  ("purple", $purple),
+  ("green", $green),
+  ("orange", $orange),
+  ("red", $red),
+  ("yellow", $yellow),
+  ("gray", $gray),
+  ("brown", $brown),
+  ("cyan", $cyan)
+)

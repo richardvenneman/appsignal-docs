@@ -1,0 +1,50 @@
+.mod-article
+  position: relative
+  max-width: 800px
+  margin: 0 auto
+  padding: 40px
+
+  h1
+    @extend %h-large
+    margin-bottom: 20px
+
+  h2
+    @extend %h-normal
+    margin-bottom: 10px
+
+  h3
+    @extend %h-small
+    margin-bottom: 5px
+
+  h1, h2, h3
+    a
+      color: $font-heading
+      text-decoration: none
+
+  p + h1,
+  p + h2,
+  p + h3
+    margin-top: 40px
+
+  p, ul, ol
+    color: $font-subheading
+
+  p
+    margin-bottom: 30px
+
+  .intro
+    @extend %t-large
+
+  ul, ol
+    margin-bottom: 24px
+    list-style: disc inside
+
+  ol
+    list-style: decimal inside
+
+  strong
+    font-weight: 700
+
+  img
+    border: 35px solid rgb(236, 240, 242)
+    max-width: 100%

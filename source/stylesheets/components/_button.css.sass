@@ -1,0 +1,36 @@
+.button
+  display: inline-block
+  padding: 10px 20px
+  color: #fff !important
+  line-height: 28px
+  border: 1px solid transparent
+  border-radius: $br
+  background: $orange
+  text-decoration: none
+
+  +hocus
+    background: lighten($orange,5)
+
+  &.small
+    padding: 5px 20px
+
+  &.outline-dark
+    background: none
+    border: 1px solid rgba(#000, .3)
+    color: $dark !important
+
+    +hocus
+      background: $dark
+      color: #fff !important
+      border-color: $dark
+
+  &.outline-white
+    background: none
+    border: 1px solid rgba(#fff, .3)
+    color: #fff !important
+
+    +hocus
+      background: #fff
+      color: $dark !important
+      border-color: #fff
+

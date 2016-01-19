@@ -1,0 +1,21 @@
+%table
+  %thead
+    %tr
+      %th Parameter
+      %th Description
+  %tbody
+    %tr
+      %td api_password
+      %td Required. A 40 character hex string. This parameter can be found on the API page in your Account Dashboard.
+    %tr
+      %td file
+      %td Required. The media file, multipart-form encoded into the request body.
+    %tr
+      %td project_id
+      %td The hashed id of the project to upload media into. If omitted, a new project will be created and uploaded to. The naming convention used for such projects is Uploads_YYYY-MM-DD.
+    %tr
+      %td name
+      %td A display name to use for the media in Wistia. If omitted, the filename will be used instead.
+    %tr
+      %td contact_id
+      %td A Wistia contact id, an integer value. If omitted, it will default to the contact_id of the account's owner.
