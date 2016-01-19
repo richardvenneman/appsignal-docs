@@ -48,3 +48,29 @@
   img
     border: 35px solid rgb(236, 240, 242)
     max-width: 100%
+
+  .edit
+    background: mix($blue,white,5%)
+    border: 1px solid mix($blue,white,30%)
+    border-radius: $br
+    padding: 15px 30px
+    margin: 40px 0 0
+    text-align: center
+    color: rgba($dark,0.8)
+
+    +min-width(1050px)
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+      a
+        font-size: 0.9em
+        background: $blue
+        color: #fff
+        border-radius: $br
+        text-decoration: none
+        padding: 5px 20px
+        line-height: 28px
+        margin-left: 20px
+        +hocus
+          background: lighten($blue,5)

@@ -98,7 +98,7 @@ helpers do
 
   def edit_link
     page_path = current_page.source_file
-    link_to('Edit page', page_path.gsub(DOCS_ROOT, GITHUB_ROOT))
+    link_to('Create a pull request', page_path.gsub(DOCS_ROOT, GITHUB_ROOT))
   end
 end
 set :css_dir, 'stylesheets'

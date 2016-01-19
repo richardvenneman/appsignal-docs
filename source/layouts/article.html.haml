@@ -2,7 +2,9 @@
   %article.mod-article
     %header
       %h1= current_page.data.title
-      = edit_link
-      .divider
 
     ~ yield
+
+    %p.edit
+      %span Want to help us improve this documentation page?
+      = edit_link
