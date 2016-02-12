@@ -135,6 +135,13 @@ An example of an Grape `config.ru` file:
 require File.expand_path('../config/environment', __FILE__)
 
 require 'appsignal'
+
+Appsignal.config = Appsignal::Config.new(
+  File.expand_path('../../', __FILE__), # The root of your app
+  ENV['RACK_ENV'] # The environment of your app (development/production)
+)
+
+Appsignal.start_logger
 Appsignal.start
 
 run Acme::App.instance
