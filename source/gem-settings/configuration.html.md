@@ -26,6 +26,10 @@ Enable debug logging, this is usually only needed on request from support. Defau
 ## `APPSIGNAL_LOG_PATH` / `:log_path`
 Override the location of the path where the appsignal log file can be written to.
 
+## `APPSIGNAL_WORKING_DIR_PATH` / `:working_dir_path`
+Override the location where appsignal can store temporary files. Use
+this is if the default location is not suitable.
+
 ## `APPSIGNAL_INSTRUMENT_NET_HTTP`/ `:instrument_net_http`
 
 Whether to add instrumentation for `net/http` calls, can be `true` or `false`. Default is `true`.
