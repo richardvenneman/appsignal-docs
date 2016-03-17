@@ -98,3 +98,73 @@ export APPSIGNAL_APP_NAME=App name
 ```
 
 All other configuration is optional. If you use Rails you can even skip the app name, we will use the name of your Rails application.
+
+
+Here's an example of an `appsignal.yml` config file with all options:
+
+```yaml
+default: &defaults
+  # Your push api key, it is possible to set this dynamically using ERB:
+  # push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
+  push_api_key: "65c91e2f-c0f2-4005-8064-ffffec5f7b20"
+
+  # Enable when using docker, by default AppSignal will keep running
+  # this prevents docker containers from shutting down. Enabling this feature
+  # stops AppSignal when there are no more connections open.
+  running_in_container: false
+
+  # Your app's name
+  name: "AppSignal"
+
+  # The cuttoff point in ms above which a request is considered slow,
+  # default is 200.
+  slow_request_threshold: 200
+
+  # Add default instrumentation of net/http
+  instrument_net_http: true
+
+  # Enable (beta) version of our frontend error catcher.
+  enable_frontend_error_catching: true
+
+  # Skip session data, it contains private information.
+  skip_session_data: true
+
+  # Ignore these errors.
+  ignore_errors:
+    - SystemExit
+
+  # Ignore these actions, used by our Loadbalancer.
+  ignore_actions:
+    - IsUpController#index
+
+  # Enable allocation tracking for memory metrics:
+  enable_allocation_tracking: true
+
+  # Enable Garbage Collection instrumentation
+  enable_cg_instrumentation: true
+
+# Configuration per environment, leave out an environment or set active
+# to false to not push metrics for that environment.
+development:
+  <<: *defaults
+  active: true
+  debug: true
+
+staging:
+  <<: *defaults
+  active: <%= ENV['APPSIGNAL_ENABLED'] == 'true' %>
+
+production:
+  <<: *defaults
+  active: <%= ENV['APPSIGNAL_ENABLED'] == 'true' %>
+
+  # Set different path for log
+  log_path: '/home/my_app/app/shared/log'
+
+  # Set AppSignal working dir
+  working_dir_path: '/tmp/appsignal'
+
+  # We can't connect to the outside world without this proxy
+  http_proxy: 'proxy.mydomain.com:8080'
+
+```
