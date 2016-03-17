@@ -20,6 +20,9 @@ The key to authenticate with our push API.
 ## `APPSIGNAL_APP_NAME` / `:name`
 This app's display name. If you use  Rails the gem will auto-detect the name and you can leave this empty. For other frameworks setting this is mandatory.
 
+## `APPSIGNAL_APP_ENV`
+This overrides the app's environment. Mostly used on Heroku where all apps run the `production` environment by default. This setting allows an override to set it to `staging` for example.
+
 ## `APPSIGNAL_DEBUG` / `:debug`
 Enable debug logging, this is usually only needed on request from support. Default is `false`.
 
