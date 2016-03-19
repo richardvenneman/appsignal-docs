@@ -53,7 +53,7 @@ You can of course let the lambda do anything you'd like, so you can come
 up with your own way of determining what needs to be filtered.
 
 Some further information about filtering parameters can be found in the Rails
-guide about [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameter-filtering).
+guide about [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameters-filtering).
 
 ## Filter all parameters
 
