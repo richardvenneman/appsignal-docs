@@ -36,7 +36,7 @@ activate :gzip
 # SYNTAX HIGHLIGHTING
 ###
 
-activate :syntax
+activate :syntax, :line_numbers => true
 
 ###
 # Compass

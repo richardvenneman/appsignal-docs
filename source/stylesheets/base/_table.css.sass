@@ -4,36 +4,67 @@ table
   vertical-align: middle
   @extend %t-small
 
+  .green
+    color: $green
+
+  .red
+    color: $red
+
 th,
 td
   padding: 10px 20px
   border-bottom: 1px solid #fff
 
-th
-  color: #fff
-  background: darken($gray-bg, 30%)
+thead
+  th
+    color: #fff
+    font-weight: 500
+    background: darken($gray-bg, 30%)
 
-  &:first-child
-    border-radius: 3px 0 0 0
+    +min-width(800px)
+      &:first-child
+        border-top-left-radius: 3px
 
-  &:last-child
-    border-radius: 0 3px 0 0
+      &:last-child
+        border-top-right-radius: 3px
+
+tbody
+  +min-width(800px)
+    &:only-child
+      tr:first-child
+        th,td
+          &:first-child
+            border-top-left-radius: 3px
+
+          &:last-child
+            border-top-right-radius: 3px
+
+    tr:last-child
+      th,td
+        &:first-child
+          border-bottom-left-radius: 3px
+
+        &:last-child
+          border-bottom-right-radius: 3px
+
+  th
+    font-weight: 500
+    border-right: 1px solid #fff
+
+td, th
+  vertical-align: top
+  background: $gray-bg
+  transition: color .04s, background .04s
 
 td
   color: $font-subheading
-  background: $gray-bg
 
-tr td
-  transition: color .04s, background .04s
-
-tr:hover td
+table.hover tr:hover td
   color: darken($font-subheading, 20%)
   background: darken($gray-bg, 8%)
   cursor: default
 
-tr:last-child
-  td:first-child
-    border-radius: 0 0 0 3px
-
-  td:last-child
-    border-radius: 0 0 3px 0
++max-width(800px)
+  table.collapse
+    th, td
+      display: block
