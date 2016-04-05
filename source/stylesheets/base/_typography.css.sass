@@ -23,7 +23,6 @@ a
 pre,
 code
   font-family: $pre-font
-  color: $pre-color
 
 pre
   font-size: 12px
@@ -37,8 +36,8 @@ li code,
 h2 code
   padding: 2px 4px
   background-color: $body-bg
-  color: $font-subheading
-  border-radius: 5px
+  color: $font-heading
+  border-radius: 2px
   font-size: 14px
 
 h2 code
@@ -54,11 +53,10 @@ h2 code
   font-family: monaco, monospace
   border-radius: 5px
 
-  +scrollbar(7px, rgba(white,.4))
-
+  +scrollbar(7px, rgba($font-subheading,.4), #fff)
 
   pre
-    font-size: 14px
+    font-size: 12px
     line-height: 20px
 
 small

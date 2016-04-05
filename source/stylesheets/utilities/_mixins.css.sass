@@ -80,3 +80,6 @@
 
   &::-webkit-scrollbar-track
     background: $background-color
+
+@mixin font-weight($weight)
+  font-weight: if(variable-exists(font-weights), map-get($font-weights, $weight), 400)

@@ -1,11 +1,16 @@
 $alt-font: "myriad-pro", Helvetica, sans-serif;
 $icon-font: "FontAwesome";
 
-$font-size: 14px;
+$font-weights: (light: 300, normal: 400, bold: 500);
+$font-size-small: 11px;
+$font-size: 13px;
+$font-size-large: 14px;
+$font-size-huge: 18px;
+
 $font-color: #19282d; //same as dark
 $font-heading: #3f4c5c;
 $font-subheading: #6f8087; //same as gray-medium
-$font-family: Roboto;
+$font-family: "Roboto", Helvetica, Arial, sans-serif;
 
 $border: #eaeef0;
 $divider: #e6edf3;
