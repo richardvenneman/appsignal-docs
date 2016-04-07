@@ -11,6 +11,8 @@
   h2
     @extend %h-normal
     margin-bottom: 10px
+    border-bottom: 1px solid $border
+    padding-bottom: 10px
 
   h3
     @extend %h-small
@@ -89,3 +91,21 @@
         margin-left: 20px
         +hocus
           background: lighten($blue,5)
+
+  .highlight
+    background: lighten($body-bg,3)
+    border: 1px solid darken($border,5)
+    padding: 0
+
+    .gutter
+      text-align: center !important
+      width: 60px
+      background: #fff
+
+    table
+      margin: 0
+
+      td
+        padding: 20px
+        border: none
+        background: none

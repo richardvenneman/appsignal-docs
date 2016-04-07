@@ -49,6 +49,10 @@ Appsignal.increment_counter('login_count', 1)
 ```
 -> Only numbers, letters and underscores (<code>[a-z0-9_]</code>) are allowed as metric keys. Other values will be replaced with an underscore.
 
+<div class="notice">
+  Only numbers, letters and underscores (<code>[a-z0-9_]</code>) are allowed as metric keys. Other values will be replaced with an underscore.
+</div>
+
 # Displaying custom metrics
 
 Right now this feature is in beta. This means there isn't a UI to configure dashboards, and this syntax will change in the (near) future. Below is an example of our YAML structure that will generate a tab on the metrics page with two graphs:
