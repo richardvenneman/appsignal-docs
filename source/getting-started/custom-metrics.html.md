@@ -47,6 +47,7 @@ Appsignal.increment_counter('login_count', 1)
 
 # Will yield a graph where the `login_count` is 2
 ```
+-> Only numbers, letters and underscores (<code>[a-z0-9_]</code>) are allowed as metric keys. Other values will be replaced with an underscore.
 
 # Displaying custom metrics
 

@@ -1,6 +1,4 @@
-###
-# Blog settings
-###
+require 'lib/appsignal_markdown'
 
 DOCS_ROOT   = File.expand_path(File.dirname(__FILE__))
 GITHUB_ROOT = "https://github.com/appsignal/appsignal-docs/tree/master"
@@ -16,7 +14,8 @@ set(
   :gh_blockcode       => true,
   :fenced_code_blocks => true,
   :with_toc_data      => true,
-  :smarty_pants       => true
+  :smarty_pants       => true,
+  :renderer           => AppsignalMarkdown
 )
 set :markdown_engine, :redcarpet
 
