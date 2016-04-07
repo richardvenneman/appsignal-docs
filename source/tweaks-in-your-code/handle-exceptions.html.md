@@ -144,11 +144,11 @@ Appsignal.tag_request(
 Tags that don't meet these requirements will be dropped without warning.
 Request tagging currently only works for errors.
 
-## [Track exceptions in cron jobs or workers](#cron-jobs-workers)
+## [Track exceptions in cron jobs or scripts](#cron-jobs-scripts)
 
 AppSignal provides a mechanism to track exceptions that occur in code
-that's not in a web context such as Rake tasks that get triggered by
-cron jobs of workers that process a queue. This was introduced in
+that's not in a web or background job context such as Rake tasks that get triggered by
+cron jobs or scripts that run in the background. This was introduced in
 version 0.6.0 of the gem.
 
 You can use the `send_exception` method to directly send an exception to
