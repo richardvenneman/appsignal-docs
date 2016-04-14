@@ -1,5 +1,4 @@
-
-## Custom monitoring
+## Custom monitoring (background jobs)
 
 While we only support Resque, Sidekiq and Delayed Job right now, it's not very difficult to monitor other background processors. For custom monitoring of processors we need to do four things.
 
@@ -13,7 +12,9 @@ While we only support Resque, Sidekiq and Delayed Job right now, it's not very d
 A transaction needs an unique id and the environment hash, you can use your background processor's id for that, or generate your own id with `SecureRandom.uuid`
 
 ``` ruby
-  Appsignal::Transaction.create(SecureRandom.uuid, ENV.to_hash)
+  transaction = Appsignal::Transaction.create(SecureRandom.uuid,
+                                                Appsignal::Transaction::BACKGROUND_JOB,
+                                                {})
 ```
 
 ### Add instrumentation
@@ -50,30 +51,69 @@ end
 Listen for, and catch exceptions in a background job and add them to the current transaction.
 Optionally filter out ignored exceptions (these can be set in the config).
 
-`Appsignal::Transaction.current.add_exception(exception)`
+```ruby
+transaction = Appsignal::Transaction.create(SecureRandom.uuid, Appsignal::Transaction::BACKGROUND_JOB,{})
+transaction.add_exception(exception)
+```
 
 Example:
 
 ``` ruby
+transaction = Appsignal::Transaction.create(SecureRandom.uuid, Appsignal::Transaction::BACKGROUND_JOB,{})
 begin
   # Do stuff
 rescue Exception => exception
-  unless Appsignal.is_ignored_exception?(exception)
-    Appsignal::Transaction.current.add_exception(exception)
-  end
+  transaction.add_exception(exception)
   raise exception
 end
 ```
+
+TODO: add `Appsignal::Transaction.is_ignored_exception` to this
 
 ### Close the transaction
 
 At the end of a job, close the transaction so it can be sent to AppSignal.
 
 ``` ruby
-Appsignal::Transaction.current.complete!
+transaction = Appsignal::Transaction.create(SecureRandom.uuid, Appsignal::Transaction::BACKGROUND_JOB,{})
+transaction.complete
 ```
 
-A full example from the Sidekiq implemenation:
+
+### A full example (1)
+A custom instrumented rake task
+
+```ruby
+namespace :myproject do
+  task bake_bread: :environment do
+    # Create a transaction
+    transaction = Appsignal::Transaction.create(SecureRandom.uuid,
+                                                  Appsignal::Transaction::BACKGROUND_JOB,
+                                                  ENV.to_hash)
+    ActiveSupport::Notifications.instrument(
+      'perform_job.some_name_for_this',
+      :class => 'Foo',
+      :method => 'bar'
+    ) do
+
+      begin
+        # Do stuff
+        Foo.bar
+      rescue Exception => exception
+        transaction.add_exception(exception)
+        raise exception
+      ensure
+        transaction.complete
+      end
+    end
+  end
+end
+```
+
+
+
+### A full example (2)
+A full example from the Sidekiq implemenation (note: does not work with v1.1.2)
 
 ``` ruby
 def call(worker, item, queue)
