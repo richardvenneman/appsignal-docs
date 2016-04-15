@@ -194,8 +194,7 @@ if ENV['APPSIGNAL_PUSH_API_KEY']                       # Push API key
 
   Appsignal.start_logger(root_path)                    # A place to log.
   Appsignal.start                                      # Start the AppSignal agent
-  use Appsignal::Rack::Listener                        # Listener middleware
-  use Appsignal::Rack::Instrumentation                 # Instrumentation middleware
+  use Appsignal::Rack::GenericInstrumentation          # Listener middleware
 end
 ```
 
@@ -208,4 +207,10 @@ Appsignal.config = Appsignal::Config.new(
   name:                       'logbrowser',
   enable_frontend_monitoring: true
 )
+```
+
+By default all actions are grouped under 'unknown'. You can override this for every action by setting the route in the env:
+
+```ruby
+env['appsignal.route'] = '/homepage'
 ```
