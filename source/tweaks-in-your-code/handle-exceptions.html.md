@@ -15,7 +15,7 @@ post forms, outdated links might direct visitors to content that doesn't
 exist anymore and so on.
 
 Rails provides a mechanism to handle such errors. You define a method
-that handles the response to for that error and use `rescue_from` to
+that handles the response for that error and use `rescue_from` to
 inform Rails which errors should be handled:
 
 ```ruby
