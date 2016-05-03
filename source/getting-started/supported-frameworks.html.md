@@ -26,12 +26,14 @@ AppSignal works with most popular Ruby frameworks such as:
 * [Grape](#grape)
 * [Rack / Other](#rack-other)
 
-### Ruby on Rails
+<a name="ruby-on-rails"></a>
+# Ruby on Rails
 
 [Ruby on Rails](http://rubyonrails.org/) is supported out-of-the-box by AppSignal.
 To install follow the installation steps in AppSignal, start by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts)..
 
-### Sinatra
+<a name="sinatra"></a>
+# Sinatra
 
 [Sinatra](http://www.sinatrarb.com/) is officially supported, but requires a bit of manual configuration.
 Follow the installation steps in AppSignal, start by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts).
@@ -47,7 +49,8 @@ class MyApp < Sinatra::Base
 After this, add an `appsignal.yml` config file to `/config`. You can find your `push_api_key` by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts).
 Or you can use [Environment variables to configure the gem](/gem-settings/env-vars.html).
 
-### Padrino
+<a name="padrino"></a>
+# Padrino
 
 [Padrino](http://www.padrinorb.com/) is supported by AppSignal, but requires manual configuration.
 
@@ -93,13 +96,14 @@ production:
 After these steps, start your Padrino app and wait for data to arrive in AppSignal.
 
 
-### Grape
+<a name="grape"></a>
+# Grape
 
 Grape works with AppSignal `1.1` and up.
 
 For older versions of Appsignal, check [grape-appsignal gem](https://github.com/aai/grape-appsignal) created by [Mark Madsen](https://github.com/idyll).
 
-#### Standalone
+## Standalone
 
 A standalone Grape app requires a few manual steps to get working.
 
@@ -165,7 +169,8 @@ end
 
 A demo project for Grape can be found here: https://github.com/appsignal/grape-on-rack
 
-### Rack/Other
+<a name="rack-other"></a>
+# Rack/Other
 
 The AppSignal gem has a few requirements that have to be met for it to work properly.
 
