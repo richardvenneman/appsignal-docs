@@ -182,7 +182,7 @@ The gem needs the following information:
 * Application name.
 * A place to log.
 * (optional) A config file.
-* [A middleware that receives instrumentation](https://github.com/appsignal/appsignal/blob/master/lib/appsignal/rack/listener.rb)
+* [A middleware that receives instrumentation](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/generic_instrumentation.rb)
 
 For example:
 
