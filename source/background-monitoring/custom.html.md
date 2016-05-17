@@ -117,7 +117,7 @@ A full example from the Sidekiq implemenation (note: does not work with v1.1.2)
 
 ``` ruby
 def call(worker, item, queue)
-  Appsignal::Transaction.create(SecureRandom.uuid, ENV.to_hash)
+  Appsignal::Transaction.create(SecureRandom.uuid, Appsignal::Transaction::BACKGROUND_JOB, ENV.to_hash)
 
   ActiveSupport::Notifications.instrument(
     'perform_job.sidekiq',
@@ -135,6 +135,6 @@ rescue Exception => exception
   end
   raise exception
 ensure
-  Appsignal::Transaction.current.complete!
+  Appsignal::Transaction.current.complete
 end
 ```
