@@ -8,10 +8,9 @@ This is a Beta implementation, which means:
 * The API might change in the future to support more frameworks.
 * This feature is not enabled by default and requires a setup that uses an appsignal.yml config file.
 
-
 ## Introduction
 
-Starting with AppSignal gem version <strong>0.11.8.beta.0</strong> and up we've added a frontend error catcher to our gem.
+Starting with AppSignal gem version <strong>0.11.8</strong> and up we've added a frontend error catcher to our gem.
 
 ## Installation
 
@@ -61,6 +60,9 @@ The gem will take care of processing it and sending it to AppSignal.
 
 
 ## Example of an error JSON POST
+
+The `action`, `message`, `name` and `backtrace` field are required. If they are not
+set the error will not be processed.
 
 ```json
 {
