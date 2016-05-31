@@ -4,7 +4,11 @@ title: "Supported systems & frameworks"
 
 ## Supported systems
 
-We currently support Ruby 1.9.3+ on Linux or Mac for the latest gem version `1.0`. The gem contains native extensions and a separate light-weight agent process.
+We currently support Ruby 1.9.3+ on Linux or Mac for the latest gem version `1.x`. The gem contains native extensions and a separate light-weight agent process. To use this version just add:
+
+```ruby
+gem 'appsignal'
+```
 
 We aim to also support jRuby, and are undecided on supporting Windows. If you use Windows and/or jRuby in your production environment and would like to get notified when this is done please
 [send us an e-mail](mailto:support@appsignal.com).
