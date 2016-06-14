@@ -143,7 +143,10 @@ appsignal        = new Appsignal
 window.appsignal = appsignal
 
 window.onerror = (message, filename, lineno, colno, error) ->
-  appsignal.sendError(error) if error
+  if error  
+    appsignal.sendError(error)
+  else
+    appsignal.sendError(new Error('Null error raised, no exception message available'))
 ```
 
 Here at AppSignal we're very keen on "eating our own dogfood". This means we use AppSignal to monitor Appsignal and since we're rewriting most of our frontend code to ReactJS we decided that we need to monitor it.
