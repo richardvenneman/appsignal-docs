@@ -1,0 +1,48 @@
+---
+title: "Host metrics <sup>beta</sup>"
+---
+
+%p The AppSignal agent collects various system metrics, which allows you to correlate performance issues or errors to abnormal host metrics. We collect the following metrics:
+
+%table
+  %thead
+
+  %tbody
+    %tr
+      %th CPU usage
+      %td User, nice, system, idle and iowait in percentages.
+    %tr
+      %th Load average
+      %td 1, 5 and 15 minute averages for CPU load
+    %tr
+      %th Memory usage
+      %td Available and used memory.
+    %tr
+      %th Disk usage
+      %td Percentage of very disk used.
+    %tr
+      %th Disk IO
+      %td Throughput of data read from and written to every disk.
+    %tr
+      %th Network traffic
+      %td Throughput of data received and transmitted through every network interface.
+
+%h2 Enabling Host Metrics
+%p This feature is currently in beta. To test it, please use gem version 1.2.0.beta.x like this:
+
+= code('ruby') do
+  gem 'appsignal', '~> 1.2.0.beta'
+
+%p Collecting these metrics is off by default during the beta. If you use an `appsignal.yml` config file add this line to the defaults segment or the specific environment you want to enable this for:
+
+= code('yml') do
+  enable_host_metrics: true
+
+%p If you configure AppSignal with environment variables add this:
+
+= code('ruby') do
+  export APPSIGNAL_ENABLE_HOST_METRICS=true
+
+%p The collected host metrics are available in the "Hosts" section you can reach through the left navigation. Select a host and then click the "Metrics" tab to see all collected metrics.
+
+%p If you have any feedback on this new feature #{link_to "we'd love to hear it!", "mailto:contact@appsignal.com"}
