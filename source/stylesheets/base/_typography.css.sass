@@ -14,7 +14,9 @@ body
 a
   text-decoration: underline
   color: $blue
-  transition: color .15s
+
+  sup
+    color: $blue
 
   &:hover,
   &:focus
@@ -58,6 +60,12 @@ h2 code
   pre
     font-size: 12px
     line-height: 20px
+
+sup
+  vertical-align: super
+  font-size: 0.6em
+  color: $gray-medium
+  text-transform: uppercase
 
 small
   font-size: .8em
