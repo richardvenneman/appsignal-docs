@@ -27,13 +27,7 @@ title: "Host metrics <sup>beta</sup>"
       %th Network traffic
       %td Throughput of data received and transmitted through every network interface.
 
-%h2 Enabling Host Metrics
-%p This feature is currently in beta. To test it, please use gem version 1.2.0.beta.x like this:
-
-= code('ruby') do
-  gem 'appsignal', '~> 1.2.0.beta'
-
-%p Collecting these metrics is off by default during the beta. If you use an `appsignal.yml` config file add this line to the defaults segment or the specific environment you want to enable this for:
+%p This feature is available in gem version `1.2.0` and up. Collecting these metrics is off by default during the beta. If you use an `appsignal.yml` config file add this line to the defaults segment or the specific environment you want to enable this for:
 
 = code('yml') do
   enable_host_metrics: true
