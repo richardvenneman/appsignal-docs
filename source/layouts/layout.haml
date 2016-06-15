@@ -6,7 +6,7 @@
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
     %title
       - if data.page.title
-        = data.page.title
+        = data.page.title.gsub(/<[^>]*>/, '')
         - unless data.page.title_no_brand
           | AppSignal
       - else
