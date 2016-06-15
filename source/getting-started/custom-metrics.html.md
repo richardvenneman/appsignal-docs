@@ -80,9 +80,9 @@ Each dashboard consists of a title and one or more graphs. For each graph the fo
 |  [format](#format)  |  string  |  the formatter for the data, options are "number, size, percent, duration, throughput"  |
 |  [fields](#fields)  |  array (strings)  |  an array of fields to graph |
 |  [filter](#filter)  |  string (Regex)  |  a regex, maching fields will be graphed  |
+|  [`draw_null_as_zero`](#draw_null_as_zero) | boolean (true/false), defaults to true | Graphs have two render options, if `draw_null_as_zero` is true (default) then if no vaule is received it will draw that point as 0, if `draw_null_as_zero` is set to false, then the previous value will be used, until a new value is received.
 
-
-## Kind
+## Kind <a name="kind"></a>
 
 There are three kinds of metrics we collect, "gauge, measurement and count".
 
@@ -93,7 +93,7 @@ There are three kinds of metrics we collect, "gauge, measurement and count".
 |  count  | A count is a number that can be incremented, when multiple counts with the same key are set, the count is incremented by the vaule of each key. |
 
 
-## Format
+## Format <a name="format"></a>
 
 For the graphs we have a number of formatters available for the data.
 
@@ -105,7 +105,7 @@ For the graphs we have a number of formatters available for the data.
 |  duration  | A duration of time in miliseconds. 100 will become `100ms` 60_000 will become `60sec` Mosly used for measuements. |
 |  throughput  | Throughput of a metric. It will display the troughput formatted as a number for both the minute and the hour. 10_000 will become `10k / hour 166/min`, Mostly used for count fields. |
 
-##  Fields
+##  Fields <a name="fields"></a>
 
 An array of fields to be graphed. You can either use an array of fields, or a filter
 
@@ -116,7 +116,7 @@ fields:
 ```
 A list of available fields per group can be found on the metric editor page.
 
-## Filter
+## Filter <a name="filter"></a>
 
 When using a filter, all fields matching the given (Javascript)regex will be graphed. You can either use an array of fields, or a filter.
 
@@ -128,3 +128,29 @@ This filter will match any field that begins with `db_` and ends with `_size`, f
 
 * `db_graph_collection_size`
 * `db_user_collection_size`
+
+
+## Draw NULL as zero <a name="draw_null_as_zero"></a>
+
+There are two options to render lines, if `draw_null_as_zero` is `true` (default) then if no vaule is received it will draw that point as 0, if `draw_null_as_zero` is set to `false`, then the previous value will be used, until a new value is received.
+
+![draw null as zero](/images/screenshots/draw_null_as_zero.png)
+
+Code to generate the graphs above:
+
+```
+  -
+    title: 'draw_null_as_zero: true (default)'
+    kind: measurement
+    format: duration
+    draw_null_as_zero: true
+    fields:
+      - random_numbers
+  -
+    title: 'draw_null_as_zero: false'
+    kind: measurement
+    format: duration
+    draw_null_as_zero: false
+    fields:
+      - random_numbers
+```
