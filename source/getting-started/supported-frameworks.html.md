@@ -28,6 +28,7 @@ AppSignal works with most popular Ruby frameworks such as:
 * [Sinatra](#sinatra)
 * [Padrino](#padrino)
 * [Grape](#grape)
+* [Webmachine](#webmachine)
 * [Rack / Other](#rack-other)
 
 <a name="ruby-on-rails"></a>
@@ -172,6 +173,65 @@ end
 ```
 
 A demo project for Grape can be found here: https://github.com/appsignal/grape-on-rack
+
+
+<a name="webmachine"></a>
+# Webmachine
+
+Webmachine works with AppSignal `1.3` and up.
+
+A Webmachine app requires a few manual steps to get working.
+
+* Place an `appsignal.yml` config file in `/config` (or use [ENV VARS](/gem-settings/configuration.html))
+* Make sure AppSignal is requried (`require 'appsignal').
+* Configure AppSignal (`Appsignal.config`)
+* Start Appsignal logger (`Appsignal.start_logger`)
+* Start AppSignal (`Appsignal.start`)
+
+An example of an AppSignal Webmachine config.yml:
+
+``` yaml
+default: &defaults
+  push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
+
+  # Your app's name
+  name: "ACME app"
+
+# Configuration per environment, leave out an environment or set active
+# to false to not push metrics for that environment.
+development:
+  <<: *defaults
+  active: true
+  debug: true
+
+production:
+  <<: *defaults
+  active: true
+```
+
+An example of a Webmachine `app.rb` file:
+
+``` ruby
+require 'webmachine'
+require 'appsignal'
+
+Appsignal.config = Appsignal::Config.new(
+  Dir.pwd,        # Path to project root directory
+  'development'   # Environment
+)
+Appsignal.start_logger
+Appsignal.start
+
+
+class MyResource < Webmachine::Resource
+  def to_html
+    "<html><body>Hello, world!</body></html>"
+  end
+end
+
+# Start a web server to serve requests via localhost
+MyResource.run
+```
 
 <a name="rack-other"></a>
 # Rack/Other
