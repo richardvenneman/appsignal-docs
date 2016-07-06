@@ -107,7 +107,7 @@ The (coffee)script below is something we use to test the functionality, use and 
 
 class @Appsignal
   constructor: ->
-    @action = null
+    @action = ""
     @tags   = {}
 
   set_action: (action) ->
