@@ -149,8 +149,8 @@ window.onerror = (message, filename, lineno, colno, error) ->
     appsignal.sendError(new Error('Null error raised, no exception message available'))
 ```
 
-Here at AppSignal we're very keen on "eating our own dogfood". This means we use AppSignal to monitor Appsignal and since we're rewriting most of our frontend code to ReactJS we decided that we need to monitor it.
+Here at AppSignal we're very keen on "eating our own dogfood". This means we use AppSignal to monitor AppSignal and since we're rewriting most of our frontend code to ReactJS we decided that we need to monitor it.
 
-Once we get a good feel of the requiremens for Javascript error catching we plan on supporting an offical library that hopefully will support vanilla JS and all the popular frontend frameworks.
+Once we get a good feel of the requirements for Javascript error catching we plan on supporting an offical library that hopefully will support vanilla JS and all the popular frontend frameworks.
 
 You are welcome to try frontend error catching as well and we really like to hear feedback on our implementation. If you have any questions or suggestions, don't hesitate to contact us on <a href="mailto:contact@appsignal.com">contact@appsignal.com</a>.
