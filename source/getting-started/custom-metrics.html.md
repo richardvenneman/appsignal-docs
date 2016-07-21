@@ -19,7 +19,7 @@ A gauge is a number. If you set more than one gauge with the same key, the lates
 Appsignal.set_gauge('database_size', 100)
 Appsignal.set_gauge('database_size', 10)
 
-# Will yield a graph where the `database_size` is 100
+# Will yield a graph where the `database_size` is 10
 ```
 
 ## Measurement
