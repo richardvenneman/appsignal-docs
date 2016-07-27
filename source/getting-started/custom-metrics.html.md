@@ -102,7 +102,7 @@ For the graphs we have a number of formatters available for the data.
 |  number  | A formatted number, 1_000_000 wil become `1M` 10_000 will become `10K` |
 |  size  |  Size formatted from megabytes. 1.0 megabytes will become `1Mb` |
 |  percent  | A percentage, 40 will become `40%` |
-|  duration  | A duration of time in miliseconds. 100 will become `100ms` 60_000 will become `60sec` Mosly used for measuements. |
+|  duration  | A duration of time in miliseconds. 100 will become `100ms` 60_000 will become `60sec` Mosly used for measurements. |
 |  throughput  | Throughput of a metric. It will display the troughput formatted as a number for both the minute and the hour. 10_000 will become `10k / hour 166/min`, Mostly used for count fields. |
 
 ##  Fields <a name="fields"></a>
