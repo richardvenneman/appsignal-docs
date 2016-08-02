@@ -122,7 +122,7 @@ class @Appsignal
       action:    @action
       message:   error.message
       name:      error.name
-      backtrace: error.stack.split("\n")
+      backtrace: error.stack?.split("\n")
       path:      window.location.pathname
       tags:      @tags
       environment: {
