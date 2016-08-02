@@ -23,6 +23,10 @@ This app's display name. If you use  Rails the gem will auto-detect the name and
 ## `APPSIGNAL_APP_ENV`
 This overrides the app's environment. Mostly used on Heroku where all apps run the `production` environment by default. This setting allows an override to set it to `staging` for example.
 
+## `APPSIGNAL_HOSTNAME` / `:hostname` (since version 1.3)
+
+This overrides the server's hostname. Useful for when you're unable to set a custom hostname or when a nondescript id is generated for you on hosting services.
+
 ## `APPSIGNAL_DEBUG` / `:debug`
 Enable debug logging, this is usually only needed on request from support. Default is `false`.
 
@@ -118,6 +122,9 @@ default: &defaults
 
   # Your app's name
   name: "AppSignal"
+
+  # Your server's hostname
+  hostname: "frontend1.myapp.com"
 
   # The cuttoff point in ms above which a request is considered slow,
   # default is 200.
