@@ -43,13 +43,7 @@ To install follow the installation steps in AppSignal, start by clicking 'Add ap
 [Sinatra](http://www.sinatrarb.com/) is officially supported, but requires a bit of manual configuration.
 Follow the installation steps in AppSignal, start by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts).
 
-After installing the gem you need to add `require 'appsignal/integrations/sinatra'` beneath `require 'sinatra'` in your app.
-If you define your app at the top-level this works straight away. If your app is a subclass of `Sinatra::Base` you need to use these middlewares:
-
-```ruby
-class MyApp < Sinatra::Base
-  use Appsignal::Rack::SinatraInstrumentation
-```
+After installing the gem you need to add `require 'appsignal/integrations/sinatra'` beneath `require 'sinatra'` or `require 'sinatra/base'` in your app.
 
 After this, add an `appsignal.yml` config file to `/config`. You can find your `push_api_key` by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts).
 Or you can use [Environment variables to configure the gem](/gem-settings/env-vars.html).
