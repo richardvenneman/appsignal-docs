@@ -31,4 +31,4 @@ Once every few seconds a process starts that takes all the data from the "bucket
 
 In a worst case scenario it can take up to 90 seconds from request to sample on the performance page. We're constantly trying to minimize this time, but we have to balance the amount of requests our push api receives and data size of each request with processing speed.
 
-If you would like to know more about this subject, don't hesistate to [contact us](mailto:contact@appsignal.com)!
+If you would like to know more about this subject, don't hesitate to [contact us](mailto:contact@appsignal.com)!

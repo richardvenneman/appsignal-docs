@@ -183,7 +183,7 @@ Webmachine works with AppSignal `1.3` and up.
 A Webmachine app requires a few manual steps to get working.
 
 * Place an `appsignal.yml` config file in `/config` (or use [ENV VARS](/gem-settings/configuration.html))
-* Make sure AppSignal is requried (`require 'appsignal').
+* Make sure AppSignal is required (`require 'appsignal').
 * Configure AppSignal (`Appsignal.config`)
 * Start Appsignal logger (`Appsignal.start_logger`)
 * Start AppSignal (`Appsignal.start`)

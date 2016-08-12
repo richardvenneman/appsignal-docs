@@ -9,10 +9,10 @@ in the main menu after you've navigated to an app.
 
 See [set up a new app](/getting-started/set-up-a-new-app.html) for more information about creating a new site.
 
-If your app is not connected to a repository on Github you can connect
+If your app is not connected to a repository on GitHub you can connect
 it. If it is connected you can change the linked repository. You need to authenticate
-with Github to use this feature. You can either do this by signing in
-via Github, or by linkin your Github account in your [user
+with GitHub to use this feature. You can either do this by signing in
+via GitHub, or by linking your GitHub account in your [user
 setttings](/getting-started/your-user-account.html). An app linked to GitHub gives you additional features like direct links to commits.
 
 ## [People](#people)

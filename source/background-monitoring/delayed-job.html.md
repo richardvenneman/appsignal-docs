@@ -41,6 +41,4 @@ class StructJobWithName < Struct.new(:id)
   end
 
 end
-
 ```
-

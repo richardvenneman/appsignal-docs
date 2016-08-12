@@ -21,7 +21,7 @@ After saving the integration, click "Edit" and go to the "Incoming Oauth" tab in
 
 ### OAuth setup
 
-In the "Incoming Oauth" tab, setup OAuth with the following values:
+In the "Incoming OAuth" tab, setup OAuth with the following values:
 
 * Consumer Key: <code>7668c385bf3f09c0219ec178a50ff736</code>
 * Consumer Name: <code>AppSignal</code>

@@ -76,11 +76,11 @@ Each dashboard consists of a title and one or more graphs. For each graph the fo
 | Field | Type | Description  |
 | ------ | ------ | ----- |
 |  title  |  string  |  title of the graph  |
-|  [kind](#kind)  |  string  |  the kind of metrics to display, available options are "gauge, measurement and count". This determins the group of metrics where data can be graphed. See the "Sample fields from the last five minutes" section of the metrics editor to see what groups and fields are available.  |
+|  [kind](#kind)  |  string  |  the kind of metrics to display, available options are "gauge, measurement and count". This determines the group of metrics where data can be graphed. See the "Sample fields from the last five minutes" section of the metrics editor to see what groups and fields are available.  |
 |  [format](#format)  |  string  |  the formatter for the data, options are "number, size, percent, duration, throughput"  |
 |  [fields](#fields)  |  array (strings)  |  an array of fields to graph |
-|  [filter](#filter)  |  string (Regex)  |  a regex, maching fields will be graphed  |
-|  [`draw_null_as_zero`](#draw_null_as_zero) | boolean (true/false), defaults to true | Graphs have two render options, if `draw_null_as_zero` is true (default) then if no vaule is received it will draw that point as 0, if `draw_null_as_zero` is set to false, then the previous value will be used, until a new value is received.
+|  [filter](#filter)  |  string (Regex)  |  a regex, matching fields will be graphed  |
+|  [`draw_null_as_zero`](#draw_null_as_zero) | boolean (true/false), defaults to true | Graphs have two render options, if `draw_null_as_zero` is true (default) then if no value is received it will draw that point as 0, if `draw_null_as_zero` is set to false, then the previous value will be used, until a new value is received.
 
 ## Kind <a name="kind"></a>
 
@@ -90,7 +90,7 @@ There are three kinds of metrics we collect, "gauge, measurement and count".
 | ------ | ----- |
 |  gauge  | A gauge contains a number, if another gauge with the same key is set, the highest number will be persisted. |
 |  measurement  |  A measurement contains a duration of time, when multiple measurements with the same key are set, the average will be persisted. |
-|  count  | A count is a number that can be incremented, when multiple counts with the same key are set, the count is incremented by the vaule of each key. |
+|  count  | A count is a number that can be incremented, when multiple counts with the same key are set, the count is incremented by the value of each key. |
 
 
 ## Format <a name="format"></a>
@@ -99,11 +99,11 @@ For the graphs we have a number of formatters available for the data.
 
 | Format |  Description  |
 | ------ | ----- |
-|  number  | A formatted number, 1_000_000 wil become `1M` 10_000 will become `10K` |
+|  number  | A formatted number, 1_000_000 will become `1M` 10_000 will become `10K` |
 |  size  |  Size formatted from megabytes. 1.0 megabytes will become `1Mb` |
 |  percent  | A percentage, 40 will become `40%` |
-|  duration  | A duration of time in miliseconds. 100 will become `100ms` 60_000 will become `60sec` Mosly used for measurements. |
-|  throughput  | Throughput of a metric. It will display the troughput formatted as a number for both the minute and the hour. 10_000 will become `10k / hour 166/min`, Mostly used for count fields. |
+|  duration  | A duration of time in milliseconds. 100 will become `100ms` 60_000 will become `60sec`. Mostly used for measurements. |
+|  throughput  | Throughput of a metric. It will display the throughput formatted as a number for both the minute and the hour. 10_000 will become `10k / hour 166/min`, Mostly used for count fields. |
 
 ##  Fields <a name="fields"></a>
 
@@ -118,7 +118,7 @@ A list of available fields per group can be found on the metric editor page.
 
 ## Filter <a name="filter"></a>
 
-When using a filter, all fields matching the given (Javascript)regex will be graphed. You can either use an array of fields, or a filter.
+When using a filter, all fields matching the given (JavaScript)regex will be graphed. You can either use an array of fields, or a filter.
 
 ```yaml
 filter: "db_[a-z]+._size"
@@ -132,7 +132,7 @@ This filter will match any field that begins with `db_` and ends with `_size`, f
 
 ## Draw NULL as zero <a name="draw_null_as_zero"></a>
 
-There are two options to render lines, if `draw_null_as_zero` is `true` (default) then if no vaule is received it will draw that point as 0, if `draw_null_as_zero` is set to `false`, then the previous value will be used, until a new value is received.
+There are two options to render lines, if `draw_null_as_zero` is `true` (default) then if no value is received it will draw that point as 0, if `draw_null_as_zero` is set to `false`, then the previous value will be used, until a new value is received.
 
 ![draw null as zero](/images/screenshots/draw_null_as_zero.png)
 

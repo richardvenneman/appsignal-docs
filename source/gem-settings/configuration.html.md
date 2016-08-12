@@ -176,5 +176,4 @@ production:
 
   # We can't connect to the outside world without this proxy
   http_proxy: 'proxy.mydomain.com:8080'
-
 ```

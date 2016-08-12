@@ -3,7 +3,7 @@ title: How AppSignal operates
 ---
 
 When you install the `appsignal` gem a native extension is compiled. You therefore need a working C compiler on the machine where you bundle. Most of the times
-this is already present, if not you can run `apt-get build-essential` on Debian style systems or `yum groupinstall 'Development Tools'` on Redhat style systems.
+this is already present, if not you can run `apt-get build-essential` on Debian style systems or `yum groupinstall 'Development Tools'` on Red Hat style systems.
 
 Once you boot your application for the first time after installing our gem the AppSignal agent will be started. This agent tries to locate a proper directory
 to place it's files. If you use a Capistrano style directory structure it will create a directory in `app/shared`. On Heroku style deployments
