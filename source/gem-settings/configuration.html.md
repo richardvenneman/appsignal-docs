@@ -27,6 +27,23 @@ This overrides the app's environment. Mostly used on Heroku where all apps run t
 
 This overrides the server's hostname. Useful for when you're unable to set a custom hostname or when a nondescript id is generated for you on hosting services.
 
+<a id="config-filter_parameters"></a>
+## [`APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters` (since version 1.3)](#config-filter_parameters)
+
+List of parameter keys that should be ignored, their values will be replaced with `FILTERED` when transmitted to AppSignal. You can configure this with a list of keys in the config file:
+
+```yml
+filter_parameters:
+  - password
+  - confirm_password
+```
+
+Or by setting the environment variable like this:
+
+```bash
+export APPSIGNAL_FILTER_PARAMETERS="password,confirm_password"
+```
+
 ## `APPSIGNAL_DEBUG` / `:debug`
 Enable debug logging, this is usually only needed on request from support. Default is `false`.
 
