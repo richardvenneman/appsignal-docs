@@ -30,5 +30,4 @@ task :cleanup do
 end
 
 desc "Build and deploy website"
-task :build_deploy => [:build, :deploy, :cleanup] do
-end
+task :build_deploy => [:build, :deploy, :cleanup]
