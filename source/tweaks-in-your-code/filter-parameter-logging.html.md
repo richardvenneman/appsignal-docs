@@ -34,7 +34,7 @@ keys they will not be filtered.
 ## [Allowing specific keys - Whitelisting](#whitelisting)
 
 If you use a lambda instead of a list of keys you get a lot of
-flexiblity. In the following example we use a lambda to setup a
+flexibility. In the following example we use a lambda to setup a
 whitelist instead of a blacklist.
 
 ```ruby

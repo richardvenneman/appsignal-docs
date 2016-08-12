@@ -4,7 +4,7 @@ title: "Frontend error catching (beta)"
 
 This is a Beta implementation, which means:
 
-* There is no official Javascript library supported by AppSignal.
+* There is no official JavaScript library supported by AppSignal.
 * The API might change in the future to support more frameworks.
 * This feature is not enabled by default and requires a setup that uses an appsignal.yml config file.
 
@@ -33,7 +33,7 @@ staging:
 
 ### Path
 
-The Rack middleware wil expose the following error catcher path `/appsignal_error_catcher`. You can change this path by adding `frontend_error_catching_path` to your `appsignal.yml` config file:
+The Rack middleware will expose the following error catcher path `/appsignal_error_catcher`. You can change this path by adding `frontend_error_catching_path` to your `appsignal.yml` config file:
 
 ```yml
 staging:
@@ -88,7 +88,7 @@ set the error will not be processed.
 
 ## A sample implementation in CoffeeScript
 
-Currently we do not provide a Javascript library that catches frontend errors.
+Currently we do not provide a JavaScript library that catches frontend errors.
 The (coffee)script below is something we use to test the functionality, use and modify at your own risk.
 
 
@@ -143,7 +143,7 @@ appsignal        = new Appsignal
 window.appsignal = appsignal
 
 window.onerror = (message, filename, lineno, colno, error) ->
-  if error  
+  if error
     appsignal.sendError(error)
   else
     appsignal.sendError(new Error('Null error raised, no exception message available'))
@@ -151,6 +151,6 @@ window.onerror = (message, filename, lineno, colno, error) ->
 
 Here at AppSignal we're very keen on "eating our own dogfood". This means we use AppSignal to monitor AppSignal and since we're rewriting most of our frontend code to ReactJS we decided that we need to monitor it.
 
-Once we get a good feel of the requirements for Javascript error catching we plan on supporting an offical library that hopefully will support vanilla JS and all the popular frontend frameworks.
+Once we get a good feel of the requirements for JavaScript error catching we plan on supporting an official library that hopefully will support vanilla JS and all the popular frontend frameworks.
 
 You are welcome to try frontend error catching as well and we really like to hear feedback on our implementation. If you have any questions or suggestions, don't hesitate to contact us on <a href="mailto:contact@appsignal.com">contact@appsignal.com</a>.

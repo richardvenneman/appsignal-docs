@@ -2,7 +2,7 @@
 title: "Webhooks"
 ---
 
-AppSignal can send notifications of new incidents to serveral services, like Campfire and Slack. We also offer webhooks for these notifications.
+AppSignal can send notifications of new incidents to several services, like Campfire and Slack. We also offer webhooks for these notifications.
 
 To receive a webhook, go to the "Integrations" tab the site's sidebar and fill out the url where you'd like to receive your webhook data.
 

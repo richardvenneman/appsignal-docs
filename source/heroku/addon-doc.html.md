@@ -49,7 +49,7 @@ Retrieve the api-key using the `heroku config:get` command.
 
 After installing the gem and deploying your application, it will start aggregating and sending data to AppSignal.
 
-Add the gem to the GemFile
+Add the gem to the Gemfile
 
     :::term
     gem 'appsignal'
@@ -100,7 +100,7 @@ AppSignal likes to know when you have deployed your app. We use deploys to measu
 
 ### Using multiple deploy hooks
 
-Unfortunately Heroku only supports one http deploy hook per site. Luckily one of our customers created a simple heroku app to fix this issue: https://github.com/deadlyicon/deploy-hook-forker
+Unfortunately Heroku only supports one http deploy hook per site. Luckily one of our customers created a simple Heroku app to fix this issue: https://github.com/deadlyicon/deploy-hook-forker
 
 ## Using our config file
 
@@ -118,7 +118,7 @@ If you deploy your application AppSignal will now use the api-key contained in t
 
 ## Adding integration gems
 
-AppSignal supports various other databases like Mongo and Redis. You can add an integration gem for this to your project.
+AppSignal supports various other databases like MongoDB and Redis. You can add an integration gem for this to your project.
 Read more [here](http://docs.appsignal.com/tweaks-in-your-code/integration-gems.html).
 
 ## Migrating between plans

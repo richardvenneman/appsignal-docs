@@ -19,7 +19,7 @@ A transaction needs an unique id and the environment hash, you can use your back
 
 ### Add instrumentation
 
-The gem differentiates background jobs from web requests by listening to certain instrumentation messages. At the mimimum we need at least one message with the fields below. Any other instrumentation message (database calls etc.) will also be added to the transaction, so you can view them in the AppSignal interface.
+The gem differentiates background jobs from web requests by listening to certain instrumentation messages. At the minimum we need at least one message with the fields below. Any other instrumentation message (database calls etc.) will also be added to the transaction, so you can view them in the AppSignal interface.
 
 | Parameter | Description|
 | ------ | ------ |
@@ -113,7 +113,7 @@ end
 
 
 ### A full example (2)
-A full example from the Sidekiq implemenation (note: does not work with v1.1.2)
+A full example from the Sidekiq implementation (note: does not work with v1.1.2)
 
 ``` ruby
 def call(worker, item, queue)

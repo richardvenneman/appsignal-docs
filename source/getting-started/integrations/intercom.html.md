@@ -58,7 +58,7 @@ Deploy this change to your server.
 
 ### Step 2: Retrieve the Intercom app id and API key
 
-In the Intercom app, click the settings button on the top right and go to "Intergrations for [Your app name]".
+In the Intercom app, click the settings button on the top right and go to "Integrations for [Your app name]".
 
 ![api_key](/images/screenshots/intercom/api_keys.png)
 Note the App id (1) and create a new read/write API key (2). Note this new key (3) as well.

@@ -3,7 +3,7 @@
 
 With AppSignal gem version `0.11.13`, we've added Rake task monitoring.
 
-Simply add `require 'appsignal/integrations/rake'` to your RakeFile like this:
+Simply add `require 'appsignal/integrations/rake'` to your Rakefile like this:
 
 ```ruby
 #!/usr/bin/env rake
@@ -27,7 +27,7 @@ namespace :mycrazyproject do
     while true
       User.where(active:true).find_in_batches(batch_size:20).with_index do |batch_of_users, batch_ndx|
         # We collect a bunch of new threads, one for each
-        # user, eac 
+        # user, each...
         #
         batch_threads = batch_of_users.collect do |user_outer|
           Thread.new(user_outer) do |u|
@@ -54,7 +54,6 @@ namespace :mycrazyproject do
         #
         batch_threads.map(&:join)
       end
-      ##########
     end
   end
 end

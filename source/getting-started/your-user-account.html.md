@@ -8,7 +8,7 @@ being monitored.
 
 ## [Sign up](#log_in)
 When you are invited to an existing account or sign up, you can choose to sign
-up using Github or use an email / password combination.
+up using GitHub or use an email / password combination.
 
 ## [Change personal settings](#change_your_personal_settings)
 Once you're logged in you can navigate to your settings page by using
@@ -18,9 +18,9 @@ personal setting screens.
 ### [Personal](#personal)
 
 In personal settings you can change your name and password. If you
-haven't linked your Github account during sign-up, you can still do so here.
-Connecting your Github account gives you additional features like direct links
-to commits and linked stacktrace lines
+haven't linked your GitHub account during sign-up, you can still do so here.
+Connecting your GitHub account gives you additional features like direct links
+to commits and linked stack trace lines.
 
 ### [Notifications](#notifications)
 
@@ -52,7 +52,7 @@ umbrellas for your apps and the billing happens on the organization level.
 
 ### [Create a new organization](#create_organization)
 You can start a new organization with the "new organization" button. Because
-you'll probably work with new people and apps in this organziation, you'll have
+you'll probably work with new people and apps in this organization, you'll have
 a 30 day trial period again for this organization.
 
 ### [Leaving an organization](#leaving_an_organization)
@@ -62,4 +62,3 @@ access to. If you're not the only owner of the organization you can
 leave an organization. Once you do that you will not have access to the
 organization anymore, the only way to undo this is asking the owner to
 invite you again.
-
