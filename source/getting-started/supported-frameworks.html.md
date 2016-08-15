@@ -48,6 +48,8 @@ After installing the gem you need to add `require 'appsignal/integrations/sinatr
 After this, add an `appsignal.yml` config file to `/config`. You can find your `push_api_key` by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts).
 Or you can use [Environment variables to configure the gem](/gem-settings/env-vars.html).
 
+Since appsignal gem version 1.3 you no longer need to manually include the `Appsignal::Rack::SinatraInstrumentation` middleware in your application. Please remove it.
+
 <a name="padrino"></a>
 # Padrino
 
