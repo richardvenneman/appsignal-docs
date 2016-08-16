@@ -13,9 +13,9 @@ That's already very useful, but wouldn't it be great if we could see
 measurements of specific pieces of code you suspect might influence your
 performance? Well, you can!
 
-When you instrument your code with AppSignal we'll pick up on those
-instruments. For example, you have to work with an external API that fetches
-articles for your homepage:
+When you add custom instrumentation to your code you'll be able to receive even
+more insights into your application. For example, you have to work with an
+external API that fetches articles for your homepage:
 
 ```ruby
 class ArticleFetcher
@@ -77,11 +77,13 @@ The name of the event that will appear in the event tree in AppSignal.
 
 ### `title`
 
-A more descriptive title of an event, such as `"Load user
-hector@appsignal.com"`. This value can be unique per event.
+A more descriptive title of an event, such as `"Fetch current user"` or `"Fetch
+blog post comments"`. It will appear next to the event name in the event tree
+on the performance sample page to provide a little more context on what's
+happening.
 
 ```ruby
-Appsignal.instrument('fetch.custom_database', "Load user #{email}") do
+Appsignal.instrument('fetch.custom_database', 'Fetch current user') do
   # ...
 end
 ```
@@ -97,9 +99,32 @@ Appsignal.instrument('fetch.custom_database', 'Fetch latest post', sql) do
 end
 ```
 
+Please make sure that all sensitive data is scrubbed from this data because it
+will be send to the AppSignal servers and made visible on the performance
+sample pages. When passing in an SQL query, you can use `body_format =
+Appsignal::EventFormatter::SQL_BODY_FORMAT` to do so.
+
 ### `body_format`
 
-TODO: ???
+Body format supports formatters to scrub the given data in the `body` argument
+to remove any sensitive data from the value. There are currently two supported
+values for the `body_format` argument.
+
+#### `Appsignal::EventFormatter::DEFAULT`
+
+This is the default value of this argument. By default AppSignal will leave the
+value intact and not scrub any data from it.
+
+#### `Appsignal::EventFormatter::SQL_BODY_FORMAT`
+
+The `SQL_BODY_FORMAT` value will run your data through the SQL sanitizer and
+scrub any values in SQL queries.
+
+```sql
+SELECT * FROM users WHERE email = 'hector@appsignal.com' AND password = 'iamabot'
+-- becomes
+SELECT * FROM users WHERE email = ? AND password = ?
+```
 
 ## <a href="#activesupport_notifications" name="activesupport_notifications">ActiveSupport::Notifications</a>
 
