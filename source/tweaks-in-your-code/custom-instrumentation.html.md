@@ -126,45 +126,6 @@ SELECT * FROM users WHERE email = 'hector@appsignal.com' AND password = 'iamabot
 SELECT * FROM users WHERE email = ? AND password = ?
 ```
 
-## <a href="#activesupport_notifications" name="activesupport_notifications">ActiveSupport::Notifications</a>
-
-If you're using an older gem version than version 1.3 and you're using Rails
-(more specifically ActiveSupport) you can use the built-in
-ActiveSupport::Notifications to instrument your code instead.
-
-The method for instrumenting your code using `ActiveSupport::Notifications`
-is very similar to how AppSignal does it. Using the article fetcher example
-again you can see the differences are quite small.
-
-```ruby
-class ArticleFetcher
-  def self.fetch(category)
-    ActiveSupport::Notifications.instrument('fetch.article_fetcher') do
-      # Download and process the articles
-    end
-  end
-end
-
-ArticleFetcher.fetch('Latest news')
-```
-
-It works for nested instrumentation calls as well.
-
-```ruby
-ActiveSupport::Notifications.instrument('fetch.article_fetcher') do
-  10.times do
-    ActiveSupport::Notifications.instrument('fetch_single_article.article_fetcher') do
-      # Fetch single article
-    end
-  end
-end
-```
-
-`ActiveSupport::Notifications` is highly flexible, you can instrument your code
-any way you like. More information about `ActiveSupport::Notifications` can be
-found in the
-[Rails API docs](http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html).
-
 ## <a href="#event_naming" name="event_naming">Event name construction</a>
 
 Event names are used for many things in the inner workings of AppSignal.
@@ -221,3 +182,42 @@ Some examples of keys that are used by AppSignal integrations:
 - Sidekiq: `perform_job.sidekiq`
 - [Method instrumentation](/tweaks-in-your-code/method-instrumentation.html):
   `method_name.ClassName.other` and `method_name.class_method.NestedClassName.ParentModule.other`
+
+## <a href="#activesupport_notifications" name="activesupport_notifications">ActiveSupport::Notifications</a>
+
+If you're using an older gem version than version 1.3 and you're using Rails
+(more specifically ActiveSupport) you can use the built-in
+ActiveSupport::Notifications to instrument your code instead.
+
+The method for instrumenting your code using `ActiveSupport::Notifications`
+is very similar to how AppSignal does it. Using the article fetcher example
+again you can see the differences are quite small.
+
+```ruby
+class ArticleFetcher
+  def self.fetch(category)
+    ActiveSupport::Notifications.instrument('fetch.article_fetcher') do
+      # Download and process the articles
+    end
+  end
+end
+
+ArticleFetcher.fetch('Latest news')
+```
+
+It works for nested instrumentation calls as well.
+
+```ruby
+ActiveSupport::Notifications.instrument('fetch.article_fetcher') do
+  10.times do
+    ActiveSupport::Notifications.instrument('fetch_single_article.article_fetcher') do
+      # Fetch single article
+    end
+  end
+end
+```
+
+`ActiveSupport::Notifications` is highly flexible, you can instrument your code
+any way you like. More information about `ActiveSupport::Notifications` can be
+found in the
+[Rails API docs](http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html).
