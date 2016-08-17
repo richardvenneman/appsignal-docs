@@ -63,7 +63,7 @@ After installing the gem, add the following line to `/config/boot.rb`: `require 
 
 It should look like:
 
-```yml
+```ruby
 # Load our dependencies
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
@@ -74,7 +74,7 @@ After this, add an `appsignal.yml` config file to `/config`. You can find your `
 
 Here's an example of a Padrino config file:
 
-```yml
+```yaml
 default: &defaults
   # Your push api key, it is possible to set this dynamically using ERB:
   # push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
@@ -100,7 +100,6 @@ production:
 
 After these steps, start your Padrino app and wait for data to arrive in AppSignal.
 
-
 <a name="grape"></a>
 # Grape
 
@@ -113,13 +112,13 @@ For older versions of Appsignal, check [grape-appsignal gem](https://github.com/
 A standalone Grape app requires a few manual steps to get working.
 
 * Place an `appsignal.yml` config file in `/config` (or use [ENV VARS](/gem-settings/configuration.html))
-* Make sure AppSignal is requried (`require 'appsignal').
+* Make sure AppSignal is required (`require 'appsignal').
 * Require the grape integration (`require 'appsignal/integrations/grape')
 * Start AppSignal (`Appsignal.start`)
 
 An example of an AppSignal Grape config.yml:
 
-``` yaml
+```yaml
 default: &defaults
   push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
 
@@ -158,7 +157,7 @@ run Acme::App.instance
 
 An example of a Grape `api.rb` file:
 
-``` ruby
+```ruby
 require 'appsignal/integrations/grape'
 
 module Acme
@@ -183,14 +182,14 @@ Webmachine works with AppSignal `1.3` and up.
 A Webmachine app requires a few manual steps to get working.
 
 * Place an `appsignal.yml` config file in `/config` (or use [ENV VARS](/gem-settings/configuration.html))
-* Make sure AppSignal is required (`require 'appsignal').
+* Make sure AppSignal is required (`require 'appsignal'`).
 * Configure AppSignal (`Appsignal.config`)
 * Start Appsignal logger (`Appsignal.start_logger`)
 * Start AppSignal (`Appsignal.start`)
 
 An example of an AppSignal Webmachine config.yml:
 
-``` yaml
+```yaml
 default: &defaults
   push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
 
@@ -211,7 +210,7 @@ production:
 
 An example of a Webmachine `app.rb` file:
 
-``` ruby
+```ruby
 require 'webmachine'
 require 'appsignal'
 
@@ -221,7 +220,6 @@ Appsignal.config = Appsignal::Config.new(
 )
 Appsignal.start_logger
 Appsignal.start
-
 
 class MyResource < Webmachine::Resource
   def to_html
@@ -250,7 +248,7 @@ The gem needs the following information:
 
 For example:
 
-``` ruby
+```ruby
 require 'appsignal'
 # Only run when there's a APPSIGNAL_PUSH_API_KEY
 if ENV['APPSIGNAL_PUSH_API_KEY']                       # Push API key
@@ -267,9 +265,9 @@ if ENV['APPSIGNAL_PUSH_API_KEY']                       # Push API key
 end
 ```
 
-You can pass a hash of configration options to `Appsignal::Config.new` for more features. For example to enable frontend monitoring and ignore an uptime monitoring action:
+You can pass a hash of configuration options to `Appsignal::Config.new` for more features. For example to enable frontend monitoring and ignore an uptime monitoring action:
 
-``` ruby
+```ruby
 Appsignal.config = Appsignal::Config.new(
   root_path,
   'development',
