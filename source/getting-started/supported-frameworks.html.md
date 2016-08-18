@@ -30,6 +30,7 @@ AppSignal works with most popular Ruby frameworks such as:
 * [Grape](#grape)
 * [Webmachine](#webmachine)
 * [Rack / Other](#rack-other)
+* [Capistrano](#capistrano)
 
 <a name="ruby-on-rails"></a>
 # Ruby on Rails
@@ -281,3 +282,41 @@ By default all actions are grouped under 'unknown'. You can override this for ev
 ```ruby
 env['appsignal.route'] = '/homepage'
 ```
+
+<a name="capistrano"></a>
+# Capistrano
+
+Capistrano 2 and 3 are officially supported by AppSignal, but might require
+some manual configuration.
+
+Make sure you load the `appsignal/capistrano` file in Capistrano's `deploy.rb`.
+This should be done automatically when you run `appsignal install [YOUR KEY]`.
+
+```ruby
+require 'capistrano'
+require 'appsignal/capistrano'
+```
+
+## Configuration
+
+### appsignal_env (since gem version 1.3)
+
+```ruby
+# deploy.rb
+set :stage, :alpha
+set :appsignal_env, :staging
+```
+
+`appsignal_env` allows you to load a different AppSignal environment when a
+stage name doesn't match the AppSignal environment as named in the AppSignal
+config file or environment variable.
+
+### appsignal_config
+
+```ruby
+# deploy.rb
+set :appsignal_config, { name: 'My app' }
+```
+
+`appsignal_config` allows you to override any config loaded from the
+`appsignal.yml` configuration file.
