@@ -58,6 +58,12 @@ this is if the default location is not suitable.
 
 Whether to add instrumentation for `net/http` calls, can be `true` or `false`. Default is `true`.
 
+## `APPSIGNAL_SEND_PARAMS` / `:send_params` (environment variable since version 1.3)
+
+Whether to skip sending request parameters to AppSignal, can be `true` or `false`. Default is `false`.
+
+For more information please read about [send_params](/tweaks-in-your-code/filter-parameter-logging.html#appsignal-send_params) in filtering request parameters.
+
 ## `APPSIGNAL_SKIP_SESSION_DATA` / `:skip_session_data`
 
 Whether to skip adding session data to exception traces, can be `true` or `false`. Default is `false`.
