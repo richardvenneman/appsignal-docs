@@ -1,21 +1,32 @@
-# Appsignal Documentation
+# AppSignal Documentation
 
-Feel free to improve the documentation by creating a branch and/or Pull-Reqeust.
+Feel free to improve the documentation by creating a branch and/or Pull-Request.
 
+## Usage
 
-# Custom markdown tags
+```sh
+bundle install
+bundle exec middleman
+```
+
+## Deploy
+
+```sh
+bundle exec rake build_deploy
+```
+
+## Custom markdown tags
 
 To render notices we've added a custom markdown tag, you can use it like so:
 
 ```markdown
 -> This is somehting you should know
-
 ```
 
-It wil render:
+It will render:
 
-``` html
+```html
 <div class="notice">
-  <p>This is somehting you should know.</p>
+  <p>This is something you should know.</p>
 </div>
 ```
