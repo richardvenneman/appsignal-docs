@@ -168,7 +168,7 @@ default: &defaults
   enable_allocation_tracking: true
 
   # Enable Garbage Collection instrumentation
-  enable_cg_instrumentation: true
+  enable_gc_instrumentation: true
 
 # Configuration per environment, leave out an environment or set active
 # to false to not push metrics for that environment.
