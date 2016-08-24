@@ -15,7 +15,7 @@ let us know at [support@appsignal.com](mailto:support@appsignal.com) if
 something is unclear or if you have any suggestions.
 
 ## Top documentation pages
-- [Supported frameworks](/getting-started/supported-frameworks.html)
+- [Supported systems & frameworks](/getting-started/supported-frameworks.html)
 - [Setting up an app](/getting-started/set-up-a-new-app.html)
 - [Adding integrations](/getting-started/integrations.html)
 - [Monitor background jobs](/tweaks-in-your-code/background-monitoring.html)

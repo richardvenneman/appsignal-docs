@@ -29,6 +29,7 @@ AppSignal works with most popular Ruby frameworks such as:
 * [Padrino](#padrino)
 * [Grape](#grape)
 * [Webmachine](#webmachine)
+* [DataMapper](#datamapper)
 * [Rack / Other](#rack-other)
 * [Capistrano](#capistrano)
 
@@ -170,7 +171,6 @@ end
 
 A demo project for Grape can be found here: https://github.com/appsignal/grape-on-rack
 
-
 <a name="webmachine"></a>
 # Webmachine
 
@@ -227,6 +227,12 @@ end
 # Start a web server to serve requests via localhost
 MyResource.run
 ```
+
+<a name="datamapper"></a>
+# DataMapper
+-> AppSignal supports DataMapper since gem version 1.3.
+
+The AppSignal gem works out of the box with DataMapper! Nothing to do. Lucky!
 
 <a name="rack-other"></a>
 # Rack/Other
