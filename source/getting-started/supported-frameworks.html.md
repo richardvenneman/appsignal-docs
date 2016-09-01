@@ -48,7 +48,7 @@ Follow the installation steps in AppSignal, start by clicking 'Add app' on [the 
 After installing the gem you need to add `require 'appsignal/integrations/sinatra'` beneath `require 'sinatra'` or `require 'sinatra/base'` in your app.
 
 After this, add an `appsignal.yml` config file to `/config`. You can find your `push_api_key` by clicking 'Add app' on [the accounts screen](https://appsignal.com/accounts).
-Or you can use [Environment variables to configure the gem](/gem-settings/env-vars.html).
+Or you can use [Environment variables to configure the gem](/gem-settings/configuration.html).
 
 Since appsignal gem version 1.3 you no longer need to manually include the `Appsignal::Rack::SinatraInstrumentation` middleware in your application. Please remove it.
 
