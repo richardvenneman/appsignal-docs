@@ -1,5 +1,5 @@
 ---
-title: "Add custom instrumentation"
+title: "AppSignal custom instrumentation"
 ---
 
 When you view saved samples of slow requests in AppSignal you'll be able
@@ -39,7 +39,7 @@ In this case you'll notice that this API call is a huge influence on the
 performance of our homepage, which was hidden before. We might want to consider
 caching the articles.
 
-### Instrument nesting
+## Instrument nesting
 
 You can use as many instruments in any combination you like. You can
 nest instrument calls and AppSignal will handle the nesting and aggregates of
@@ -56,7 +56,7 @@ Appsignal.instrument('fetch.article_fetcher') do
 end
 ```
 
-### Collecting more data
+## Collecting more data
 
 By default AppSignal will collect the duration of an event and send it to our
 servers. Since custom instrumentation is not hooked up to any framework
@@ -70,12 +70,12 @@ ActiveRecord, Sequel, Redis, MongoDB, Sinatra, Grape,
 Appsignal.instrument(name, title = nil, body = nil, body_format = Appsignal::EventFormatter::DEFAULT, &block)
 ```
 
-### `name`
+### `name` argument
 
 The name of the event that will appear in the event tree in AppSignal.
 [Read more on key naming](#event_naming).
 
-### `title`
+### `title` argument
 
 A more descriptive title of an event, such as `"Fetch current user"` or `"Fetch
 blog post comments"`. It will appear next to the event name in the event tree
@@ -88,7 +88,7 @@ Appsignal.instrument('fetch.custom_database', 'Fetch current user') do
 end
 ```
 
-### `body`
+### `body` argument
 
 More details such as a database query that was used by the event.
 
@@ -104,18 +104,18 @@ will be send to the AppSignal servers and made visible on the performance
 sample pages. When passing in an SQL query, you can use `body_format =
 Appsignal::EventFormatter::SQL_BODY_FORMAT` to do so.
 
-### `body_format`
+### `body_format` argument
 
 Body format supports formatters to scrub the given data in the `body` argument
 to remove any sensitive data from the value. There are currently two supported
 values for the `body_format` argument.
 
-#### `Appsignal::EventFormatter::DEFAULT`
+#### `Appsignal::EventFormatter::DEFAULT` value
 
 This is the default value of this argument. By default AppSignal will leave the
 value intact and not scrub any data from it.
 
-#### `Appsignal::EventFormatter::SQL_BODY_FORMAT`
+#### `Appsignal::EventFormatter::SQL_BODY_FORMAT` value
 
 The `SQL_BODY_FORMAT` value will run your data through the SQL sanitizer and
 scrub any values in SQL queries.
