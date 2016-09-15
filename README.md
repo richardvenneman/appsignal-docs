@@ -20,7 +20,7 @@ bundle exec rake build_deploy
 To render notices we've added a custom markdown tag, you can use it like so:
 
 ```markdown
--> This is somehting you should know
+-> This is something you should know
 ```
 
 It will render:
