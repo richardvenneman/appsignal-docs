@@ -66,8 +66,12 @@ information like the query from a database call. We already do this for
 ActiveRecord, Sequel, Redis, MongoDB, Sinatra, Grape,
 [and more](/getting-started/supported-frameworks.html).
 
+There are two helpers to allow you to instrument your code with AppSignal.
+
 ```ruby
 Appsignal.instrument(name, title = nil, body = nil, body_format = Appsignal::EventFormatter::DEFAULT, &block)
+# and
+Appsignal.instrument_sql(name, title = nil, body = nil, &block)
 ```
 
 ### `name` argument
@@ -119,6 +123,8 @@ value intact and not scrub any data from it.
 
 The `SQL_BODY_FORMAT` value will run your data through the SQL sanitizer and
 scrub any values in SQL queries.
+
+We recommend you use the `Appsignal.instrument_sql` helper for this instead.
 
 ```sql
 SELECT * FROM users WHERE email = 'hector@appsignal.com' AND password = 'iamabot'
