@@ -16,7 +16,7 @@ parameters:
 
 | Param | Type | Description  |
 | ------ | ------ | -----: |
-|  action  |  string  |   Example: BlogPostsController-show  |
+|  action_name  |  string  |   Example: BlogPostsController-show  |
 |  exception  |  string  | Example: NoMethodError    |
 |  since  |  timestamp/integer  |  All times are UTC  |
 |  count_only  |  boolean  |   (true/false) To only return a count  |
@@ -32,7 +32,7 @@ so `BlogPostsController#show` becomes: `BlogPostsController-hash-show`
 An example of a full request would be:
 
 ```
-https://appsignal.com/api/5114f7e38c5ce90000000011/log_entries.json?token=HseUe&action_id=AccountsController-hash-index&exception=ActionView::Template::Error&since=1374843246
+https://appsignal.com/api/5114f7e38c5ce90000000011/log_entries.json?token=HseUe&action_name=AccountsController-hash-index&exception=ActionView::Template::Error&since=1374843246
 ```
 
 ### Result
