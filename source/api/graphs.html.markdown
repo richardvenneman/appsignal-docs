@@ -13,13 +13,13 @@ parameters:
 
 | Param | Type | Description  |
 | ------ | ------ | -----: |
-|  action  |  string  |   Example: BlogPostsController-hash-show  |
+|  action_name  |  string  |   Example: BlogPostsController-hash-show  |
 |  from  |  timestamp/integer  |  defaults to 1 day ago if nil  |
 |  to  |  timetamp/integer  |   faults to now if nil  |
 |  timeframe  |  string  |   Can be: [hour, day, month, year]  |
 |  field  |  array  |   Can be: [mean, count, ex, ex_rate, pct]  |
 
-Leave the action param empty to get aggregated data of all actions in your site.
+Leave the action_name param empty to get aggregated data of all actions in your site.
 You can either specify the from an to values, __or__ the timeframe value.
 
 Valid timeframes are: `hour`, `day`, `month` and `year`
@@ -43,7 +43,7 @@ so `BlogPostsController#show` with `Mongoid::RecordNotFound` becomes:
 Example request:
 
 ```
-/api/5534f7e38c5ce90000000000/graphs.json?action=BlogPostsController-hash-show&fields[]=mean&fields[]=pct&timeframe=month&token=aaa
+/api/5534f7e38c5ce90000000000/graphs.json?action_name=BlogPostsController-hash-show&fields[]=mean&fields[]=pct&timeframe=month&token=aaa
 ```
 
 This endpoint returns a JSON object:
@@ -62,4 +62,3 @@ This endpoint returns a JSON object:
   ]
 }
 ```
-
