@@ -1,9 +1,9 @@
+# Rake task monitoring
 
-## Rake task monitoring
+The appsignal gem `1.x` enables Rake support automatically.
 
-With AppSignal gem version `0.11.13`, we've added Rake task monitoring.
-
-Simply add `require 'appsignal/integrations/rake'` to your Rakefile like this:
+If you're using a `0.11.13+` version of the gem please add
+`require 'appsignal/integrations/rake'` to your Rakefile like this:
 
 ```ruby
 #!/usr/bin/env rake
@@ -11,14 +11,17 @@ require File.expand_path('../config/application', __FILE__)
 require 'appsignal/integrations/rake'
 
 MyApp::Application.load_tasks
-
 ```
 
-And every exception in a Rake task will be sent to AppSignal under the "Background" namespace. Note that we only track exceptions in Rake tasks. There is no performance monitoring.
+Every exception in a Rake task will be sent to AppSignal and filed under the
+"Background" namespace. Note that we only track exceptions in Rake tasks. There
+is no performance monitoring.
 
-### A more comprehensive example using threads
+## A more comprehensive example using threads
 
-Add performance monitoring to a continuously running multi-threaded rake task for v1.1.6. (The appsignal gem does error monitoring of rake tasks automatically.) Based on work of leehambley.
+Add performance monitoring to a continuously running multi-threaded rake task
+for v1.1.6. (The appsignal gem does error monitoring of rake tasks
+automatically.) Based on work of leehambley.
 
 ```ruby
 # do_something.rake
@@ -40,7 +43,7 @@ namespace :mycrazyproject do
               ) do
                   u.long_running_task
                 end
-              rescue Exception => err
+              rescue => err
                 transaction.set_error(err)
               ensure
                 # Complete the transaction
