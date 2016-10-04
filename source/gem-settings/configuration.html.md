@@ -129,8 +129,10 @@ export APPSIGNAL_APP_NAME=App name
 
 All other configuration is optional. If you use Rails you can even skip the app name, we will use the name of your Rails application.
 
+## Example `appsignal.yml` config file
 
-Here's an example of an `appsignal.yml` config file with all options:
+Here's an example of an `appsignal.yml` config file.
+It's recommended you only add the config you need to your config file.
 
 ```yaml
 default: &defaults
