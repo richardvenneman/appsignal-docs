@@ -11,8 +11,14 @@ The following list includes all configuration options with the name of the envir
 Whether AppSignal is active for this environment, can be `true` or `false`.
 
 ## `APPSIGNAL_RUNNING_IN_CONTAINER` / `:running_in_container`
-By default AppSignal expects to be running on the same machine between different deploys. Set this key to `true` if you use a container based deployment system
-such as Docker.
+
+AppSignal expects to be running on the same machine between different deploys.
+Set this key to `true` if you use a container based deployment system such as
+Docker.
+
+Per appsignal gem version 1.4 this setting is automatically detected and no
+manual configuration is necessary. If you're having trouble with the automatic
+detection, please [contact support](mailto:support@appsignal.com).
 
 ## `APPSIGNAL_PUSH_API_KEY` / `:push_api_key`
 The key to authenticate with our push API.
