@@ -4,21 +4,45 @@ title: "Supported systems & frameworks"
 
 ## Supported systems
 
-We currently support Ruby 1.9.3+ on Linux or Mac for the latest gem version `1.x`. The gem contains native extensions and a separate light-weight agent process. To use this version just add:
+### Ruby
+
+We currently support Ruby 1.9.3+ for the latest gem version `1.x`. To use this
+version add to your Gemfile.
 
 ```ruby
 gem 'appsignal'
 ```
 
-We aim to also support jRuby, and are undecided on supporting Windows. If you use Windows and/or jRuby in your production environment and would like to get notified when this is done please
-[send us an e-mail](mailto:support@appsignal.com).
+### jRuby
 
-At the moment please install the `0.11` gem if you use jRuby or Windows.
-Add this line to your Gemfile:
+At the moment please install the `0.11` version of the appsignal gem if you use
+jRuby. Add this line to your Gemfile:
 
 ```ruby
 gem 'appsignal', '~> 0.11.17'
 ```
+
+We are working to support jRuby for the `1.x` release, but cannot provide an
+ETA at this time.
+
+## Operating Systems
+
+### Linux and macOS
+
+The gem contains native extensions and a separate light-weight agent process.
+These native extensions are supported on most Linux distributions and macOS.
+
+Alpine Linux is not supported at this time because our agent, which written in
+Rust, does not fully support Alpine Linux yet. This has been reported upstream
+to the Rust team and they are working to improve support for Alpine Linux.
+Please [let us know](mailto:support@appsignal.com) if you want to be included
+in our trial for Alpine Linux when it becomes available.
+
+### Microsoft Windows
+
+We are undecided on supporting Windows. If you use Windows in your production
+environment and would like us to support it, [send us an
+e-mail](mailto:support@appsignal.com).
 
 ## Supported frameworks
 
