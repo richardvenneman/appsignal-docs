@@ -1,6 +1,9 @@
 ---
-title: "Host metrics <sup>beta</sup>"
+title: "Host metrics"
 ---
+
+%blockquote This feature is available in gem version <code>1.2+</code>. It's turned on by default since gem version <code>1.3+</code>.
+%br
 
 %p The AppSignal agent collects various system metrics, which allows you to correlate performance issues or errors to abnormal host metrics. We collect the following metrics:
 
@@ -27,16 +30,8 @@ title: "Host metrics <sup>beta</sup>"
       %th Network traffic
       %td Throughput of data received and transmitted through every network interface.
 
-%p This feature is available in gem version <code>1.2.0</code> and up. Collecting these metrics is off by default during the beta. If you use an <code>appsignal.yml</code> config file add this line to the defaults segment or the specific environment you want to enable this for:
+%p Collecting these metrics is on by default. To configure it, use the <a href="/gem-settings/configuration.html"><code>enable_host_metrics</code></a> configuration option.
 
-= code('yml') do
-  enable_host_metrics: true
-
-%p If you configure AppSignal with environment variables add this:
-
-= code('ruby') do
-  export APPSIGNAL_ENABLE_HOST_METRICS=true
-
-%p The collected host metrics are available in the "Hosts" section you can reach through the left navigation. Select a host and then click the "Metrics" tab to see all collected metrics.
+%p The collected host metrics are available in the "Hosts" section you can reach through the sidebar navigation. Select a host and then click the "Metrics" tab to see all collected metrics.
 
 %p If you have any feedback on this new feature #{link_to "we'd love to hear it!", "mailto:contact@appsignal.com"}
