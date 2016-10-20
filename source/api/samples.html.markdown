@@ -40,35 +40,36 @@ https://appsignal.com/api/5114f7e38c5ce90000000011/samples.json?token=HseUe&acti
 This endpoint returns the following JSON (a slow sample and an error sample):
 
 ```
-  {
-    'count': 2,
-    'log_entries' :  [
-        {
-          "id": "51f29e7b183d700800150358",
-          "path": "/slow-request",
-          "action": "SlowController#show",
-          "duration": 3182.545407,
-          "status": 200,
-          "time": 1374854715,
-          "is_exception": false,
-          "exception": {
-            "name": null
-          }
-        },
-        {
-          "id": "51f29e7b183d700800150358",
-          "action": "ErrorController#trigger",
-          "path": "/error-request",
-          "duration": 3182.545407,
-          "status": 200,
-          "time": null,
-          "is_exception": false,
-          "exception": {
-            "name": 'ActionView::Template::Error'
-          }
-        }
-    ]
-  }
+{
+  "count": 2,
+  "log_entries": [
+    {
+      "id": "51f29e7b183d700800150358_SlowController#show_1476962400",
+      "action": "SlowController#show",
+      "path": "/slow-request",
+      "duration": 3182.545407,
+      "status": 200,
+      "time": 1476962400,
+      "is_exception": false,
+      "exception": {
+        "name": null
+      }
+    },
+    {
+      "id": "57f653fa16b7e24cb0dc9e2b_ErrorController#trigger_1475761080",
+      "action": "ErrorController#trigger",
+      "path": "/error-request",
+      "duration": null,
+      "status": null,
+      "time": 1475761080,
+      "is_exception": true,
+      "exception": {
+        "name": 'ActionView::Template::Error'
+      }
+    }
+  ]
+}
+
 ```
 
 ## Samples show
