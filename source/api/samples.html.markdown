@@ -78,11 +78,11 @@ This endpoint returns the following JSON (a slow sample and an error sample):
 
 Endpoint [GET]: **/api/[site_id]/samples/[id].json**
 
-parameters:
+Parameters:
 
-| Param | Type | Description  |
-| ------ | ------ | -----: |
-|  id  |  string  |   Sample id  |
+| Param | Type   | Description                                                                                 |
+| ----- | ------ | ------------------------------------------------------------------------------------------: |
+| id    | string | Sanitized sample id (example: 51f29e7b183d700800150358_SlowController-hash-show_1476962400) |
 
 ### Result
 
