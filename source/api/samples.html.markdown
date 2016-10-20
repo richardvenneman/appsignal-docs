@@ -90,41 +90,41 @@ This is a __SLOW__ log entry:
 
 ```
 {
-    "id": "50c9d4f9d85a8359d3000009",
-    "action": "slow#request",
-    "db_runtime": 500.0,
-    "duration": 300.0,
-    "environment": {},
-    "hostname": "app1",
-    "is_exception": null,
-    "kind": "http_request",
-    "params": {},
-    "path": "/blog",
-    "request_format": "html",
-    "request_method": "GET",
-    "session_data": {},
-    "status": "200",
-    "view_runtime": 500.0,
-    "time": 1002700800,
-    "end": 978339601,
-    "allocation_count": 110101,
-    "events": [
-        {
-            "action": "query",
-            "duration": 250.0,
-            "group": "mongoid",
-            "name": "query.mongoid",
-            "payload": {
-                "query": "this is a mongoid query"
-            },
-            "time": 0,
-            "end": 0
-            "digest": 00000,
-            "allocation_count": 1010101
+  "id": "51f29e7b183d700800150358_SlowController#show_1476962400",
+  "action": "slow#request",
+  "db_runtime": 500.0,
+  "duration": 300.0,
+  "environment": {},
+  "hostname": "app1",
+  "is_exception": null,
+  "kind": "http_request",
+  "params": {},
+  "path": "/blog",
+  "request_format": "html",
+  "request_method": "GET",
+  "session_data": {},
+  "status": "200",
+  "view_runtime": 500.0,
+  "time": 1002700800,
+  "end": 978339601,
+  "allocation_count": 110101,
+  "events": [
+      {
+          "action": "query",
+          "duration": 250.0,
+          "group": "mongoid",
+          "name": "query.mongoid",
+          "payload": {
+              "query": "this is a mongoid query"
+          },
+          "time": 0,
+          "end": 0
+          "digest": 00000,
+          "allocation_count": 1010101
 
-        }
-    ],
-    "exception": null
+      }
+  ],
+  "exception": null
 }
 ```
 
@@ -132,8 +132,8 @@ This is an __ERROR__ log entry:
 
 ```
 {
-    "id": "50c9d54dd05a03bdc500000b",
-    "action": "Error#request",
+    "id": "57f653fa16b7e24cb0dc9e2b_ErrorController#trigger_1475761080",
+    "action": "Error#trigger",
     "db_runtime": 500.0,
     "duration": null,
     "environment": {
