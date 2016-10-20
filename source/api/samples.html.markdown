@@ -12,14 +12,16 @@ Endpoints [GET]:
 | **/api/[site_id]/samples/performance.json** | This returns **performance** samples |
 | **/api/[site_id]/samples/errors.json** | This returns **error** samples |
 
-parameters:
+Parameters:
 
-| Param | Type | Description  |
-| ------ | ------ | -----: |
-|  action_name  |  string  |   Example: BlogPostsController-show  |
-|  exception  |  string  | Example: NoMethodError    |
-|  since  |  timestamp/integer  |  All times are UTC  |
-|  count_only  |  boolean  |   (true/false) To only return a count  |
+| Param       | Type              | Description                                     |
+| ----------- | ----------------- | ----------------------------------------------: |
+| action_id   | string            | Example: BlogPostsController-hash-show          |
+| exception   | string            | Example: NoMethodError                          |
+| since       | timestamp/integer | All times are UTC                               |
+| before      | timestamp/integer | All times are UTC                               |
+| limit       | integer           | The amount of entries returned (defaults to 10) |
+| count_only  | boolean           | (true/false) To only return a count             |
 
 Escape actions by replacing:
 
