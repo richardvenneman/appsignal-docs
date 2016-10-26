@@ -111,7 +111,7 @@ AppSignal expects to be running on the same machine between different deploys.
 Set this key to `true` if you use a container based deployment system such as
 Docker.
 
-Per appsignal gem version 1.4 this setting is automatically detected and no
+Since appsignal gem version 2.0 this setting is automatically detected and no
 manual configuration is necessary. If you're having trouble with the automatic
 detection, please [contact support](mailto:support@appsignal.com).
 
