@@ -152,6 +152,20 @@ export APPSIGNAL_FILTER_PARAMETERS="password,confirm_password"
 
 Enable debug logging, this is usually only needed on request from support. Default is `false`.
 
+### `APPSIGNAL_LOG` / `:log` (since version 2.0)
+
+Select which logger to the AppSignal agent should use. Accepted values are
+`file` and `stdout`. See also the `log_path` configuration.
+
+- `file` (default)
+  - Write all AppSignal logs to the file system.
+- `stdout` (default on Heroku)
+  - Print AppSignal logs in the parent process' STDOUT instead of to a file.
+    Useful with hosting solutions such as container systems and Heroku.
+
+-> At this time only the Ruby agent supports this feature and the system agent
+   which is used by the Ruby agent does not yet support this.
+
 ### `APPSIGNAL_LOG_PATH` / `:log_path`
 
 Override the location of the path where the appsignal log file can be written to.
