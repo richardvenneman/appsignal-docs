@@ -1,5 +1,5 @@
 ---
-title: "Invite new members"
+title: "Organization members"
 ---
 
 If you're the owner of an account you can invite other people to become

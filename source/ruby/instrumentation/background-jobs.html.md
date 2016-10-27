@@ -1,4 +1,6 @@
-## Custom monitoring (background jobs)
+---
+title: "Custom instrumentation for background jobs"
+---
 
 While we only support Resque, Sidekiq and Delayed Job right now, it's not very difficult to monitor other background processors. For custom monitoring of processors we need to do four things.
 

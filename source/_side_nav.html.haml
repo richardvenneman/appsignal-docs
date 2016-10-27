@@ -3,20 +3,20 @@
     %li
       %h2 Getting started
       %ul
-        %li= link_with_active 'Your first application', '/getting-started/set-up-a-new-app.html'
-        %li= link_with_active 'Your user account', '/getting-started/your-user-account.html'
+        %li= link_with_active 'Your first application', '/getting-started/new-application.html'
+        %li= link_with_active 'Your user account', '/getting-started/user-account.html'
 
     %li
       %h2 Your applications
       %ul
-        %li= link_with_active 'Settings', '/getting-started/manage-app-settings.html'
+        %li= link_with_active 'Settings', '/application/settings.html'
         %li
-          = link_with_active 'Integrations', '/getting-started/integrations.html'
+          = link_with_active 'Integrations', '/application/integrations/index.html'
           %ul
-            %li= link_with_active 'Intercom', '/getting-started/integrations/intercom.html'
-            %li= link_with_active 'Jira', '/getting-started/integrations/jira.html'
-            %li= link_with_active 'PagerDuty', '/getting-started/integrations/pagerduty.html'
-            %li= link_with_active 'Webhooks', '/getting-started/webhooks.html'
+            %li= link_with_active 'Intercom', '/application/integrations/intercom.html'
+            %li= link_with_active 'Jira', '/application/integrations/jira.html'
+            %li= link_with_active 'PagerDuty', '/application/integrations/pagerduty.html'
+            %li= link_with_active 'Webhooks', '/application/integrations/webhooks.html'
 
     %li
       %h2 Your organizations
@@ -24,37 +24,39 @@
         %li
           %span Team management
           %ul
-            %li= link_with_active 'Invite new members', '/getting-started/invite-new-members.html'
-            %li= link_with_active 'Manage owners & teams', '/getting-started/manage-owners-teams.html'
-        %li= link_with_active 'Billing', '/billing/declined-charges.html'
+            %li= link_with_active 'Manage members', '/organization/team/members.html'
+            %li= link_with_active 'Manage owners', '/organization/team/owners.html'
+            %li= link_with_active 'Manage teams', '/organization/team/teams.html'
+        %li= link_with_active 'Billing', '/organization/billing.html'
 
     %li
       %h2 AppSignal for Ruby
       %ul
+        %li= link_with_active 'Overview', '/ruby/index.html'
         %li
-          = link_with_active 'Configuration', '/gem-settings/configuration.html'
+          = link_with_active 'Configuration', '/ruby/configuration.html'
           %ul
-            %li= link_with_active 'Ignore actions', '/gem-settings/ignore-actions.html'
-            %Li= link_with_active 'Ignore instrumentation', '/tweaks-in-your-code/ignore-instrumentation.html'
-            %li= link_with_active 'Parameter filtering', '/tweaks-in-your-code/filter-parameter-logging.html'
+            %li= link_with_active 'Ignore actions', '/ruby/configuration/ignore-actions.html'
+            %li= link_with_active 'Parameter filtering', '/ruby/configuration/parameter-filtering.html'
 
         %li
-          = link_with_active 'Integrations', '/tweaks-in-your-code/integrating-appsignal.html'
+          = link_with_active 'Integrations', '/ruby/integrations/index.html'
           %ul
-            %li= link_with_active 'Automatic integrations', '/getting-started/supported-frameworks.html'
-            %li= link_with_active 'Sidekiq', '/background-monitoring/sidekiq.html'
-            %li= link_with_active 'Delayed Job', '/background-monitoring/delayed-job.html'
-            %li= link_with_active 'Resque', '/background-monitoring/resque.html'
-            %li= link_with_active 'Rake', '/background-monitoring/rake.html'
-            %li= link_with_active 'Integration gems <sup>Deprecated</sup>', '/tweaks-in-your-code/integration-gems.html'
+            %li= link_with_active 'Sidekiq', '/ruby/integrations/sidekiq.html'
+            %li= link_with_active 'Delayed Job', '/ruby/integrations/delayed-job.html'
+            %li= link_with_active 'Resque', '/ruby/integrations/resque.html'
+            %li= link_with_active 'Rake', '/ruby/integrations/rake.html'
+            %li= link_with_active 'Integration gems <sup>Deprecated</sup>', '/ruby/integrations/appsignal-gems.html'
 
         %li
-          = link_with_active 'Custom instrumentation', '/tweaks-in-your-code/custom-instrumentation.html'
+          = link_with_active 'Custom instrumentation', '/ruby/instrumentation/index.html'
           %ul
-            %li= link_with_active 'Custom background jobs', '/background-monitoring/custom.html'
-            %li= link_with_active 'Method instrumentation', '/tweaks-in-your-code/method-instrumentation.html'
-            %li= link_with_active 'Handle exceptions', '/tweaks-in-your-code/handle-exceptions.html'
-            %li= link_with_active 'Link templates', '/tweaks-in-your-code/link-templates.html'
+            %li= link_with_active 'Integrating AppSignal', '/tweaks-in-your-code/integrating-appsignal.html'
+            %Li= link_with_active 'Ignore instrumentation', '/ruby/instrumentation/ignore-instrumentation.html'
+            %li= link_with_active 'Background jobs', '/ruby/instrumentation/background-jobs.html'
+            %li= link_with_active 'Method instrumentation', '/ruby/instrumentation/method-instrumentation.html'
+            %li= link_with_active 'Handle exceptions', '/ruby/instrumentation/handle-exceptions.html'
+            %li= link_with_active 'Link templates', '/ruby/instrumentation/link-templates.html'
 
     %li
       %h2 AppSignal for Elixir
@@ -64,13 +66,13 @@
     %li
       %h2 AppSignal for Front-end
       %ul
-        %li= link_with_active 'Front-end error catching', '/tweaks-in-your-code/frontend-error-catching.html'
+        %li= link_with_active 'Front-end error catching', '/front-end/error-handling.html'
 
     %li
       %h2 Metrics
       %ul
-        %li= link_with_active 'Custom metrics', '/getting-started/custom-metrics.html'
-        %li= link_with_active 'Host metrics', '/getting-started/host-metrics.html'
+        %li= link_with_active 'Custom metrics', '/metrics/custom.html'
+        %li= link_with_active 'Host metrics', '/metrics/host.html'
 
     %li
       %h2 Support
@@ -78,18 +80,17 @@
         %li= link_to 'Contact us!', 'mailto:support@appsignal.com'
 
     %li
-      %h2= link_with_active 'AppSignal API <sup>Beta</sup>', '/api/overview.html'
+      %h2 AppSignal API <sup>Beta</sup>
       %ul
+        %li= link_with_active 'Overview', '/api/index.html'
         %li= link_with_active 'Deploy markers', '/push-api/deploy-marker.html'
         %li= link_with_active 'Graphs', '/api/graphs.html'
         %li= link_with_active 'Markers', '/api/markers.html'
         %li= link_with_active 'Samples', '/api/samples.html'
-        %li= link_with_active 'Webhooks', '/getting-started/webhooks.html'
 
     %li
       %h2 AppSignal
       %ul
-        %li= link_with_active 'Contributing', '/appsignal/contributing.html'
-        %li= link_with_active 'Security', '/security/overview.html'
-        %li= link_with_active 'How AppSignal operates', '/getting-started/how-appsignal-operates.html'
-        %li= link_with_active 'Life cycle of an AppSignal request', '/getting-started/lifecycle.html'
+        %li= link_with_active 'Security', '/appsignal/security.html'
+        %li= link_with_active 'How AppSignal operates', '/appsignal/how-appsignal-operates.html'
+        %li= link_with_active 'Life cycle of an AppSignal request', '/appsignal/request-lifecycle.html'

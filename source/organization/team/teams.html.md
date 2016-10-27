@@ -1,20 +1,6 @@
 ---
-title: "Manage owners & teams"
+title: "Organization teams"
 ---
-
-There are two ways to manage permissions in AppSignal. A user can be
-an owner or a member of one ore more teams.
-
-## [Owners](#owners)
-
-An owner has access to everything in your organization. Owners can
-invite other users and can determine which other users get to be owner.
-
-You can see the owners in the members screen. You can add change the role of users to member, owner or remove the user.
-
-![Members](/images/screenshots/members.png)
-
-## [Teams](#teams)
 
 If you want to give certain people in your organization access to a
 limited set of your apps you can use teams.

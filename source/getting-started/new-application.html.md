@@ -1,5 +1,5 @@
 ---
-title: "Set up a new app"
+title: "Your first application"
 ---
 
 To get your app running on AppSignal you start by clicking the "add app"

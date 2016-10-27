@@ -1,5 +1,5 @@
 ---
-title: "Configure filter parameter logging"
+title: "Configure parameter filtering"
 ---
 
 In most apps at least some of the data that might be posted to the app
