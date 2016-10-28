@@ -1,7 +1,6 @@
 ---
 title: "AppSignal docs"
 title_no_brand: true
-slug: blog_index
 pageable: false
 ---
 
