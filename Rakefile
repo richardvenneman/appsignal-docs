@@ -78,6 +78,7 @@ task :redirects do
         <Condition><KeyPrefixEquals>#{old}</KeyPrefixEquals></Condition>
         <Redirect>
           <ReplaceKeyPrefixWith>#{new}</ReplaceKeyPrefixWith>
+          <HostName>docs.appsignal.com</HostName>
           <HttpRedirectCode>301</HttpRedirectCode>
         </Redirect>
       </RoutingRule>
