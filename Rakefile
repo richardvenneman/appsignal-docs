@@ -57,7 +57,8 @@ task :redirects do
     ["tweaks-in-your-code/method-instrumentation.html", "ruby/instrumentation/method-instrumentation.html"],
     ["tweaks-in-your-code/link-templates.html", "ruby/instrumentation/link-templates.html"],
     ["getting-started/supported-frameworks.html", "ruby/integrations/index.html"],
-    ["gem-settings/configuration.html", "ruby/configuration.html"],
+    ["gem-settings/configuration.html", "ruby/configuration/index.html"],
+    ["ruby/configuration.html", "ruby/configuration/index.html"],
     ["gem-settings/ignore-actions.html", "ruby/configuration/ignore-actions.html"],
     ["tweaks-in-your-code/ignore-instrumentation.html", "ruby/instrumentation/ignore-instrumentation.html"],
     ["tweaks-in-your-code/frontend-error-catching.html", "front-end/error-handling.html"],
@@ -67,7 +68,8 @@ task :redirects do
     ["background-monitoring/resque.html", "ruby/integrations/resque.html"],
     ["background-monitoring/rake.html", "ruby/integrations/rake.html"],
     ["background-monitoring/custom.html", "ruby/instrumentation/background-jobs.html"],
-    ["security/overview.html", "appsignal/security.html"]
+    ["security/overview.html", "appsignal/security.html"],
+    ["api/overview.html", "api/index.html"]
   ]
   rules = ""
   redirects.each do |old, new|
