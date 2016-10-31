@@ -61,6 +61,7 @@ task :redirects do
     ["gem-settings/ignore-actions.html", "ruby/configuration/ignore-actions.html"],
     ["tweaks-in-your-code/ignore-instrumentation.html", "ruby/instrumentation/ignore-instrumentation.html"],
     ["tweaks-in-your-code/frontend-error-catching.html", "front-end/error-handling.html"],
+    ["tweaks-in-your-code/background-monitoring.html", "ruby/integrations/index.html"],
     ["background-monitoring/sidekiq.html", "ruby/integrations/sidekiq.html"],
     ["background-monitoring/delayed-job.html", "ruby/integrations/delayed-job.html"],
     ["background-monitoring/resque.html", "ruby/integrations/resque.html"],
