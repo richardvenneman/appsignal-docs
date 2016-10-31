@@ -6,7 +6,7 @@ title: "Resque"
 library for creating background jobs, placing them on multiple queues, and
 processing them later.
 
-Support for Sidekiq was added in AppSignal Ruby gem version `0.8`.
+Support for Resque was added in AppSignal Ruby gem version `0.8`.
 
 The AppSignal Ruby gem extends the default job class (`Resque::Job`) if it is
 present. If your jobs inherit from this class no further action is required.
