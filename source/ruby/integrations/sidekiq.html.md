@@ -1,11 +1,10 @@
 ---
-title: "Monitor background jobs"
+title: "Sidekiq"
 ---
 
-Starting with AppSignal gem version 8.0 or higher we monitor Sidekiq and Delayed Job. We've also added a few hooks to create your own background monitoring for other tools.
+[Sidekiq](http://sidekiq.org) is a simple and efficient background processor
+for Ruby. It's also the processor we use to process jobs in AppSignal.
 
-## Sidekiq
-
-[Sidekiq](http://sidekiq.org) is a simple and efficient background processor for Ruby. It's also the processor we use to process jobs in AppSignal.
-
-The AppSignal gem inserts a listener into the Sidekiq server middleware stack if the `Sidekiq` module is present. No further action is required.
+The AppSignal Ruby gem automatically inserts a listener into the Sidekiq server
+middleware stack if the `Sidekiq` module is present. No further action is
+required.
