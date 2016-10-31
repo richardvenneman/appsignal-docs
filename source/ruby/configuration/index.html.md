@@ -245,6 +245,10 @@ Set this to `false` to disable tracking of the number of allocated objects in Ru
 
 Set this to `false` to disable garbage collection instrumentation.
 
+### `APPSIGNAL_ENABLE_HOST_METRICS` / `:enable_host_metrics`
+
+Set this to `false` to disable [host metrics](/metrics/host.html).
+
 ## Example `appsignal.yml` configuration file
 
 Here's an example of an `appsignal.yml` configuration file. It's recommended
