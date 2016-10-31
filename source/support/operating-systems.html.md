@@ -4,8 +4,11 @@ title: "Supported Operating Systems"
 
 ## Linux and macOS
 
-The gem contains native extensions and a separate light-weight agent process.
-These native extensions are supported on most Linux distributions and macOS.
+The AppSignal integrations for Ruby and Elixir contains native extensions and a
+separate light-weight agent process. These native extensions are supported on
+most Linux distributions and macOS.
+
+### Alpine Linux
 
 Alpine Linux is not supported at this time because our agent, which written in
 Rust, does not fully support Alpine Linux yet. This has been reported upstream
