@@ -12,14 +12,16 @@ Endpoints [GET]:
 | **/api/[site_id]/samples/performance.json** | This returns **performance** samples |
 | **/api/[site_id]/samples/errors.json** | This returns **error** samples |
 
-parameters:
+Parameters:
 
-| Param | Type | Description  |
-| ------ | ------ | -----: |
-|  action_name  |  string  |   Example: BlogPostsController-show  |
-|  exception  |  string  | Example: NoMethodError    |
-|  since  |  timestamp/integer  |  All times are UTC  |
-|  count_only  |  boolean  |   (true/false) To only return a count  |
+| Param       | Type              | Description                                     |
+| ----------- | ----------------- | ----------------------------------------------: |
+| action_id   | string            | Example: BlogPostsController-hash-show          |
+| exception   | string            | Example: NoMethodError                          |
+| since       | timestamp/integer | All times are UTC                               |
+| before      | timestamp/integer | All times are UTC                               |
+| limit       | integer           | The amount of entries returned (defaults to 10) |
+| count_only  | boolean           | (true/false) To only return a count             |
 
 Escape actions by replacing:
 
@@ -32,7 +34,7 @@ so `BlogPostsController#show` becomes: `BlogPostsController-hash-show`
 An example of a full request would be:
 
 ```
-https://appsignal.com/api/5114f7e38c5ce90000000011/log_entries.json?token=HseUe&action_name=AccountsController-hash-index&exception=ActionView::Template::Error&since=1374843246
+https://appsignal.com/api/5114f7e38c5ce90000000011/samples.json?token=HseUe&action_id=AccountsController-hash-index&exception=ActionView::Template::Error&since=1374843246
 ```
 
 ### Result
@@ -40,46 +42,47 @@ https://appsignal.com/api/5114f7e38c5ce90000000011/log_entries.json?token=HseUe&
 This endpoint returns the following JSON (a slow sample and an error sample):
 
 ```
-  {
-    'count': 2,
-    'log_entries' :  [
-        {
-          "id": "51f29e7b183d700800150358",
-          "path": "/slow-request",
-          "action": "SlowController#show",
-          "duration": 3182.545407,
-          "status": 200,
-          "time": 1374854715,
-          "is_exception": false,
-          "exception": {
-            "name": null
-          }
-        },
-        {
-          "id": "51f29e7b183d700800150358",
-          "action": "ErrorController#trigger",
-          "path": "/error-request",
-          "duration": 3182.545407,
-          "status": 200,
-          "time": null,
-          "is_exception": false,
-          "exception": {
-            "name": 'ActionView::Template::Error'
-          }
-        }
-    ]
-  }
+{
+  "count": 2,
+  "log_entries": [
+    {
+      "id": "51f29e7b183d700800150358_SlowController#show_1476962400",
+      "action": "SlowController#show",
+      "path": "/slow-request",
+      "duration": 3182.545407,
+      "status": 200,
+      "time": 1476962400,
+      "is_exception": false,
+      "exception": {
+        "name": null
+      }
+    },
+    {
+      "id": "57f653fa16b7e24cb0dc9e2b_ErrorController#trigger_1475761080",
+      "action": "ErrorController#trigger",
+      "path": "/error-request",
+      "duration": null,
+      "status": null,
+      "time": 1475761080,
+      "is_exception": true,
+      "exception": {
+        "name": 'ActionView::Template::Error'
+      }
+    }
+  ]
+}
+
 ```
 
 ## Samples show
 
 Endpoint [GET]: **/api/[site_id]/samples/[id].json**
 
-parameters:
+Parameters:
 
-| Param | Type | Description  |
-| ------ | ------ | -----: |
-|  id  |  string  |   Sample id  |
+| Param | Type   | Description                                                                                 |
+| ----- | ------ | ------------------------------------------------------------------------------------------: |
+| id    | string | Sanitized sample id (example: 51f29e7b183d700800150358_SlowController-hash-show_1476962400) |
 
 ### Result
 
@@ -87,41 +90,41 @@ This is a __SLOW__ log entry:
 
 ```
 {
-    "id": "50c9d4f9d85a8359d3000009",
-    "action": "slow#request",
-    "db_runtime": 500.0,
-    "duration": 300.0,
-    "environment": {},
-    "hostname": "app1",
-    "is_exception": null,
-    "kind": "http_request",
-    "params": {},
-    "path": "/blog",
-    "request_format": "html",
-    "request_method": "GET",
-    "session_data": {},
-    "status": "200",
-    "view_runtime": 500.0,
-    "time": 1002700800,
-    "end": 978339601,
-    "allocation_count": 110101,
-    "events": [
-        {
-            "action": "query",
-            "duration": 250.0,
-            "group": "mongoid",
-            "name": "query.mongoid",
-            "payload": {
-                "query": "this is a mongoid query"
-            },
-            "time": 0,
-            "end": 0
-            "digest": 00000,
-            "allocation_count": 1010101
+  "id": "51f29e7b183d700800150358_SlowController#show_1476962400",
+  "action": "slow#request",
+  "db_runtime": 500.0,
+  "duration": 300.0,
+  "environment": {},
+  "hostname": "app1",
+  "is_exception": null,
+  "kind": "http_request",
+  "params": {},
+  "path": "/blog",
+  "request_format": "html",
+  "request_method": "GET",
+  "session_data": {},
+  "status": "200",
+  "view_runtime": 500.0,
+  "time": 1002700800,
+  "end": 978339601,
+  "allocation_count": 110101,
+  "events": [
+      {
+          "action": "query",
+          "duration": 250.0,
+          "group": "mongoid",
+          "name": "query.mongoid",
+          "payload": {
+              "query": "this is a mongoid query"
+          },
+          "time": 0,
+          "end": 0
+          "digest": 00000,
+          "allocation_count": 1010101
 
-        }
-    ],
-    "exception": null
+      }
+  ],
+  "exception": null
 }
 ```
 
@@ -129,8 +132,8 @@ This is an __ERROR__ log entry:
 
 ```
 {
-    "id": "50c9d54dd05a03bdc500000b",
-    "action": "Error#request",
+    "id": "57f653fa16b7e24cb0dc9e2b_ErrorController#trigger_1475761080",
+    "action": "Error#trigger",
     "db_runtime": 500.0,
     "duration": null,
     "environment": {
