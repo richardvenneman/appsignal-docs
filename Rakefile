@@ -75,7 +75,6 @@ task :redirects do
       <RoutingRule>
         <Condition><KeyPrefixEquals>#{old}</KeyPrefixEquals></Condition>
         <Redirect>
-          <HostName>blog.appsignal.com</HostName>
           <ReplaceKeyPrefixWith>#{new}</ReplaceKeyPrefixWith>
           <HttpRedirectCode>301</HttpRedirectCode>
         </Redirect>
