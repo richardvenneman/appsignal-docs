@@ -14,9 +14,11 @@ While we only support Resque, Sidekiq and Delayed Job right now, it's not very d
 A transaction needs an unique id and the environment hash, you can use your background processor's id for that, or generate your own id with `SecureRandom.uuid`
 
 ``` ruby
-  transaction = Appsignal::Transaction.create(SecureRandom.uuid,
-                                                Appsignal::Transaction::BACKGROUND_JOB,
-                                                {})
+transaction = Appsignal::Transaction.create(
+  SecureRandom.uuid,
+  Appsignal::Transaction::BACKGROUND_JOB,
+  {}
+)
 ```
 
 ### Add instrumentation
