@@ -1,5 +1,5 @@
 ---
-title: "Elixir"
+title: "AppSignal for Elixir"
 ---
 
 The AppSignal Elixir integration is in Public Beta. This means that the integration supports most of the same functionality of the Ruby integration, but it might be lacking documentation or support for specific use-cases in certain situations. If you come across any of these, don't hesistate to contact our support at <a href="mailto:support@appsignal.com">support@appsignal.com</a> or create a pull-request on our <a href="https://github.com/appsignal/appsignal-elixir">public Elixir repository</a>.
