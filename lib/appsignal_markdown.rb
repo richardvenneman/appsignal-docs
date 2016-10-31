@@ -4,32 +4,42 @@ require "middleman-core"
 require "middleman-core/renderers/redcarpet"
 require "active_support/core_ext/module/attribute_accessors"
 
-class AppsignalMarkdown < ::Middleman::Renderers::MiddlemanRedcarpetHTML
+class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
+  OPTIONS = {
+    :autolink           => true,
+    :fenced_code_blocks => true,
+    :no_intra_emphasis  => true,
+    :strikethrough      => true,
+    :tables             => true,
+  }.freeze
 
+  # Initialize with correct config.
+  # Does not get config from `set :markdown` from `config.rb`
+  def initialize(options = {})
+    super(options.merge(OPTIONS))
+  end
+
+  # Parse contents of every paragraph for custom tags and render paragraph.
   def paragraph(text)
-    add_notices("<p>#{text.strip}</p>\n")
+    add_custom_tags("<p>#{text.strip}</p>\n")
   end
 
   private
 
-  def add_notices(text)
-    map = {
-      "-&gt;" => "notice",
-    }
-
+  # Add custom tags to content
+  def add_custom_tags(text)
+    map = { "-&gt;" => "notice" }
     regexp = map.map { |k, _| Regexp.escape(k) }.join("|")
 
-    if md = text.match(/^<p>(#{regexp})/)
-      key = md.captures[0]
-      klass = map[key]
-      text.gsub!(/#{Regexp.escape(key)}\s+?/, "")
+    md = text.match(/^<p>(#{regexp})/)
+    return text unless md
 
-      return <<-EOH.gsub(/^ {8}/, "")
-        <div class="#{klass}">
-        #{text}</div>
-      EOH
-    else
-      return text
-    end
+    key = md.captures[0]
+    klass = map[key]
+    text.gsub!(/#{Regexp.escape(key)}\s+?/, "")
+
+    <<-EOH.gsub(/^ {8}/, "")
+      <div class="#{klass}">#{text}</div>
+    EOH
   end
 end
