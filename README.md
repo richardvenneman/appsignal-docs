@@ -1,6 +1,11 @@
 # AppSignal Documentation
 
-Feel free to improve the documentation by creating a branch and/or Pull-Request.
+This repository contains the source for the [AppSignal documentation
+website][docs].
+
+- [AppSignal.com website][appsignal]
+- [Documentation][docs]
+- [Support][contact]
 
 ## Usage
 
@@ -9,24 +14,44 @@ bundle install
 bundle exec middleman
 ```
 
-## Deploy
+Open the browser at [localhost:4567](http://localhost:4567/) and click around.
+
+## Deployment
 
 ```sh
 bundle exec rake build_deploy
 ```
 
-## Custom markdown tags
+## Content
 
-To render notices we've added a custom markdown tag, you can use it like so:
+### Custom markdown tags
+
+To render notices we've added a custom markdown tag. Use it like so:
 
 ```markdown
--> This is something you should know
+-> This is something you should know!
 ```
 
-It will render:
+Which will render the following:
 
 ```html
 <div class="notice">
   <p>This is something you should know.</p>
 </div>
 ```
+
+## Contributing
+
+Thinking of contributing to our documentation? Awesome! 🚀
+
+Please follow our [Contributing guide][contributing-guide] in our
+documentation.
+
+Also, we would be very happy to send you Stroopwaffles. Have look at everyone
+we send a package to so far on our [Stroopwaffles page][waffles-page].
+
+[appsignal]: https://appsignal.com
+[contact]: mailto:support@appsignal.com
+[waffles-page]: https://appsignal.com/waffles
+[docs]: http://docs.appsignal.com
+[contributing-guide]: http://docs.appsignal.com/contributing
