@@ -19,4 +19,7 @@ AppSignal runs exclusively on secure (SSL) connections and is hosted in a top ti
 All the data we collect from your application is yours and can be retrieved at any point in time through our API. (see [the docs](/api/overview.html)). You can remove your data at any time in "App Settings > General".
 
 ## Incidents
-If you think you've found a security issue with regards to our application or network, please let us know immediately by sending an email to security@appsignal.com.
+
+If you think you've found a security issue with regards to our application,
+network or integrations, please let us know immediately by sending an email to
+[security@appsignal.com](mailto:security@appsignal.com).
