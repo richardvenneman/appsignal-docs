@@ -199,7 +199,7 @@ markers.
   </tr>
 </table>
 
-## Parameters
+### Parameters
 
 <table>
   <thead>
@@ -310,7 +310,7 @@ This endpoint returns the JSON representation of a single marker.
   </tr>
 </table>
 
-## Parameters
+### Parameters
 
 <table>
   <thead>
