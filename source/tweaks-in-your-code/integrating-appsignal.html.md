@@ -40,7 +40,7 @@ Appsignal.monitor_transaction(
 end
 ```
 
-If the first argument starts with `perform_job` this will be treated as a background job, if it starts with 'perform_action` it will be treated as an
+If the first argument starts with `perform_job` this will be treated as a background job, if it starts with `perform_action` it will be treated as an
 HTTP request.
 
 Before your process exits you should call `Appsignal.stop` to make sure that all data gets flushed to the agent before your process exits. If your process
