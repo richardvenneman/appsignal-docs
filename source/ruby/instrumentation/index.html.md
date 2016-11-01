@@ -30,7 +30,7 @@ ArticleFetcher.fetch('Latest news')
 ```
 
 Once you add custom instruments like this AppSignal will start picking them up
-and will show you how much time both a category (`article_fetcher` in this
+and will show you how much time both an event group (`article_fetcher` in this
 case) and individual events took.
 
 ![Event tree with fetcher](/images/screenshots/event_tree_with_fetcher.png)
@@ -44,7 +44,7 @@ caching the articles.
 You can use as many instruments in any combination you like. You can
 nest instrument calls and AppSignal will handle the nesting and aggregates of
 the measurements nicely. You just have to keep the final segment (after the last
-dot) of the key consistent. [Read more on key naming](#event_naming).
+dot) of the key consistent. [Read more on event naming](/api/event-names.html).
 
 ```ruby
 Appsignal.instrument('fetch.article_fetcher') do
@@ -77,7 +77,7 @@ Appsignal.instrument_sql(name, title = nil, body = nil, &block)
 ### `name` argument
 
 The name of the event that will appear in the event tree in AppSignal.
-[Read more on key naming](#event_naming).
+[Read more on key naming](/api/event-names.html).
 
 ### `title` argument
 
@@ -131,63 +131,6 @@ SELECT * FROM users WHERE email = 'hector@appsignal.com' AND password = 'iamabot
 -- becomes
 SELECT * FROM users WHERE email = ? AND password = ?
 ```
-
-## <a href="#event_naming" name="event_naming">Event name construction</a>
-
-Event names are used for many things in the inner workings of AppSignal.
-Picking a good name can help a lot with how AppSignal processes and displays
-the incoming data. Naming events can be tricky, but hopefully this short
-explanation of what a key name is will help you with picking a good one.
-
-### What is it used for?
-
-The keys used for instrumentation are broken down to be able to group events
-together. These groups are then used for the breakdown table on the top of the
-performance sample page. This makes it possible to see if it's ActiveRecord or
-an API call with Net::HTTP that's causing the most slow down in a request.
-
-A key name is a string consisting of alphanumeric characters, underscores and
-periods. Spaces and dashes are not accepted. (`([a-zA-Z0-9_.]+)`)
-
-The first part of a key is everything until the last period `.` in a key. The
-second part is everything after this period, this is the group of the event.
-The group of an event is the type technology it belongs to or the kind of
-action it is, such as a database or HTTP request.
-
-```
-sql.active_record
-^   ^
-|   second part (group)
-first part
-```
-
-It also works with multiple periods in a key.
-
-```
-fetch.partition3.database
-^                ^
-|                second part (group)
-first part
-```
-
-We use this last naming scheme for the [method
-instrumentation](/tweaks-in-your-code/method-instrumentation.html) ourselves.
-
-When a name with just one part is encountered the event will automatically be
-grouped under the `other` group.
-
-### Examples
-
-Some examples of keys that are used by AppSignal integrations:
-
-- ActiveRecord: `sql.active_record`
-- Redis: `query.redis`
-- Elasticsearch: `search.elasticsearch`
-- ActionView: `render_template.action_view` and `render_partial.action_view`
-- Ruby's Net::HTTP: `request.net_http`
-- Sidekiq: `perform_job.sidekiq`
-- [Method instrumentation](/tweaks-in-your-code/method-instrumentation.html):
-  `method_name.ClassName.other` and `method_name.class_method.NestedClassName.ParentModule.other`
 
 ## <a href="#activesupport_notifications" name="activesupport_notifications">ActiveSupport::Notifications</a>
 
