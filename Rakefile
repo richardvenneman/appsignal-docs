@@ -52,6 +52,7 @@ task :redirects do
     ["billing/declined-charges.html", "organization/billing.html"],
     ["tweaks-in-your-code/filter-parameter-logging.html", "ruby/configuration/parameter-filtering.html"],
     ["tweaks-in-your-code/handle-exceptions.html", "ruby/instrumentation/handle-exceptions.html"],
+    ["ruby/instrumentation/handle-exceptions.html", "ruby/instrumentation/exception-handling.html"],
     ["tweaks-in-your-code/integration-gems.html", "ruby/integrations/appsignal-gems.html"],
     ["tweaks-in-your-code/custom-instrumentation.html", "ruby/instrumentation/index.html"],
     ["tweaks-in-your-code/method-instrumentation.html", "ruby/instrumentation/method-instrumentation.html"],
