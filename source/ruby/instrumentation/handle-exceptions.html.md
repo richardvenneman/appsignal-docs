@@ -33,7 +33,7 @@ end
 There's a couple of scenario's that you're probably going to want to handle
 like this.
 
-### [Handling 404's](#404)
+### Handling 404's
 
 If a visitor hits a url that cannot be handled by your routing or
 controller an `ActionController::RoutingError` or
@@ -45,7 +45,7 @@ the url you might want to handle `ActiveRecord::RecordNotFound` (or the
 equivalent in your ORM of choice) the same way. This can hide real bugs
 though, so it should be done with care.
 
-### [Handling invalid authenticity tokens](#invalid_authenticity_tokens)
+### Handling invalid authenticity tokens
 
 Rails has a mechanism that protects your forms from being filled out by
 bots too easily. Any time a form is posted without a correct authenticity
@@ -55,7 +55,7 @@ Sometimes legitimate users can run into these errors, so it's a good
 idea to have a separate error page explaining what went wrong. We advise
 to return this page with a status code of 422 (Unprocessable Entity).
 
-### [Handling hacking attempts](#hacking-attempts)
+### Handling hacking attempts
 
 You might get errors because bots or hackers are trying to exploit
 security issues such as the notorious YAML exploit. Newer versions of
@@ -67,7 +67,7 @@ Some further information about rescue from can be found in the Rails
 guide about
 [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#rescue_from)
 
-### [Don't want to use rescue_from?](#ignore-exceptions)
+### Don't want to use rescue_from?
 
 If you don't want to handle an exception with rescue_from you can add
 exceptions that you want to ignore to the list of ignored exceptions in
@@ -85,7 +85,7 @@ production:
 Any exceptions defined here will not be sent to AppSignal and will thus
 not trigger notifications.
 
-## [Tracking exceptions that you're rescuing](#tracking-when-handling)
+## Tracking exceptions that you're rescuing
 
 If you want to handle certain exceptions in a custom way you can use
 `Appsignal.add_exception` to add the exception to the current request.
@@ -106,7 +106,7 @@ end
 The exception will be tracked in AppSignal like any other exception, but
 you will be able to provide custom error handling for your user.
 
-## [Tagging requests](#tagging-requests)
+## Tagging requests
 
 You can use the `Appsignal.tag_request` method to supply extra context on an error.
 This can help to add information that is not already part of the request, session or environment parameters.
@@ -148,7 +148,7 @@ Appsignal.tag_request(
 Tags that do not meet the limitations will be dropped without warning.
 Request tagging currently only works for errors.
 
-## [Track exceptions in cron jobs or scripts](#cron-jobs-scripts)
+## Track exceptions in cron jobs or scripts
 
 AppSignal provides a mechanism to track exceptions that occur in code
 that's not in a web or background job context such as Rake tasks that get triggered by

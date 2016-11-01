@@ -6,23 +6,25 @@ Whenever you use AppSignal your log in with your user account. A user
 can have access to one or more organizations that contain apps that are
 being monitored.
 
-## [Sign up](#log_in)
+## Sign up
+
 When you are invited to an existing account or sign up, you can choose to sign
 up using GitHub or use an email / password combination.
 
-## [Change personal settings](#change_your_personal_settings)
+## Personal settings
+
 Once you're logged in you can navigate to your settings page by using
 the settings link at the top right of the screen. There are four
 personal setting screens.
 
-### [Personal](#personal)
+### Personal
 
 In personal settings you can change your name and password. If you
 haven't linked your GitHub account during sign-up, you can still do so here.
 Connecting your GitHub account gives you additional features like direct links
 to commits and linked stack trace lines.
 
-### [Notifications](#notifications)
+### Notifications
 
 You can have multiple email addresses associated with AppSignal.
 This could be useful if someone invites you on your personal email address

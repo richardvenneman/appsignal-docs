@@ -10,8 +10,7 @@ We support two methods of parameter filtering. If you use Rails, you can use
 to it. If you use another framework, like Sinatra or Padrino, you can use
 AppSignal's own built-in filtering instead.
 
-<a id="appsignal-parameter-filtering"></a>
-## [AppSignal parameter filtering](#appsignal-parameter-filtering) (since gem 1.3)
+## AppSignal parameter filtering (since gem 1.3)
 
 We support basic parameters filtering directly in the gem using a blacklist.
 This parameter filtering supports key based filtering for hashes, the values of
@@ -34,8 +33,7 @@ production:
 It's also possible to set this filter_parameters value using
 [an environment variable](/gem-settings/configuration.html#config-filter_parameters).
 
-<a id="rails-parameter-filtering"></a>
-## [Rails parameter filtering](#rails-parameter-filtering)
+## Rails parameter filtering
 
 Luckily Rails provides a parameter filtering mechanism to scrub this data from
 log files.
@@ -44,8 +42,7 @@ AppSignal leverages this mechanism so you can centralize this
 configuration. Both your logs and the data sent to AppSignal will be
 filtered with a single piece of configuration.
 
-<a id="rails-blacklisting"></a>
-### [Filtering specific keys - Blacklisting](#rails-blacklisting)
+### Filtering specific keys - Blacklisting
 
 There are two ways to determine which keys get filtered. The first one
 is blacklisting specific keys. In this example the value of `:secret`
@@ -65,8 +62,7 @@ with larger, more complex applications. Especially when using features
 like `accepts_nested_attributes_for`. If we forget to explicitly add
 keys they will not be filtered.
 
-<a id="rails-whitelisting"></a>
-### [Allowing specific keys - Whitelisting](#rails-whitelisting)
+### Allowing specific keys - Whitelisting
 
 If you use a lambda instead of a list of keys you get a lot of
 flexibility. In the following example we use a lambda to setup a
@@ -90,8 +86,7 @@ up with your own way of determining what needs to be filtered.
 Some further information about filtering parameters can be found in the Rails
 guide about [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameters-filtering).
 
-<a id="appsignal-send_params"></a>
-## [Filter all parameters](#appsignal-send_params)
+## Filter all parameters
 
 To filter all parameters without using the ActionController filtering, set `send_params` to false in your `appsignal.yml`:
 
@@ -99,8 +94,7 @@ To filter all parameters without using the ActionController filtering, set `send
 send_params: false
 ```
 
-<a id="appsignal-skip_session_data"></a>
-## [Skip sending session data](#appsignal-skip_session_data)
+## Skip sending session data
 
 If you don't want to send you session data to AppSignal you can add this to the config in `appsignal.yml`:
 
