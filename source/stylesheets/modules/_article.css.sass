@@ -14,25 +14,34 @@
     border-bottom: 1px solid $border
     padding-bottom: 10px
 
-  h3, h4, h5
-    @extend %h-small
+  h3, h4
     margin-bottom: 5px
+
+  h3
+    @extend %h-small
+
+  h4
+    @extend %h-tiny
 
   h1, h2, h3, h4
     a
       color: $font-heading
       text-decoration: none
 
-  p + h1,
-  p + h2,
-  p + h3
+  p + h2
     margin-top: 40px
+
+  p + h3
+    margin-top: 30px
+
+  p + h4
+    margin-top: 20px
 
   p, ul, ol
     color: $font-subheading
 
   p
-    margin-bottom: 30px
+    margin-bottom: 15px
 
   .intro
     @extend %t-large
