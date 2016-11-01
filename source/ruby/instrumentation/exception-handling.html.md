@@ -67,24 +67,6 @@ Some further information about rescue from can be found in the Rails
 guide about
 [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#rescue_from)
 
-### Don't want to use rescue_from?
-
-If you don't want to handle an exception with rescue_from you can add
-exceptions that you want to ignore to the list of ignored exceptions in
-config/appsignal.yml:
-
-```yaml
-production:
-  api_key: <%= ENV['APPSIGNAL_API_KEY'] %>
-  active: true
-  ignore_exceptions:
-    - ActiveRecord::RecordNotFound
-    - ActionController::RoutingError
-````
-
-Any exceptions defined here will not be sent to AppSignal and will thus
-not trigger notifications.
-
 ## Tracking exceptions that you're rescuing
 
 If you want to handle certain exceptions in a custom way you can use

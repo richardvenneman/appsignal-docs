@@ -196,40 +196,18 @@ catch JavaScript error and send them to AppSignal. You can configure this route 
 
 This configuration key can be `true` or `false`. Default is `false`.
 
-### `APPSIGNAL_IGNORE_ERRORS` / `:ignore_errors`
-
-List of classes that should be ignored, they will not be transmitted to AppSignal. You can configure this with a list of errors in the configuration file:
-
-```yml
-ignore_errors:
-  - SystemExit
-  - ActiveRecord::NotFound
-```
-
-Or by setting the environment variable like this:
-
-```bash
-export APPSIGNAL_IGNORE_ERRORS="SystemExit,ActiveRecord::NotFound"
-```
-
 ### `APPSIGNAL_IGNORE_ACTIONS` / `:ignore_actions`
 
-List of actions that should be ignored, everything that happens including exceptions will not be transmitted to AppSignal.
-You can configure this with a list of errors in the configuration file:
+List of actions that will be ignored, everything that happens including
+exceptions will not be transmitted to AppSignal.
 
-```yml
-ignore_actions:
-  - ApplicationController#isup
-  - SecondController#healthcheck
-```
+Read more about [ignoring actions](/ruby/configuration/ignore-actions.html).
 
-Or by setting the environment variable like this:
+### `APPSIGNAL_IGNORE_ERRORS` / `:ignore_errors`
 
-```bash
-export APPSIGNAL_IGNORE_ACTIONS="ApplicationController#isup,SecondController#healthcheck"
-```
-
-See [ignore actions](/gem-settings/ignore-actions.html) for details.
+List of error classes that will be ignored. Any exception raised with this
+error class will not be transmitted to AppSignal. Read more about [ignoring
+errors](/ruby/configuration/ignore-errors.html).
 
 ### `APPSIGNAL_HTTP_PROXY` / `:http_proxy`
 
