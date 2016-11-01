@@ -90,7 +90,7 @@ guide about [ActionController](http://guides.rubyonrails.org/action_controller_o
 
 To filter all parameters without using the ActionController filtering, set `send_params` to false in your `appsignal.yml`:
 
-```
+```yaml
 send_params: false
 ```
 
@@ -98,6 +98,6 @@ send_params: false
 
 If you don't want to send you session data to AppSignal you can add this to the config in `appsignal.yml`:
 
-```
+```yaml
 skip_session_data: true
 ```
