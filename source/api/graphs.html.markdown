@@ -1,15 +1,14 @@
 ---
-title: "Graphs"
+title: "Graphs API"
 ---
 
-Endpoint [GET]: **/api/[site_id]/graphs.json**
+Endpoint [GET]:
 
 | Endpoint | Description|
 | ------ | ------ |
-| **/api/[site_id]/graphs.json** | Returns graph data |
+| **/api/[app_id]/graphs.json** | Returns graph data |
 
-
-parameters:
+Parameters:
 
 | Param | Type | Description  |
 | ------ | ------ | -----: |
@@ -19,12 +18,12 @@ parameters:
 |  timeframe  |  string  |   Can be: [hour, day, month, year]  |
 |  field  |  array  |   Can be: [mean, count, ex, ex_rate, pct]  |
 
-Leave the action_name param empty to get aggregated data of all actions in your site.
+Leave the action_name parameter empty to get aggregated data of all actions in your site.
 You can either specify the from an to values, __or__ the timeframe value.
 
 Valid timeframes are: `hour`, `day`, `month` and `year`
 
-valid fields are:
+Valid fields are:
 
 | Field | Description|
 | ------ | ------ |
@@ -34,9 +33,9 @@ valid fields are:
 | ex_rate | exception rate (percentage of exceptions from count) |
 | pct | 90 percentile (for slow requests only) |
 
-If you want an action and exception, concat the strings with `:|:` as a separator
+If you want an action and exception, concatenate the strings with `:|:` as a separator
 
-so `BlogPostsController#show` with `Mongoid::RecordNotFound` becomes:
+So `BlogPostsController#show` with `Mongoid::RecordNotFound` becomes:
 `BlogPostsController-hash-show:|:Mongoid::RecordNotFound"`
 
 

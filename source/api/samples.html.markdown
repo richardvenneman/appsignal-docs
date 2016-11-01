@@ -1,5 +1,5 @@
 ---
-title: "Samples"
+title: "Samples API"
 ---
 
 ## Samples index
@@ -8,9 +8,9 @@ Endpoints [GET]:
 
 | Endpoint | Description|
 | ------ | ------ |
-| **/api/[site_id]/samples.json** | This returns **ALL** sample types |
-| **/api/[site_id]/samples/performance.json** | This returns **performance** samples |
-| **/api/[site_id]/samples/errors.json** | This returns **error** samples |
+| **/api/[app_id]/samples.json** | This returns **ALL** sample types |
+| **/api/[app_id]/samples/performance.json** | This returns **performance** samples |
+| **/api/[app_id]/samples/errors.json** | This returns **error** samples |
 
 Parameters:
 
@@ -29,7 +29,7 @@ Escape actions by replacing:
 * `/` with `-slash-`
 * `.` with `-dot-`
 
-so `BlogPostsController#show` becomes: `BlogPostsController-hash-show`
+So `BlogPostsController#show` becomes: `BlogPostsController-hash-show`
 
 An example of a full request would be:
 
@@ -76,7 +76,7 @@ This endpoint returns the following JSON (a slow sample and an error sample):
 
 ## Samples show
 
-Endpoint [GET]: **/api/[site_id]/samples/[id].json**
+Endpoint [GET]: **/api/[app_id]/samples/[id].json**
 
 Parameters:
 
