@@ -24,6 +24,13 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
     add_custom_tags("<p>#{text.strip}</p>\n")
   end
 
+  # Add anchor tags to every heading.
+  # Create a link from the heading.
+  def header(text, level)
+    anchor = text.parameterize
+    %(<h%s id="%s"><a href="#%s">%s</a></h%s>) % [level, anchor, anchor, text, level]
+  end
+
   private
 
   # Add custom tags to content
