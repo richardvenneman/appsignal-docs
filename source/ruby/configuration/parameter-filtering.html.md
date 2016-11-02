@@ -31,7 +31,7 @@ production:
 ```
 
 It's also possible to set this filter_parameters value using
-[an environment variable](/gem-settings/configuration.html#config-filter_parameters).
+[an environment variable](/ruby/configuration/options.html#filter_parameters).
 
 ## Rails parameter filtering
 
@@ -84,11 +84,13 @@ You can of course let the lambda do anything you'd like, so you can come
 up with your own way of determining what needs to be filtered.
 
 Some further information about filtering parameters can be found in the Rails
-guide about [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameters-filtering).
+guide about
+[ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameters-filtering).
 
 ## Filter all parameters
 
-To filter all parameters without using the ActionController filtering, set `send_params` to false in your `appsignal.yml`:
+To filter all parameters without using the ActionController filtering, set
+`send_params` to false in your `appsignal.yml`:
 
 ```yaml
 send_params: false
@@ -96,7 +98,8 @@ send_params: false
 
 ## Skip sending session data
 
-If you don't want to send you session data to AppSignal you can add this to the config in `appsignal.yml`:
+If you don't want to send you session data to AppSignal you can add this to the
+config in `appsignal.yml`:
 
 ```yaml
 skip_session_data: true
