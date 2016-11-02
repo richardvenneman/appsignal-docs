@@ -51,6 +51,7 @@ task :redirects do
     ["getting-started/webhooks.html", "application/integrations/webhooks.html"],
     ["billing/declined-charges.html", "organization/billing.html"],
     ["tweaks-in-your-code/filter-parameter-logging.html", "ruby/configuration/parameter-filtering.html"],
+    ["tweaks-in-your-code/integration-appsignal.html", "ruby/instrumentation/integrating-appsignal.html"],
     ["tweaks-in-your-code/handle-exceptions.html", "ruby/instrumentation/handle-exceptions.html"],
     ["ruby/instrumentation/handle-exceptions.html", "ruby/instrumentation/exception-handling.html"],
     ["tweaks-in-your-code/integration-gems.html", "ruby/integrations/appsignal-gems.html"],
