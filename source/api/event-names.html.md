@@ -17,7 +17,7 @@ short explanation of how an event name is used will help you with picking a
 good one.
 
 For more about instrumentation read more in our [(Custom)
-instrumentation](/ruby/instrumentation/index.html) guide.
+instrumentation](/ruby/instrumentation/instrumentation.html) guide.
 
 ## Event groups
 
@@ -61,7 +61,7 @@ first part (action)
 ```
 
 We use this last-naming-scheme for the [Ruby method
-instrumentation](/tweaks-in-your-code/method-instrumentation.html) ourselves.
+instrumentation](/ruby/instrumentation/method-instrumentation.html) ourselves.
 
 When a name with just one part is encountered the event will automatically be
 grouped under the `other` group.
