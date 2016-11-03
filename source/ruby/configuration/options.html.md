@@ -101,6 +101,9 @@ This configuration key can be `true` or `false`. Default is `false`.
 
 ### `APPSIGNAL_PUSH_API_ENDPOINT` / `:endpoint`
 
+- Available since gem version `0.1.0`.
+- Environment variable available since gem version `1.0.0`.
+
 Configure the endpoint to send data to AppSignal. Default:
 `https://push.appsignal.com`.
 
