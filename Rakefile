@@ -35,6 +35,7 @@ task :build_deploy => [:build, :deploy, :cleanup]
 desc "Generate redirect rules for old pages in the AWS S3 bucket."
 task :redirects do
   redirects = [
+    ["contributing", "appsignal/contributing.html"],
     ["getting-started/your-user-account.html", "getting-started/user-account.html"],
     ["getting-started/invite-new-members.html", "organization/team/members.html"],
     ["getting-started/manage-owners-teams.html", "organization/team/owners.html"],
