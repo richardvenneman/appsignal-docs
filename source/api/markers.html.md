@@ -351,9 +351,7 @@ data given on creation.
   "git_compare_url": "https://github.com/company/repository/compare/aaa...bbb"
   "user": "user",
   "exception_count": 200,
-  "exception_rate": 8.81,
-  "apdex": 0.99,
-  "apdex_rating": "excellent"
+  "exception_rate": 8.81
 }
 ```
 
