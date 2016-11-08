@@ -24,7 +24,7 @@ certain errors.
   - [Handle 404s](#handle-404s)
   - [Handle invalid authenticity tokens](#handle-invalid-authenticity-tokens)
   - [Handle hacking attempts](#handle-hacking-attempts)
-- [Appsignal.add_error](#appsignal-add_error)
+- [Appsignal.set_error](#appsignal-set_error)
 - [Appsignal.send_error](#appsignal-send_error)
 - [Appsignal.listen_for_error](#appsignal-listen_for_error)
 
@@ -112,10 +112,10 @@ issues such as the notorious YAML exploit. Newer versions of Rails will throw a
 of a hacking attempt. You could rescue these type of errors and return a 403
 (Forbidden) response.
 
-## Appsignal.add_error
+## Appsignal.set_error
 
 If you want to handle exceptions but still want to track the occurrence you can
-use `Appsignal.add_error` to add the exception to the current AppSignal
+use `Appsignal.set_error` to add the exception to the current AppSignal
 transaction.
 
 ```ruby
@@ -123,7 +123,7 @@ require "yaml"
 begin
   YAML.load(File.read("config.yml"))
 rescue SystemCallError => exception
-  Appsignal.add_error(exception)
+  Appsignal.set_error(exception)
   puts "No config file found. Using defaults."
 end
 ```
@@ -141,7 +141,7 @@ Appsignal.monitor_transaction "process_action" do
   begin
     YAML.load(File.read("config.yml"))
   rescue SystemCallError => exception
-    Appsignal.add_error(exception)
+    Appsignal.set_error(exception)
     puts "No config file found. Using defaults."
   end
 end
