@@ -12,8 +12,9 @@ AppSignal works with most popular Ruby frameworks and gems such as:
 * [Rack / Other](#rack-other)
 * [Resque](resque.html)
 * [Ruby on Rails](rails.html)
-* [Sinatra](sinatra.html)
+* [Sequel](sequel.html)
 * [Sidekiq](sidekiq.html)
+* [Sinatra](sinatra.html)
 * [Webmachine](webmachine.html)
 
 We try to make most integrations work out-of-the-box, but some might require
