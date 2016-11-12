@@ -42,3 +42,16 @@ set :appsignal_env, :staging
 `appsignal_env` allows you to load a different AppSignal environment when a
 stage name doesn't match the AppSignal environment as named in the AppSignal
 config file or environment variable.
+
+## Example applications
+
+We have two example applications in our examples repository on GitHub. The
+examples show how to set up AppSignal in small Capistrano applications while
+loading configuration values from the environment using gems like dotenv and
+Figaro.
+
+- [AppSignal + Capistrano + dotenv][example-dotenv-app]
+- [AppSignal + Capistrano + Figaro][example-figaro-app]
+
+[example-dotenv-app]: https://github.com/appsignal/appsignal-examples/tree/capistrano+dotenv
+[example-figaro-app]: https://github.com/appsignal/appsignal-examples/tree/capistrano+figaro

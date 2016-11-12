@@ -61,3 +61,10 @@ end
 
 After these steps, start your Grape application and wait for data to arrive in
 AppSignal.
+
+## Example app
+
+We have an [example application][example-app] in our examples repository on
+GitHub. The example shows how to set up AppSignal with Grape.
+
+[example-app]: https://github.com/appsignal/appsignal-examples/tree/grape

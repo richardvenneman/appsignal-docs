@@ -87,3 +87,11 @@ Appsignal.monitor_single_transaction(
   yield
 end
 ```
+
+## Example app
+
+We have an [example application][example-app] in our examples repository on
+GitHub. The example shows how to set up AppSignal with a simple Ruby
+application.
+
+[example-app]: https://github.com/appsignal/appsignal-examples/tree/ruby

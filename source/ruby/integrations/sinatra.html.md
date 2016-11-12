@@ -25,3 +25,15 @@ AppSignal.
    Since AppSignal gem version 1.3 you no longer need to manually include the
    `Appsignal::Rack::SinatraInstrumentation` middleware in your application.
    Please remove it from your application.
+
+## Example applications
+
+We have two example applications in our examples repository on GitHub. The
+examples show how to set up AppSignal in small Sinatra applications and modular
+Sinatra applications.
+
+- [AppSignal + Sinatra][example-app]
+- [AppSignal + Sinatra modular apps][example-modular-app]
+
+[example-app]: https://github.com/appsignal/appsignal-examples/tree/sinatra
+[example-modular-app]: https://github.com/appsignal/appsignal-examples/tree/sinatra-modular

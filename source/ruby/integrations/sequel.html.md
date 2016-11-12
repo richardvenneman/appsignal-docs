@@ -21,7 +21,14 @@ Because both gems are instrumenting sequel you'll get two instrumentation
 events and possible an error. [Disable the AppSignal sequel
 instrumentation](#disable-instrumentation) is this occurs.
 
+## Example app
+
+We have an [example application][example-app] in our examples repository on
+GitHub. The example shows how to set up AppSignal with Sequel and Rails,
+without ActiveRecord and using only the sequel gem, not the sequel-rails gem.
+
 [sequel]: http://sequel.jeremyevans.net/
 [sequel-rails]: https://github.com/TalentBox/sequel-rails
 [instrument-sequel]: /ruby/configuration/options.html#code-appsignal_instrument_sequel-code-code-instrument_sequel-code
 [instrumentation-issue]: https://github.com/appsignal/appsignal-ruby/issues/91
+[example-app]: https://github.com/appsignal/appsignal-examples/tree/rails-5+sequel
