@@ -33,7 +33,7 @@ examples show how to set up AppSignal in small Sinatra applications and modular
 Sinatra applications.
 
 - [AppSignal + Sinatra][example-app]
-- [AppSignal + Sinatra modular apps][example-modular-app]
+- [AppSignal + Sinatra modular app][example-modular-app]
 
 [example-app]: https://github.com/appsignal/appsignal-examples/tree/sinatra
 [example-modular-app]: https://github.com/appsignal/appsignal-examples/tree/sinatra-modular
