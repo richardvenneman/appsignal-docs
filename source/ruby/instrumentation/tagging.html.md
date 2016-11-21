@@ -2,9 +2,9 @@
 title: "Tagging"
 ---
 
-Use the `Appsignal.tag_request` method to supply extra context on an error that
-is raised. This can help to add information that is not already part of the
-request, session or environment parameters.
+Use the `Appsignal.tag_request` method to supply extra context on errors and
+performance issues. This can help to add information that is not already part of
+the request, session or environment parameters.
 
 You can use `Appsignal.tag_request` wherever the current request is accessible,
 we recommend calling it before you application code runs in the request, such
@@ -18,8 +18,8 @@ Appsignal.tag_request(
 
 ## Tags
 
-Using tags you can easily add more information to errors tracked by AppSignal.
-There are a few limitations on tagging though.
+Using tags you can easily add more information to errors and performance issues
+tracked by AppSignal. There are a few limitations on tagging though.
 
 - The tag key must be a `String` or `Symbol`.
 - The tagged value must be a `String`, `Symbol` or `Integer`.
