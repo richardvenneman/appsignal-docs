@@ -17,6 +17,8 @@ available per application.
   - [Marker create - POST markers.json](#marker-create)
   - [Marker index - GET markers.json](#marker-index)
   - [Marker show - GET markers/[marker_id].json](#marker-show)
+  - [Marker update - PUT markers.json](#marker-update)
+  - [Marker delete - DELETE markers.json](#marker-delete)
 
 ## Marker types
 
@@ -375,3 +377,111 @@ data given on creation.
   "created_at": "2015-07-21T15:06:31.737+02:00"
 }
 ```
+
+## Marker update
+
+This endpoint updates a single marker and returns the JSON representation of
+the updated marker.
+
+<table>
+  <tr>
+    <td>Endpoint</td>
+    <td>/api/[app_id]/markers/[marker_id].json</td>
+  </tr>
+  <tr>
+    <td>Request method</td>
+    <td>DELETE</td>
+  </tr>
+  <tr>
+    <td>Context</td>
+    <td>Applications</td>
+  </tr>
+  <tr>
+    <td>Requires authentication?</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Response formats</td>
+    <td>JSON</td>
+  </tr>
+</table>
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>marker_id</td>
+      <td>String</td>
+      <td>The id of the marker to update.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Payload
+
+The payload is the same as a [create/POST](#marker-create) request and differs
+per marker type.
+
+### Response
+
+The response is the same as a [show/GET](#marker-show) request and differs per
+marker type.
+
+## Marker delete
+
+This endpoint deletes a single marker.
+
+<table>
+  <tr>
+    <td>Endpoint</td>
+    <td>/api/[app_id]/markers/[marker_id].json</td>
+  </tr>
+  <tr>
+    <td>Request method</td>
+    <td>PUT</td>
+  </tr>
+  <tr>
+    <td>Context</td>
+    <td>Applications</td>
+  </tr>
+  <tr>
+    <td>Requires authentication?</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Response formats</td>
+    <td>JSON</td>
+  </tr>
+</table>
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>marker_id</td>
+      <td>String</td>
+      <td>The id of the marker to delete.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Response
+
+The response body of this request is empty. The status code will return if it
+was successful or not.
