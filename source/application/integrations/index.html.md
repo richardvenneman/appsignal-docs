@@ -11,14 +11,6 @@ Group chat and video chat built for teams.
 
 Website: [https://www.hipchat.com](https://www.hipchat.com)
 
-
-## Campfire
-
-Team collaboration with real time chat.
-
-Website: [https://www.campfirenow.com](https://www.campfirenow.com)
-
-
 ## Slack
 
 Be less busy.
