@@ -5,8 +5,7 @@ title: "Terminology"
 At AppSignal we use a lot of technical terms. Read on to learn more about the
 language of AppSignal.
 
-- [Agents](#agents)
-  - [System agent](#system-agent)
+- [Agent](#agent)
 - [Alerting](#alerting)
 - [API](#api)
 - [API key](#api-key)
@@ -19,11 +18,11 @@ language of AppSignal.
 - [Errors](#errors)
 - [Events](#events)
 - [Exceptions](#errors)
+- [Extension](#extension)
 - [Instrumentation](#instrumentation)
 - [Instrumentation events](#instrumentation-events)
-- [Integrations](#integrations)
-  - [Agent integrations](#agent-integrations)
-  - [Integrations with services](#service-integrations)
+- [Libraries](#libraries)
+  - [Integrations](#library-integrations)
 - [Markers](#markers)
 - [Metadata](#metadata)
 - [Metrics](#metrics)
@@ -37,48 +36,39 @@ language of AppSignal.
 - [Stroopwafels](#stroopwaffles)
 - [Stroopwaffles](#stroopwaffles)
 - [Teams](#teams)
+- [Third-party integrations](#third-party-integrations)
 - [Transactions](#transactions)
 - [User account](#user-account)
 
-## Agents
+## Agent
 
-AppSignal uses agents to monitor applications and hosts. These agents can be
-language specific, like our [Ruby](/ruby/index.html) and
-[Elixir](/elixir/index.html) agents. These agents include hooks into frameworks
-and libraries to instrument code blocks such as database calls, file system
-calls and view rendering.
+AppSignal uses an "agent" to communicate with the AppSignal servers and
+instrument the hosts an application is running on. The host data used in our
+[host metrics](/metrics/host.html) feature.
 
-The instrumentation data collected from agents is sent to the AppSignal
-servers. The [transaction](#transactions) data is processed and used to detect
-events worth [alerting](#alerting) users about.
+The agent is started by the language specific [library](#libraries) and runs as
+a separate UNIX process on the application's host. The language library and
+agent communicate with each other through a UNIX socket using a [C
+extension](#extension).
 
-Every agent is specialized in instrumentation of its subject language. Most
-AppSignal agents also includes a "[system agent](#system-agent)" which the
-language specific languages uses to communicate with the AppSignal servers.
+The instrumentation data collected by the agent is sent to the AppSignal
+servers in transactions. The [transaction](#transactions) data is processed and
+used to detect events worth [alerting](#alerting) users about.
 
-### System agent
-
-AppSignal uses a "system agent" to communicate with the AppSignal servers and
-instrument the hosts an application is running on. The extra information of
-hosts is used in our [host metrics](/metrics/host.html).
-
-The system agent is started by the language specific agent and runs as a
-separate UNIX process on the application's host. The two agents communicate
-with each other through a UNIX socket.
-
-Read more information about the [life cycle of an AppSignal
+Read more about the [life cycle of an AppSignal
 request](/appsignal/request-lifecycle.html).
 
 ## Alerting
 
 AppSignal sends alerts whenever a problem is detected with an
 [application](#applications). These alerts can be emails, Slack messages, a
-PagerDuty alert, and more depending on which [integrations](#integrations) are
-configured.
+PagerDuty alert, and more depending on which [third-party
+integrations](#third-party-integrations) are configured.
 
 [Errors](#errors) and [slow requests](#performance-issues) that occur when an
-application is running are detected using AppSignal [agents](#agents). Once a
-problematic event is detected an alert is sent out to alert users of a problem.
+application is running are detected using AppSignal [libraries](#libraries).
+Once a problematic event is detected an alert is sent out to alert users of a
+problem.
 
 ## API
 
@@ -91,7 +81,7 @@ the AppSignal servers and augment the existing data with more information such
 as [Markers](#markers).
 
 The API differs from the [Push API](#push-api) in its purpose. While the Push
-API is used to send data to AppSignal by the [agents](#agents), the HTTP REST
+API is used to send data to AppSignal by the [agent](#agent), the HTTP REST
 API is primarily used to retrieve data from AppSignal. This allow users to use
 the available data in other tooling.
 
@@ -107,7 +97,7 @@ Your own API key can be found on your [user
 profile](https://appsignal.com/users/edit).
 
 This key is not to be confused with the [Push API key](#push-api-key) which is
-used by [applications](#applications) with an AppSignal [agent](#agents)
+used by [applications](#applications) with an AppSignal [agent](#agent)
 installed.
 
 ## Applications
@@ -115,9 +105,10 @@ installed.
 Applications (previously known as "sites", also referred to as "apps") are Ruby
 and Elixir applications monitored by AppSignal.
 
-After installing the AppSignal [agent](#agents) in an application AppSignal
-starts monitoring these applications. Once we receive data from an application,
-we register it using the application name and environment it's running in.
+After installing the AppSignal [library](#libraries) in an application
+AppSignal starts monitoring these applications. Once we receive data from an
+application, we register it using the application name and environment it's
+running in.
 
 An application can have multiple [environments](#environments) as long as every
 environment uses the same name.
@@ -167,12 +158,12 @@ you if there's a new entry to the changelog.
 
 ## Configuration
 
-The configuration is part of the agents running in applications. It tells the
-AppSignal [agents](#agents) what to instrument in an
+The configuration is part of the libraries running in applications. It tells
+the AppSignal [libraries](#libraries) what to instrument in an
 [application](#applications), which application it is and in which environment
 it's running.
 
-The AppSignal agents have multiple methods of configuration. The most common
+The AppSignal libraries have multiple methods of configuration. The most common
 method of configuration is the usage of an `appsignal.yml` configuration file.
 The usage of environment variables is also recommended.
 
@@ -183,13 +174,14 @@ For the configuration of the Ruby agent we recommend you read the
 
 Most [application](#applications) can be run in different modes. During
 development of an application other rules apply and errors are not usually
-shown in the form of a "500 internal server error" page like they do on
+shown in the form of a "500 internal server error" page like they do in
 "production".
 
 AppSignal also understands the concept of an environment allowing different
 settings be configured per environment. For every environment a separate
 application is created on AppSignal.com to be configured with its own set of
-[alerting rules](#alerts) and [integrations](#integrations).
+[alerting rules](#alerts) and [third-party
+integrations](#third-party-integrations).
 
 ## Errors
 
@@ -218,6 +210,14 @@ insights in [applications](#applications).
 
 Also see [instrumentation events](#instrumentation-events).
 
+## Extension
+
+The AppSignal [libraries](#libraries) and [agent](#agent) are in constant
+communication with each other. The libraries send data to the agent over a UNIX
+socket. To do so in a uniform way the libraries use an extension to the
+programming language they're written in. This extension is written in the
+C-language and installed when the language specific agent is installed.
+
 ## Instrumentation
 
 Instrumentation is what powers AppSignal. Without it, we wouldn't know anything
@@ -241,37 +241,30 @@ slower than others and by how much exactly.
 
 Also see [instrumentation](#instrumentation).
 
-## Integrations
+## Libraries
 
-AppSignal uses the term integrations in two ways. It can refer to [agent
-integrations](#agent-integrations) or [service
-integrations](#service-integrations).
+AppSignal uses language specific libraries to monitor applications. Currently
+we have a [Ruby](/ruby/index.html) gem and [Elixir](/elixir/index.html)
+package. These libraries include hooks into frameworks and libraries to
+instrument code blocks such as database calls, file system calls and view
+rendering.
 
-The first is about what libraries and frameworks the AppSignal agents support
-and the latter is about what services AppSignal.com integrates with.
+Every library is specialized in instrumentation of its subject language. Most
+AppSignal libraries also includes an "[agent](#agent)" which the libraries use
+to communicate with the AppSignal servers.
 
-### Agent integrations
+### Library integrations
 
-AppSignal [agents](#agents) integrate with a variety of different libraries and
-frameworks specific for the programming language. The Ruby agent integrates
-with Rails, Sinatra and other available frameworks. The Elixir agent integrates
-with Phoenix.
+AppSignal libraries integrate with a variety of different libraries and
+frameworks specific for the programming language. The Ruby gem integrates with
+pure Ruby, Rails, Sinatra and other available frameworks. The Elixir package
+integrates with pure Elixir and Phoenix.
 
 These automatic integrations make it easier to get more insight in applications
 without having to add AppSignal [instrumentation](#instrumentation) manually.
 
 Read more about what [Ruby integrations we
 offer](/ruby/integrations/index.html).
-
-### Integrations with services
-
-AppSignal.com provides connections with other services such as Slack and
-PagerDuty to more effectively alert users about problems that are detected.
-These integrations can be manage through the UI on AppSignal.com on an
-application by application basis.
-
-Read more about [which service integrations we
-offer](/application/integrations/).
 
 ## Markers
 
@@ -356,10 +349,10 @@ feature](https://appsignal.com/for/performance) on our tour page.
 
 ## Push API
 
-The AppSignal "Push API" is the API endpoint used by the AppSignal agents to
-send the collected data to. This is different from the normal AppSignal
-[API](#api) which is primary used to read data and add more context to the data
-that's sent to AppSignal.
+The AppSignal "Push API" is the API endpoint used by the AppSignal
+[agent](#agent) to send the collected data to. This is different from the
+normal AppSignal [API](#api) which is primary used to read data and add more
+context to the data that's sent to AppSignal.
 
 This Push API is the API where application instrumentation is sent to from
 applications using the [Push API key](#push-api-key).
@@ -391,10 +384,11 @@ blog](http://blog.appsignal.com/).
 
 ## Samples
 
-When a page request is slow a 100 times in a row, it's not as relevant to see
-all the slow requests, a smaller sample of these requests tell the same story.
+When a page request is slow a hundred times in a row, it's not as relevant to
+see all the slow requests, a smaller sample of these requests tell the same
+story.
 
-Instead the AppSignal [agents](#agents) only send a small set of performance
+Instead the AppSignal [agent](#agent) only sends a small set of performance
 issues to the AppSignal servers. This saves data sent to the servers, the data
 processed on the application host and on the AppSignal servers, while still
 telling the same story about the issues.
@@ -436,14 +430,24 @@ limit user access to applications without the need for multiple organizations.
 
 Read more about organization [team management](/organization/team/teams.html).
 
+## Third-party integrations
+
+AppSignal.com provides connections with other services such as Slack and
+PagerDuty to more effectively alert users about problems that are detected.
+These integrations can be manage through the UI on AppSignal.com on an
+application by application basis.
+
+Read more about [which third-party integrations we
+offer](/application/integrations/).
+
 ## Transactions
 
-Transactions are created by the AppSignal [agents](#agents) for every monitored
-web request and background job. Within this transaction the agents monitor for
-errors and slow code. A transaction is created at the start of a web request or
-when a background job is started. Once the request or job finishes, or crashes,
-the transaction is closed and sent to the [system agent](#system-agent) for
-processing.
+Transactions are created by the AppSignal [libraries](#libraries) for every
+monitored web request and background job. Within this transaction the agents
+monitor for errors and slow code. A transaction is created at the start of a
+web request or when a background job is started. Once the request or job
+finishes, or crashes, the transaction is closed and sent to the [agent](#agent)
+for processing.
 
 [Tags](#tags) and [metadata](#metadata) are added on transaction-level to more
 easily identify differences between transaction samples.
