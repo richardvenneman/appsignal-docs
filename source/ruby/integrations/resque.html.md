@@ -17,4 +17,20 @@ your job classes:
 extend Appsignal::Integrations::ResquePlugin
 ```
 
+## Resque and ActiveJob
+
+When using ActiveJob, include `Appsignal::Integrations::ResqueActiveJobPlugin`
+instead:
+
+```ruby
+class BrokenJob < ApplicationJob
+  include Appsignal::Integrations::ResqueActiveJobPlugin
+  queue_as :default
+
+  def perform(*args)
+    # ...
+  end
+end
+```
+
 AppSignal will then start monitoring these jobs without further configuration.
