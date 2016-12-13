@@ -13,8 +13,8 @@ Parameters:
 | Param | Type | Description  |
 | ------ | ------ | -----: |
 |  action_name  |  string  |   Example: BlogPostsController-hash-show  |
-|  from  |  timestamp/integer  |  defaults to 1 day ago if nil  |
-|  to  |  timetamp/integer  |   faults to now if nil  |
+|  from  |  string (ISO8601)  |  defaults to 1 day ago if nil  |
+|  to  |  string (ISO8601)  |   defaults to now if nil  |
 |  timeframe  |  string  |   Can be: [hour, day, month, year]  |
 |  field  |  array  |   Can be: [mean, count, ex, ex_rate, pct]  |
 
@@ -42,7 +42,7 @@ So `BlogPostsController#show` with `Mongoid::RecordNotFound` becomes:
 Example request:
 
 ```
-/api/5534f7e38c5ce90000000000/graphs.json?action_name=BlogPostsController-hash-show&fields[]=mean&fields[]=pct&timeframe=month&token=aaa
+/api/5534f7e38c5ce90000000000/graphs.json?action_name=BlogPostsController-hash-show&fields[]=mean&fields[]=pct&timeframe=month&token=aaa&from=2013-09-03T22:00:00+01:00&to=2013-10-04T00:00:00+01:00
 ```
 
 This endpoint returns a JSON object:
