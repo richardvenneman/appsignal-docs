@@ -1,50 +1,6 @@
 ---
-title: "Installing AppSignal for Elixir"
+title: "AppSignal configuration"
 ---
-
-If you come across missing support for your use case or find the documentation to be incorrect, don't hesistate to contact our support at <a href="mailto:support@appsignal.com">support@appsignal.com</a> or create a pull-request on our <a href="https://github.com/appsignal/appsignal-elixir">public Elixir repository</a>.
-
-
-## Installation
-
-  1. Add `appsignal` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:appsignal, "~> 0.0"}]
-    end
-    ```
-
-  2. Ensure `appsignal` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:appsignal]]
-    end
-    ```
-
-  3. If you use the
-     [Phoenix framework](http://www.phoenixframework.org/), *use* the
-     `Appsignal.Phoenix` module in your `endpoint.ex` file, just
-     *before* the line where your router module gets called
-     (which should read something like `plug MyApp.Router`):
-
-     ```elixir
-     use Appsignal.Phoenix
-     ```
-
-See [Phoenix integration](https://hexdocs.pm/appsignal/phoenix.html)
-on how to integrate Appsignal fully into your Phoenix application.
-
-When the AppSignal OTP application starts, it looks for a valid
-configuration (e.g. an AppSignal push key), and start the AppSignal agent.
-
-If it can't find a valid configuration, a warning will be logged. See
-the "Configuration" section below on how to fully configure the
-AppSignal agent.
-
-
-## Configuration
 
 [Sign up on AppSignal](https://appsignal.com/users/sign_up) and put
 the hexadecimal key in your `config.exs`:
@@ -72,8 +28,42 @@ would thus contain:
       env: :prod,
       revision: Mix.Project.config[:version]
 
+## Disable for tests
 
-### Configuration keys
+If you put your entire Appsignal configuration in the `config.exs`
+instead of `prod.exs`, (e.g. for having Appsignal enabled during
+development), make sure to put `active: false` in your test config
+unless you want to submit all your test results:
+
+    config :appsignal, :config,
+      active: false
+
+## Filtered parameters
+
+In most apps at least some of the data that might be posted to the app is
+sensitive information that should not leave the network. We support two ways of
+filtering parameters from being sent to AppSignal.
+
+## Using Phoenix's filter_parameters configuration
+
+You can use Phoenix's parameter filtering, which is used to keep sensitive
+information from the logs:
+
+    config :phoenix, :filter_parameters, ["password", "secret"]
+
+If `:filter_parameters` is not set, Phoenix will default to `["password"]`. This
+means that a Phoenix app will not send any passwords to AppSignal without any
+configuration.
+
+## Using AppSignal's built-in filtering
+
+If you're not using Phoenix, or want to filter parameters without changing the
+Phoenix.Logger's configuration, you can set up filtered parameters in the
+AppSignal configuration file:
+
+    config :appsignal, :filter_parameters, ["password", "secret"]
+
+## Configuration keys
 
 The full list of variables that can be configured is the following:
 
@@ -92,3 +82,4 @@ The full list of variables that can be configured is the following:
  - `APPSIGNAL_RUNNING_IN_CONTAINER` (Elixir config key: `:running_in_container`)
  - `APPSIGNAL_WORKING_DIR_PATH` (Elixir config key: `:working_dir_path`)
  - `APPSIGNAL_ENABLE_HOST_METRICS` (Elixir config key: `:enable_host_metrics`)
+ - `APPSIGNAL_FILTER_PARAMETERS` (Elixir config key: `:filter_parameters`)
