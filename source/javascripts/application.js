@@ -1,7 +1,28 @@
 //= require jquery
+//= require navigation_store
 
-$(document).ready(function(){
-  $(".mod-side_nav h2").on('click',function(){
-    $(this).toggleClass("open");
+$(document).ready(function() {
+  var navigationElements = $(".mod-side_nav h2");
+
+  // Open getting started on first visit
+  if(!NavigationStore.isSet("getting-started")) {
+    NavigationStore.set("getting-started", true);
+  }
+
+  // Toggle open state on navigation heading click
+  navigationElements.on("click", function() {
+    var element = $(this);
+    var state = !element.hasClass("open");
+
+    element.toggleClass("open", state);
+    NavigationStore.set(element.data("menu"), state);
+  });
+
+  // Open those elements that have been open by the user.
+  navigationElements.each(function() {
+    var element = $(this);
+    if(NavigationStore.fetch(element.data("menu"))) {
+      element.addClass("open");
+    }
   });
 });
