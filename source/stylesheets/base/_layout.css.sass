@@ -1,5 +1,5 @@
+$sidebar-small: 240px
 $sidebar: 320px
-$content: 720px
 
 *
   box-sizing: border-box
@@ -12,25 +12,40 @@ html
   height: 100%
 
 body
-  min-width: $sidebar
   height: 100%
+
 
 .layout-wrap
   @extend %clearfix
   margin: 0 auto
-  padding-left: $sidebar
   max-width: 1200px
 
+  +min-width(800px)
+    padding-left: $sidebar-small + 40px
+
+  +min-width(1280px)
+    padding-left: $sidebar + 40px
+
 .layout-main
-  margin-top: 80px
+  +min-width(800px)
+    margin-top: 80px
 
 .layout-side
-  position: fixed
-  left: calc(50% - 600px)
-  max-height: calc(100vh - 160px)
-  top: 120px
-  width: $sidebar
-  overflow-y: auto
   background: #fff
   border: 1px solid $border
   border-radius: 5px
+  margin: 30px
+  z-index: 100
+
+  +min-width(800px)
+    position: fixed
+    left: 30px
+    max-height: calc(100vh - 160px)
+    top: 120px
+    overflow-y: auto
+    width: $sidebar-small
+    margin: 0
+
+  +min-width(1280px)
+    left: calc(50% - 600px)
+    width: $sidebar

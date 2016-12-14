@@ -1,11 +1,13 @@
 .mod-footer
-  margin: 0 40px 80px
+  margin: 0 30px 40px
 
   .inner
     background: #fff
     border: 1px solid $border
     border-radius: $br
-    +clearfix
+
+    +min-width(800px)
+      display: flex
 
   section
     color: $dark
@@ -28,14 +30,8 @@
     @extend %t-small
 
   +min-width(800px)
-    max-width: 800px
-    margin: 0 auto 80px
-    padding: 0 40px
 
     section
-      display: block
-      width: 50%
-      float: left
       padding: 30px
 
       &:first-child

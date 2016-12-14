@@ -4,18 +4,18 @@
   > ul > li
 
     & + li
-      border-top: 1px solid $border
+      border-top: 1px solid $body-bg
 
   h2
-    font-size: $font-size-large
     cursor: pointer
     +font-weight(bold)
     padding: 15px 20px
     line-height: 1
-    background: lighten($border,5)
+    background: lighten($body-bg,5)
     display: flex
     align-items: center
     user-select: none
+    color: $medium
 
     a
       color: inherit
@@ -25,15 +25,16 @@
 
     & + ul
       display: none
-      border-top: 1px solid $border
+      border-top: 1px solid $body-bg
       padding: 10px 20px
 
       ul
         padding-left: 15px
         margin: 5px 0px
-        border-left: 1px solid $border
+        border-left: 1px solid $body-bg
 
     &.open
+      color: $dark
       img
         transform: rotate(90deg)
         user-select: none
@@ -41,11 +42,16 @@
       + ul
         display: block
 
+    &:hover
+      color: $dark
+      img
+        transform: rotate(90deg)
+        user-select: none
+
   a,
   span
     display: block
-    color: $font-subheading
-    font-size: $font-size-large
+    color: $medium
     text-decoration: none
 
   a

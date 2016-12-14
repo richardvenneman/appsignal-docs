@@ -1,16 +1,13 @@
 $alt-font: "myriad-pro", Helvetica, sans-serif;
 $icon-font: "FontAwesome";
 
-$font-weights: (light: 300, normal: 400, bold: 500);
-$font-size-small: 11px;
-$font-size: 13px;
-$font-size-large: 14px;
-$font-size-huge: 18px;
-
+$font-size: 14px;
+$font-size-large: 16px;
 $font-color: #19282d; //same as dark
 $font-heading: #3f4c5c;
 $font-subheading: #6f8087; //same as gray-medium
-$font-family: "Roboto", Helvetica, Arial, sans-serif;
+$font-family: "Proxima Nova", "proxima-nova", Sans-Serif;
+$font-weights: (normal: 400, bold: 600);
 
 $border: #eaeef0;
 $divider: #e6edf3;
@@ -19,30 +16,28 @@ $gray-dark: #666;
 $blue: #125caf;
 $orange: #c95823;
 
+// Dark shades
+$darkest: #263238;
+$dark: #37474f;
+$medium: #546e7a;
+$light: #e4ebef;
+
 // More colors used in app
-$dark: #19282d;
 $blue-dark: #112544;
 $blue-light: #e7eef7;
 $cyan: #115c64;
 $brown: #c45621;
 $purple: #791a7d;
-$green: #406021;
+$green: #4CAF50;
 $red: #c31633;
 $yellow: #efaa04;
 $cyan: #115c64;
-$body-bg: #ecf0f2;
+$body-bg: $light;
 
 // Code fonts
 $pre-font: Monaco, "Courier New", Courier, monospace;
-$pre-color: #c5c8c6;
-
-// Breakpoints
-$bp-XL: 920px;
-$bp-L: 860px;
-$bp-M: 640px;
-$bp-S: 400px;
-
-$bp-header: 700px;
+$code-color: #024966;
+$pre-color:  #ecf0f2;
 
 // colors:
 $gray: #131313;
@@ -71,4 +66,35 @@ $colors: (
   ("gray", $gray),
   ("brown", $brown),
   ("cyan", $cyan)
+);
+
+$categories: (
+  (
+    "homepage",
+    linear-gradient(135deg,$blue-dark,mix($blue,$blue-dark))
+  ),
+  (
+    "appsignal",
+    linear-gradient(135deg,$blue,lighten($blue,10))
+  ),
+  (
+    "design",
+    linear-gradient(135deg,$red,lighten($red,10))
+  ),
+  (
+    "elixir",
+    linear-gradient(135deg,$purple,lighten($purple,10))
+  ),
+  (
+    "engineering",
+    linear-gradient(135deg,$orange,lighten($orange,10))
+  ),
+  (
+    "product",
+    linear-gradient(135deg,$green,lighten($green,10))
+  ),
+  (
+    "ruby-magic",
+    linear-gradient(135deg,$purple,lighten($purple,10))
+  )
 )

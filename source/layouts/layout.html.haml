@@ -35,9 +35,10 @@
     %header.mod-header
       %h1
         = link_to '/' do
-          %strong AppSignal
-          %span Documentation
-      = partial 'header_nav'
+          = image_tag "logo-mark-white.svg"
+          AppSignal&nbsp;
+          %span Docs
+      = link_to 'Visit AppSignal.com', 'https://appsignal.com'
 
     .layout-wrap
       %a.jump{href: "#navigation"} Jump to navigation
@@ -48,3 +49,6 @@
         = partial 'side_nav'
 
     = partial 'adroll'
+
+  <script src="https://use.typekit.net/sdq1pbx.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
