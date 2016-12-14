@@ -3,14 +3,14 @@ title: "AppSignal for Ruby"
 ---
 
 AppSignal supports the [Ruby language][ruby-lang] with a [Ruby
-gem][appsignal-gem]. The gem supports many frameworks and gem out-of-the-box,
-but some gems and frameworks might require some [custom
+gem][appsignal-gem]. The gem supports many frameworks and gems out-of-the-box.
+Some gems and frameworks might require some [custom
 instrumentation](/ruby/instrumentation/index.html).
 
 ## Integrations
 
 The AppSignal Ruby gem integrates with many frameworks like Rails, Sinatra,
-Padrino, Grape, etc.
+Padrino, Grape, and more.
 
 See our [integrations](/ruby/integrations/index.html) page for the full list
 and implementation details.
