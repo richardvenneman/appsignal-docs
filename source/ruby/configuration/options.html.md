@@ -22,7 +22,7 @@ environment variable is set, this defaults to `true`.
 - Available since gem version `0.11.8` for Rails.
 - Available since gem version `1.3.0` for Padrino.
 - Available since gem version `1.3.6` for Sinatra.
-- Available since gem version `2.1.0` standardizes the behavior for all config.
+- Available since gem version `2.0.4` standardizes the behavior for all configuration.
 - Value: String
 
 This overrides the app's environment. Mostly used on Heroku where all apps run
