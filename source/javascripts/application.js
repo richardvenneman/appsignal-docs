@@ -1,14 +1,28 @@
-$(document).ready(function(){
-  $('body').on('touchstart',function(){
-    $('.mod-header_nav').removeClass('show');
+//= require jquery
+//= require navigation_store
+
+$(document).ready(function() {
+  var navigationElements = $(".mod-side_nav h2");
+
+  // Open getting started on first visit
+  if(!NavigationStore.isSet("getting-started")) {
+    NavigationStore.set("getting-started", true);
+  }
+
+  // Toggle open state on navigation heading click
+  navigationElements.on("click", function() {
+    var element = $(this);
+    var state = !element.hasClass("open");
+
+    element.toggleClass("open", state);
+    NavigationStore.set(element.data("menu"), state);
   });
-  $('.mod-header_nav').on('touchstart', function(){
-    setTimeout(
-      function(){
-        $('.mod-header_nav').addClass('show');
-      }, 30);
-  });
-  $(window).on('resize',function(){
-    $('.mod-header_nav').removeClass('show');
+
+  // Open those elements that have been open by the user.
+  navigationElements.each(function() {
+    var element = $(this);
+    if(NavigationStore.fetch(element.data("menu"))) {
+      element.addClass("open");
+    }
   });
 });

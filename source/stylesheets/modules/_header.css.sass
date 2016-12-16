@@ -1,52 +1,38 @@
 .mod-header
-  padding: 20px 0
-  text-align: center
+  padding: 10px 30px
+  display: flex
+  justify-content: space-between
   width: 100%
+  top: 0
+  height: 60px
+  align-items: center
+  z-index: 100
   background: $blue-dark
-  box-shadow: 0 1px 3px rgba($dark,.1)
+  flex-wrap: wrap
+
+  +min-width(800px)
+    position: fixed
+
+  a
+    @extend %t-normal
+    color: #fff
+    text-decoration: none
 
   h1
-    float: left
-    margin-left: 40px
-    position: relative
-    top: -2px
-    background: inline-image("logo-mark-white.svg") no-repeat left 6px
-      size: 40px auto
-
-
-    strong, span
-      display: none
 
     a
-      display: block
-      width: 60px
-      padding-left: 60px
-      height: 40px
-      line-height: 40px
-      text-decoration: none
-      color: #fff
-      text-align: left
-      @extend %t-large
+      display: flex
+      align-items: center
 
-      span
-        opacity: .6
-
-  ul
-    float: right
-    margin-right: 40px
-
-  li
-    float: left
-    margin-left: 20px
+    span
+      opacity: 0.6
+  img
+    width: 30px
+    margin-right: 15px
+    position: relative
+    top: -1px
 
   +min-width(800px)
     top: 0
     position: fixed
     z-index: 100
-
-  +min-width(600px)
-    h1
-      a
-        width: 300px
-      strong, span
-        display: inline-block

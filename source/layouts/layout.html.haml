@@ -12,7 +12,7 @@
       - else
         AppSignal: Monitor the crap out of your app.
 
-    = javascript_include_tag 'jquery', 'application'
+    = javascript_include_tag 'application'
 
     = stylesheet_link_tag 'application'
     /[if lt IE 9]
@@ -33,12 +33,12 @@
 
   %body
     %header.mod-header
-      .layout-wrap
-        %h1
-          = link_to '/' do
-            %strong AppSignal
-            %span Documentation
-        = partial 'header_nav'
+      %h1
+        = link_to '/' do
+          = image_tag "logo-mark-white.svg"
+          AppSignal&nbsp;
+          %span Docs
+      = link_to 'Visit AppSignal.com', 'https://appsignal.com'
 
     .layout-wrap
       %a.jump{href: "#navigation"} Jump to navigation
@@ -49,3 +49,6 @@
         = partial 'side_nav'
 
     = partial 'adroll'
+
+  <script src="https://use.typekit.net/sdq1pbx.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
