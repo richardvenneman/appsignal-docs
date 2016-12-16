@@ -2,93 +2,120 @@
 title: "Installing AppSignal for Elixir"
 ---
 
-If you come across missing support for your use case or find the documentation to be incorrect, don't hesistate to contact our support at <a href="mailto:support@appsignal.com">support@appsignal.com</a> or create a pull-request on our <a href="https://github.com/appsignal/appsignal-elixir">public Elixir repository</a>.
+Installing the AppSignal package in your Elixir application requires a couple
+manual steps. Currently pure Elixir applications and the Phoenix framework are
+supported. Both use-cases are described in this guide.
 
+If AppSignal does not support your use-case or if you find a problem with the
+documentation, don't hesitate to [contact us][support]. You can also create a
+pull-request on our public [Elixir repository][elixir-repo] or [documentation
+repository][docs-repo].
 
-## Installation
+## Installing the package
 
-  1. Add `appsignal` to your list of dependencies in `mix.exs`:
+1. Start by adding `appsignal` to your list of dependencies in `mix.exs`.
 
-    ```elixir
-    def deps do
-      [{:appsignal, "~> 0.0"}]
-    end
-    ```
+```elixir
+# mix.exs
+def deps do
+  [{:appsignal, "~> 0.0"}]
+end
+```
 
-  2. Ensure `appsignal` is started before your application:
+2. Ensure `appsignal` is started before your application.
 
-    ```elixir
-    def application do
-      [applications: [:appsignal]]
-    end
-    ```
+```elixir
+# mix.exs
+def application do
+  [applications: [:appsignal]]
+end
+```
 
-  3. If you use the
-     [Phoenix framework](http://www.phoenixframework.org/), *use* the
-     `Appsignal.Phoenix` module in your `endpoint.ex` file, just
-     *before* the line where your router module gets called
-     (which should read something like `plug MyApp.Router`):
+3. If you use the [Phoenix framework][phoenix], make sure you use the
+   `Appsignal.Phoenix` module in your `endpoint.ex` file, just **before** the
+   line where your router module gets called (which should read something like
+   `plug MyApp.Router`).
 
-     ```elixir
-     use Appsignal.Phoenix
-     ```
+```elixir
+# lib/my_app/endpoint.ex
+# ...
+use Appsignal.Phoenix
+plug MyApp.Router
+```
 
-See [Phoenix integration](https://hexdocs.pm/appsignal/phoenix.html)
-on how to integrate Appsignal fully into your Phoenix application.
+For more information on how to integrate AppSignal fully into your Phoenix
+application (monitoring for queries, template rendering and channels) see our
+[Phoenix integration](/elixir/integrations/phoenix.html)
 
 When the AppSignal OTP application starts, it looks for a valid
 configuration (e.g. an AppSignal push key), and start the AppSignal agent.
 
 If it can't find a valid configuration, a warning will be logged. See
-the "Configuration" section below on how to fully configure the
+the [Configuration](#configuration) section on how to fully configure the
 AppSignal agent.
-
 
 ## Configuration
 
-[Sign up on AppSignal](https://appsignal.com/users/sign_up) and put
-the hexadecimal key in your `config.exs`:
+Before the AppSignal package works you need to configure it. To be able to send
+data to AppSignal you first need to [create an account on
+AppSignal.com](https://appsignal.com/users/sign_up).
 
-    config :appsignal, :config,
-      name: :my_first_app,
-      push_api_key: "your-hex-appsignal-key"
+During the installation process you will receive a hexadecimal [Push API
+key](/appsignal/terminology.html#push-api-key) which you will need to place in
+your application's `config.exs`.
 
-Alternatively, you can configure the agent using OS environment variables:
+```elixir
+# config/config.exs
+config :appsignal, :config,
+  name: :my_first_app,
+  push_api_key: "your-hex-appsignal-key"
+```
 
-    export APPSIGNAL_APP_NAME=my_first_app
-    export APPSIGNAL_PUSH_API_KEY=your-hex-appsignal-key
+Alternatively, you can configure AppSignal using OS environment variables.
 
+```sh
+export APPSIGNAL_APP_NAME=my_first_app
+export APPSIGNAL_PUSH_API_KEY=your-hex-appsignal-key
+```
 
-## Running in production: Adding environment and app version
+For more information about configuring the AppSignal package for Elixir, please
+read our [configuration pages](/elixir/configuration/index.html).
 
-When you are running on a production system you typically want to let
-AppSignal know that you do that, and also include the version
-(revision) number of your application.  A typical `config/prod.exs`
-would thus contain:
+## Application environment and version
 
-    config :appsignal, :config,
-      name: :my_first_app,
-      push_api_key: "your-hex-appsignal-key",
-      env: :prod,
-      revision: Mix.Project.config[:version]
+Running your application you want to let AppSignal know what state your
+application is in.
 
+This includes information about the version (revision) of your application and
+what environment it's running in.
 
-### Configuration keys
+A typical environment configuration file would contain the following.
 
-The full list of variables that can be configured is the following:
+```elixir
+# config/prod.exs
+config :appsignal, :config,
+  name: :my_first_app,
+  push_api_key: "your-hex-appsignal-key",
+  env: :prod,
+  revision: Mix.Project.config[:version]
+```
 
- - `APPSIGNAL_ACTIVE` (Elixir config key: `:active`)
- - `APPSIGNAL_PUSH_API_KEY` (Elixir config key: `:push_api_key`)
- - `APPSIGNAL_APP_NAME` (Elixir config key: `:name`)
- - `APP_REVISION` (Elixir config key: `:revision`)
- - `APPSIGNAL_PUSH_API_ENDPOINT` (Elixir config key: `:endpoint`)
- - `APPSIGNAL_FRONTEND_ERROR_CATCHING_PATH` (Elixir config key: `:frontend_error_catching_path`)
- - `APPSIGNAL_ENVIRONMENT` (Elixir config key: `:env`; defaults to `:dev`; other valid values are `:test` and `:prod`)
- - `APPSIGNAL_DEBUG` (Elixir config key: `:debug`)
- - `APPSIGNAL_LOG_PATH` (Elixir config key: `:log_path`)
- - `APPSIGNAL_IGNORE_ERRORS` (Elixir config key: `:ignore_errors`)
- - `APPSIGNAL_IGNORE_ACTIONS` (Elixir config key: `:ignore_actions`)
- - `APPSIGNAL_HTTP_PROXY` (Elixir config key: `:http_proxy`)
- - `APPSIGNAL_RUNNING_IN_CONTAINER` (Elixir config key: `:running_in_container`)
- - `APPSIGNAL_WORKING_DIR_PATH` (Elixir config key: `:working_dir_path`)
- - `APPSIGNAL_ENABLE_HOST_METRICS` (Elixir config key: `:enable_host_metrics`)
+## Run your application!
+
+Once you've completed this guide your application is ready to be monitored by
+AppSignal!
+
+Start your application up and perform some requests on it. By triggering an
+error or two you'll also test the error reporting.
+
+[Contact us][support] if you have questions regarding installation or
+encountered any problems during the installation.
+
+## Optional: Adding custom instrumentation
+instrumentation to your application. Read more about custom instrumentation on
+our [instrumentation pages](/elixir/instrumentation/index.html).
+
+[support]: mailto:support@appsignal.com
+[elixir-repo]: https://github.com/appsignal/appsignal-elixir
+[docs-repo]: https://github.com/appsignal/appsignal-docs
+[phoenix]: http://www.phoenixframework.org/
