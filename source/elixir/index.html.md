@@ -29,7 +29,7 @@ AppSignal](/elixir/configuration/index.html).
 
 To make your own integrations with AppSignal or to add custom instrumentation
 to your application, see the
-[instrumentation](/elixir/instrumentation/index.html) pages.
+[instrumentation](/elixir/instrumentation/index.html) documentation.
 
 [elixir-lang]: http://elixir-lang.org/
 [appsignal-package]: https://hex.pm/packages/appsignal

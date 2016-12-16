@@ -6,10 +6,23 @@ The AppSignal for Elixir package integrates with Phoenix. To set up the
 integration, please follow our [installation guide](/elixir/installation.html).
 
 This page will describe further ways of configuring AppSignal for the [Phoenix
-framework][phoenix].
+framework][phoenix]. To add more custom instrumentation to your Phoenix
+application, read the [Phoenix
+instrumentation](/elixir/instrumentation/phoenix.html) documentation.
 
 More information can be found in the [AppSignal Hex package
 documentation][hex-appsignal].
+
+## Table of Contents
+
+- [Incoming HTTP requests](#incoming-http-requests)
+- [Phoenix instrumentation hooks](#phoenix-instrumentation-hooks)
+- [Template rendering](#template-rendering)
+- [Queries](#queries)
+- [Channels](#channels)
+  - [Channels instrumentation with a channel's handle](#channel-instrumentation-with-a-channel-39-s-handle)
+  - [Channels instrumentation without decorators](#channel-instrumentation-without-decorators)
+- [Custom instrumentation](#custom-instrumentation)
 
 ## Incoming HTTP requests
 
@@ -40,8 +53,16 @@ config :phoenix_app, PhoenixApp.Endpoint,
   instrumenters: [Appsignal.Phoenix.Instrumenter]
 ```
 
-For more custom configuration, see our [instrumentation
-documentation](/elixir/instrumentation/index.html).
+Using the `Appsignal.Phoenix.Instrumenter` it's possible to add custom
+instrumentation to your Phoenix applications.
+
+This module can be used as a Phoenix instrumentation module. Adding this module
+to the list of Phoenix instrumenters will result in the
+`phoenix_controller_call` and `phoenix_controller_render` events to become part
+of your request timeline.
+
+For more information on instrumentation please visit the [Appsignal Hex package
+documentation](https://hexdocs.pm/appsignal/).
 
 ## Template rendering
 
@@ -77,8 +98,71 @@ process that performs the query however, must be associated with an
 
 ## Channels
 
-See the [`Appsignal.Phoenix.Channel`](hex-phoenix-channels) module in the
-AppSignal Hex package documentation on how to instrument channel requests.
+### Channel instrumentation with a channel's handle
+
+Incoming channel requests can be instrumented by adding code to the
+`handle_in/3` function of your application. Function decorators are used to
+minimize the amount of code you have to add to your application's channels.
+
+```elixir
+defmodule SomeApp.MyChannel do
+  use Appsignal.Instrumentation.Decorators
+
+  @decorate channel_action
+  def handle_in("ping", _payload, socket) do
+    # your code here..
+  end
+end
+```
+
+Channel events will be displayed under the "Background jobs" tab, showing the
+channel module and the action argument that you entered.
+
+### Channel instrumentation without decorators
+
+You can also decide not to use function decorators. In that case, use the
+`channel_action/3` function directly, passing in a name for the channel action,
+the socket, and the actual code that you are executing in the channel handler.
+
+```elixir
+defmodule SomeApp.MyChannel do
+  import Appsignal.Phoenix.Channel, only: [channel_action: 4]
+
+  def handle_in("ping" = action, _payload, socket) do
+    channel_action(__MODULE__, action, socket, fn ->
+      # do some heave processing here...
+      reply = perform_work()
+      {:reply, {:ok, reply}, socket}
+    end)
+  end
+end
+```
+
+## Custom instrumentation
+
+You might be using your endpoint’s `instrument/4` macro to create custom
+instrumentation. If you want those events to become part of the AppSignal
+timeline as well, you need to create a custom instrumenter module with the help
+of `Appsignal.Phoenix.InstrumenterDSL`.
+
+```elixir
+defmodule PhoenixApp.CustomInstrumenter do
+  import Appsignal.Phoenix.InstrumenterDSL
+
+  instrumenter :phoenix_controller_call
+  instrumenter :phoenix_controller_render
+  instrumenter :custom_event
+  instrumenter :another_custom_event
+end
+```
+
+And then, use that instead of the AppSignal instrumenter in your `config.exs`.
+
+```elixir
+# config/config.exs
+config :phoenix_app, PhoenixApp.Endpoint,
+  instrumenters: [PhoenixApp.CustomInstrumenter]
+```
 
 [phoenix]: http://www.phoenixframework.org/
 [hex-appsignal]: https://hexdocs.pm/appsignal/

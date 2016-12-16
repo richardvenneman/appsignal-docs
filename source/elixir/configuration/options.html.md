@@ -1,5 +1,5 @@
 ---
-title: "AppSignal configuration options"
+title: "AppSignal Elixir configuration options"
 ---
 
 The following list includes all configuration options with the name of the
@@ -29,13 +29,16 @@ Enable debug logging, this is usually only needed on request from support.
 
 Set this to `false` to disable [host metrics](/metrics/host.html).
 
-## `APPSIGNAL_ENVIRONMENT` / `:env`
+## `APPSIGNAL_APP_NAME` / `:env`
 
 - Value: String. Default: `:dev`
 
 The AppSignal environment in which the configuration is stored.
 
 Other valid values are `:test` and `:prod`.
+
+-> This environment variable name for this config was renamed from
+`APPSIGNAL_ENVIRONMENT` to `APPSIGNAL_APP_ENV` after version `0.9.2`.
 
 ## `APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters`
 

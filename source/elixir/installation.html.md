@@ -79,7 +79,7 @@ export APPSIGNAL_PUSH_API_KEY=your-hex-appsignal-key
 ```
 
 For more information about configuring the AppSignal package for Elixir, please
-read our [configuration pages](/elixir/configuration/index.html).
+read our [configuration documentation](/elixir/configuration/index.html).
 
 ## Application environment and version
 
@@ -113,7 +113,7 @@ encountered any problems during the installation.
 
 ## Optional: Adding custom instrumentation
 instrumentation to your application. Read more about custom instrumentation on
-our [instrumentation pages](/elixir/instrumentation/index.html).
+our [instrumentation documentation](/elixir/instrumentation/index.html).
 
 [support]: mailto:support@appsignal.com
 [elixir-repo]: https://github.com/appsignal/appsignal-elixir
