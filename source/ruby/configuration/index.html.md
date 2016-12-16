@@ -1,8 +1,8 @@
 ---
-title: "AppSignal configuration"
+title: "AppSignal Ruby configuration"
 ---
 
-Configuration. Important, because without it we the AppSignal Ruby gem won't
+Configuration. Important, because without it the AppSignal Ruby gem won't
 know which application it's instrumenting or in which environment.
 
 On this topic we'll explain how to configure AppSignal, what can be configured
