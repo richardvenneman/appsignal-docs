@@ -111,9 +111,17 @@ error or two you'll also test the error reporting.
 [Contact us][support] if you have questions regarding installation or
 encountered any problems during the installation.
 
+## Optional: Activate more instrumentation in your Phoenix app
+
+Read more about how you can integrate more instrumentation in your Phoenix
+application in our [integrating Phoenix
+guide](/elixir/integrations/phoenix.html).
+
 ## Optional: Adding custom instrumentation
-instrumentation to your application. Read more about custom instrumentation on
-our [instrumentation documentation](/elixir/instrumentation/index.html).
+
+Add custom instrumentation to your application. Read more about custom
+instrumentation in our [instrumentation
+documentation](/elixir/instrumentation/index.html).
 
 [support]: mailto:support@appsignal.com
 [elixir-repo]: https://github.com/appsignal/appsignal-elixir
