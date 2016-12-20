@@ -9,6 +9,12 @@ $(document).ready(function() {
     NavigationStore.set("getting-started", true);
   }
 
+  // Make sure the section of the current page is open
+  var currentMenu = $("#navigation a.active").parents(".section").find("h2").data("menu");
+  if(currentMenu) {
+    NavigationStore.set(currentMenu, true);
+  }
+
   // Toggle open state on navigation heading click
   navigationElements.on("click", function() {
     var element = $(this);
