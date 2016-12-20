@@ -44,6 +44,9 @@ AppSignal load the correct configuration that needs to be diagnosed.
 
 ```bash
 APPSIGNAL_APP_ENV=production appsignal diagnose
+
+# --environment option support since Ruby gem version 2.0.4
+appsignal diagnose --environment=production
 ```
 
 ### Diagnose information
@@ -54,12 +57,20 @@ The diagnose command will output the following data.
   - Ruby gem version
   - Agent version
   - Ruby gem installation path
+  - C-extension loaded: `yes`/`no`
 - Host information
   - Hardware architecture
   - Operating system
   - Ruby version
   - Heroku detection - only on Heroku
   - Container id - only in a Docker/LXC container
+  - Current user is `root` user: `yes`/`no`
+- [Agent](/appsignal/terminology.html#agent) diagnostics (Available since
+  Ruby gem 2.0.4)
+  - Starts the agent in diagnose mode
+  - Agent configuration validation
+  - Agent logger initialization
+  - Agent lock file path writable check
 - Configuration
   - Environment - Outputs a warning if none is found.
   - See [Ruby configuration](/ruby/configuration/options.html) for all
@@ -67,11 +78,15 @@ The diagnose command will output the following data.
 - Push API key validation
   - Tests if the Push API key that's being used is a valid key at AppSignal.com.
 - Path information
-  - Returns if all the required paths exist and if they are writable.
+  - Tests all required paths if they are writable. Also outputs ownership of
+    the current user.
+  - `current_path` - path the diagnose command is run in. Should be a path for
+    the application you're trying to debug. Usually the same as `root_path`.
   - `root_path` - application path. AppSignal will try to find a
     `config/appsignal.yml` file here.
-  - `log_path` - path the log file is created. Is empty if no viable path could
-    be found.
+  - `log_dir_path` - path the log file is created in.
+  - `log_file_path` - path the log file is created. Is empty if no viable path
+    could be found.
 - Installation information
   - Something could have gone wrong during the installation of the AppSignal
     agent. This section outputs the `install.log` and `mkmf.log` (Makefile log)
@@ -157,6 +172,8 @@ The available agent components are:
 
 ### Log message breakdown
 
+#### File logger log message breakdown
+
 ```
 [2016-10-19T11:06:18 (process) #11329][DEBUG] Starting appsignal
  ^                    ^         ^      ^      ^
@@ -167,10 +184,27 @@ The available agent components are:
  Timestamp in UTC
 ```
 
+#### STDOUT log message breakdown
+
+For STDOUT loggers the AppSignal gem prefixes a recognizable "appsignal" prefix
+to the message so that specific AppSignal messages can be grepped in the parent
+process' log output.
+
+```
+[2016-10-19T11:06:18 (process) #11329][DEBUG] appsignal: Starting appsignal
+ ^                    ^         ^      ^      ^          ^
+ |                    |         |      |      |          Message
+ |                    |         |      |      AppSignal prefix
+ |                    |         |      Log level
+ |                    |         Process PID
+ |                    Agent component
+ Timestamp in UTC
+```
+
 ### Log location
 
 There are two methods of saving logs from the AppSignal gem. By writing the
-logs to a log-file and by printing the logs in the process' STDOUT.  See the
+logs to a log-file and by printing the logs in the process' STDOUT. See the
 [`log`
 configuration](/ruby/configuration/options.html#code-appsignal_log-code-code-log-code)
 for more information.
@@ -220,8 +254,8 @@ AppSignal doesn't seem to be working or there are no logs available.
   - Were other libraries updated?
 - What does the AppSignal agent logs say with log-level "debug"?
 - Is the [Operating System](/support/operating-systems.html) supported?
-- Did the "extension" install correctly?  
-  Answer is in the "diagnose" output.
+- Did the "extension" install and load correctly?  
+  Answers are in the "diagnose" output.
 - Is the application running inside a containerized system?
 
 ## Creating a reproducible state
