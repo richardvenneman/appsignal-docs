@@ -84,7 +84,6 @@ It's also possible to submit a feature on one of our Open Source projects by
 creating a Pull Request targeted on the project's `develop` branch.
 
 ## Security issues
-<a name="security-issues"></a>
 
 If you think you've found a security issue with regards to our application,
 network or integrations, please let us know immediately by sending an email to
