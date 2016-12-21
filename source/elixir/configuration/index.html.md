@@ -19,6 +19,7 @@ in the Elixir package and what the minimal configuration needed is.
 ## Minimal required configuration
 
 ```elixir
+# config/config.exs
 config :appsignal, :config,
   name: :my_first_app,
   push_api_key: "your-hex-appsignal-key"

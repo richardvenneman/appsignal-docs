@@ -242,5 +242,16 @@ Whether to skip adding session data to exception traces, can be `true` or
 - Available since gem version `1.0.4`.
 - Value: String. Default: detected by Ruby gem.
 
-Override the location where the appsignal Ruby gem can store temporary files.
+Override the location where the AppSignal Ruby gem can store temporary files.
 Use this is if the default location is not suitable.
+
+If you are running multiple applications using AppSignal on the same server,
+use this configuration option to select different working directories for every
+AppSignal instance, otherwise the two instances could conflict with one
+another.
+
+```yml
+# config/appsignal.yml
+production:
+  working_dir_path: "/tmp/project_1/"
+```

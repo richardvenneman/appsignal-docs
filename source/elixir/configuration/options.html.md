@@ -109,3 +109,14 @@ Docker.
 
 Override the location where the AppSignal Ruby gem can store temporary files.
 Use this is if the default location is not suitable.
+
+If you are running multiple applications using AppSignal on the same server,
+use this configuration option to select different working directories for every
+AppSignal instance, otherwise the two instances could conflict with one
+another.
+
+```elixir
+# config/config.exs
+config :appsignal, :config,
+  working_dir_path: "/tmp/project_1/"
+```
