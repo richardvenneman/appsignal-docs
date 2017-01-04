@@ -2,10 +2,9 @@
 title: "Link templates"
 ---
 
-AppSignal supports tagging of errors, as described in [Handle
-exceptions](/ruby/instrumentation/exception-handling.html). With these tags
-it's possible to generate URLs to your own application to deep link to pages in
-your own system, such as related user profiles or blog posts.
+AppSignal supports tagging of requests, as described in [Tagging]. These tags
+make it possible to generate URLs to your own application to deep link to pages
+in your own system, such as related user profiles or blog posts.
 
 ## Tagging requests
 
@@ -21,6 +20,8 @@ Appsignal.tag_request(
   :account_id => current_account.id
 )
 ```
+
+For more information about tagging requests, please read the [Tagging] page.
 
 ## Creating a link template
 
@@ -45,3 +46,5 @@ After adding tags in your app and defining link templates, links will be
 generated for each request in the "Overview" section.
 
 ![link templates](/images/screenshots/link_templates_result.png)
+
+[Tagging]: /ruby/instrumentation/tagging.html
