@@ -33,6 +33,7 @@ production:
 # Environment variables
 export APPSIGNAL_PUSH_API_KEY="1234-1234-1234"
 export APPSIGNAL_APP_NAME="My app"
+export APPSIGNAL_APP_ENV="production"
 ```
 
 The above configuration options are the only required options. All other
@@ -40,6 +41,10 @@ configuration is optional.
 
 If you use Rails you can even skip the app name, we will use the name of your
 Rails application.
+
+If you use a frameworks that is aware of environments and [is supported by the
+AppSignal gem](/ruby/integrations/index.html), the environment is detected
+automatically.
 
 ## Configuration load order
 
