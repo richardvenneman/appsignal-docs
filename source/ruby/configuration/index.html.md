@@ -42,7 +42,7 @@ configuration is optional.
 If you use Rails you can even skip the app name, we will use the name of your
 Rails application.
 
-If you use a frameworks that is aware of environments and [is supported by the
+If you use a framework that is aware of environments and [is supported by the
 AppSignal gem](/ruby/integrations/index.html), the environment is detected
 automatically.
 
