@@ -1,4 +1,7 @@
-require 'lib/appsignal_markdown'
+require "dotenv"
+require "lib/appsignal_markdown"
+
+Dotenv.load
 
 DOCS_ROOT   = File.expand_path(File.dirname(__FILE__))
 GITHUB_ROOT = "https://github.com/appsignal/appsignal-docs/tree/master"
