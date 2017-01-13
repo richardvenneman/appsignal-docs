@@ -29,6 +29,6 @@ AppSignal configuration file.
 
 ```elixir
 # config/config.exs
-config :appsignal,
-  :filter_parameters, ["password", "secret"]
+config :appsignal, :config,
+  filter_parameters: ["password", "secret"]
 ```
