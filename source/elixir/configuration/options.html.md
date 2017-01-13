@@ -71,9 +71,9 @@ error type will not be transmitted to AppSignal.
 
 ## `APPSIGNAL_LOG_PATH` / `:log_path`
 
-- Value: String
+- Value: String. Default: `/tmp/appsignal.log`
 
-Override the location of the path where the AppSignal log file can be written
+Override the location of the path where the AppSignal log file will be written
 to.
 
 ## `APPSIGNAL_PUSH_API_ENDPOINT` / `:endpoint`
