@@ -25,7 +25,7 @@ environment it was performed in.
 Appsignal::Transaction.create(
   SecureRandom.uuid,
   Appsignal::Transaction::BACKGROUND_JOB,
-  Appsignal::GenericRequest.new({})
+  Appsignal::Transaction::GenericRequest.new({})
 )
 ```
 
