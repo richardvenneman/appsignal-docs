@@ -170,6 +170,16 @@ rescue => e
 end
 ```
 
+Optionally you can can pass in a hash with tags as the second argument like so:
+
+```ruby
+begin
+  # some code
+rescue => e
+  Appsignal.send_error(e, :key => 'value')
+end
+```
+
 ## Appsignal.listen_for_error
 
 An alternative way to track errors with AppSignal is to wrap code that might
