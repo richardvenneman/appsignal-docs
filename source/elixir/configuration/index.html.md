@@ -21,15 +21,15 @@ in the Elixir package and what the minimal configuration needed is.
 ```elixir
 # config/config.exs
 config :appsignal, :config,
-  name: :my_first_app,
+  name: :my_app,
   push_api_key: "your-hex-appsignal-key"
 ```
 
 Alternatively, you can configure the agent using OS environment variables.
 
 ```elixir
-export APPSIGNAL_APP_NAME=my_first_app
 export APPSIGNAL_PUSH_API_KEY=your-hex-appsignal-key
+export APPSIGNAL_APP_NAME=my_app
 ```
 
 ## Configuration options
@@ -50,7 +50,7 @@ A typical environment configuration file would contain the following.
 ```elixir
 # config/prod.exs
 config :appsignal, :config,
-  name: :my_first_app,
+  name: :my_app,
   push_api_key: "your-hex-appsignal-key",
   env: :prod,
   revision: Mix.Project.config[:version]

@@ -1,5 +1,5 @@
 ---
-title: "AppSignal load order"
+title: "AppSignal for Ruby load order"
 ---
 
 The AppSignal Ruby gem can be configured in a couple different ways. Through an
@@ -10,15 +10,16 @@ initializer, with a configuration file or through environment variables.
    configuration file. Read more about it in the [Pull Request on
    GitHub](https://github.com/appsignal/appsignal-ruby/pull/180).
 
-The configuration is loaded in a five step process. Starting with the defaults
-and ending with reading environment variables. The configuration options can be
-mixed without losing configuration from a different option. Using an
-initializer, a configuration file and environment variables together will work.
+The configuration is loaded in a five step process. Starting with the gem
+defaults and ending with reading environment variables. The configuration
+options can be mixed without losing configuration from a different option.
+Using an initializer, a configuration file and environment variables together
+will work.
 
-### 1. Agent defaults
+### 1. Gem defaults
 
 The AppSignal gem starts with loading its default configuration, setting paths
-and enables certain features.
+and enabling certain features.
 
 The agent defaults can be found in the [gem source]
 (https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb)
@@ -26,11 +27,11 @@ as `Appsignal::Config::DEFAULT_CONFIG`.
 
 ### 2. System detected settings
 
-The gem detects what kind of system it's active in and configures itself
+The gem detects what kind of system it's running on and configures itself
 accordingly.
 
 For example, when it's running inside a container based system (such as Docker
-and Heroku) it sets `:running_in_container` to `true`.
+and Heroku) it sets the configuration option `:running_in_container` to `true`.
 
 ### 3. Initial configuration given to `Config` initializer
 
@@ -65,3 +66,8 @@ detected and initializer configuration.
 Lastly AppSignal will look for its configuration in environment variables.
 When found these will override all given configuration options from
 previous steps.
+
+```bash
+export APPSIGNAL_APP_NAME="my custom app name"
+# start your app here
+```
