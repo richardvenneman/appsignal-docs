@@ -24,4 +24,4 @@ unclear or if you have any suggestions.
   (Slack, HipChat, Jira, etc.)
 - [Add custom instrumentation](/ruby/instrumentation/index.html)
 - [Security overview](/appsignal/security.html)
-- [Supported Operating Systems](/support/operating-system.html)
+- [Supported Operating Systems](/support/operating-systems.html)
