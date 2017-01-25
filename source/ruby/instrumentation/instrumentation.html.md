@@ -19,7 +19,7 @@ to see all instrumentations Rails uses internally.
 Template renders, `ActiveRecord` queries and caching are instrumented and
 will be shown in the sample:
 
-![Default event tree](/images/screenshots/default_event_tree.png)
+![Default event tree](/images/screenshots/app_performance_sample_timeline_1.png)
 
 That's already very useful, but wouldn't it be great if we could see
 measurements of specific pieces of code you suspect might influence your
@@ -45,7 +45,7 @@ Once you add custom instruments like this AppSignal will start picking them up
 and will show you how much time both an event group (`article_fetcher` in this
 case) and individual events took.
 
-![Event tree with fetcher](/images/screenshots/event_tree_with_fetcher.png)
+![Event tree with fetcher](/images/screenshots/app_performance_sample_timeline_2.png)
 
 In this case you'll notice that this API call is a huge influence on the
 performance of our homepage, which was hidden before. We might want to consider
