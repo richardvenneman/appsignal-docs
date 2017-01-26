@@ -4,19 +4,25 @@ title: "Integrations"
 
 Besides email notifications we can send messages about new exceptions, performance issues and deploys to several 3rd parties. Below is a list of supported external services.
 
+To enable notifications and issue tracker integration for external services, go to the "Integrations" tab in the application's navigation sidebar (on [AppSignal.com](https://appsignal.com) and fill out the form for each service you'd like to enable.
 
-## HipChat
+## Available integrations
 
-Group chat and video chat built for teams.
-
-Website: [https://www.hipchat.com](https://www.hipchat.com)
-
-## Slack
-
-Be less busy.
-
-Website: [https://www.slack.com](https://www.slack.com)
-
+- [Flowdock](#flowdock)
+- [Geckoboard](#geckoboard)
+- [GitHub](#github)
+- [GitLab](#gitlab)
+- [HipChat](#hipchat)
+- [Intercom](#intercom)
+- [JIRA](#jira)
+- [OpsGenie](#opsgenie)
+- [PagerDuty](/application/integrations/pagerduty.html)
+- [Phabricator](#phabricator)
+- [Pivotal Tracker](#pivotal-tracker)
+- [Slack](#slack)
+- [Trello](#trello)
+- [Webhook](/application/integrations/webhooks.html)
+- [Zapier](#zapier)
 
 ## Flowdock
 
@@ -24,6 +30,11 @@ Chat & inbox for teams. One place to talk and stay up-to-date.
 
 Website: [https://www.flowdock.com](https://www.flowdock.com)
 
+## Geckoboard
+
+Use Geckoboard to build clear, effective data dashboards for your business that keep teams informed, motivated and aligned around your KPIs.
+
+Website: [https://www.geckoboard.com/](https://www.geckoboard.com/)
 
 ## GitHub
 
@@ -31,29 +42,19 @@ GitHub is the best place to share code with friends, co-workers, classmates, and
 
 Website: [https://github.com](https://github.com)
 
+## GitLab
 
-## Pivotal Tracker
+Tools for modern developers.
 
-Simple, collaborative project management from the experts in agile software development.
+GitLab unifies issues, code review, CI and CD into a single UI.
 
-Website: [http://www.pivotaltracker.com/](http://www.pivotaltracker.com/)
+Website: [https://gitlab.com](https://gitlab.com)
 
+## HipChat
 
-## Trello
+Group chat and video chat built for teams.
 
-Trello makes it easy to organize anything with anyone.
-
-Website: [https://trello.com](https://trello.com)
-
-To enable notifications and issue tracker integration for external services, go to the "Integrations" tab the site's sidebar and fill out the form for each service you'd like to enable.
-
-## Jira
-
-[JIRA](https://www.atlassian.com/software/jira) by Atlassian is a tracker for teams that plan and build products. It’s available as a self-hosted and cloud hosted solution.
-
-Website: [JIRA](https://www.atlassian.com/software/jira)
-
-For detailed information about setting up (self)hosted Jira, visit the [JIRA page](/getting-started/integrations/jira.html)
+Website: [https://www.hipchat.com](https://www.hipchat.com)
 
 ## Intercom
 
@@ -61,4 +62,48 @@ For detailed information about setting up (self)hosted Jira, visit the [JIRA pag
 
 Website: [Intercom](https://intercom.io)
 
-For detailed information about setting up Intercom, visit the [Intercom page](/getting-started/integrations/intercom.html)
+For detailed information about setting up Intercom, visit the [Intercom page](/application/integrations/intercom.html).
+
+## JIRA
+
+[JIRA](https://www.atlassian.com/software/jira) by Atlassian is a tracker for teams that plan and build products. It’s available as a self-hosted and cloud hosted solution.
+
+Website: [JIRA](https://www.atlassian.com/software/jira)
+
+For detailed information about setting up (self)hosted JIRA, visit the [JIRA page](/getting-started/integrations/jira.html).
+
+## OpsGenie
+
+OpsGenie is an alerting and on-call management solution that provides Dev & Ops teams with flexible schedule management, escalations and alerting via email, SMS, and mobile app notifications.
+
+Website: [https://www.opsgenie.com/](https://www.opsgenie.com/)
+
+## Phabricator
+
+Phabricator is a suite of web-based software development collaboration tools, including the Differential code review tool, the Diffusion repository browser, the Herald change monitoring tool, the Maniphest bug tracker and the Phriction wiki.
+
+Website: [https://phacility.com/phabricator/](https://phacility.com/phabricator/)
+
+## Pivotal Tracker
+
+Simple, collaborative project management from the experts in agile software development.
+
+Website: [http://www.pivotaltracker.com/](http://www.pivotaltracker.com/)
+
+## Slack
+
+Slack brings all your communication together in one place. It's real-time messaging, archiving and search for modern teams.
+
+Website: [https://www.slack.com](https://www.slack.com)
+
+## Trello
+
+Trello makes it easy to organize anything with anyone.
+
+Website: [https://trello.com](https://trello.com)
+
+## Zapier
+
+Zapier makes it easy to automate tasks between web apps.
+
+Website: [https://zapier.com/](https://zapier.com/)
