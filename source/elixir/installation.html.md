@@ -15,40 +15,28 @@ repository][docs-repo].
 
 1. Start by adding `appsignal` to your list of dependencies in `mix.exs`.
 
-```elixir
-# mix.exs
-def deps do
-  [{:appsignal, "~> 0.0"}]
-end
-```
+    ```elixir
+    # mix.exs
+    def deps do
+      [{:appsignal, "~> 0.0"}]
+    end
+    ```
 
 2. Ensure `appsignal` is started before your application.
 
-```elixir
-# mix.exs
-def application do
-  [applications: [:appsignal]]
-end
-```
+    ```elixir
+    # mix.exs
+    def application do
+      [applications: [:appsignal]]
+    end
+    ```
 
-3. If you use the [Phoenix framework][phoenix], make sure you use the
-   `Appsignal.Phoenix` module in your `endpoint.ex` file, just **before** the
-   line where your router module gets called (which should read something like
-   `plug MyApp.Router`).
+3. If you use the [Phoenix framework][phoenix], continue with the [integrating
+   AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.
 
-```elixir
-# lib/my_app/endpoint.ex
-# ...
-use Appsignal.Phoenix
-plug MyApp.Router
-```
-
-For more information on how to integrate AppSignal fully into your Phoenix
-application (monitoring for queries, template rendering and channels) see our
-[Phoenix integration](/elixir/integrations/phoenix.html)
-
-When the AppSignal OTP application starts, it looks for a valid
-configuration (e.g. an AppSignal push key), and start the AppSignal agent.
+After the installation is complete start your application. When the AppSignal
+OTP application starts, it looks for a valid configuration (e.g. an AppSignal
+Push API key), and start the AppSignal agent.
 
 If it can't find a valid configuration, a warning will be logged. See
 the [Configuration](#configuration) section on how to fully configure the
@@ -74,8 +62,8 @@ config :appsignal, :config,
 Alternatively, you can configure AppSignal using OS environment variables.
 
 ```sh
-export APPSIGNAL_APP_NAME=my_first_app
-export APPSIGNAL_PUSH_API_KEY=your-hex-appsignal-key
+export APPSIGNAL_APP_NAME="my_first_app"
+export APPSIGNAL_PUSH_API_KEY="your-hex-appsignal-key"
 ```
 
 For more information about configuring the AppSignal package for Elixir, please
