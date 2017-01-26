@@ -11,6 +11,17 @@ environment variable and the name of the key in the configuration file.
 
 Whether AppSignal is active for this environment, can be `true` or `false`.
 
+## `APPSIGNAL_APP_ENV` / `:env`
+
+- Value: String. Default: `:dev`
+
+The AppSignal environment in which the configuration is stored.
+
+Other valid values are `:test` and `:prod`.
+
+-> This environment variable name for this config was renamed from
+`APPSIGNAL_ENVIRONMENT` to `APPSIGNAL_APP_ENV` after version `0.9.2`.
+
 ## `APPSIGNAL_APP_NAME` / `:name`
 
 - Value: String
@@ -28,17 +39,6 @@ Enable debug logging, this is usually only needed on request from support.
 - Value: Boolean `true`/`false`. Default: `true`
 
 Set this to `false` to disable [host metrics](/metrics/host.html).
-
-## `APPSIGNAL_APP_NAME` / `:env`
-
-- Value: String. Default: `:dev`
-
-The AppSignal environment in which the configuration is stored.
-
-Other valid values are `:test` and `:prod`.
-
--> This environment variable name for this config was renamed from
-`APPSIGNAL_ENVIRONMENT` to `APPSIGNAL_APP_ENV` after version `0.9.2`.
 
 ## `APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters`
 
@@ -89,12 +89,6 @@ Configure the endpoint to send data to AppSignal.
 The [Push API key](/appsignal/terminology.html#push-api-key) to authenticate
 with when sending data to AppSignal.
 
-## `APP_REVISION` / `:revision`
-
-- Value: String
-
-Version (revision) of your application to register.
-
 ## `APPSIGNAL_RUNNING_IN_CONTAINER` / `:running_in_container`
 
 - Value: Boolean `true`/`false`. Default: `false`
@@ -120,3 +114,9 @@ another.
 config :appsignal, :config,
   working_dir_path: "/tmp/project_1/"
 ```
+
+## `APP_REVISION` / `:revision`
+
+- Value: String
+
+Version (revision) of your application to register.
