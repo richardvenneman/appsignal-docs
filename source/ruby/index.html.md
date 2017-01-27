@@ -4,8 +4,26 @@ title: "AppSignal for Ruby"
 
 AppSignal supports the [Ruby language][ruby-lang] with a [Ruby
 gem][appsignal-gem]. The gem supports many frameworks and gems out-of-the-box.
-Some gems and frameworks might require some [custom
-instrumentation](/ruby/instrumentation/index.html).
+Some gems and frameworks might require some custom instrumentation.
+
+It's also supported to add custom instrumentation to your application and get
+even more insights into the performance of your code.
+
+## Table of Contents
+
+- [Configuration](/ruby/configuration/index.html)
+- [Integrations](/ruby/integrations/index.html)
+- [Custom instrumentation](/ruby/instrumentation/index.html)
+- [Ruby implementation support](#ruby-implementation-support)
+
+## Configuration
+
+In the configuration topic we'll explain how to configure AppSignal, what can
+be configured in the Ruby gem, what's the minimal configuration needed and how
+the configuration is loaded.
+
+See our [configuration](/ruby/configuration/index.html) page for the
+configuration documentation of the AppSignal gem.
 
 ## Integrations
 
@@ -15,17 +33,11 @@ Padrino, Grape, and more.
 See our [integrations](/ruby/integrations/index.html) page for the full list
 and implementation details.
 
-## Configuration
+## Custom instrumentation
 
-It's possible to configure the AppSignal Ruby gem using an initializer, a
-configuration file or using environment variables. Read more about [configuring
-AppSignal](/ruby/configuration/index.html).
-
-## Instrumentation
-
-To make your own integrations with AppSignal or to add custom instrumentation
-to your application, see the
-[instrumentation](/ruby/instrumentation/index.html) pages.
+Add custom instrumentation to your application or make your own integrations
+with AppSignal, see the [instrumentation](/ruby/instrumentation/index.html)
+topic for more details.
 
 ## Ruby implementation support
 

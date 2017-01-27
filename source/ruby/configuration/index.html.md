@@ -5,7 +5,7 @@ title: "AppSignal Ruby configuration"
 Configuration. Important, because without it the AppSignal Ruby gem won't
 know which application it's instrumenting or in which environment.
 
-On this topic we'll explain how to configure AppSignal, what can be configured
+In this topic we'll explain how to configure AppSignal, what can be configured
 in the Ruby gem, what's the minimal configuration needed and how the
 configuration is loaded.
 
@@ -16,8 +16,8 @@ configuration is loaded.
   - [Ignore actions](/ruby/configuration/ignore-actions.html)
   - [Ignore errors](/ruby/configuration/ignore-errors.html)
   - [Parameter filtering](/ruby/configuration/parameter-filtering.html)
-- [Example configuration file](#example-configuration-file)
 - [Configuration load order](/ruby/configuration/load-order.html)
+- [Example configuration file](#example-configuration-file)
 
 ## Minimal required configuration
 
@@ -45,16 +45,6 @@ Rails application.
 If you use a framework that is aware of environments and [is supported by the
 AppSignal gem](/ruby/integrations/index.html), the environment is detected
 automatically.
-
-## Configuration load order
-
-We moved the [configuration load order](/ruby/configuration/load-order.html) to
-its own page.
-
-## Configuration options
-
-We moved the [configuration options](/ruby/configuration/options.html) to their
-own page.
 
 ## Example configuration file
 
