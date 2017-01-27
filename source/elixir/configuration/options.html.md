@@ -28,6 +28,15 @@ Other valid values are `:test` and `:prod`.
 
 Name of your application as it should be displayed on AppSignal.com.
 
+## `APPSIGNAL_CA_FILE_PATH` / `:ca_file_path`
+
+- Available since package version `0.12.0`.
+- Value: String. Default: `nil`
+
+Configure the path of the SSL certificate file on your machine. Default is
+`nil` and will use the system default certificate files. Use this option to
+point to another certificate file if there's a problem connecting to our API.
+
 ## `APPSIGNAL_DEBUG` / `:debug`
 
 - Value: Boolean `true`/`false`. Default: `false`
@@ -47,6 +56,15 @@ Set this to `false` to disable [host metrics](/metrics/host.html).
 List of parameter keys that should be ignored using AppSignal filtering. Their
 values will be replaced with `FILTERED` when transmitted to AppSignal. You can
 configure this with a list of keys in the configuration file.
+
+### `APPSIGNAL_HOSTNAME` / `:hostname`
+
+- Available since package version `0.12.0`.
+- Value: String. Default: detected from system.
+
+This overrides the server's hostname. Useful for when you're unable to set a
+custom hostname or when a nondescript id is generated for you on hosting
+services.
 
 ## `APPSIGNAL_HTTP_PROXY` / `:http_proxy`
 
@@ -68,6 +86,22 @@ exceptions will not be transmitted to AppSignal.
 
 List of error classes that will be ignored. Any error raised with this
 error type will not be transmitted to AppSignal.
+
+## `APPSIGNAL_LOG` / `:log`
+
+- Value: Atom. Default: `:file`
+
+Select which logger to the AppSignal agent should use. Accepted values are
+`:file` and `:stdout`. See also the `log_path` configuration.
+
+- `file` (default)
+  - Write all AppSignal logs to the file system.
+- `stdout` (default on [Heroku](http://heroku.com/))
+  - Print AppSignal logs in the parent process' STDOUT instead of to a file.
+    Useful with hosting solutions such as container systems and Heroku.
+
+-> At this time only the Ruby agent supports this feature and the system agent
+   which is used by the Ruby agent does not yet support this.
 
 ## `APPSIGNAL_LOG_PATH` / `:log_path`
 
@@ -96,6 +130,15 @@ with when sending data to AppSignal.
 AppSignal expects to be running on the same machine between different deploys.
 Set this key to `true` if you use a container based deployment system such as
 Docker.
+
+This option is set to `true` on [Heroku](http://heroku.com/).
+
+## `APPSIGNAL_SKIP_SESSION_DATA` / `:skip_session_data`
+
+- Value: Boolean `true`/`false`. Default: `false`
+
+Whether to skip adding session data to exception traces and performance issue
+samples.
 
 ## `APPSIGNAL_WORKING_DIR_PATH` / `:working_dir_path`
 

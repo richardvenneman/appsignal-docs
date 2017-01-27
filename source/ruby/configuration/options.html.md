@@ -65,7 +65,7 @@ Select which logger to the AppSignal agent should use. Accepted values are
 
 - `file` (default)
   - Write all AppSignal logs to the file system.
-- `stdout` (default on Heroku)
+- `stdout` (default on [Heroku](http://heroku.com/))
   - Print AppSignal logs in the parent process' STDOUT instead of to a file.
     Useful with hosting solutions such as container systems and Heroku.
 
@@ -234,8 +234,8 @@ in filtering request parameters.
 - Available since gem version `0.11.0`.
 - Value: Boolean `true`/`false`. Default: `false`
 
-Whether to skip adding session data to exception traces, can be `true` or
-`false`. Default is `false`.
+Whether to skip adding session data to exception traces and performance issue
+samples.
 
 ### `APPSIGNAL_WORKING_DIR_PATH` / `:working_dir_path`
 
