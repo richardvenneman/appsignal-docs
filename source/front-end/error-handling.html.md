@@ -1,5 +1,5 @@
 ---
-title: "Frontend error catching (beta)"
+title: "Frontend error catching <sup>beta</sup>"
 ---
 
 This is a Beta implementation, which means:
