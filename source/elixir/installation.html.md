@@ -11,7 +11,33 @@ documentation, don't hesitate to [contact us][support]. You can also create a
 pull-request on our public [Elixir repository][elixir-repo] or [documentation
 repository][docs-repo].
 
-## Installing the package
+## Installation
+
+### Requirements
+
+Before you can compile the AppSignal package make sure the build/compilation
+tools are installed for your system.
+
+**Ubuntu / Debian**
+
+```
+sudo apt-get update
+sudo apt-get install build-essential
+```
+
+**Alpine Linux**
+
+```
+apk add --update alpine-sdk coreutils
+```
+
+**macOS**
+
+```
+xcode-select --install
+```
+
+### Installing the package
 
 1. Start by adding `appsignal` to your list of dependencies in `mix.exs`.
 
@@ -31,7 +57,9 @@ repository][docs-repo].
     end
     ```
 
-3. If you use the [Phoenix framework][phoenix], continue with the [integrating
+3. Then run `mix deps.get`
+
+4. If you use the [Phoenix framework][phoenix], continue with the [integrating
    AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.
 
 After the installation is complete start your application. When the AppSignal

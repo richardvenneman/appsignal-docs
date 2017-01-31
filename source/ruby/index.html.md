@@ -11,6 +11,7 @@ even more insights into the performance of your code.
 
 ## Table of Contents
 
+- [Installation](/ruby/installation.html)
 - [Configuration](/ruby/configuration/index.html)
 - [Integrations](/ruby/integrations/index.html)
 - [Custom instrumentation](/ruby/instrumentation/index.html)
