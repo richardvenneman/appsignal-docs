@@ -51,32 +51,24 @@ automatically.
 Here's an example of an `appsignal.yml` configuration file. It's recommended
 you only add the configuration you need to your configuration file.
 
+For the full list of options, please see the [configuration
+options](/ruby/configuration/options.html) page.
+
 ```yaml
+# config/appsignal.yml
 default: &defaults
   # Your push api key, it is possible to set this dynamically using ERB:
   # push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
   push_api_key: "65c91e2f-c0f2-4005-8064-ffffec5f7b20"
 
-  # Enable when using docker, by default AppSignal will keep running
-  # this prevents docker containers from shutting down. Enabling this feature
-  # stops AppSignal when there are no more connections open.
-  running_in_container: false
-
   # Your app's name
-  name: "AppSignal"
+  name: "My App"
 
   # Your server's hostname
   hostname: "frontend1.myapp.com"
 
-  # The cuttoff point in ms above which a request is considered slow,
-  # default is 200.
-  slow_request_threshold: 200
-
   # Add default instrumentation of net/http
   instrument_net_http: true
-
-  # Enable (beta) version of our frontend error catcher.
-  enable_frontend_error_catching: true
 
   # Skip session data, it contains private information.
   skip_session_data: true
@@ -104,18 +96,18 @@ development:
 
 staging:
   <<: *defaults
-  active: <%= ENV['APPSIGNAL_ENABLED'] == 'true' %>
+  active: <%= ENV['APPSIGNAL_ACTIVE'] == 'true' %>
 
 production:
   <<: *defaults
-  active: <%= ENV['APPSIGNAL_ENABLED'] == 'true' %>
+  active: <%= ENV['APPSIGNAL_ACTIVE'] == 'true' %>
 
-  # Set different path for log
+  # Set different path for the log file
   log_path: '/home/my_app/app/shared/log'
 
   # Set AppSignal working dir
   working_dir_path: '/tmp/appsignal'
 
-  # We can't connect to the outside world without this proxy
+  # When it's not possible to connect to the outside world without a proxy
   http_proxy: 'proxy.mydomain.com:8080'
 ```
