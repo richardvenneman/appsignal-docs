@@ -15,6 +15,7 @@ even more insights into the performance of your code.
 - [Configuration](/ruby/configuration/index.html)
 - [Integrations](/ruby/integrations/index.html)
 - [Custom instrumentation](/ruby/instrumentation/index.html)
+- [Command line tools](/ruby/command-line/index.html)
 - [Ruby implementation support](#ruby-implementation-support)
 
 ## Configuration
@@ -39,6 +40,15 @@ and implementation details.
 Add custom instrumentation to your application or make your own integrations
 with AppSignal, see the [instrumentation](/ruby/instrumentation/index.html)
 topic for more details.
+
+## Command line tools
+
+The AppSignal Ruby gem ships with several command line tools. These
+tools make it easier to install AppSignal in an application, send deploy
+notifications and diagnose any problems with the installation.
+
+See our [command line tools](/ruby/command-line/index.html) page for a full
+list of all the available commands.
 
 ## Ruby implementation support
 
