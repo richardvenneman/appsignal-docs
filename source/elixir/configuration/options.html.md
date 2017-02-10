@@ -57,7 +57,7 @@ List of parameter keys that should be ignored using AppSignal filtering. Their
 values will be replaced with `FILTERED` when transmitted to AppSignal. You can
 configure this with a list of keys in the configuration file.
 
-### `APPSIGNAL_HOSTNAME` / `:hostname`
+## `APPSIGNAL_HOSTNAME` / `:hostname`
 
 - Available since package version `0.12.0`.
 - Value: String. Default: detected from system.
