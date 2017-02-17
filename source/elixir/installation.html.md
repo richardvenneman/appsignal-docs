@@ -111,6 +111,7 @@ A typical environment configuration file would contain the following.
 ```elixir
 # config/prod.exs
 config :appsignal, :config,
+  active: true,
   name: :my_first_app,
   push_api_key: "your-hex-appsignal-key",
   env: :prod,
