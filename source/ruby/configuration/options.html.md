@@ -123,7 +123,7 @@ Configure the endpoint to send data to AppSignal.
 ### `APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters`
 
 - Available since gem version `1.3.0`.
-- Value: Array<String>. Default: `[]`
+- Value: `Array<String>`. Default: `[]`
 
 List of parameter keys that should be ignored using AppSignal filtering. Their
 values will be replaced with `FILTERED` when transmitted to AppSignal. You can
@@ -152,7 +152,7 @@ complete proxy URL in this configuration key.
 ### `APPSIGNAL_IGNORE_ACTIONS` / `:ignore_actions`
 
 - Available since gem version `0.10.0`.
-- Value: Array<String>. Default: `[]`.
+- Value: `Array<String>`. Default: `[]`.
 
 List of actions that will be ignored, everything that happens including
 exceptions will not be transmitted to AppSignal.
@@ -162,7 +162,7 @@ Read more about [ignoring actions](/ruby/configuration/ignore-actions.html).
 ### `APPSIGNAL_IGNORE_ERRORS` / `:ignore_errors`
 
 - Available since gem version `0.1.0`.
-- Value: Array<String>. Default: `[]`.
+- Value: `Array<String>`. Default: `[]`.
 
 List of error classes that will be ignored. Any exception raised with this
 error class will not be transmitted to AppSignal. Read more about [ignoring
