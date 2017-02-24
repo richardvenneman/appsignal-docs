@@ -80,12 +80,16 @@ complete proxy URL in this configuration key.
 List of actions that will be ignored, everything that happens including
 exceptions will not be transmitted to AppSignal.
 
+Read more about [ignoring actions](/elixir/configuration/ignore-actions.html).
+
 ## `APPSIGNAL_IGNORE_ERRORS` / `:ignore_errors`
 
 - Value: list(String). Default: `[]`.
 
 List of error classes that will be ignored. Any error raised with this
 error type will not be transmitted to AppSignal.
+
+Read more about [ignoring errors](/elixir/configuration/ignore-errors.html).
 
 ## `APPSIGNAL_LOG` / `:log`
 

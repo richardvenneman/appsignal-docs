@@ -26,13 +26,19 @@ specific errors AppSignal will not send alerts when these errors are raised.
 
 ## Appsignal.Transaction.set_error/3
 
-If you want to handle exceptions but still want to track the occurrence you can
-use [`Appsignal.Transaction.set_error/3`](https://hexdocs.pm/appsignal/Appsignal.Transaction.html#set_error/3) to add the exception to the current AppSignal
-transaction.
+If you want to rescue exceptions in your application to prevent crashes, but
+still want to track the occurrence you can use
+[`Appsignal.Transaction.set_error/3`][hexdocs-set_error] to add the exception
+to the current AppSignal transaction.
 
 ```elixir
-stack = System.stacktrace
-Appsignal.Transaction.set_error("name", "message", stack)
+try do
+  raise("Oh no!")
+rescue
+  e ->
+    stack = System.stacktrace
+    Appsignal.Transaction.set_error("ExceptionName", "error message", stack)
+end
 ```
 
 The exception will be tracked by AppSignal like any other error, and it allows
@@ -50,10 +56,11 @@ without an AppSignal transaction.
 AppSignal provides a mechanism to track errors that occur in code that's not in
 a web or background job context, such as Mix tasks. This is useful for
 instrumentation that doesn't automatically create AppSignal transactions to
-profile. 
+profile.
 
-You can use the [`Appsignal.send_error/5`](https://hexdocs.pm/appsignal/Appsignal.html#send_error/6) function to directly send an exception to AppSignal
-from any place in your code without starting an AppSignal transaction first.
+You can use the [`Appsignal.send_error/5`][hexdocs-send_error] function to
+directly send an exception to AppSignal from any place in your code without
+starting an AppSignal transaction first.
 
 ```elixir
 try do
@@ -62,3 +69,6 @@ rescue
   e -> Appsignal.send_error(e)
 end
 ```
+
+[hexdocs-set_error]: https://hexdocs.pm/appsignal/Appsignal.Transaction.html#set_error/3
+[hexdocs-send_error]: https://hexdocs.pm/appsignal/Appsignal.html#send_error/6
