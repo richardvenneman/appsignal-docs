@@ -59,7 +59,10 @@ xcode-select --install
 
 3. Then run `mix deps.get`
 
-4. If you use the [Phoenix framework][phoenix], continue with the [integrating
+4. Then run `mix appsignal.install your-push-api-key` or follow the
+   [manual configuration guide](#configuration).
+
+5. If you use the [Phoenix framework][phoenix], continue with the [integrating
    AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.
 
 After the installation is complete start your application. When the AppSignal
@@ -74,49 +77,46 @@ AppSignal agent.
 
 Before the AppSignal package works you need to configure it. To be able to send
 data to AppSignal you first need to [create an account on
-AppSignal.com](https://appsignal.com/users/sign_up).
+AppSignal.com](https://appsignal.com/users/sign_up). Or, if you already have an
+account, click on the "add app" button on
+[AppSignal.com/accounts](https://appsignal.com/accounts).
 
-During the installation process you will receive a hexadecimal [Push API
-key](/appsignal/terminology.html#push-api-key) which you will need to place in
-your application's `config.exs`.
+During the installation process you can run the `mix appsignal.install` command
+with the hexadecimal [Push API key](/appsignal/terminology.html#push-api-key)
+or manually configure AppSignal using the guide below.
+
+For more information about configuring the AppSignal package for Elixir, please
+read our [configuration documentation](/elixir/configuration/index.html).
+
+### Manual configuration
+
+If you want to manually configure AppSignal you will need to place the
+AppSignal Push API key you receive in the installation process in your
+application's `config/config.exs` configuration file.
+
+Using the AppSignal configuration you are also able to configure an application
+name, environment, revision and more.
 
 ```elixir
 # config/config.exs
 config :appsignal, :config,
   active: true,
-  name: :my_first_app,
-  push_api_key: "your-hex-appsignal-key"
+  name: "My awesome app",
+  push_api_key: "your-push-api-key",
+  env: Mix.env,
+  revision: Mix.Project.config[:version]
 ```
 
 Alternatively, you can configure AppSignal using OS environment variables.
 
 ```sh
-export APPSIGNAL_APP_NAME="my_first_app"
-export APPSIGNAL_PUSH_API_KEY="your-hex-appsignal-key"
+export APPSIGNAL_PUSH_API_KEY="your-push-api-key"
+export APPSIGNAL_APP_NAME="My awesome app"
+export APPSIGNAL_APP_ENV="prod"
 ```
 
 For more information about configuring the AppSignal package for Elixir, please
-read our [configuration documentation](/elixir/configuration/index.html).
-
-## Application environment and version
-
-Running your application you want to let AppSignal know what state your
-application is in.
-
-This includes information about the version (revision) of your application and
-what environment it's running in.
-
-A typical environment configuration file would contain the following.
-
-```elixir
-# config/prod.exs
-config :appsignal, :config,
-  active: true,
-  name: :my_first_app,
-  push_api_key: "your-hex-appsignal-key",
-  env: :prod,
-  revision: Mix.Project.config[:version]
-```
+read our [configuration options page](/elixir/configuration/index.html).
 
 ## Run your application!
 
@@ -129,17 +129,17 @@ error or two you'll also test the error reporting.
 [Contact us][support] if you have questions regarding installation or
 encountered any problems during the installation.
 
-## Optional: Activate more instrumentation in your Phoenix app
+## Optional: Add Phoenix instrumentation
 
 Read more about how you can integrate more instrumentation in your Phoenix
 application in our [integrating Phoenix
 guide](/elixir/integrations/phoenix.html).
 
-## Optional: Adding custom instrumentation
+## Optional: Add custom instrumentation
 
-Add custom instrumentation to your application. Read more about custom
-instrumentation in our [instrumentation
-documentation](/elixir/instrumentation/index.html).
+Add custom instrumentation to your application to get a more in-depth view of
+what's happening in your application. Read more about custom instrumentation in
+our [instrumentation documentation](/elixir/instrumentation/index.html).
 
 [support]: mailto:support@appsignal.com
 [elixir-repo]: https://github.com/appsignal/appsignal-elixir

@@ -38,7 +38,7 @@ configuration file.
 # or config/prod.exs
 config :appsignal, :config,
   name: :my_app,
-  push_api_key: "your-hex-appsignal-key"
+  push_api_key: "your-push-api-key"
 ```
 
 This step will override all given options from the defaults or system

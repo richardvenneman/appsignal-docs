@@ -34,7 +34,7 @@ your application is required to have the following things.
 config :appsignal, :config,
   active: true,
   name: "My awesome app",
-  push_api_key: "your-hex-appsignal-key",
+  push_api_key: "your-push-api-key",
   env: Mix.env
 ```
 
@@ -43,7 +43,7 @@ AppSignal will automatically become active if the `APPSIGNAL_PUSH_API_KEY`
 environment variable is set.
 
 ```elixir
-export APPSIGNAL_PUSH_API_KEY="your-hex-appsignal-key"
+export APPSIGNAL_PUSH_API_KEY="your-push-api-key"
 export APPSIGNAL_APP_NAME="My awesome app"
 export APPSIGNAL_APP_ENV="prod"
 ```
@@ -110,7 +110,7 @@ config :appsignal, :config,
 config :appsignal, :config,
   active: true,
   name: "My awesome app",
-  push_api_key: "your-hex-appsignal-key",
+  push_api_key: "your-push-api-key",
   env: Mix.env,
   revision: Mix.Project.config[:version]
 ```
