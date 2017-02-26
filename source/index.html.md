@@ -20,8 +20,8 @@ unclear or if you have any suggestions.
 
 ## Top documentation pages
 
-- [Ruby integrations](/ruby/integrations/index.html)
-  (Rails, Sinatra, Sidekiq, Capistrano, etc.)
+- [AppSignal for Ruby](/ruby/index.html)
+- [AppSignal for Elixir](/elixir/index.html)
 - [Your first application](/getting-started/new-app.html)
 - [Adding application integrations](/application/integrations/index.html)
   (Slack, HipChat, Jira, etc.)
