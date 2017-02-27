@@ -17,9 +17,9 @@ This diagnostic tool outputs the following:
 - if the configuration is valid and active.
 - if the Push API key is present and valid (internet connection required).
 - if the required system paths exist and are writable.
-- outputs AppSignal version information.
-- outputs information about the host system and Ruby.
-- outputs last lines from the available log files.
+- the AppSignal version information.
+- the information about the host system and Ruby.
+- the last lines from the available log files.
 
 Read more about how to use the diagnose command on the
 [Debugging][debugging] page.
