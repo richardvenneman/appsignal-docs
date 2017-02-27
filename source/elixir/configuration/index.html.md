@@ -91,18 +91,6 @@ config :appsignal, :config,
   active: false
 ```
 
-## Application versions
-
-You can also set information about the version (revision) of your application
-to automatically create [deploy markers](/appsignal/terminology.html#markers)
-when the version is updated.
-
-```elixir
-# config/prod.exs
-config :appsignal, :config,
-  revision: Mix.Project.config[:version]
-```
-
 ## Example configuration
 
 ```elixir
@@ -111,8 +99,7 @@ config :appsignal, :config,
   active: true,
   name: "My awesome app",
   push_api_key: "your-push-api-key",
-  env: Mix.env,
-  revision: Mix.Project.config[:version]
+  env: Mix.env
 ```
 
 ```elixir

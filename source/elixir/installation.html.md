@@ -95,7 +95,7 @@ AppSignal Push API key you receive in the installation process in your
 application's `config/config.exs` configuration file.
 
 Using the AppSignal configuration you are also able to configure an application
-name, environment, revision and more.
+name and environment and more.
 
 ```elixir
 # config/config.exs
@@ -103,8 +103,7 @@ config :appsignal, :config,
   active: true,
   name: "My awesome app",
   push_api_key: "your-push-api-key",
-  env: Mix.env,
-  revision: Mix.Project.config[:version]
+  env: Mix.env
 ```
 
 Alternatively, you can configure AppSignal using OS environment variables.

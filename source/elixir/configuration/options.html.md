@@ -161,9 +161,3 @@ another.
 config :appsignal, :config,
   working_dir_path: "/tmp/project_1/"
 ```
-
-## `APP_REVISION` / `:revision`
-
-- Value: String
-
-Version (revision) of your application to register.
