@@ -13,13 +13,13 @@ architecture and communicate with the AppSignal servers.
 
 This diagnostic tool outputs the following:
 
-- Wether AppSignal can run on the host system.
-- Wether the configuration is valid and active.
-- Wether the Push API key is present and valid (internet connection required).
-- Wether the required system paths exist and are writable.
-- Outputs AppSignal version information.
-- Outputs information about the host system and Ruby.
-- Outputs last lines from the available log files.
+- if AppSignal can run on the host system.
+- if the configuration is valid and active.
+- if the Push API key is present and valid (internet connection required).
+- if the required system paths exist and are writable.
+- outputs AppSignal version information.
+- outputs information about the host system and Ruby.
+- outputs last lines from the available log files.
 
 Read more about how to use the diagnose command on the
 [Debugging][debugging] page.

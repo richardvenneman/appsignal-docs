@@ -195,12 +195,12 @@ process PID, log level indicator and the log message itself.
 
 The available agent components are:
 
-- `process`
+- `process`  
   Language specific implementation (Ruby / Elixir).
-- `extension`
+- `extension`  
   C-lang extension to the language implementation. Runs in the same process as
   `process`.
-- `agent`
+- `agent`  
   AppSignal Rust system agent. A separate process.
 
 ### Log message breakdown
@@ -291,7 +291,7 @@ AppSignal doesn't seem to be working or there are no logs available.
   - Were other libraries updated?
 - What does the AppSignal agent logs say with log-level "debug"?
 - Is the [Operating System](/support/operating-systems.html) supported?
-- Did the "extension" install and load correctly?
+- Did the "extension" install and load correctly?  
   Answers are in the "diagnose" output.
 - Is the application running inside a containerized system?
 
