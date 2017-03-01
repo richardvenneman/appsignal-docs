@@ -34,6 +34,7 @@ task :build_deploy => [:build, :deploy, :cleanup]
 
 desc "Generate redirect rules for old pages in the AWS S3 bucket."
 task :redirects do
+  # A maximum of 50 redirects are supported by AWS S3. Be careful what you redirect!
   redirects = [
     ["contributing", "appsignal/contributing.html"],
     ["getting-started/your-user-account.html", "getting-started/user-account.html"],
@@ -72,7 +73,8 @@ task :redirects do
     ["background-monitoring/rake.html", "ruby/integrations/rake.html"],
     ["background-monitoring/custom.html", "ruby/instrumentation/background-jobs.html"],
     ["security/overview.html", "appsignal/security.html"],
-    ["api/overview.html", "api/index.html"]
+    ["api/overview.html", "api/index.html"],
+    ["ruby/instrumentation/link-templates.html", "application/link-templates.html"]
   ]
   rules = ""
   redirects.each do |old, new|

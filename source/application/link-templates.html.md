@@ -2,26 +2,38 @@
 title: "Link templates"
 ---
 
-AppSignal supports tagging of requests, as described in [Tagging]. These tags
-make it possible to generate URLs to your own application to deep link to pages
-in your own system, such as related user profiles or blog posts.
+AppSignal supports tagging of requests, as described in our tagging guides for
+[Ruby][ruby-tagging] and [Elixir][elixir-tagging]. These tags make it possible
+to generate URLs to your own application to deep link to pages in your own
+system, such as related user profiles or blog posts.
 
 ## Tagging requests
 
 For link templates to work AppSignal needs to have the data necessary to create
 the links. Start by adding tags to request in your application.
 
-Add the following code in a location it's executed for the related request,
-such as a `before_action` block in a Rails application.
+Add the following code in a location where it's executed for the related
+request, such as a `before_action` block in a Ruby on Rails application or
+using Plug in the Elixir Phoenix framework.
 
 ```ruby
+# Ruby example
 Appsignal.tag_request(
   :user_id    => current_user.id
   :account_id => current_account.id
 )
 ```
 
-For more information about tagging requests, please read the [Tagging] page.
+```elixir
+# Elixir example
+Appsignal.Transaction.set_sample_data(
+  "tags",
+  %{user_id: current_user.id, account_id: current_account.id}
+)
+```
+
+For more information about tagging requests, please read the tagging guide for
+[Ruby][ruby-tagging] and [Elixir][elixir-tagging].
 
 ## Creating a link template
 
@@ -47,4 +59,5 @@ generated for each request in the "Overview" section.
 
 ![link templates](/images/screenshots/link_templates_result.png)
 
-[Tagging]: /ruby/instrumentation/tagging.html
+[ruby-tagging]: /ruby/instrumentation/tagging.html
+[elixir-tagging]: /elixir/instrumentation/tagging.html
