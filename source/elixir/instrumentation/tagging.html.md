@@ -20,10 +20,14 @@ tracked by AppSignal. There are a few limitations on tagging though.
 
 Tags that do not meet these limitations are dropped without warning.
 
+## Link templates
+
+Tags can also be used to create link templates. Read more about link templates
+in our [link templates guide](/application/link-templates.html).
+
 ## Sending personal data
 
 Please be mindful of sending personal data about your users to AppSignal. You
-can choose to send user data, but a better workflow would be to send user
-IDs or hashes and use [link
-templates](/ruby/instrumentation/link-templates.html) to link them back to your
-own system.
+can choose to send user data, but a better workflow would be to send user IDs
+or hashes and use [link templates](/application/link-templates.html) to link
+them back to your own system.

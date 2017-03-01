@@ -412,7 +412,7 @@ Now I'm hungry for a stroopwaffle.
 Error and performance issue [samples](#samples) can be tagged. By tagging these
 samples it's easier to find and identify certain issues. By tagging it's
 possible to add more [metadata](#metadata) to a sample that can be used in
-[link templates](/ruby/instrumentation/link-templates.html) to easily link to
+[link templates](/application/link-templates.html) to easily link to
 the relevant data in your own application.
 
 Read more about [tagging requests](/ruby/instrumentation/tagging.html).

@@ -15,4 +15,3 @@ AppSignal.com.
 - [Tagging](/ruby/instrumentation/tagging.html)
 - [Background jobs](/ruby/instrumentation/background-jobs.html)
 - [Method instrumentation](/ruby/instrumentation/method-instrumentation.html)
-- [Link templates](/ruby/instrumentation/link-templates.html)
