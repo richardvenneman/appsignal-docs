@@ -6,6 +6,10 @@ title: "Capistrano"
 supported by the AppSignal Ruby gem, but might require some manual
 configuration.
 
+The Capistrano integration makes sure an AppSignal deploy marker is created on
+every deploy. Read more about
+[deploy markers](/appsignal/terminology.html#markers).
+
 ## Installation
 
 Make sure you load the `appsignal/capistrano` file in Capistrano's `Capfile`.
@@ -42,6 +46,35 @@ set :appsignal_env, :staging
 `appsignal_env` allows you to load a different AppSignal environment when a
 stage name doesn't match the AppSignal environment as named in the AppSignal
 config file or environment variable.
+
+### appsignal_revision (since gem version 0.8.8)
+
+In Capistrano 2 AppSignal is able to fetch the revision from the Capistrano
+config.
+
+In Capistrano 3 however, this is no longer available and setting the
+revision is recommended.
+
+```ruby
+# deploy.rb
+set :appsignal_revision, "my_revision"
+```
+
+The revision can be set manually or fetched from the git repository locally.
+
+```ruby
+# Sets the current branch's git commit SHA as the revision
+set :appsignal_revision, `git log --pretty=format:'%h' -n 1`
+```
+
+If you're using the branch configuration setting Capistrano you can also set
+git to fetch the commit SHA from the selected branch.
+
+```ruby
+set :branch, "master"
+# Sets the selected branch's git commit SHA as the revision
+set :appsignal_revision, `git log --pretty=format:'%h' -n 1 #{fetch(:branch)}`
+```
 
 ## Example applications
 
