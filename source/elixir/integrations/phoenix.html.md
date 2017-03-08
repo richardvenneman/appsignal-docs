@@ -141,29 +141,9 @@ end
 
 ## Custom instrumentation
 
-You might be using your endpoint’s `instrument/4` macro to create custom
-instrumentation. If you want those events to become part of the AppSignal
-timeline as well, you need to create a custom instrumenter module with the help
-of `Appsignal.Phoenix.InstrumenterDSL`.
-
-```elixir
-defmodule PhoenixApp.CustomInstrumenter do
-  import Appsignal.Phoenix.InstrumenterDSL
-
-  instrumenter :phoenix_controller_call
-  instrumenter :phoenix_controller_render
-  instrumenter :custom_event
-  instrumenter :another_custom_event
-end
-```
-
-And then, use that instead of the AppSignal instrumenter in your `config.exs`.
-
-```elixir
-# config/config.exs
-config :phoenix_app, PhoenixApp.Endpoint,
-  instrumenters: [PhoenixApp.CustomInstrumenter]
-```
+[Add custom instrumentation](/elixir/instrumentation/instrumentation.html) to
+keep track of more complex code and get more complete breakdowns of slow
+requests.
 
 [phoenix]: http://www.phoenixframework.org/
 [hex-appsignal]: https://hexdocs.pm/appsignal/
