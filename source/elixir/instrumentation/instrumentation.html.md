@@ -236,7 +236,7 @@ transaction events that are recorded by
 # Pure Elixir example
 defmodule InstrumentationHelpersExample do
   # Include this
-  use Appsignal.Instrumentation.Helpers
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
 
   def call do
     # Start an AppSignal transaction
@@ -335,7 +335,7 @@ in separate functions to make it more reusable.
 ```elixir
 defmodule InstrumentationExample do
   # Include this
-  use Appsignal.Instrumentation.Helpers
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
 
   def instrumented_function do
     # Start an AppSignal transaction
