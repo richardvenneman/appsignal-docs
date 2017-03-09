@@ -244,6 +244,8 @@ defmodule InstrumentationHelpersExample do
       Appsignal.Transaction.generate_id,
       :http_request
     )
+    # Set the action name
+    |> Appsignal.Transaction.set_action("InstrumentationExample/instrumented_function")
 
     instrument(transaction, "query.posts", "Fetching all posts", fn() ->
       # Database queries
@@ -281,7 +283,7 @@ When these are used AppSignal will add the metadata to the currently active
 transaction if any.
 
 ```elixir
-Appsignal.Transaction.set_action("InstrumentationExample#instrumented_function")
+Appsignal.Transaction.set_action("InstrumentationExample/instrumented_function")
 
 # And
 Appsignal.Transaction.set_sample_data(
@@ -344,7 +346,7 @@ defmodule InstrumentationExample do
       :http_request
     )
     # Set the action name of the module/controller and function which is instrumented
-    |> Appsignal.Transaction.set_action("InstrumentationExample#instrumented_function")
+    |> Appsignal.Transaction.set_action("InstrumentationExample/instrumented_function")
     # Add extra data to the transaction. See also our Tagging guide.
     |> Appsignal.Transaction.set_sample_data(
       "environment", %{request_path: "/hello", method: "GET"}
