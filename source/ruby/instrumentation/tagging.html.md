@@ -12,7 +12,7 @@ as in a `before_action` using Rails.
 
 ```ruby
 Appsignal.tag_request(
-   :locale => I18n.locale
+  :locale => I18n.locale
 )
 ```
 
