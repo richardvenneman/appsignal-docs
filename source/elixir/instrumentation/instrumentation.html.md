@@ -188,11 +188,11 @@ the most time was spent during the request.
 defmodule PhoenixExample.PostController do
   use PhoenixExample.Web, :controller
   # Include this
-  use Appsignal.Instrumentation.Helpers
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
 
   def index(conn, _params) do
     # Get the current transaction
-    transaction = Appsignal.TransactionRegistery.lookup(self())
+    transaction = Appsignal.TransactionRegistry.lookup(self())
 
     # Instrument a block of code
     instrument(transaction, "query.posts", "Fetching all posts", fn() ->
