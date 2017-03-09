@@ -68,6 +68,10 @@ that is always run in your application.
 {:ok, _} = Application.ensure_all_started(:appsignal)
 ```
 
+**Note**: This is not required for frameworks that AppSignal integrates with,
+such as Phoenix, but it is for pure Elixir applications and code outside these
+integrations, such as independent tasks or background jobs.
+
 ## Add custom instrumentation
 
 Continue with our guide to [add custom

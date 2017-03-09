@@ -15,6 +15,10 @@ This short guide will help you set up custom instrumentation. More details on
 the usage of certain helpers can be found in the Hex docs for the [AppSignal
 package](https://hexdocs.pm/appsignal/).
 
+**Note**: Make sure you've [integrated
+AppSignal](/elixir/instrumentation/integrating-appsignal.html) before adding
+custom instrumentation to your application.
+
 ## Table of Contents
 
 - [Function decorators](#function-decorators)
@@ -99,6 +103,11 @@ defmodule FunctionDecoratorsExample do
   end
 end
 ```
+
+**Note**: When using pure Elixir applications, make sure that the AppSignal
+application is started before you start a transaction. For more information,
+see how to
+[integrate AppSignal](/elixir/instrumentation/integrating-appsignal.html).
 
 ###^decorator Namespaces
 
@@ -257,6 +266,11 @@ defmodule InstrumentationHelpersExample do
   end
 end
 ```
+
+**Note**: When using pure Elixir applications, make sure that the AppSignal
+application is started before you start a transaction. For more information,
+see how to
+[integrate AppSignal](/elixir/instrumentation/integrating-appsignal.html).
 
 ###^helper Transaction metadata
 
