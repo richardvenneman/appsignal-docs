@@ -28,8 +28,10 @@ All requests to AppSignal API endpoints require a personal API `token` given
 as an URL query parameter for authentication.
 
 ```
-https://appsignal.com/api/endpoint.json?token=personal_api_key
+https://appsignal.com/api/[endpoint].json?token=personal_api_key
 ```
+
+(Replace `[endpoint]` with the endpoint you need.)
 
 Your personal API key can be found on the [personal settings
 screen](https://appsignal.com/users/edit).
