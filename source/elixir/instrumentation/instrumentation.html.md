@@ -60,7 +60,7 @@ defmodule PhoenixExample.PageController do
   end
 
   # Decorate this function to add custom instrumentation
-  @decorate transaction_event
+  @decorate transaction_event()
   defp slow do
     :timer.sleep(1000)
   end
@@ -86,14 +86,14 @@ defmodule FunctionDecoratorsExample do
 
   # No transaction is started beforehand like in Phoenix, so we need to start
   # it ourselves.
-  @decorate transaction
+  @decorate transaction()
   def call do
     slow()
     # ...
   end
 
   # Decorate this function to add custom instrumentation
-  @decorate transaction_event
+  @decorate transaction_event()
   defp slow do
     :timer.sleep(1000)
   end
@@ -116,7 +116,7 @@ defmodule FunctionDecoratorsExample do
   use Appsignal.Instrumentation.Decorators
 
   # No namespace argument defaults to `:http_request`
-  @decorate transaction
+  @decorate transaction()
   def web_function do
     # do stuff
   end
@@ -156,7 +156,7 @@ defmodule FunctionDecoratorsExample.MyChannel do
   use Appsignal.Instrumentation.Decorators
 
   # Add this channel function decorator
-  @decorate channel_action
+  @decorate channel_action()
   def handle_in("ping", _payload, socket) do
     # your code here..
   end
