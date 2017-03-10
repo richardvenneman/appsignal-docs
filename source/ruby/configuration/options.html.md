@@ -14,7 +14,7 @@ environment variable and the name of the key in the configuration file.
 Whether AppSignal is active for this environment, can be `true` or `false`.
 
 When the
-[`APPSIGNAL_PUSH_API_KEY`](#code-appsignal_push_api_endpoint-code-code-endpoint-code)
+[`APPSIGNAL_PUSH_API_KEY`](#appsignal_push_api_endpoint-endpoint)
 environment variable is set, this defaults to `true`.
 
 ### `APPSIGNAL_APP_ENV`

@@ -185,7 +185,7 @@ itself.
 
 By default the agents log "info"-level logs and higher (warning & error). To
 log more data relevant for debugging, enable the [debug
-option](/ruby/configuration/options.html#code-appsignal_debug-code-code-debug-code).
+option](/ruby/configuration/options.html#appsignal_debug-debug).
 
 ### Logs contents
 
@@ -239,7 +239,7 @@ parent process' log output.
 There are two methods of saving logs from the AppSignal library. By writing the
 logs to a log-file and by printing the logs in the process' STDOUT. See the
 [`log`
-configuration](/ruby/configuration/options.html#code-appsignal_log-code-code-log-code)
+configuration](/ruby/configuration/options.html#appsignal_log-log)
 for more information.
 
 Logs written to a log file are not written to your application's log files, but

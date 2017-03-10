@@ -70,7 +70,7 @@ We have two example applications in our examples repository on GitHub.
 
 [sequel]: http://sequel.jeremyevans.net/
 [sequel-rails]: https://github.com/TalentBox/sequel-rails
-[instrument-sequel]: /ruby/configuration/options.html#code-appsignal_instrument_sequel-code-code-instrument_sequel-code
+[instrument-sequel]: /ruby/configuration/options.html#appsignal_instrument_sequel-instrument_sequel
 [instrumentation-issue]: https://github.com/appsignal/appsignal-ruby/issues/91
 [example-app]: https://github.com/appsignal/appsignal-examples/tree/rails-5+sequel
 [example-manual-instrumentation-app]: https://github.com/appsignal/appsignal-examples/tree/rails-5+sequel-manual-instrumentation
