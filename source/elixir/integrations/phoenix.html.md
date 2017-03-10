@@ -49,7 +49,7 @@ default instrumentation events to AppSignal, add the following to your
 
 ```elixir
 # config/config.exs
-config :phoenix_app, PhoenixApp.Endpoint,
+config :my_app, PhoenixApp.Endpoint,
   instrumenters: [Appsignal.Phoenix.Instrumenter]
 ```
 
@@ -61,7 +61,7 @@ to the list of Phoenix instrumenters will result in the
 `phoenix_controller_call` and `phoenix_controller_render` events to become part
 of your request timeline.
 
-For more information on instrumentation please visit the [Appsignal Hex package
+For more information on instrumentation please visit the [AppSignal Hex package
 documentation](https://hexdocs.pm/appsignal/).
 
 ## Template rendering
