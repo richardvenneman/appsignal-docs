@@ -19,17 +19,18 @@
       = stylesheet_link_tag 'ie-lt-9'
       = javascript_include_tag 'html5shiv'
 
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-35502258-1']);
-      _gaq.push(['_setDomainName', 'appsignal.com']);
-      _gaq.push(['_trackPageview']);
-      setTimeout("_gaq.push(['_trackEvent', '60_seconds', 'read'])", 60000);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    - if build?
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35502258-1']);
+        _gaq.push(['_setDomainName', 'appsignal.com']);
+        _gaq.push(['_trackPageview']);
+        setTimeout("_gaq.push(['_trackEvent', '60_seconds', 'read'])", 60000);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
 
   %body
     %header.mod-header
@@ -48,7 +49,9 @@
       .layout-side#navigation
         = partial 'side_nav'
 
-    = partial 'adroll'
+    - if build?
+      = partial 'adroll'
+      %img{:src => "https://appsignal.com/ident.gif?page=#{URI.encode("docs: #{current_page.path}")}"}
 
   <script src="https://use.typekit.net/sdq1pbx.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
