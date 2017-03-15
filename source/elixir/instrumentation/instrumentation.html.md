@@ -46,10 +46,10 @@ a lot of code.
 
 In the following example we have a Phoenix controller with an `index/2`
 function which calls a slow function. The `slow` function is instrumented using
-the AppSignal `transaction_event` decorator which tracks it a separate event in
-this Phoenix request. It will show up on AppSignal.com in the event timeline of
-this transaction sample to provide more insight in where the most time was
-spent during the request.
+the AppSignal `transaction_event` decorator which records it as a separate
+event in this Phoenix request. It will show up on AppSignal.com in the event
+timeline of this transaction sample to provide more insight in where the most
+time was spent during the request.
 
 ```elixir
 # Phoenix controller example
@@ -70,6 +70,24 @@ defmodule PhoenixExample.PageController do
   end
 end
 ```
+
+By default the instrumented functions have no parent group. They are grouped
+under the "other" group. A group all unknown event groups are grouped under.
+
+If you want to group certain events together under the same event group (other
+group are `phoenix_controller`, `phoenix_render`, `ecto`, etc.) you can also
+supply a group name to the `transaction_event` decorator.
+
+```elixir
+@decorate transaction_event("github_api")
+defp get_data_from_github do
+  # Third-party API call
+end
+```
+
+This will create an event `get_data_from_github.github_api` in the event
+timeline. For more information on what how event names are used, please read
+our [event naming guidelines](/api/event-names.html).
 
 ###^decorator Transactions
 
