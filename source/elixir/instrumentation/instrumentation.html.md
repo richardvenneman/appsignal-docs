@@ -240,6 +240,29 @@ defmodule PhoenixExample.PostController do
 end
 ```
 
+**Note**: On Elixir integration versions before TODO, you'll need to pass the
+current transaction to `instrument/4`.
+
+```elixir
+defmodule PhoenixExample.PostController do
+  use PhoenixExample.Web, :controller
+  # Include instrument/4 instead of instrument/3
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
+
+  def index(conn, _params) do
+   # Get the current transaction
+   transaction = Appsignal.TransactionRegistry.lookup(self())
+
+    # Pass the transaction as the first argument to instrument/4
+    instrument(transaction, "query.posts", "Fetching all posts", fn() ->
+      # etc
+    end)
+
+    render conn, "index.html"
+  end
+end
+```
+
 For more information on what event names to use in the `instrument/3` function,
 please read our [event naming guidelines](/api/event-names.html).
 
