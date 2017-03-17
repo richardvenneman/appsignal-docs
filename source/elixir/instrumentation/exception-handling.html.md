@@ -16,7 +16,7 @@ certain errors.
 
 - [Ignore errors](#ignore-errors)
 - [Appsignal.Transaction.set_error/3](#appsignal-transaction-set_error-3)
-- [Appsignal.send_error/5](#appsignal-send_error-5)
+- [Appsignal.send_error/6](#appsignal-send_error-6)
 
 ## Ignore errors
 
@@ -48,17 +48,17 @@ you to provide custom error handling and fallbacks.
 Otherwise the error will be ignored.
 
 Please see
-[`Appsignal.send_error/5`](#appsignal-send_error-5) for sending errors
+[`Appsignal.send_error/6`](#appsignal-send_error-6) for sending errors
 without an AppSignal transaction.
 
-## Appsignal.send_error/5
+## Appsignal.send_error/6
 
 AppSignal provides a mechanism to track errors that occur in code that's not in
 a web or background job context, such as Mix tasks. This is useful for
 instrumentation that doesn't automatically create AppSignal transactions to
 profile.
 
-You can use the [`Appsignal.send_error/5`][hexdocs-send_error] function to
+You can use the [`Appsignal.send_error/6`][hexdocs-send_error] function to
 directly send an exception to AppSignal from any place in your code without
 starting an AppSignal transaction first.
 
