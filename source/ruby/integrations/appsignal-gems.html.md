@@ -2,10 +2,10 @@
 title: "Integration gems"
 ---
 
--> **Deprecated gems**  
--> The gems described on this page are deprecated. They are only used for the
+!> **Deprecated gems**  
+!> The gems described on this page are deprecated. They are only used for the
    appsignal gem version 0.x.  
--> When using the gem 1.x release and up no separate gems are required. Please
+!> When using the gem 1.x release and up no separate gems are required. Please
    consult the
    [supported frameworks](/getting-started/supported-frameworks.html) page what
    configuration integrations might need.

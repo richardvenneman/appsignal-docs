@@ -24,21 +24,34 @@ bundle exec rake build_deploy
 
 ## Content
 
-### Custom markdown tags
+### Markdown customizations
 
 To render notices we've added a custom markdown tag. Use it like so:
 
 ```markdown
--> This is something you should know!
+!> This is a warning!
+-> This is a notice!
+
+# I'm a heading
+#^prefix I'm a heading
 ```
 
 Which will render the following:
 
 ```html
-<div class="notice">
-  <p>This is something you should know.</p>
+<div class="warning">
+  <p>This is a warning!</p>
 </div>
+<div class="notice">
+  <p>This is a notice!</p>
+</div>
+
+<h2><span class="anchor" id="im-a-heading"></span><a href="#im-a-heading">I'm a heading</a></h2>
+<h2><span class="anchor" id="prefix-im-a-heading"></span><a href="#prefix-im-a-heading">I'm a heading</a></h2>
 ```
+
+For more information (and code) about these customizations, please see the
+[`appsignal_markdown.rb`](/blob/master/lib/appsignal_markdown.rb) file.
 
 ## Contributing
 

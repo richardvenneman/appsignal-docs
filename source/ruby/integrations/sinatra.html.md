@@ -21,7 +21,7 @@ configure AppSignal.
 After these steps, start your Sinatra app and wait for data to arrive in
 AppSignal.
 
--> **Recent change**  
+!> **Recent change**  
    Since AppSignal gem version 1.3 you no longer need to manually include the
    `Appsignal::Rack::SinatraInstrumentation` middleware in your application.
    Please remove it from your application.

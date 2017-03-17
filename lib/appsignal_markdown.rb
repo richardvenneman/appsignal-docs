@@ -77,7 +77,10 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
 
   # Add custom tags to content
   def add_custom_tags(text)
-    map = { "-&gt;" => "notice" }
+    map = {
+      "-&gt;" => "notice",
+      "!&gt;" => "warning"
+    }
     regexp = map.map { |k, _| Regexp.escape(k) }.join("|")
 
     md = text.match(/^<p>(#{regexp})/)
@@ -88,7 +91,7 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
     text.gsub!(/#{Regexp.escape(key)}\s+?/, "")
 
     <<-EOH.gsub(/^ {8}/, "")
-      <div class="#{klass}">#{text}</div>
+      <div class="custom-wrapper #{klass}">#{text}</div>
     EOH
   end
 end

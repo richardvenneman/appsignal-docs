@@ -69,17 +69,27 @@
     border: 25px solid #E4EBEF
     max-width: 100%
 
-  .notice
-    background: mix($orange,white,5%)
-    border: 1px solid mix($orange,white,30%)
-    border-radius: $br
-    padding: 15px 30px
+  .custom-wrapper
     margin: 40px 0
+    padding: 15px 30px
+    border-radius: $br
 
     p
       padding: 0
       margin: 0
-      color: rgba($orange,0.8)
+
+  .notice
+    color: rgba($dark,0.8)
+    background: mix($blue,white,5%)
+    border: 1px solid mix($blue,white,30%)
+
+    code
+      color: $darkest
+
+  .warning
+    color: rgba($orange,0.8)
+    background: mix($orange,white,5%)
+    border: 1px solid mix($orange,white,30%)
 
     code
       color: $dark
