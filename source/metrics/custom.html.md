@@ -73,7 +73,7 @@ Appsignal.increment_counter("login_count", 1)
 # Will yield a graph where the `login_count` is 2
 ```
 
--> Only numbers, letters and underscores (`[a-z0-9_]`) are allowed
+-> **Note**: Only numbers, letters and underscores (`[a-z0-9_]`) are allowed
    as metric keys. Any other characters will be replaced with an underscore.
 
 ## Metric dashboards

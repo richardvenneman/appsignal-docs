@@ -20,8 +20,8 @@ The AppSignal environment in which the configuration is stored.
 Other valid values are `:test` and `:prod`.
 
 !> **Note**: This environment variable name for this configuration option was
-!> renamed from `APPSIGNAL_ENVIRONMENT` to `APPSIGNAL_APP_ENV` after version
-!> `0.9.2`.
+   renamed from `APPSIGNAL_ENVIRONMENT` to `APPSIGNAL_APP_ENV` after version
+   `0.9.2`.
 
 ## `APPSIGNAL_APP_NAME` / `:name`
 
@@ -106,7 +106,7 @@ Select which logger to the AppSignal agent should use. Accepted values are
     Useful with hosting solutions such as container systems and Heroku.
 
 -> **Note**: At this time only the Ruby agent supports this feature and the
--> system agent which is used by the Ruby agent does not yet support this.
+   system agent which is used by the Ruby agent does not yet support this.
 
 ## `APPSIGNAL_LOG_PATH` / `:log_path`
 

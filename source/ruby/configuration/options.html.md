@@ -70,7 +70,7 @@ Select which logger to the AppSignal agent should use. Accepted values are
     Useful with hosting solutions such as container systems and Heroku.
 
 -> **Note**: At this time only the Ruby agent supports this feature and the
--> system agent which is used by the Ruby agent does not yet support this.
+   system agent which is used by the Ruby agent does not yet support this.
 
 ### `APPSIGNAL_LOG_PATH` / `:log_path`
 

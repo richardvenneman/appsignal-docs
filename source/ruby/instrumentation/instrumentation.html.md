@@ -37,8 +37,8 @@ instrumentation, as is used by Rails.
 ## AppSignal instrumentation helpers
 
 -> This feature is available since AppSignal for Ruby gem 1.3. If you use an
--> older version please use
--> [ActiveSupport::Notifications](#activesupport-notifications).
+   older version please use
+   [ActiveSupport::Notifications](#activesupport-notifications).
 
 When you add custom instrumentation to your code you'll be able to receive even
 more insights into your application. For example, you have to work with an
@@ -67,7 +67,7 @@ performance of our homepage, which was hidden before. We might want to consider
 caching the articles.
 
 -> **Note**: The name of the event you're instrumenting is important for our
--> processor. Read more about [event naming](/api/event-names.html).
+   processor. Read more about [event naming](/api/event-names.html).
 
 ### Nesting instrumentation
 
@@ -166,11 +166,11 @@ SELECT * FROM users WHERE email = ? AND password = ?
 ## ActiveSupport::Notifications
 
 -> In older versions of the AppSignal gem (1.2 and lower) the
--> `Appsignal.instrument` is not available. If you cannot upgrade, it's still
--> possible to use `ActiveSupport::Notifications` instead.  
--> If you don't want to use the `Appsignal.instrument` helper, but instead want to
--> use `ActiveSupport::Notifications`, you can still do so in AppSignal for Ruby
--> gem 1.3 and higher too.
+   `Appsignal.instrument` is not available. If you cannot upgrade, it's still
+   possible to use `ActiveSupport::Notifications` instead.  
+   If you don't want to use the `Appsignal.instrument` helper, but instead want to
+   use `ActiveSupport::Notifications`, you can still do so in AppSignal for Ruby
+   gem 1.3 and higher too.
 
 The method for instrumenting your code using `ActiveSupport::Notifications`
 is very similar to how AppSignal does it. Using the article fetcher example
@@ -210,4 +210,4 @@ found in the
 [Rails API docs](http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html).
 
 !> **Note**: We do not track private `ActiveSupport::Notifications` events that
-!> start with an exclamation mark (`!`).
+   start with an exclamation mark (`!`).

@@ -5,7 +5,7 @@ title: "AppSignal for Ruby load order"
 The AppSignal Ruby gem can be configured in a couple different ways. Through an
 initializer, with a configuration file or through environment variables.
 
--> In Ruby gem version 2.0 the load order changed! Step 4 and 5 were swapped,
+!> In Ruby gem version 2.0 the load order changed! Step 4 and 5 were swapped,
    making sure that environment variables are loaded after the `appsignal.yml`
    configuration file. Read more about it in the [Pull Request on
    GitHub](https://github.com/appsignal/appsignal-ruby/pull/180).
