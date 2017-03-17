@@ -53,7 +53,7 @@ interface.
 For example:
 
 ```ruby
-Appsignal.instrument(
+ActiveSupport::Notifications.instrument(
   'perform_job.sidekiq',
   :class => item['class'],
   :method => 'perform',
@@ -138,7 +138,7 @@ namespace :my_project do
     )
 
     # Add instrumentation
-    Appsignal.instrument(
+    ActiveSupport::Notifications.instrument(
       'perform_job.some_name_for_this',
       :class => 'Foo',
       :method => 'bar'
@@ -172,7 +172,7 @@ def call(worker, item, queue)
     Appsignal::Transaction::GenericRequest.new({})
   )
 
-  Appsignal.instrument(
+  ActiveSupport::Notifications.instrument(
     'perform_job.sidekiq',
     :class => item['class'],
     :method => 'perform',
