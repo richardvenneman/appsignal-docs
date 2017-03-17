@@ -23,7 +23,13 @@ request and background job. There are two ways of instrumenting your code. With
 AppSignal instrumentation helpers or with ActiveSupport Notifications
 instrumentation, as is used by Rails.
 
--> Note that this page only describes how to add performance instrumentation to
+-> **Note**: Make sure you've [integrated
+   AppSignal](/ruby/instrumentation/integrating-appsignal.html) before adding
+   custom instrumentation to your application if it's not automatically
+   integrated by one of our supported
+   [integrations](/ruby/integrations/index.html).
+
+-> **Note**: This page only describes how to add performance instrumentation to
    your code. To track errors please read our
    [exception handling](/ruby/instrumentation/exception-handling.html) guide.
 

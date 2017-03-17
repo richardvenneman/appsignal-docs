@@ -15,9 +15,15 @@ This short guide will help you set up custom instrumentation. More details on
 the usage of certain helpers can be found in the Hex docs for the [AppSignal
 package](https://hexdocs.pm/appsignal/).
 
-**Note**: Make sure you've [integrated
-AppSignal](/elixir/instrumentation/integrating-appsignal.html) before adding
-custom instrumentation to your application.
+-> **Note**: Make sure you've [integrated
+   AppSignal](/elixir/instrumentation/integrating-appsignal.html) before adding
+   custom instrumentation to your application if it's not automatically
+   integrated by one of our supported
+   [integrations](/elixir/integrations/index.html).
+
+-> **Note**: This page only describes how to add performance instrumentation to
+   your code. To track errors please read our
+   [exception handling](/ruby/instrumentation/exception-handling.html) guide.
 
 ## Table of Contents
 
