@@ -2,9 +2,9 @@
 title: "Resque"
 ---
 
-[Resque](https://github.com/resque/resque) Resque is a Redis-backed Ruby
-library for creating background jobs, placing them on multiple queues, and
-processing them later.
+[Resque](https://github.com/resque/resque) is a Redis-backed Ruby library for
+creating background jobs, placing them on multiple queues, and processing them
+later.
 
 Support for Resque was added in AppSignal Ruby gem version `0.8`.
 
