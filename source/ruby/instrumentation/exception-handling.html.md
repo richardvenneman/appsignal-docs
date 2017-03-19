@@ -170,7 +170,9 @@ rescue => e
 end
 ```
 
-Optionally you can can pass in a hash with tags as the second argument like so:
+Optionally you can can pass in a hash with tags as the second argument. See our
+[Tagging guide](tagging.html) for more information about the tagging parameter
+data structure.
 
 ```ruby
 begin
