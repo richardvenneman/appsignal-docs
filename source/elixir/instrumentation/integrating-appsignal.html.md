@@ -16,7 +16,7 @@ using environment variables.
 Make sure the AppSignal for Elixir package is installed in your application
 using Mix.
 
-Add it as a dependency to your application and add it as an sub application of
+Add it as a dependency to your application and add it as a sub application of
 your application.
 
 ```elixir
