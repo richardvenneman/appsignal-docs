@@ -6,7 +6,7 @@ It's possible that AppSignal does not provide automatic integration for your
 framework of choice, or maybe you're using your own application setup.
 
 When AppSignal does not support something out-of-the-box it's still possible to
-to instrument applications. AppSignal needs to be configured and started once
+instrument applications. AppSignal needs to be configured and started once
 at the beginning of a process. It can be
 [configured](/elixir/configuration/index.html) through Mix configuration or by
 using environment variables.
