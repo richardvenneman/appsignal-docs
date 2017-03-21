@@ -20,8 +20,9 @@ in the Elixir package and what the minimal configuration needed is.
 
 ## Minimal required configuration
 
-For AppSignal for Elixir to send data to AppSignal.com the configuration in
-your application is required to have the following things.
+The minimal required configuration needed by AppSignal for Elixir are the
+following items. If they are not present, AppSignal will not send any data to
+AppSignal.com.
 
 - A valid [Push API Key](/appsignal/terminology.html#push-api-key)
 - An application name
