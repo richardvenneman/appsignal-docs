@@ -105,8 +105,8 @@ Select which logger to the AppSignal agent should use. Accepted values are
   - Print AppSignal logs in the parent process' STDOUT instead of to a file.
     Useful with hosting solutions such as container systems and Heroku.
 
--> **Note**: At this time only the Ruby agent supports this feature and the
-   system agent which is used by the Ruby agent does not yet support this.
+-> **Note**: At this time only the Elixir agent supports this feature and the
+   system agent which is used by the Elixir agent does not yet support this.
 
 ## `APPSIGNAL_LOG_PATH` / `:log_path`
 
