@@ -221,22 +221,19 @@ the most time was spent during the request.
 defmodule PhoenixExample.PostController do
   use PhoenixExample.Web, :controller
   # Include this
-  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 3]
 
   def index(conn, _params) do
-    # Get the current transaction
-    transaction = Appsignal.TransactionRegistry.lookup(self())
-
     # Instrument a block of code
-    instrument(transaction, "query.posts", "Fetching all posts", fn() ->
+    instrument("query.posts", "Fetching all posts", fn() ->
       # Database queries
 
       # Instrument a nested block of code
-      data = instrument(transaction, "request.s3", "Fetching related post data", fn() ->
+      data = instrument("request.s3", "Fetching related post data", fn() ->
         # Third-party API request
       end)
 
-      instrument(transaction, "linking.posts", "Linking post data together", fn() ->
+      instrument("linking.posts", "Linking post data together", fn() ->
         # Linking database data and S3 data
         # Enum.each(data, fn(x) -> "link post to third-party data" end)
       end)
@@ -249,7 +246,30 @@ defmodule PhoenixExample.PostController do
 end
 ```
 
-For more information on what event names to use in the `instrument/4` function,
+**Note**: On Elixir integration versions before 1.1.1, you'll need to pass the
+current transaction to `instrument/4`.
+
+```elixir
+defmodule PhoenixExample.PostController do
+  use PhoenixExample.Web, :controller
+  # Include instrument/4 instead of instrument/3
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
+
+  def index(conn, _params) do
+   # Get the current transaction
+   transaction = Appsignal.TransactionRegistry.lookup(self())
+
+    # Pass the transaction as the first argument to instrument/4
+    instrument(transaction, "query.posts", "Fetching all posts", fn() ->
+      # etc
+    end)
+
+    render conn, "index.html"
+  end
+end
+```
+
+For more information on what event names to use in the `instrument/3` function,
 please read our [event naming guidelines](/api/event-names.html).
 
 ###^helper Transactions
