@@ -240,7 +240,7 @@ defmodule PhoenixExample.PostController do
 end
 ```
 
-**Note**: On Elixir integration versions before TODO, you'll need to pass the
+**Note**: On Elixir integration versions before 1.1.1, you'll need to pass the
 current transaction to `instrument/4`.
 
 ```elixir
