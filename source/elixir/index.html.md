@@ -12,7 +12,7 @@ require some [custom instrumentation](/elixir/instrumentation/index.html).
 - [Installation](/elixir/installation.html) - start here
 - [Configuration](/elixir/configuration/index.html)
 - [Integrating with Phoenix](/elixir/integrations/phoenix.html)
-- [Instrumentation](/elixir/instrumentation/phoenix.html)
+- [Instrumentation](/elixir/instrumentation/index.html)
 
 ## Installation
 

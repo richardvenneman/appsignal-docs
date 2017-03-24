@@ -7,8 +7,8 @@ integration, please follow our [installation guide](/elixir/installation.html).
 
 This page will describe further ways of configuring AppSignal for the [Phoenix
 framework][phoenix]. To add more custom instrumentation to your Phoenix
-application, read the [Phoenix
-instrumentation](/elixir/instrumentation/phoenix.html) documentation.
+application, read the [Elixir
+instrumentation](/elixir/instrumentation/index.html) documentation.
 
 More information can be found in the [AppSignal Hex package
 documentation][hex-appsignal].
