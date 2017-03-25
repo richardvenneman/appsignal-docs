@@ -46,12 +46,12 @@ Which will render the following:
   <p>This is a notice!</p>
 </div>
 
-<h2><span class="anchor" id="im-a-heading"></span><a href="#im-a-heading">I'm a heading</a></h2>
-<h2><span class="anchor" id="prefix-im-a-heading"></span><a href="#prefix-im-a-heading">I'm a heading</a></h2>
+<h1><span class="anchor" id="im-a-heading"></span><a href="#im-a-heading">I'm a heading</a></h1>
+<h1><span class="anchor" id="prefix-im-a-heading"></span><a href="#prefix-im-a-heading">I'm a heading</a></h1>
 ```
 
 For more information (and code) about these customizations, please see the
-[`appsignal_markdown.rb`](/blob/master/lib/appsignal_markdown.rb) file.
+[`appsignal_markdown.rb`](lib/appsignal_markdown.rb) file.
 
 ## Contributing
 
