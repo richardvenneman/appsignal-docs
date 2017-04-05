@@ -15,6 +15,9 @@ created on each deploy.
 
 This tool is available since version 0.2.5 of the AppSignal Ruby gem.
 
+Please read our documentation on [Deploy markers] for recommended alternative
+methods of sending deploy markers to AppSignal.
+
 ## Options
 
 - `--environment` required. The environment of the application being deployed.
@@ -59,3 +62,5 @@ appsignal notify_of_deploy --help
 - Exits with status code `0` if the deploy marker is sent.
 - Exits with status code `1` if the configuration is not valid and active.
 - Exits with status code `1` if the required options aren't present.
+
+[Deploy markers]: /application/markers/deploy-markers.html
