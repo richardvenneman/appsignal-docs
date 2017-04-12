@@ -21,13 +21,13 @@ at [support@appsignal.com](mailto:support@appsignal.com).
 In version 2.1.0 AppSignal switched to an agent built against the [musl
 libc][musl] implementation to [support Alpine Linux][blog-gem-2.1]. Adding
 support for Alpine Linux we switched our agent build over to musl libc. A DNS
-issue was fixed in musl libc version 1.1.13, which we included in AppSignal for
-Ruby gem 2.1.1.
+issue was [fixed in musl libc version 1.1.13][musl-faq-dns], which we included
+in the next releases of AppSignal integrations.
 
-In Ruby gem version 2.1.1 and Elixir package version 0.11.3 we tried to fix the
-["ndots" DNS issue][musl-faq-dns] by hardcoding the DNS servers as a temporary
-solution. This caused problems with setups that use an private internal network
-that does not allow outgoing DNS requests.
+In Ruby gem version 2.1.1 and Elixir package version 0.11.3 we also tried to
+fix the known ["ndots" DNS issue][musl-faq-dns] by hard-coding the DNS servers
+as a temporary solution. This caused problems with setups that use an private
+internal network that does not allow outgoing DNS requests.
 
 ### Symptoms
 
@@ -48,20 +48,19 @@ that does not allow outgoing DNS requests.
 
 No known fix available at this time.
 
-We're reverting the hardcoded DNS servers in future releases for our Ruby gem
-and Elixir package.
-
-This won't fix the musl libc "ndots" bug, but we will provide a configuration
-option for the DNS servers if an application runs into this problem. This
-allows a local DNS server can be set manually if musl libc can't read the DNS
-configuration of the host.
+We're reverting the hard-coded DNS servers in future releases for our Ruby gem
+and Elixir package. This won't fix the musl libc "ndots" bug, but we will
+provide a configuration option for the DNS servers if an application runs into
+this problem. This allows a local DNS server can be set manually if musl libc
+can't read the DNS configuration of the host.
 
 ### Workaround
 
-Allow outgoing DNS requests from within the private network for the machines
-that have AppSignal installed.
+The first workaround is to allow outgoing DNS requests from within the private
+network for the machines that have AppSignal installed.
 
-Revert back to an older AppSignal integration. Recommended versions:
+If allowing outgoing DNS requests doesn't work, revert back to an older
+AppSignal integration. Recommended versions:
 
 - AppSignal for Ruby gem: 2.0.6.
 - AppSignal for Elixir package: 0.9.2.
