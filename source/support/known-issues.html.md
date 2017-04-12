@@ -13,6 +13,8 @@ at [support@appsignal.com](mailto:support@appsignal.com).
 
 - AppSignal for Ruby gem versions 2.1.x
 - AppSignal for Elixir package versions 0.10.x - 1.x.x
+- In combination with hosts running [libc], not musl libc (Alpine Linux).
+  macOS is unaffected.
 
 ### Description
 
@@ -65,6 +67,7 @@ Revert back to an older AppSignal integration. Recommended versions:
 - AppSignal for Elixir package: 0.9.2.
 
 [blog-gem-2.1]: http://blog.appsignal.com/2017/01/31/gem-2-1.html
+[libc]: https://www.gnu.org/software/libc/
 [musl]: https://www.musl-libc.org/
 [musl-faq-dns]: http://wiki.musl-libc.org/wiki/Functional_differences_from_glibc#Name_Resolver_.2F_DNS
 [kubernetes]: https://kubernetes.io/
