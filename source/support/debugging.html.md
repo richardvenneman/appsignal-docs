@@ -7,6 +7,9 @@ procedures to debug where a problem might come from.
 
 Since it's good to share, here are a couple of our procedures.
 
+Also see our list of [known issues](/support/known-issues.html) for a list of
+problems that might affect your application.
+
 ## Table of Contents
 
 - [Diagnose](#diagnose)
@@ -294,6 +297,8 @@ AppSignal doesn't seem to be working or there are no logs available.
 - Did the "extension" install and load correctly?  
   Answers are in the "diagnose" output.
 - Is the application running inside a containerized system?
+- Is your problem mentioned in our list of [known
+  issues](/support/known-issues.html)?
 
 ## Creating a reproducible state
 
