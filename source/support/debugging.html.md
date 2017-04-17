@@ -20,6 +20,7 @@ problems that might affect your application.
   - [Logs contents](#logs-contents)
   - [Log message breakdown](#log-message-breakdown)
   - [Log location](#log-location)
+  - [Log files on Heroku](#log-files-on-heroku)
 - [Is the agent running?](#is-the-agent-running)
 - [Other questions](#other-questions)
 - [Creating a reproducible state](#creating-a-reproducible-state)
@@ -260,11 +261,34 @@ log-file.
 
 If it completely fails to find a writable location to save its logs to, it will
 output them in the STDOUT of the parent application's process. This can also be
-configured with the `:log` option. On the [Heroku](http://heroku.com/) hosting
-platform the agent will log to STDOUT automatically.
+configured with the `:log` option.
+
+The system agent is currently unable to log to STDOUT, so it will always log to
+the `appsignal.log` file even when the log is configured to STDOUT.
 
 To let AppSignal tell you where it will write its logs to, see the output of
 the [diagnose](#diagnose) command.
+
+### Log files on Heroku
+
+On the [Heroku](http://heroku.com/) hosting platform the integration library
+will log to STDOUT automatically. Since the agent can't log to STDOUT it will
+continue to write to the `appsignal.log` file.
+
+On Heroku it's not possible to see the log file contents with `heroku run bash`
+and then read the log file, because of the way Heroku Dynos are containerized.
+
+Heroku provides an (as of writing) beta add-on called "[Heroku
+Exec](https://devcenter.heroku.com/articles/heroku-exec)" to allow executing
+commands in the same dyno container as your application. Using this add-on we
+can read the log file on your application's dynos.
+
+```bash
+# Install the Exec add-on as described on the Heroku website:
+# https://devcenter.heroku.com/articles/heroku-exec
+$ heroku ps:exec
+$ cat /path/to/appsignal.log
+```
 
 ## Is the agent running?
 
