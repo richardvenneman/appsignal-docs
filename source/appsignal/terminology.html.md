@@ -7,6 +7,7 @@ language of AppSignal.
 
 - [Agent](#agent)
 - [Alerting](#alerting)
+- [Allocations](#allocations)
 - [API](#api)
 - [API key](#api-key)
 - [Applications](#applications)
@@ -14,11 +15,13 @@ language of AppSignal.
 - [Blog](#blog)
 - [Changelog](#changelog)
 - [Configuration](#configuration)
+- [CPU usage](#cpu-usage)
 - [Environments](#environments)
 - [Errors](#errors)
 - [Events](#events)
 - [Exceptions](#errors)
 - [Extension](#extension)
+- [Impact](#impact)
 - [Instrumentation](#instrumentation)
 - [Instrumentation events](#instrumentation-events)
 - [Libraries](#libraries)
@@ -26,11 +29,13 @@ language of AppSignal.
 - [Markers](#markers)
 - [Metadata](#metadata)
 - [Metrics](#metrics)
+- [Namespace](#namespace)
 - [Organizations](#organizations)
 - [Owners](#owners)
 - [Performance issues](#performance-issues)
 - [Push API](#push-api)
 - [Push API key](#push-api-key)
+- [Response time](#response-time)
 - [Ruby Magic](#ruby-magic)
 - [Samples](#samples)
 - [Stroopwafels](#stroopwaffles)
@@ -38,6 +43,8 @@ language of AppSignal.
 - [Teams](#teams)
 - [Third-party integrations](#third-party-integrations)
 - [Transactions](#transactions)
+- [Throughput](#troughput)
+- [Queue time](#queue-time)
 - [User account](#user-account)
 
 ## Agent
@@ -69,6 +76,23 @@ integrations](#third-party-integrations) are configured.
 application is running are detected using AppSignal [libraries](#libraries).
 Once a problematic event is detected an alert is sent out to alert users of a
 problem.
+
+## Allocations
+
+During an HTTP request or a background job an application uses memory. Every
+data structure that's loaded and object that's instantiated takes up memory.
+When a request or job handles a lot of data it's possible a lot more memory is
+used than normally.
+
+The AppSignal integration libraries keep track of allocations per
+[transaction](#transactions). The integration also keeps track what part of the
+application allocates more memory objects than other, so it's possible to see
+if the application's ORM or template library was taking up more memory.
+
+On AppSignal.com the number of allocations is displayed in an Integer for an
+action, event groups and for specific events. This allocation number is the
+number of objects have been created in memory during an action/group/event. The
+size of the created object is not tracked.
 
 ## API
 
@@ -170,6 +194,21 @@ The usage of environment variables is also recommended.
 For the configuration of the Ruby agent we recommend you read the
 [configuration topic](/ruby/configuration/index.html) to get started.
 
+## CPU usage
+
+During the operation of an application the CPU usage can vary wildly. Some
+operations of an application can request more CPU time than others.
+
+Other factors can also affect the CPU usage. If the monitored application is
+not the only process on the host machine other processes can also affect the
+CPU usage metric. For example, if a database running on the same machine has to
+perform a complicated query it will request more CPU time.
+
+On AppSignal.com the CPU usage of an application is displayed in two ways. For
+an action where an error/performance issue occurred and for host metrics. This
+way it's possible to see if the performance of an action was directly affected
+by a busy CPU or if the entire host was affected for longer periods of time.
+
 ## Environments
 
 Most [application](#applications) can be run in different modes. During
@@ -217,6 +256,24 @@ communication with each other. The libraries send data to the agent over a UNIX
 socket. To do so in a uniform way the libraries use an extension to the
 programming language they're written in. This extension is written in the
 C-language and installed when the language specific agent is installed.
+
+## Impact
+
+The impact of an action on an application is based on its usage compared to
+other actions. When one controller action or job takes more time or is executed
+more often than others its impact grows.
+
+For example:
+
+- Action A is triggered 1000 times with an average duration of 0.5 seconds.
+  The combined duration is 500 seconds.
+- Action B is triggered 500 times with an average duration of 3 seconds.
+  The combined duration is 1500 seconds.
+
+Total combined duration of both actions is 2000 seconds.
+
+- Action A has an impact of 25% (500 / 2000).
+- Action B has an impact of 75% (1500 / 2000).
 
 ## Instrumentation
 
@@ -301,11 +358,28 @@ couple lines of code it's possible to track and graph data such as the number
 of registered users, visits on a page, database sizes, etc.
 
 Host metrics is about data from the server an application is running on. Data
-such as CPU usage, load averages, memory usage, etc. gives more insight on
-performance issues than just the code itself. Maybe the disk space is running
-out causing the application to run much slower.
+such as [CPU usage](#cpu-usage), load averages, memory usage, etc. gives more
+insight on performance issues than just the code itself. Maybe the disk space
+is running out causing the application to run much slower.
 
 Read more about [metrics](https://appsignal.com/for/metrics) on our tour page.
+
+## Namespace
+
+Namespaces are grouping mechanisms used by AppSignal to differentiate between
+different parts of the same application. By default AppSignal splits an
+application up into two namespaces: "Web" and "Background".
+
+HTTP requests that are being monitored by AppSignal will be added to the "Web"
+namespace and jobs performed by background job libraries are added to the
+"Background" namespace.
+
+It's also possible to create your own custom namespaces using AppSignal for
+Ruby >= 2.2 and AppSignal for Elixir >= 1.3
+([docs](/elixir/instrumentation/instrumentation.html#helper-namespaces)).
+This allows for the grouping of any kind of [transactions](#transaction) to
+another namespace. For example, all HTTP requests to the administration panel
+of an application can be added to the "Admin" namespace.
 
 ## Organizations
 
@@ -371,6 +445,15 @@ users to easily create more applications in an organization, for different
 The Push API key for an application is given during the creation of an new
 application, and can also be found in an [application
 settings'](/application/settings.html#push-amp-deploy) "Push & deploy" tab.
+
+## Response time
+
+The response time of an application's action is the time spent processing the
+action. The longer an action took to perform the more it qualifies as a
+performance issue.
+
+The duration of this action is displayed on AppSignal.com for
+performance issues and in graphs for controllers/jobs and on host-level.
 
 ## Ruby Magic
 
@@ -451,6 +534,24 @@ for processing.
 
 [Tags](#tags) and [metadata](#metadata) are added on transaction-level to more
 easily identify differences between transaction samples.
+
+## Throughput
+
+The throughput of an application is the total number of requests sent through
+an action/job in a certain time frame. The throughput can differ per action and
+per host.
+
+On AppSignal.com the throughput is displayed per action and displayed in graphs
+for every host.
+
+## Queue time
+
+When a server or application is busy processing a lot of requests it's possible
+certain requests are queued before they are processed. The time waiting to be
+processed is referred to as "queue time".
+
+Since queue time can negatively affect users' experience using an application
+this metric is tracked by AppSignal for HTTP requests and background jobs.
 
 ## User account
 
