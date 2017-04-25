@@ -55,6 +55,38 @@ there's a problem connecting to our API.
 
 Enable debug logging, this is usually only needed on request from support.
 
+### `APPSIGNAL_DNS_SERVERS` / `:dns_servers`
+
+- Available since gem version `2.2.0.beta.1`.
+- Value: `Array<String>`. Default: `[]`
+
+Configure DNS servers for the AppSignal agent to use.
+
+```yml
+# config/appsignal.yml
+production:
+  dns_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+```
+
+```sh
+# In the host environment
+export APPSIGNAL_DNS_SERVERS="8.8.8.8,8.8.4.4"
+```
+
+If you're affected by our
+[DNS timeouts](/support/known-issues.html#dns-timeouts), try setting a DNS
+server manually using this option that doesn't use more than __4__ dots in the
+server name.
+
+Acceptable values: `8.8.8.8`, `my.custom.local.server`.
+Not acceptable values: `foo`, `my.awesome.custom.local.dns.server`.
+
+If the DNS server cannot be reached the agent will fall back on the host's DNS
+configuration and output a message in the `appsignal.log` file: `A problem
+occured while setting DNS servers`.
+
 ### `APPSIGNAL_LOG` / `:log`
 
 - Available since gem version `2.0.0`.
