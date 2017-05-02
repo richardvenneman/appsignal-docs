@@ -58,10 +58,11 @@ gem "appsignal", "2.2.0.beta.1"
 In this beta version we've reverted the hard-coded DNS servers. An update for
 our Elixir package will follow soon.
 
-This release won't fix the musl libc "ndots" bug, but provides a configuration
-option for the DNS servers if an application runs into this problem. This
-allows a local DNS server can be set manually if musl libc can't read the DNS
-configuration of the host.
+This release won't fix the musl libc "ndots" bug, but provides a [configuration
+option for the DNS
+servers](/ruby/configuration/options.html#appsignal_dns_servers-dns_servers) if
+an application runs into this problem. This allows a local DNS server can be
+set manually if musl libc can't read the DNS configuration of the host.
 
 ### Workaround
 
