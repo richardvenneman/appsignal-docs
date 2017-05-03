@@ -162,6 +162,9 @@ defmodule FunctionDecoratorsExample do
 end
 ```
 
+For more information about what namespaces are, please see our
+[namespaces](/application/namespaces.html) documentation.
+
 ###^decorator Custom namespaces
 
 You can also create your own namespaces to track transactions in a separate
@@ -365,6 +368,9 @@ Appsignal.Transaction.start(
   :background_job
 )
 ```
+
+For more information about what namespaces are, please see our
+[namespaces](/application/namespaces.html) documentation.
 
 ###^helper Custom namespaces
 

@@ -13,6 +13,7 @@
         Your applications
         = image_tag "arrow.svg"
       %ul
+        %Li= link_with_active 'Namespaces', '/application/namespaces.html'
         %li
           = link_with_active 'Markers', '/application/markers/index.html'
           %ul
@@ -84,6 +85,7 @@
             %li= link_with_active 'Instrumentation', '/ruby/instrumentation/instrumentation.html'
             %li= link_with_active 'Exception handling', '/ruby/instrumentation/exception-handling.html'
             %li= link_with_active 'Tagging', '/ruby/instrumentation/tagging.html'
+            %Li= link_with_active 'Namespaces', '/ruby/instrumentation/namespaces.html'
             %Li= link_with_active 'Ignore instrumentation', '/ruby/instrumentation/ignore-instrumentation.html'
             %li= link_with_active 'Background jobs', '/ruby/instrumentation/background-jobs.html'
             %li= link_with_active 'Method instrumentation', '/ruby/instrumentation/method-instrumentation.html'
@@ -117,6 +119,7 @@
             %li= link_with_active 'Instrumentation', '/elixir/instrumentation/instrumentation.html'
             %li= link_with_active 'Exception handling', '/elixir/instrumentation/exception-handling.html'
             %li= link_with_active 'Tagging', '/elixir/instrumentation/tagging.html'
+            %Li= link_with_active 'Namespaces', '/elixir/instrumentation/namespaces.html'
         %li= link_with_active 'Why a NIF?', '/elixir/why-nif.html'
 
     %li.section

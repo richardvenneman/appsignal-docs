@@ -372,14 +372,12 @@ application up into two namespaces: "Web" and "Background".
 
 HTTP requests that are being monitored by AppSignal will be added to the "Web"
 namespace and jobs performed by background job libraries are added to the
-"Background" namespace.
+"Background" namespace. It's also possible to configure your own namespaces to
+differentiate between requests on an application and a private administration
+panel.
 
-It's also possible to create your own custom namespaces using AppSignal for
-Ruby >= 2.2 and AppSignal for Elixir >= 1.3
-([docs](/elixir/instrumentation/instrumentation.html#helper-namespaces)).
-This allows for the grouping of any kind of [transactions](#transaction) to
-another namespace. For example, all HTTP requests to the administration panel
-of an application can be added to the "Admin" namespace.
+For more information about namespaces, please see our
+[namespaces](/application/namespaces.html) documentation.
 
 ## Organizations
 
