@@ -15,7 +15,7 @@ A Grape application requires a few manual steps to get working.
 
 1. Create a `config/appsignal.yml` configuration file or configure it with
    environment variables. For more information see
-   the [Ruby configuration](ruby/configuration.html) page.
+   the [Ruby configuration](/ruby/configuration.html) page.
 *  Make sure AppSignal is required, `require "appsignal"`.
 *  Require the Grape integration, `require "appsignal/integrations/grape"`.
 *  Start AppSignal, `Appsignal.start`.
