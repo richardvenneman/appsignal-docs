@@ -46,23 +46,16 @@ internal network that does not allow outgoing DNS requests.
 
 ### Solution
 
-We're experimenting with a fix in version `2.2.0.beta.1` of our AppSignal for
-Ruby gem. You can install it by replacing `gem "appsignal"` with the following
-in your `Gemfile`.
+We've reverted the hardcoded DNS servers in AppSignal for gem version `2.2.0`.
+Please upgrade to that version or higher. A fix for AppSignal for Elixir will
+be released in package version `1.3.0` soon.
 
-```ruby
-# Gemfile
-gem "appsignal", "2.2.0.beta.1"
-```
-
-In this beta version we've reverted the hard-coded DNS servers. An update for
-our Elixir package will follow soon.
-
-This release won't fix the musl libc "ndots" bug, but provides a [configuration
-option for the DNS
-servers](/ruby/configuration/options.html#appsignal_dns_servers-dns_servers) if
-an application runs into this problem. This allows a local DNS server can be
-set manually if musl libc can't read the DNS configuration of the host.
+This release won't fix the musl libc "ndots" bug, but provides a configuration
+option for the DNS servers
+([Ruby](/ruby/configuration/options.html#appsignal_dns_servers-dns_servers) &
+Elixir (coming soon)) if an application encounters into this problem. This
+allows for a (local) DNS server to be set manually if musl libc can't read the
+DNS configuration of the host.
 
 ### Workaround
 
