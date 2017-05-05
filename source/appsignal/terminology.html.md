@@ -444,6 +444,10 @@ The Push API key for an application is given during the creation of an new
 application, and can also be found in an [application
 settings'](/application/settings.html#push-amp-deploy) "Push & deploy" tab.
 
+Note: This key is not to be confused with the user specific [API key](#api-key)
+which can be used to authenticate a user on the [AppSignal API](/api) to
+retrieve data about your apps from our system.
+
 ## Response time
 
 The response time of an application's action is the time spent processing the
