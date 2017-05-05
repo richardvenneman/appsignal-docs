@@ -49,7 +49,7 @@ default instrumentation events to AppSignal, add the following to your
 
 ```elixir
 # config/config.exs
-config :my_app, PhoenixApp.Endpoint,
+config :my_app, MyApp.Endpoint,
   instrumenters: [Appsignal.Phoenix.Instrumenter]
 ```
 
