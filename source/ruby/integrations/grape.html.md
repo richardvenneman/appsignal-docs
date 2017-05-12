@@ -48,7 +48,7 @@ require "appsignal/integrations/grape"
 
 module Acme
   class API < Grape::API
-    use Appsignal::Grape::Middleware # Include this middleware
+    insert_before Grape::Middleware::Error, Appsignal::Grape::Middleware # Include this middleware
 
     prefix "api"
     format :json
@@ -57,6 +57,13 @@ module Acme
     end
   end
 end
+```
+
+`insert_before` was introduced in Grape 0.19. If you use an earlier
+version use this approach:
+
+```ruby
+use Appsignal::Grape::Middleware
 ```
 
 After these steps, start your Grape application and wait for data to arrive in
