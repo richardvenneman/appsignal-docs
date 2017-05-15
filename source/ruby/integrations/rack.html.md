@@ -2,43 +2,37 @@
 title: "Rack"
 ---
 
-The AppSignal gem has a few requirements for it to work properly.
+To instrument Rack applications AppSignal provides an instrumentation middleware which can be added to any Rack application.
 
-The gem needs the following information:
-
-* A Push API key.
-* Application details:
-  * root path
-  * environment
-  * name
-* [Middleware that receives instrumentation](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/generic_instrumentation.rb)
-
-You can configure AppSignal with either a `config/appsignal.yml` configuration
-file or using environment variables. For more information, see the
-[Configuration][gem-configuration] page.
-
-An example application:
+To [integrate AppSignal][integrating] in a Rack application we first need to load, [configure][configuration] and start AppSignal.
 
 ```ruby
-require 'appsignal'
+require 'appsignal'                           # Load AppSignal
 
-root_path = File.expand_path('../', __FILE__)  # Application root path
 Appsignal.config = Appsignal::Config.new(
-  root_path,
-  'development',                               # Application environment
-  name: 'logbrowser'                           # Application name
+  File.expand_path('../', __FILE__),          # Application root path
+  'development',                              # Application environment
+  :name => 'logbrowser'                       # Optional configuration hash
 )
 
-Appsignal.start_logger                         # Start logger
-Appsignal.start                                # Start the AppSignal agent
-use Appsignal::Rack::GenericInstrumentation    # Listener middleware
+Appsignal.start                               # Start the AppSignal integration
+Appsignal.start_logger                        # Start logger
 ```
 
-By default all actions are grouped under 'unknown'. You can override this for
-every action by setting the route in the environment.
+Lastly we need to add the instrumentation middleware to the application.
+
+```ruby
+use Appsignal::Rack::GenericInstrumentation
+```
+
+By default all HTTP requests/actions are grouped under the 'unknown' group. You can override this for an action by setting the route in the request environment.
 
 ```ruby
 env['appsignal.route'] = '/homepage'
 ```
 
-[gem-configuration]: /gem-settings/configuration.html
+For better insights it's recommended to [add additional instrumentation][instrumentation] to the Rack application.
+
+[configuration]: /ruby/configuration
+[integrating]: /ruby/instrumentation/integrating-appsignal.html
+[instrumentation]: /ruby/instrumentation/instrumentation.html

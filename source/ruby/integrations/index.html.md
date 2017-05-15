@@ -2,7 +2,8 @@
 title: "Ruby integrations"
 ---
 
-AppSignal works with most popular Ruby frameworks and gems such as:
+AppSignal works with most popular Ruby frameworks and gems out-of-the-box such
+as:
 
 * [Capistrano](capistrano.html)
 * [DataMapper](datamapper.html)
@@ -20,12 +21,14 @@ AppSignal works with most popular Ruby frameworks and gems such as:
 * [Sinatra](sinatra.html)
 * [Webmachine](webmachine.html)
 
-We try to make most integrations work out-of-the-box, but some might require
+We try to make most integrations work automatically, but some might require
 some manual configuration steps.
 
-It's always possible to integrate AppSignal manually in any system.
+If a certain library isn't automatically supported it's possible to [integrate
+AppSignal manually][integrating].
 
 For a more detailed examples on how to integrate AppSignal, visit our [examples
 repository][examples-repo].
 
+[integrating]: /ruby/instrumentation/integrating-appsignal.html
 [examples-repo]: https://github.com/appsignal/appsignal-examples
