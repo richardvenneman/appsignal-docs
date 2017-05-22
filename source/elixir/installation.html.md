@@ -21,14 +21,14 @@ tools are installed for your system.
 **Ubuntu / Debian**
 
 ```
-sudo apt-get update
-sudo apt-get install build-essential
+apt-get update
+apt-get install build-essential curl
 ```
 
 **Alpine Linux**
 
 ```
-apk add --update alpine-sdk coreutils
+apk add --update alpine-sdk coreutils curl
 ```
 
 **macOS**

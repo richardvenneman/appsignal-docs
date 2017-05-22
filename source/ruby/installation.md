@@ -12,8 +12,8 @@ are installed for your system.
 **Ubuntu / Debian**
 
 ```
-sudo apt-get update
-sudo apt-get install build-essential
+apt-get update
+apt-get install build-essential
 ```
 
 **Alpine Linux**
