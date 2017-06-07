@@ -55,6 +55,7 @@ The gem will take care of processing it and sending it to AppSignal.
 |  name  |  string  |   exception name  |
 |  backtrace  |  array  |   array of backtrace lines (strings)  |
 |  path  |  string  |   path where the exception happened  |
+|  params  |  hash/object  |   hash/object of request params |
 |  tags  |  hash/object  |   hash/object of tags (e.g. logged in user id)  |
 |  environment  |  hash/object  |   hash/object of environment variables  |
 
