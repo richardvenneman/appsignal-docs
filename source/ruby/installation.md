@@ -4,6 +4,8 @@ title: "Installing AppSignal for Ruby"
 
 ## Installation
 
+Please follow the [installation guide](/getting-started/new-application.html) when adding a new application to AppSignal.
+
 ### Requirements
 
 Before you can compile the AppSignal gem make sure the build/compilation tools
