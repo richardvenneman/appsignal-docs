@@ -39,5 +39,5 @@ appsignal install 1234-1234-1234-1234
 
 ## Exit codes
 
-- Exits with status code `0` if the diagnose command has finished.
-- Exits with status code `1` if the diagnose command failed to finished.
+- Exits with status code `0` if the command has completed successfully.
+- Exits with status code `1` if the command has completed with an error.

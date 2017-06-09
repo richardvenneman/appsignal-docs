@@ -51,7 +51,7 @@ appsignal demo
 
 ## Exit codes
 
-- Exits with status code `0` if the demo command has finished.
-- Exits with status code `1` if the demo command failed to finished.
+- Exits with status code `0` if the command has completed successfully.
+- Exits with status code `1` if the command has completed with an error.
 
 [debugging]: /support/debugging.html
