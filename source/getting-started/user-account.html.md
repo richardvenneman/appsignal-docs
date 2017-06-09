@@ -41,6 +41,3 @@ per organization. You can also choose whether you want to receive notifications
 per app. If you disable notifications you'll still be able to access the app.
 
 ![Notifications](/images/screenshots/user_notifications.png)
-
-You can subscribe to weekly reports about your app and go into the details of
-your notification settings for each site.
