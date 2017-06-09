@@ -145,7 +145,7 @@ environment uses the same name.
 Multiple applications can exist in one [organization](#organizations).
 
 Read more about applications in our [Applications
-documentation](/application/settings.html).
+documentation](/application/index.html).
 
 ## AppSignal vs Appsignal vs appsignal
 
