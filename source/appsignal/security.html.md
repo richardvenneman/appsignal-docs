@@ -10,9 +10,9 @@ The [Ruby gem](https://github.com/appsignal/appsignal-ruby) and the [Elixir
 package](https://github.com/appsignal/appsignal-elixir) are public code, hosted
 on GitHub. You can browse the source to see how we handle data transmission.
 
-Built into the agents is a system that allows you to scrub any data you don't
-want to send over the wire, such as passwords and identifiable user
-information. See the [Ruby gem
+Built into the Ruby gem and Elixir package is a system that allows you to scrub
+any data you don't want to send over the wire, such as passwords and
+identifiable user information. See the [Ruby gem
 documentation](/ruby/configuration/parameter-filtering.html) and [Elixir
 documentation](https://hexdocs.pm/appsignal/) on how to do this.
 
