@@ -66,5 +66,5 @@ we send a package to so far on our [Stroopwaffles page][waffles-page].
 [appsignal]: https://appsignal.com
 [contact]: mailto:support@appsignal.com
 [waffles-page]: https://appsignal.com/waffles
-[docs]: http://docs.appsignal.com
-[contributing-guide]: http://docs.appsignal.com/contributing
+[docs]: https://docs.appsignal.com
+[contributing-guide]: https://docs.appsignal.com/contributing
