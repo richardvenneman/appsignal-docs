@@ -25,7 +25,11 @@ certain errors.
   - [Handle invalid authenticity tokens](#handle-invalid-authenticity-tokens)
   - [Handle hacking attempts](#handle-hacking-attempts)
 - [Appsignal.set_error](#appsignal-set_error)
+  - [Tagging](#appsignal-set_error-tagging)
+  - [Namespaces](#appsignal-set_error-namespaces)
 - [Appsignal.send_error](#appsignal-send_error)
+  - [Tagging](#appsignal-send_error-tagging)
+  - [Namespaces](#appsignal-send_error-namespaces)
 - [Appsignal.listen_for_error](#appsignal-listen_for_error)
 
 ## Ignore errors
@@ -131,10 +135,6 @@ end
 The exception will be tracked by AppSignal like any other error, and it allows
 you to provide custom error handling and fallbacks.
 
-**Note:** This method only works when there is an AppSignal transaction active.
-Otherwise the error will be ignored. This is true in most automatically
-supported integrations and when using `Appsignal.monitor_transaction`.
-
 ```ruby
 require "yaml"
 Appsignal.monitor_transaction "process_action" do
@@ -147,9 +147,40 @@ Appsignal.monitor_transaction "process_action" do
 end
 ```
 
-Please see
-[`send_error`](#appsignal-send_error) for sending errors
+-> **Note:** This method only works when there is an AppSignal transaction active. Otherwise the error will be ignored. This is true in most automatically supported integrations and when using `Appsignal.monitor_transaction`. Please see [`send_error`](#appsignal-send_error) for sending errors
 without an AppSignal transaction.
+
+###^appsignal-set_error Tagging
+
+Optionally you can can pass in a hash with tags as the second argument.
+
+See our [Tagging guide](tagging.html) for more information about the tagging parameter data structure.
+
+```ruby
+begin
+  # some code
+rescue => e
+  Appsignal.set_error(e, :key => 'value')
+end
+```
+
+-> **Note**: Tagging argument is available since version 2.3.0 of the AppSignal for Ruby gem.
+
+###^appsignal-set_error Namespaces
+
+Optionally you can can pass in custom namespace name as the third argument. This error will then be reported under the specified namespace rather than the default namespace.
+
+See our [Namespace](/application/namespaces.html) for more information about use of custom namespaces.
+
+```ruby
+begin
+  # some code
+rescue => e
+  Appsignal.set_error(e, {}, "admin")
+end
+```
+
+-> **Note**: Namespaces argument is available since version 2.3.0 of the AppSignal for Ruby gem.
 
 ## Appsignal.send_error
 
@@ -170,15 +201,31 @@ rescue => e
 end
 ```
 
-Optionally you can can pass in a hash with tags as the second argument. See our
-[Tagging guide](tagging.html) for more information about the tagging parameter
-data structure.
+###^appsignal-send_error Tagging
+
+Optionally you can can pass in a hash with tags as the second argument.
+
+See our [Tagging guide](tagging.html) for more information about the tagging parameter data structure.
 
 ```ruby
 begin
   # some code
 rescue => e
   Appsignal.send_error(e, :key => 'value')
+end
+```
+
+###^appsignal-send_error Namespaces
+
+Optionally you can can pass in custom namespace name as the third argument. This error will then be reported under the specified namespace rather than the default namespace.
+
+See our [Namespace](/application/namespaces.html) for more information about use of custom namespaces.
+
+```ruby
+begin
+  # some code
+rescue => e
+  Appsignal.send_error(e, {}, "admin")
 end
 ```
 

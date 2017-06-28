@@ -64,7 +64,7 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
   #   <!-- HTML output -->
   #   <h2><span class="anchor" id="my-code-heading"></span><a href="#my-code-heading">My code heading</a></h2>
   def header(text, level)
-    if text =~ /^\^([a-zA-Z0-9-]+) /
+    if text =~ /^\^([a-zA-Z0-9-_]+) /
       anchor_prefix = $1
       text = text.sub("^#{anchor_prefix} ", "")
     end
