@@ -200,6 +200,13 @@ List of error classes that will be ignored. Any exception raised with this
 error class will not be transmitted to AppSignal. Read more about [ignoring
 errors](/ruby/configuration/ignore-errors.html).
 
+### `APPSIGNAL_IGNORE_NAMESPACES` / `:ignore_namespaces`
+
+- Available since gem version `2.3.0`.
+- Value: `Array<String>`. Default: `[]`.
+
+List of namespaces that will be ignored. Any error raised or slow request that occurs in this namespace will not be send to AppSignal. Read more about [namespaces](/application/namespaces.html).
+
 ### `APPSIGNAL_INSTRUMENT_NET_HTTP`/ `:instrument_net_http`
 
 - Available since gem version `0.9.0`.

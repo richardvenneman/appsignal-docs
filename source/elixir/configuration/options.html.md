@@ -92,6 +92,13 @@ error type will not be transmitted to AppSignal.
 
 Read more about [ignoring errors](/elixir/configuration/ignore-errors.html).
 
+## `APPSIGNAL_IGNORE_NAMESPACES` / `:ignore_namespaces`
+
+- Available since package version `1.3.0`.
+- Value: `list(String)`. Default: `[]`.
+
+List of namespaces that will be ignored. Any error raised or slow request that occurs in this namespace will not be send to AppSignal. Read more about [namespaces](/application/namespaces.html).
+
 ## `APPSIGNAL_LOG` / `:log`
 
 - Value: Atom. Default: `:file`
