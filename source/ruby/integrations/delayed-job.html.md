@@ -1,16 +1,10 @@
 ---
-title: "Monitor background jobs"
+title: "Delayed Job"
 ---
 
-Starting with AppSignal gem version 8.0 or higher we monitor Sidekiq and Delayed Job. We've also added a few hooks to create your own background monitoring for other tools.
+[Delayed Job](https://github.com/collectiveidea/delayed_job) is created by the excellent folks at [Shopify](https://shopifyengineering.myshopify.com/) and one of the most popular background processors for Ruby and Rails.
 
-
-## Delayed Job
-
-[Delayed Job](https://github.com/collectiveidea/delayed_job) is created by the excellent folks at Shopify and one of the most popular background processors for Ruby/Rails.
-
-The AppSignal gem has a sidekiq plugin that detects Delayed Job and hooks into the standard Delayed Job callbacks. No further action is required.
-
+The AppSignal gem detects Delayed Job when it's present and hooks into the standard Delayed Job callbacks. No further action is required to enable integration.
 
 ## Procs as Jobs with `display_name`
 
@@ -20,11 +14,10 @@ If you use Procs with a perform method and `display_name` that doesn't return th
 
 To counter this, define an `appsignal_name` method that returns the correct value, this way the Jobs will be grouped correctly.
 
-An example:
+### Example
 
 ```ruby
 class StructJobWithName < Struct.new(:id)
-
   def perform
     return true
   end
@@ -39,6 +32,13 @@ class StructJobWithName < Struct.new(:id)
   def appsignal_name
     "StructJobWithName#perform"
   end
-
 end
 ```
+
+## Changes to the integration
+
+### Queue time
+
+In AppSignal for Ruby gem 2.3.0 a change was made to the queue time registration. In [PR #297](https://github.com/appsignal/appsignal-ruby/pull/297) the start time of the job was used rather than the creation time of the job.
+
+This means that the time from when a job was created until the time it should start is no longer registered as queue time. This will prevent very long queue times from skewing the queue time graphs on AppSignal.com.
