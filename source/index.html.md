@@ -20,11 +20,11 @@ unclear or if you have any suggestions.
 
 ## Top documentation pages
 
+- [Your first application](/getting-started/new-application.html)
 - [AppSignal for Ruby](/ruby/index.html)
 - [AppSignal for Elixir](/elixir/index.html)
-- [Your first application](/getting-started/new-application.html)
-- [Adding application integrations](/application/integrations/index.html)
-  (Slack, HipChat, Jira, etc.)
-- [Add custom instrumentation](/ruby/instrumentation/index.html)
+- Configuration for [Ruby](/ruby/configuration/index.html) and [Elixir](/elixir/configuration/index.html)
+- Custom instrumentation for [Ruby](/ruby/instrumentation/index.html) and [Elixir](/elixir/instrumentation/index.html)
+- [Adding application integrations](/application/integrations/index.html) (Slack, HipChat, Jira, etc.)
 - [Security overview](/appsignal/security.html)
 - [Supported Operating Systems](/support/operating-systems.html)
