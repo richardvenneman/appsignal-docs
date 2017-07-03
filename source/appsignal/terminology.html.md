@@ -209,6 +209,13 @@ an action where an error/performance issue occurred and for host metrics. This
 way it's possible to see if the performance of an action was directly affected
 by a busy CPU or if the entire host was affected for longer periods of time.
 
+## Elixir Alchemy
+
+Want to learn more about Elixir? In our email series Elixir Alchemy (1x p/mo)
+we dive deeper into Elixir and Erlang.
+You can sign up here:
+[appsignal.com/elixir-alchemy](https://appsignal.com/elixir-alchemy).
+
 ## Environments
 
 Most [application](#applications) can be run in different modes. During
