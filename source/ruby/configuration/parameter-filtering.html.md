@@ -12,15 +12,11 @@ AppSignal's own built-in filtering instead.
 
 ## AppSignal parameter filtering (since gem 1.3)
 
-We support basic parameters filtering directly in the gem using a blacklist.
-This parameter filtering supports key based filtering for hashes, the values of
-which will be replaced with the `[FILTERED]` value. There's support for nested
-hashes and nested hashes in arrays. Any hash we encounter in your parameters
-will be filtered.
+We support basic parameters filtering directly in the Ruby gem using a blacklist. This parameter filtering is applied to any query parameters in an HTTP request and any argument for background jobs (since Ruby gem 2.3.0).
 
-To use this filtering, add the following to your `config/appsignal.yml`
-file in the environment group you want it to apply. The
-`filter_parameters` value is an Array of strings.
+This filtering supports key based filtering for hashes, the values of which will be replaced with the `[FILTERED]` value. There's support for nested hashes and nested hashes in arrays. Any hash we encounter in your parameters will be filtered.
+
+To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The `filter_parameters` value is an Array of strings.
 
 ```yml
 # config/appsignal.yml
@@ -30,8 +26,7 @@ production:
     - confirm_password
 ```
 
-It's also possible to set this filter_parameters value using
-[an environment variable](/ruby/configuration/options.html#filter_parameters).
+It's also possible to set this filter_parameters value using [an environment variable](/ruby/configuration/options.html#filter_parameters).
 
 ## Rails parameter filtering
 
