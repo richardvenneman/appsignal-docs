@@ -2,19 +2,13 @@
 title: "Rake task monitoring"
 ---
 
-The AppSignal gem version supports [Rake][rake] since version `0.11.13` of the
-gem.
+The AppSignal gem version supports [Rake][rake] since version `0.11.13` of the gem.
 
-Every exception recorded in a Rake task will be sent to AppSignal and filed
-under the "Background" namespace. Note that we only track exceptions in Rake
-tasks. There is no performance monitoring for Rake tasks.
+Every exception recorded in a Rake task will be sent to AppSignal and filed under the "Background" [namespace](/application/namespaces.html). Note that we only track exceptions in Rake tasks. There is no performance monitoring for Rake tasks.
 
-To integrate performance monitoring in select Rake tasks please see our
-[integration guide][integration] and [custom instrumentation
-guide][custom-instrumentation].
+(To manually integrate performance monitoring in select Rake tasks please see our [integration guide][integration] and [custom instrumentation guide][custom-instrumentation].)
 
-Depending on what version of the AppSignal gem you use and in what context some
-manual steps are required.
+Depending on what version of the AppSignal gem you use and in what context some manual steps are required.
 
 ## Table of Contents
 
@@ -24,9 +18,7 @@ manual steps are required.
 
 ## Rails applications
 
-For Rails applications make sure you depend on the `:environment` task. This
-loads the Rails application into memory and starts AppSignal as part of the
-application.
+For Rails applications make sure you depend on the `:environment` task. This loads the Rails application into memory and starts AppSignal as part of the application.
 
 ```ruby
 # lib/tasks/my_task.rb
@@ -36,26 +28,25 @@ task :my_task => :environment do
 end
 ```
 
-Your Rails application's `Rakefile` should look something like the example
-below. This should already be the case, no need to change it.
+### Rakefile
+
+Your Rails application's `Rakefile` should look something like the example below. This should already be the case, no need to change it.
 
 ```ruby
 # Rakefile
 require File.expand_path("../config/application", __FILE__)
-# require this file for AppSignal gem version 0.11.x
-require "appsignal/integrations/rake"
+
+# Only require this file for gem version < 1.0
+# require "appsignal/integrations/rake"
 
 Rails.application.load_tasks
 ```
 
-For older versions of the AppSignal gem, versions `< 1`, you will need to
-require the Rake integration manually. It is automatically loaded for version
-`1.x` and higher.
+(For older versions of the AppSignal gem, versions `< 1`, you will need to require the Rake integration manually. It is automatically loaded for version `1.x` and higher.)
 
 ## Ruby applications
 
-For pure Ruby applications some extra steps are required to load AppSignal.
-AppSignal needs to be required, configured and loaded. See the example below.
+For pure Ruby applications some extra steps are required to load AppSignal. AppSignal needs to be required, configured and loaded. See the example below.
 
 ```ruby
 # Rakefile
@@ -70,20 +61,17 @@ task :foo do
 end
 ```
 
-For more information on how to integrate AppSignal in a pure Ruby application,
-see our [integration guide][integration].
+For more information on how to integrate AppSignal in a pure Ruby application, see our [integration guide][integration].
 
 ## Examples
 
 ### Rake application
 
-See our example repository for a [Ruby + Rake + AppSignal][ruby-rake-example]
-example application.
+See our example repository for a [Ruby + Rake + AppSignal][ruby-rake-example] example application.
 
 ### A more comprehensive example using threads
 
-Add performance monitoring to a continuously running multi-threaded Rake task
-for `v1.1.6`. Based on work of leehambley.
+Add performance monitoring to a continuously running multi-threaded Rake task for `v1.1.6`. Based on work of leehambley.
 
 ```ruby
 # Rakefile
