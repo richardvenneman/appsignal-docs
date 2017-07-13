@@ -61,8 +61,7 @@ xcode-select --install
 
 3. Then run `mix deps.get`
 
-4. Then run `mix appsignal.install your-push-api-key` or follow the
-   [manual configuration guide](#configuration).
+4. Then run `mix appsignal.install YOUR_PUSH_API_KEY` or follow the [manual configuration guide](#configuration).
 
 5. If you use the [Phoenix framework][phoenix], continue with the [integrating
    AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.

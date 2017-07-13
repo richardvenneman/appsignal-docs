@@ -46,11 +46,10 @@ gem "appsignal"
 
 Then run `bundle install` to instal the gem.
 
-To install AppSignal in your application we recommend you run the `appsignal
-install` command.
+To install AppSignal in your application we recommend you run the `appsignal install` command. Please provide it with your [Push API key](/appsignal/terminology.html#push-api-key) to configure it properly.
 
 ```
-bundle exec appsignal install
+bundle exec appsignal install YOUR_PUSH_API_KEY
 ```
 
 This will present you with an installation script that can integrate
