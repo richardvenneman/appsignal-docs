@@ -61,6 +61,24 @@ task :foo do
 end
 ```
 
+When not relying on our automatic exception handling, and instead using `Appsignal.send_error` another step is required. To flush the recorded error to our [agent](/appsignal/terminology.html#agent) it's necessary to call `Appsignal.stop("rake")`. This is normally done for you with the AppSignal exception handling, but is necessary in this scenario.
+
+```ruby
+# Rakefile
+require "appsignal"
+
+Appsignal.config = Appsignal::Config.new(Dir.pwd, "development")
+Appsignal.start
+Appsignal.start_logger
+
+task :foo do
+  Appsignal.send_error StandardError.new("bar")
+  # "rake" is the parent process name which is being stopped and the reason why
+  # AppSignal is stopping.
+  Appsignal.stop "rake"
+end
+```
+
 For more information on how to integrate AppSignal in a pure Ruby application, see our [integration guide][integration].
 
 ## Examples

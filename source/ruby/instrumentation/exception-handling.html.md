@@ -118,9 +118,11 @@ of a hacking attempt. You could rescue these type of errors and return a 403
 
 ## Appsignal.set_error
 
-If you want to handle exceptions but still want to track the occurrence you can
-use `Appsignal.set_error` to add the exception to the current AppSignal
-transaction.
+-> **Note:** This feature was introduced in version `0.6.6` of the Ruby gem.
+
+There are scenarios where you have your own exception handling and don't want to crash the Ruby process. By adding your own exception handling the error is no longer bubbled up to the AppSignal integration and thus not recorded automatically.
+
+If you still want to track the error you can use `Appsignal.set_error` to add the exception to the current AppSignal transaction. The error will be recorded in AppSignal, but your process will not crash.
 
 ```ruby
 require "yaml"
@@ -132,8 +134,7 @@ rescue SystemCallError => exception
 end
 ```
 
-The exception will be tracked by AppSignal like any other error, and it allows
-you to provide custom error handling and fallbacks.
+The exception will be tracked by AppSignal like any other error, and it allows you to provide custom error handling and fallbacks.
 
 ```ruby
 require "yaml"
@@ -147,7 +148,7 @@ Appsignal.monitor_transaction "process_action" do
 end
 ```
 
--> **Note:** This method only works when there is an AppSignal transaction active. Otherwise the error will be ignored. This is true in most automatically supported integrations and when using `Appsignal.monitor_transaction`. Please see [`send_error`](#appsignal-send_error) for sending errors
+-> **Note:** This method only works when there is an AppSignal transaction active. Otherwise the error will be ignored. This is true in most automatically supported integrations and when using `Appsignal.monitor_transaction`. Please see [`Appsignal.send_error`](#appsignal-send_error) for sending errors
 without an AppSignal transaction.
 
 ###^appsignal-set_error Tagging
@@ -170,7 +171,7 @@ end
 
 Optionally you can can pass in custom namespace name as the third argument. This error will then be reported under the specified namespace rather than the default namespace.
 
-See our [Namespace](/application/namespaces.html) for more information about use of custom namespaces.
+See our [Namespaces](/application/namespaces.html) page for more information about use of custom namespaces.
 
 ```ruby
 begin
@@ -184,14 +185,13 @@ end
 
 ## Appsignal.send_error
 
-AppSignal provides a mechanism to track errors that occur in code that's not in
-a web or background job context, such as Rake tasks. This is useful for
-instrumentation that doesn't automatically create AppSignal transactions to
-profile. This feature was introduced in version `0.6.0` of the Ruby gem.
+-> **Note:** This feature was introduced in version `0.6.0` of the Ruby gem.
 
-You can use the `send_error` method to directly send an exception to AppSignal
-from any place in your code without starting an AppSignal transaction with
-`Appsignal.monitor_transaction` first.
+AppSignal provides a mechanism to track errors that occur in code that's not in a web or background job context, such as separate Ruby tasks.
+
+This is useful for instrumentation that doesn't automatically create AppSignal transactions to profile, such as our [integrations](/ruby/integrations).
+
+You can use the `Appsignal.send_error` method to directly send an exception to AppSignal from any place in your code without starting an AppSignal transaction with `Appsignal.monitor_transaction` first.
 
 ```ruby
 begin
@@ -200,6 +200,27 @@ rescue => e
   Appsignal.send_error(e)
 end
 ```
+
+Exceptions sent with `Appsignal.send_error` will not have an extended context including the action name or Rake task name included in the error incident. This context can currently only be set in an [integration](/ruby/integrations) and all errors will be reported to the `web` namespace by default. See the [namespaces](#appsignal-send_error-namespaces) section for more information on how to customize this.
+
+### Short-lived Ruby processes
+
+The previous example is only useful in a long-living Ruby process, such as a web server or background job worker process.
+
+If your Ruby process is short-lived, such as a Rake task or cron job, you will need to explicitly tell AppSignal the process will be stopped. This will allow AppSignal to flush all of its data from memory to our [agent](/appsignal/terminology.html#agent) and send it to our servers.
+
+```ruby
+begin
+  # some code
+rescue => e
+  Appsignal.send_error(e)
+  # "task" is the parent process name which is being stopped and the reason why
+  # AppSignal is stopping.
+  Appsignal.stop("task")
+end
+```
+
+For another example of `Appsignal.send_error` in such a context see our [Rake integration page](/ruby/integrations/rake.html#ruby-applications).
 
 ###^appsignal-send_error Tagging
 
@@ -219,7 +240,7 @@ end
 
 Optionally you can can pass in custom namespace name as the third argument. This error will then be reported under the specified namespace rather than the default namespace.
 
-See our [Namespace](/application/namespaces.html) for more information about use of custom namespaces.
+See our [Namespaces](/application/namespaces.html) page for more information about use of custom namespaces.
 
 ```ruby
 begin
