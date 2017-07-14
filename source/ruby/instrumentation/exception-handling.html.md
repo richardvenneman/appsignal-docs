@@ -171,7 +171,7 @@ end
 
 Optionally you can can pass in custom namespace name as the third argument. This error will then be reported under the specified namespace rather than the default namespace.
 
-See our [Namespaces](/application/namespaces.html) page for more information about use of custom namespaces.
+See our [Namespaces](/application/namespaces.html) page for more information about using namespaces.
 
 ```ruby
 begin
@@ -240,7 +240,7 @@ end
 
 Optionally you can can pass in custom namespace name as the third argument. This error will then be reported under the specified namespace rather than the default namespace.
 
-See our [Namespaces](/application/namespaces.html) page for more information about use of custom namespaces.
+See our [Namespaces](/application/namespaces.html) page for more information about using namespaces.
 
 ```ruby
 begin
