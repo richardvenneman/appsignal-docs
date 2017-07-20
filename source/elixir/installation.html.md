@@ -33,6 +33,12 @@ apt-get install build-essential curl
 apk add --update alpine-sdk coreutils curl
 ```
 
+**CentOS / Fedora**
+
+```
+yum install gcc gcc-c++ make openssl-devel curl
+```
+
 **macOS**
 
 ```

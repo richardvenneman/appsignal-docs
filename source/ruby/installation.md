@@ -24,6 +24,12 @@ apt-get install build-essential
 apk add --update alpine-sdk coreutils
 ```
 
+**CentOS / Fedora**
+
+```
+yum install gcc gcc-c++ make openssl-devel
+```
+
 **macOS**
 
 ```
