@@ -30,10 +30,10 @@ apk add --update alpine-sdk coreutils
 yum install gcc gcc-c++ make openssl-devel
 ```
 
-**Fedora 25+***
+**Fedora 22+***
 
 ```
-dnf add gcc gcc-c++ make openssl-devel
+dnf install gcc gcc-c++ make openssl-devel
 ```
 
 **macOS**
