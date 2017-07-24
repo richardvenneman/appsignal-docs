@@ -49,12 +49,14 @@ export APP_REVISION="cf8bc42"
 
 ## Manually create a Deploy marker
 
-Manually creating a deploy marker is a method only really useful for small applications that use one application instance. It creates a new deploy marker at a specific time, regardless of the version the application is actually running. This also means it's also more error prone.
+Manually creating a deploy marker is a method that's only really useful for small applications that use one application instance. It creates a new deploy marker at a specific time, regardless of the version the application is actually running. This also means it's also more error prone.
 
 This method requires that you send a POST request to the AppSignal Push API markers endpoint. This can be done with a CLI tool (for Ruby) or with a manual HTTP POST request. There is no CLI tool available for our Elixir package.
-
-For the AppSignal for Ruby gem we have included a CLI tool to allow creation of deploy markers from your app. See the [`notify_of_deploy` CLI command](/ruby/command-line/notify_of_deploy.html) documentation for more information.
 
 To create a Deploy marker with a HTTP POST request you can use curl or some other tool like it. The payload of the request is a JSON object with data about the marker, such as the revision, user who deployed it and the application's repository.
 
 Read more about how to create Deploy markers with our Push API in our [Push API endpoint](/push-api/deploy-marker.html) documentation.
+
+### Ruby CLI tool
+
+For the AppSignal for Ruby gem we have included a CLI tool to allow creation of deploy markers from your app. See the [`notify_of_deploy` CLI command](/ruby/command-line/notify_of_deploy.html) documentation for more information.
