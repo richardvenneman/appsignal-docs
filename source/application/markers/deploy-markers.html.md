@@ -2,7 +2,7 @@
 title: "Deploy markers"
 ---
 
-Markers are little icons used in graphs on AppSignal.com to indicate a change. This can be a code deploy using a "Deploy marker" or a special event with a ["Custom marker"](custom-marker.html). Deploy markers can also be found under the "Deploys" page in the AppSignal.com navigation which provides a performance overview per deploy.
+Markers are little icons used in graphs on AppSignal.com to indicate a change. This can be a code deploy using a "Deploy marker" or a special event with a ["Custom marker"](custom-markers.html). Deploy markers can also be found under the "Deploys" page in the AppSignal.com navigation which provides a performance overview per deploy.
 
 A deploy marker indicates a change in the deployed version of an application. This can be used to group together occurrences of errors and performance issues within a certain time frame. From when the version was deployed until a newer version was deployed.
 
