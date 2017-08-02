@@ -60,14 +60,15 @@ xcode-select --install
     def deps do
       [{:appsignal, "~> 1.0"}]
     end
-    ```
 
-2. Ensure `appsignal` is started before your application.
+2. Ensure `appsignal` is started before your application by adding it to `:extra_applications`.
 
     ```elixir
     # mix.exs
     def application do
-      [applications: [:appsignal]]
+      [
+        extra_applications: [:logger, :appsignal]
+      ]
     end
     ```
 
