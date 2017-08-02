@@ -109,7 +109,7 @@ minimize the amount of code you have to add to your application's channels.
 defmodule SomeApp.MyChannel do
   use Appsignal.Instrumentation.Decorators
 
-  @decorate channel_action
+  @decorate channel_action()
   def handle_in("ping", _payload, socket) do
     # your code here..
   end
