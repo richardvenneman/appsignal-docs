@@ -3,7 +3,7 @@ title: "Custom namespaces for Elixir apps"
 ---
 
 -> **Note**: Support for custom namespaces was added in version 1.3.0 of the
-   AppSignal for Elixir package. (As of writing, unreleased.)
+   AppSignal for Elixir package.
 
 For more information about what namespaces are, please see our
 [namespaces](/application/namespaces.html) documentation.
