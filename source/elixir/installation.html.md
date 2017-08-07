@@ -60,6 +60,7 @@ xcode-select --install
     def deps do
       [{:appsignal, "~> 1.0"}]
     end
+    ```
 
 2. Ensure `appsignal` is started before your application by adding it to `:extra_applications`.
 
@@ -73,11 +74,8 @@ xcode-select --install
     ```
 
 3. Then run `mix deps.get`
-
 4. Then run `mix appsignal.install YOUR_PUSH_API_KEY` or follow the [manual configuration guide](#configuration).
-
-5. If you use the [Phoenix framework][phoenix], continue with the [integrating
-   AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.
+5. If you use the [Phoenix framework][phoenix], continue with the [integrating AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.
 
 After the installation is complete start your application. When the AppSignal
 OTP application starts, it looks for a valid configuration (e.g. an AppSignal
