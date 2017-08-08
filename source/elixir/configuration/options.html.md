@@ -156,13 +156,9 @@ samples.
 
 - Value: String. Default: detected by agent
 
-Override the location where the AppSignal for Elixir can store temporary
-files. Use this is if the default location is not suitable.
+Override the location where the AppSignal for Elixir can store temporary files. Use this is if the default location is not suitable.
 
-If you are running multiple applications using AppSignal on the same server,
-use this configuration option to select different working directories for every
-AppSignal instance, otherwise the two instances could conflict with one
-another.
+If you are running multiple applications using AppSignal on the same server, use this configuration option to select different working directories for every AppSignal instance, otherwise the two instances could conflict with one another. For more information on this scenario see our [Running multiple applications on one host](/application/index.html#running-multiple-applications-on-one-host) documentation.
 
 ```elixir
 # config/config.exs
