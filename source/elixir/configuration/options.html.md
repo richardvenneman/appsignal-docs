@@ -2,8 +2,9 @@
 title: "AppSignal Elixir configuration options"
 ---
 
-The following list includes all configuration options with the name of the
-environment variable and the name of the key in the configuration file.
+The following list includes all configuration options with the name of the environment variable and the name of the key in the configuration file.
+
+For more information on how to configure AppSignal with a configuration file or system environment variables, see our [Configuration](/ruby/configuration) topic.
 
 ## `APPSIGNAL_ACTIVE` / `:active`
 
