@@ -92,7 +92,7 @@ end
 ```
 
 This will create an event `get_data_from_github.github_api` in the event
-timeline. For more information on what how event names are used, please read
+timeline. For more information on how event names are used, please read
 our [event naming guidelines](/api/event-names.html).
 
 ###^decorator Transactions
