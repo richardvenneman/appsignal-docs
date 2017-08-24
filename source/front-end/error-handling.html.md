@@ -49,7 +49,7 @@ The gem will take care of processing it and sending it to AppSignal.
 ## Parameters
 
 | Param | Type | Description  |
-| ------ | ------ | -----: |
+| ------ | ------ | ----- |
 |  action  |  string  |   model/view/component that triggered the exception  |
 |  message  |  string  |  exception message  |
 |  name  |  string  |   exception name  |

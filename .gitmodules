@@ -1,0 +1,3 @@
+[submodule "source/stylesheets/_design_language"]
+	path = source/stylesheets/_design_language
+	url = git@github.com:appsignal/design-language.git

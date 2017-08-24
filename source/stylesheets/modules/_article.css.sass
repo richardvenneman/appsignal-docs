@@ -14,7 +14,7 @@
     margin-bottom: 20px
 
   h2
-    @extend %h-normal
+    @extend %h-medium
     margin-bottom: 10px
     border-bottom: 1px solid $border
     padding-bottom: 10px
@@ -23,16 +23,16 @@
     margin-bottom: 5px
 
   h3
-    @extend %h-small
+    @extend %h-normal
 
   h4
-    @extend %h-tiny
+    @extend %h-small
 
   h1, h2, h3, h4, h5
     position: relative
 
     a
-      color: $font-heading
+      color: $dark
       text-decoration: none
 
     .anchor
@@ -49,9 +49,6 @@
 
   p + h4
     margin-top: 20px
-
-  p, ul, ol
-    color: $font-subheading
 
   p
     margin-bottom: 15px
@@ -129,21 +126,3 @@
         margin-left: 20px
         +hocus
           background: lighten($blue,5)
-
-  .highlight
-    background: lighten($body-bg,3)
-    border: 1px solid darken($border,5)
-    padding: 0
-
-    .gutter
-      text-align: center !important
-      width: 60px
-      background: #fff
-
-    table
-      margin: 0
-
-      td
-        padding: 20px
-        border: none
-        background: none

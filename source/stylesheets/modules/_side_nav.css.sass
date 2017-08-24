@@ -4,14 +4,14 @@
   > ul > li
 
     & + li
-      border-top: 1px solid $body-bg
+      border-top: 1px solid $border-dark
 
   h2
     cursor: pointer
     +font-weight(bold)
     padding: 15px 20px
     line-height: 1
-    background: lighten($body-bg,5)
+    background: $border
     display: flex
     user-select: none
     color: $medium
@@ -24,13 +24,13 @@
 
     & + ul
       display: none
-      border-top: 1px solid $body-bg
+      border-top: 1px solid $border-dark
       padding: 10px 20px
 
       ul
         padding-left: 15px
         margin: 5px 0px
-        border-left: 1px solid $body-bg
+        border-left: 1px solid $border-dark
 
     &.open
       color: $dark

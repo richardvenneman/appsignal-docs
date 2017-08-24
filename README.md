@@ -7,6 +7,15 @@ website][docs].
 - [Documentation][docs]
 - [Support][contact]
 
+## Setup
+
+Run the following commands:
+
+```sh
+git submodule init
+git submodule update
+```
+
 ## Usage
 
 ```sh

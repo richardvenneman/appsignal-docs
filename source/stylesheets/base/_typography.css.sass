@@ -1,78 +1,11 @@
-body
-  font-family: $font-family
-  color: $font-color
-  -webkit-text-size-adjust: 100%
-  -ms-text-size-adjust: 100%
-  text-size-adjust: 100%
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-rendering: optimizeLegibility
-  @extend %t-normal
-
-a
-  text-decoration: underline
+a sup
   color: $blue
-
-  sup
-    color: $blue
-
-  &:hover,
-  &:focus
-    color: darken($blue,8%)
-
-pre,
-code
-  font-family: $pre-font
-
-pre
-  font-size: 12px
-  line-height: 2
-
-  code
-    font-size: inherit
-
-p code,
-li code,
-h2 code
-  padding: 2px 4px
-  background-color: $body-bg
-  color: $font-heading
-  border-radius: 2px
-  font-size: 14px
-
-h2 code
-  font-size: 16px
-  padding: 4px 6px
-  position: relative
-  top: -2px
-
-.highlight
-  overflow: auto
-  margin-bottom: 30px
-  padding: 20px
-  font-family: monaco, monospace
-  border-radius: 5px
-
-  +scrollbar(7px, rgba($font-subheading,.4), #fff)
-
-  pre
-    font-size: 12px
-    line-height: 20px
 
 sup
   vertical-align: super
   font-size: 0.6em
-  color: $gray-medium
   text-transform: uppercase
 
-small
-  font-size: .8em
-  color: $gray
-
-::selection
-  color: #000
-  background: #ccc
-
-::-moz-selection
-  color: #000
-  background: #ccc
+h2,h3,h4
+  code
+    font-size: 0.8em
