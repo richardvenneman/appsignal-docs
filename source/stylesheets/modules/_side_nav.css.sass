@@ -1,51 +1,38 @@
 .mod-side_nav
   line-height: 2
-
-  > ul > li
-
-    & + li
-      border-top: 1px solid $border-dark
+  padding: 50px 30px
 
   h2
     cursor: pointer
     +font-weight(bold)
-    padding: 15px 20px
+    padding: 15px 20px 15px 30px
     line-height: 1
-    background: $border
     display: flex
     user-select: none
-    color: $medium
+    color: $dark
+
+    .fa
+      position: absolute
+      left: 25px
+      opacity: 0.6
 
     a
       color: inherit
 
-    img
-      margin-left: auto
-
     & + ul
       display: none
-      border-top: 1px solid $border-dark
-      padding: 10px 20px
+      margin: -5px 0 10px 30px
 
       ul
         padding-left: 15px
-        margin: 5px 0px
         border-left: 1px solid $border-dark
+        margin: 5px 0px
+        position: relative
 
     &.open
-      color: $dark
-      img
-        transform: rotate(90deg)
-        user-select: none
 
       + ul
         display: block
-
-    &:hover
-      color: $dark
-      img
-        transform: rotate(90deg)
-        user-select: none
 
     sup
       margin-left: 5px
@@ -65,3 +52,4 @@
 
     &.active
       color: $blue
+      +font-weight(bold)

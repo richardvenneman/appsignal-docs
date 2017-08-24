@@ -2,16 +2,17 @@
   %ul
     %li.section
       %h2{:data => { :menu => "getting-started" } }
+        %i.fa.fa-fw.fa-bookmark-o
         Getting started
-        = image_tag "arrow.svg"
       %ul
+        %li= link_with_active 'Overview', '/'
         %li= link_with_active 'Your first application', '/getting-started/new-application.html'
         %li= link_with_active 'Your user account', '/getting-started/user-account.html'
 
     %li.section
       %h2{:data => { :menu => "application" } }
+        %i.fa.fa-fw.fa-window-maximize
         Your applications
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Overview', '/application/index.html'
         %li= link_with_active 'Namespaces', '/application/namespaces.html'
@@ -32,8 +33,8 @@
 
     %li.section
       %h2{:data => { :menu => "organization" } }
+        %i.fa.fa-fw.fa-building-o
         Your organizations
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Overview', '/organization/index.html'
         %li
@@ -46,8 +47,8 @@
 
     %li.section
       %h2{:data => { :menu => "ruby" } }
+        %i.fa.fa-fw.fa-diamond
         AppSignal for Ruby
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Overview', '/ruby/index.html'
         %li= link_with_active 'Installation', '/ruby/installation.html'
@@ -101,8 +102,8 @@
 
     %li.section
       %h2{:data => { :menu => "elixir" } }
+        %i.fa.fa-fw.fa-tint
         AppSignal for Elixir
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Overview', '/elixir/index.html'
         %li= link_with_active 'Installation', '/elixir/installation.html'
@@ -136,23 +137,23 @@
 
     %li.section
       %h2{:data => { :menu => "front-end" } }
+        %i.fa.fa-fw.fa-code
         AppSignal for Front-end <sup>Beta</sup>
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Front-end error catching', '/front-end/error-handling.html'
 
     %li.section
       %h2{:data => { :menu => "metrics" } }
+        %i.fa.fa-fw.fa-area-chart
         Metrics
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Custom metrics <sup>Beta</sup>', '/metrics/custom.html'
         %li= link_with_active 'Host metrics', '/metrics/host.html'
 
     %li.section
       %h2{:data => { :menu => "support" } }
+        %i.fa.fa-fw.fa-comment-o
         Support
-        = image_tag "arrow.svg"
       %ul
         %li= link_to 'Contact us!', 'mailto:support@appsignal.com'
         %li= link_with_active 'Debugging AppSignal', '/support/debugging.html'
@@ -161,8 +162,8 @@
 
     %li.section
       %h2{:data => { :menu => "api" } }
+        %i.fa.fa-fw.fa-terminal
         AppSignal API <sup>Beta</sup>
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Overview', '/api/index.html'
         %li= link_with_active 'Push API <sup>Deprecated</sup>', '/push-api/overview.html'
@@ -174,8 +175,8 @@
 
     %li.section
       %h2{:data => { :menu => "appsignal" } }
+        %i.fa.fa-fw.fa-info
         AppSignal <sup>Meta</sup>
-        = image_tag "arrow.svg"
       %ul
         %li= link_with_active 'Contributing', '/appsignal/contributing.html'
         %li= link_with_active 'Security', '/appsignal/security.html'

@@ -23,13 +23,17 @@ helpers do
     link_to(
       name,
       path,
-      :class => ('active' if path == "/#{current_path}")
+      :class => ('active' if path == "#{current_page.url}")
     )
   end
 
   def edit_link
     page_path = current_page.source_file
-    link_to('Create a pull request', page_path.gsub(DOCS_ROOT, GITHUB_ROOT))
+    link_to(
+      'Create a pull request',
+      page_path.gsub(DOCS_ROOT, GITHUB_ROOT),
+      :class => 'button tiny outline-white'
+    )
   end
 end
 

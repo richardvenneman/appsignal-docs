@@ -1,5 +1,6 @@
 //= require jquery
 //= require navigation_store
+//= require dl_header.js
 
 $(document).ready(function() {
   var navigationElement = $("#navigation");

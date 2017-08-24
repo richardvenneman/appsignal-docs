@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="101px" height="40px" viewBox="0 0 101 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-200.000000, -81.000000)">
+            <g id="Group-2" transform="translate(200.000000, 81.000000)">
+                <rect id="Rectangle-2" fill="#4CAF50" x="46" y="0" width="55" height="40" rx="3"></rect>
+                <rect id="Rectangle-2-Copy" fill="#FFFFFF" x="46" y="0" width="55" height="40" rx="3"></rect>
+                <rect id="Rectangle-3" fill="#FFFFFF" opacity="0.699999988" x="20" y="5" width="20" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="17" width="40" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" fill="#FFFFFF" opacity="0.400000006" x="10" y="29" width="30" height="6" rx="3"></rect>
+                <polyline id="Path-2" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="63.1639195 13 71 20.4431277 63 28"></polyline>
+                <path d="M76,28 L86,28" id="Path-3" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

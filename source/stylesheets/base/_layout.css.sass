@@ -1,5 +1,6 @@
 $sidebar-small: 240px
 $sidebar: 320px
+$full: 960px
 
 *
   box-sizing: border-box
@@ -11,41 +12,37 @@ img
 html
   height: 100%
 
-body
-  height: 100%
-
-
-.layout-wrap
-  @extend %clearfix
-  margin: 0 auto
-  max-width: 1200px
-
-  +min-width(800px)
-    padding-left: $sidebar-small + 40px
-
-  +min-width(1280px)
-    padding-left: $sidebar + 40px
-
-.layout-main
-  +min-width(800px)
-    margin-top: 80px
+.layout-wrapper
+  +min-width($full)
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-height: calc(100vh - 80px)
+  margin-top: 80px
 
 .layout-side
-  background: #fff
-  border: 1px solid $border-dark
-  border-radius: 5px
-  margin: 30px
-  z-index: 100
+  background: $border
 
-  +min-width(800px)
+  +min-width($full)
     position: fixed
-    left: 30px
-    max-height: calc(100vh - 160px)
-    top: 120px
-    overflow-y: auto
-    width: $sidebar-small
-    margin: 0
-
-  +min-width(1280px)
-    left: calc(50% - 600px)
+    left: 0
+    top: 80px
     width: $sidebar
+    overflow-y: auto
+    +scrollbar(7px, rgba($medium,.4))
+    height: calc(100vh - 80px)
+
+.layout-main
+  +min-width($full)
+    padding-top: 20px
+    flex: 1
+    margin-left: $sidebar
+
+  .inner
+    width: 100%
+    max-width: $full
+    margin: 0 auto
+
+.layout-footer
+  +min-width($full)
+    margin-left: $sidebar
