@@ -20,6 +20,22 @@ tracked by AppSignal. There are a few limitations on tagging though.
 
 Tags that do not meet these limitations are dropped without warning.
 
+`set_sample_data` can be called multiple times, the given data will be merged, for example:
+
+```elixir
+Appsignal.Transaction.set_sample_data("tags", %{locale: "en"})
+Appsignal.Transaction.set_sample_data("tags", %{user: "bob"})
+Appsignal.Transaction.set_sample_data("tags", %{locale: "de"})
+```
+will result in the following data:
+
+```elixir
+%{
+  user: "bob",
+  locale: "de"
+}
+```
+
 ## Link templates
 
 Tags can also be used to create link templates. Read more about link templates
