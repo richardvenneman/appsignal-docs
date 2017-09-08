@@ -1,33 +1,44 @@
 ---
-title: "Jira"
+title: "JIRA"
 ---
 
 [JIRA](https://www.atlassian.com/software/jira)  is the tracker for teams planning and building great products.
 
-## Setup
+## Configuring JIRA
 
 Before we can link AppSignal to JIRA we need to configure JIRA to accept our OAuth request.
-On the "Add-ons" screen, look for the "Application links" page and enter: <code>https://appsignal.com</code> in the field for a new Application Link.
 
-If you receive a "No response was received from the URL you entered" error, click "continue".
+Sign in to JIRA and open the "Administration" dropdown in the header. Then select "Applications" from the dropdown.
+
+![Administration navigation](/images/screenshots/jira/navigation.png)
+
+On the "Applications administration" screen look for the "Application links" under the "Integrations" section in the navigation.
+
+![Application links navigation](/images/screenshots/jira/application_links.png)
+
+You'll be presented with a small form for a URL. Enter: `https://appsignal.com` in the field for a new Application Link.
+
+If you receive a "No response was received from the URL you entered" error. Don't be alarmed, this is actually OK. Now click "continue".
 
 ### Application details
 
-In the modal, only fill out the Application Name.
+In the modal, only fill out the "Application Name".
 
-![setup](/images/screenshots/jira/setup.png)
+![Application setup](/images/screenshots/jira/setup.png)
 
-After saving the integration, click "Edit" and go to the "Incoming Oauth" tab in the pop-up.
+After saving the integration, click the "Edit" icon for the newly created integration and go to the "Incoming Authentication" tab in the new modal.
+
+![OAuth navigation](/images/screenshots/jira/oauth_navigation.png)
 
 ### OAuth setup
 
 In the "Incoming OAuth" tab, setup OAuth with the following values:
 
-* Consumer Key: <code>7668c385bf3f09c0219ec178a50ff736</code>
-* Consumer Name: <code>AppSignal</code>
+* Consumer Key: `7668c385bf3f09c0219ec178a50ff736`
+* Consumer Name: `AppSignal`
 * Public Key:
 
-<pre><code>
+```
 -----BEGIN CERTIFICATE-----
 MIICsDCCAhmgAwIBAgIJAJGEAsDfksoFMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV
 BAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
@@ -45,11 +56,23 @@ atA+hxT1jtmYeIyUbVrsS2K9HYZpdijHVXZGHdaf2c56x2d9O8uOpwsbQT+09WNR
 KD4RHjXJPVCYaY1QFk0FHM+5yooD2H3XwNyzCWgSZZ1nc6ZuLXJKY8jtXH9cs0wZ
 utPOCXiudsot4u0pDWHLfsBQr+o=
 -----END CERTIFICATE-----
+```
 
-</code></pre>
+And finally, save the OAuth configuration.
 
-<p></p>
-And save the OAuth configuration.
+## Configuring AppSignal
+
+Now that the JIRA-end is setup up we can link it to AppSignal. Open the application in AppSignal you want to link JIRA to and go to "Integrations" (left-hand side navigation bar, "Configure" section).
+
+Choose "JIRA" from the list of integrations. Enter in the "JIRA installation location" the root path of your JIRA app, e.g. `https://appsignal-test-1.atlassian.net`. Press "Link AppSignal to JIRA".
+
+You'll be presented with an authentication confirmation screen.
+
+![JIRA OAuth confirmation](/images/screenshots/jira/authentication.png)
+
+Upon pressing "Allow" you'll be returned to AppSignal. Here you need to select which project and issue type you want to use for AppSignal issues.
+
+If, upon selecting a issue type, you get an error, please read the ["Errors"](#errors) section for what to do.
 
 ## Errors
 
@@ -62,15 +85,16 @@ Required fields are:
 * Summary
 * Description
 
-In order to fix these messages, you have to add the fields to the JIRA screens by going to the "issues" tab in settings.
+In order to fix these messages, you have to add the fields to the JIRA screens by going to the "Issues" tab in the Administration section. First check which "screen" your issue type is using on the "Issue types" page, in the "Related Schemes" column for the issue type you selected in AppSignal.
 
-Then navigate to "screens".
-![screens](/images/screenshots/jira/screens.png)
+Then navigate to the "Screens" page in the "Screens" section.
 
-And click "configure" for the screen that has been selected in AppSignal.
+![Issues screens page](/images/screenshots/jira/screens.png)
 
-Add the required fields described above.
+Click on "Configure" in the "Actions" column for the relevant "Screen".
 
-![fields](/images/screenshots/jira/fields.png)
+On this "Configure" page you'll be presented with a list of fields that are configured in this JIRA screen. Go to the bottom of the page where the new field dropdown is located and select the required fields, as listed in the ["Errors"](#errors) section, from the dropdown. Go back to AppSignal and relink the JIRA issue type.
 
-Getting Jira working can be a bit of a hassle, but it should work if you follow the above steps with care. If you run into any issues, don't hesitate to contact us at <a href="mailto:contact@appsignal.com">contact@appsignal.com</a> if other errors occur.
+![Issue fields](/images/screenshots/jira/fields.png)
+
+Getting JIRA working can be a bit of a hassle, but it should work if you follow the above steps with care. If you run into any issues, don't hesitate to contact us at [support@appsignal.com](mailto:support@appsignal.com) if other errors occur.
