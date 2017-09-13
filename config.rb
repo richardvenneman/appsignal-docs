@@ -23,7 +23,7 @@ helpers do
     link_to(
       name,
       path,
-      :class => ('active' if path == "#{current_page.url}")
+      :class => ('active' if path == current_page.url)
     )
   end
 
