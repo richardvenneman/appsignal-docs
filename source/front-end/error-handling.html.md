@@ -2,25 +2,69 @@
 title: "Frontend error catching <sup>beta</sup>"
 ---
 
-This is a Beta implementation, which means:
+This is a __Beta__ implementation, which means:
 
 * There is no official JavaScript library supported by AppSignal.
 * The API might change in the future to support more frameworks.
-* This feature is not enabled by default and requires a setup that uses an appsignal.yml config file.
+* This feature is not enabled by default and requires a setup that uses an `appsignal.yml` config file.
 
-## Introduction
+Starting with AppSignal for Ruby gem version <strong>0.11.8</strong> and up we've added a frontend error catcher to our gem.
 
-Starting with AppSignal gem version <strong>0.11.8</strong> and up we've added a frontend error catcher to our gem.
+For use with AppSignal for Elixir, there's an unofficial plug available on GitHub at [tombruijn/appsignal-elixir_js_plug](https://github.com/tombruijn/appsignal-elixir_js_plug).
+
+## Table of Contents
+
+- [Installation](#installation)
+  - [Ruby](#installation-ruby)
+  - [Elixir](#installation-elixir)
+- [Configuration](#configuration)
+  - [Ruby](#configuration-ruby)
+      - [Path](#configuration-ruby-path)
+  - [Elixir](#configuration-elixir)
+- [Request parameters](#request-parameters)
+- [Example of an error JSON POST](#example-of-an-error-json-post)
+- [A sample implementation in CoffeeScript](#a-sample-implementation-in-coffeescript)
 
 ## Installation
 
-If you are using Rails, it's included automatically, but still needs configuration (see below). For Sinatra/Rack apps you need to require the `JSExceptionCatcher`
+###^installation Ruby
+
+If you are using Ruby on Rails, it's included automatically, but still requires some configuration (see below). For Sinatra/Rack apps you need to require the `JSExceptionCatcher` middleware.
 
 ```ruby
 ::Sinatra::Application.use(Appsignal::Rack::JSExceptionCatcher)
 ```
 
+###^installation Elixir
+
+Add the `appsignal_js_plug` package as a dependency in your `mix.exs` file.
+
+```elixir
+# mix.exs
+def deps do
+  [
+    {:appsignal, "~> 1.3"},
+    {:appsignal_js_plug, "~> 0.1.0"}
+  ]
+end
+```
+
+Add the following to your `endpoint.ex` file.
+
+```elixir
+# lib/your_app/endpoint.ex
+plug Plug.Parsers,
+  parsers: [:urlencoded, :multipart, :json],
+  pass: ["*/*"],
+  json_decoder: Poison
+
+use Appsignal.Phoenix # Below the AppSignal (Phoenix) plug
+plug Appsignal.JSPlug
+```
+
 ## Configuration
+
+###^configuration Ruby
 
 Enable frontend error catching by enabling `enable_frontend_error_catching`  in the `appsignal.yml` config file.
 
@@ -31,7 +75,7 @@ staging:
   enable_frontend_error_catching: true
 ```
 
-### Path
+####^configuration-ruby Path
 
 The Rack middleware will expose the following error catcher path `/appsignal_error_catcher`. You can change this path by adding `frontend_error_catching_path` to your `appsignal.yml` config file:
 
@@ -46,7 +90,11 @@ staging:
 This path will accept POST requests that contain frontend errors in a JSON format.
 The gem will take care of processing it and sending it to AppSignal.
 
-## Parameters
+###^configuration Elixir
+
+See the README at [tombruijn/appsignal-elixir_js_plug](https://github.com/tombruijn/appsignal-elixir_js_plug) for instructions.
+
+## Request parameters
 
 | Param | Type | Description  |
 | ------ | ------ | ----- |
