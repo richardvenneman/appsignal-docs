@@ -31,21 +31,17 @@
         (function(o){var b="https://api.autopilothq.com/anywhere/",t="e9823d9f8ee6458495be3761e62926553c9a176e3f544f5eb1daa04581e1a216",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};if(!o.noaa){z(b+"aa/"+t+'?'+p,false)};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({"app":true});
 
   %body
-    %header.mod-header
-      %h1
-        = link_to '/' do
-          = image_tag "logo-mark-white.svg"
-          AppSignal&nbsp;
-          %span Docs
-      = link_to 'Visit AppSignal.com', 'https://appsignal.com'
-
-    .layout-wrap
-      %a.jump{href: "#navigation"} Jump to navigation
+    = partial 'header'
+    .layout-wrapper
+      %a.jump{href: "#navigation"}
+        %i.fa.fa-book
+        Docs navigation
       .layout-main#main
-        = yield
-        = partial 'footer'
+        .inner= yield
       .layout-side#navigation
         = partial 'side_nav'
+      .layout-footer
+        = partial 'footer'
 
     - if build?
       %img{:src => "https://appsignal.com/ident.gif?page=#{URI.encode("docs: #{current_page.path}")}", :style => "display: block; border: 0; height: 0; width: 0"}

@@ -1,11 +1,17 @@
 .jump
   display: none
   padding: 15px 30px
+  background: $blue
+  color: #fff
+  text-decoration: none
+
+  .fa
+    margin-right: 10px
 
   &:hover
-    background: $blue
+    background: mix($dark,$blue)
     color: #fff
 
-  +max-width(800px)
+  +max-width($full)
+    margin-bottom: 30px
     display: block
-    background: $border

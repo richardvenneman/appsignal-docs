@@ -1,0 +1,97 @@
+tours:
+  -
+    slug: errors
+    name: errors
+    color: orange
+    title: Catch errors
+    human_title: Catch errors in your app
+    human_teaser: "Catch errors and make sure they don't happen again."
+    meta_title: "Error Tracking for Ruby and Elixir"
+    meta_description: "Catch errors in your Ruby and Elixir applications. Get notified in tools like Slack or HipChat and easily create issues in your issue tracker of choice."
+    usps:
+      -
+        title: Real-time notifications
+        text: When an errors happens in your application, you need to know instantly. Receive alerts where your team works, whether that is email, Slack, HipChat or another messaging platform.
+      -
+        title: Detailed error reports
+        text: We save details error details and provide you with the information to drill down to the root cause. Look at other occurrences of the same error to discover patterns.
+      -
+        title: Works with your setup
+        text: AppSignal tracks errors in all major background processors for Ruby such as Delayed job, Resque, Sidekiq. Plus your custom background job processors.
+  -
+    slug: performance
+    name: performance
+    color: green
+    title: Track performance
+    human_title: Find performance issues
+    human_teaser: "Find performance issues before they find you."
+    meta_title: "Performance Monitoring for Ruby and Elixir"
+    meta_description: "Improve the performance of your controllers and background jobs. Get notified when requests are taking longer than you expect and dive deep into the causes of the slow requests."
+    usps:
+      -
+        title: Slow request alerts
+        text: Set thresholds for controllers and background jobs, so you get alerted when requests are taking longer than you expect. Do this for apps and namespaces, or overwrite it for individual controllers or jobs.
+      -
+        title: Detailed breakdowns
+        text: Slow request breakdowns provide the information you need in order to find the cause of the issue. Our event tree tells you which event took up the most time during the request.
+      -
+        title: Find slow events
+        text: So your entire app is slowing down? Wonder what's causing it? Find out with our slow events graph, and instantly see if particular types of events are causing overall slowness.
+  -
+    slug: hosts
+    name: hosts
+    color: purple
+    title: Monitor your hosts
+    human_title: Monitor your hosts
+    human_teaser: "Run healthy apps on healthy hardware."
+    meta_title: "Host Monitoring for Ruby and Elixir"
+    meta_description: "If you want to run a healthy app, you need to know how your hosts are doing. AppSignal gives you insight into load, disk I/O, disk usage, memory consumption and network utilization."
+    usps:
+      -
+        title: Host metrics
+        text: Get graphs for CPU, disk I/O, disk usage, load average, memory usage and network usage. Stop using expensive server monitoring tools and get the full picture in AppSignal.
+      -
+        title: Find rogue hosts
+        text: Inspect graphs with metrics like error rate, performance and throughput for all your different hosts. It's easy to spot outliers and identify under-performing hardware.
+      -
+        title: Hosts during issues
+        text: Whenever there's an error or a slow requests, we'll show you which host it occurred on and what the metrics for this host were. This makes it easy to rule out hardware issues right away.
+  -
+    slug: metrics
+    name: metrics
+    color: red
+    title: Collect metrics
+    human_title: Track any metric you want
+    human_teaser: "Collect metrics and visualize them with a few lines of code."
+    meta_title: "Track and visualize metrics straight from your codebase"
+    meta_description: "Need to collect metrics from your app? AppSignal enables you to easily send and graph metrics. Track payload sizes, database queries, revenue, or cups of coffee."
+    usps:
+      -
+        title: Collect anything
+        text: Your application's infrastructure is unique. Often problems originate on a deeper layer, and you need to dig deep to find root causes. Our metrics platform enables you track what no developer has tracked before.
+      -
+        title: A few lines of code
+        text: "It takes just a few lines of code to send us your metrics. There is no need to set up any additional services: just install AppSignal, send some metrics using our easy to use API and you're done!"
+      -
+        title: Build dashboards
+        text: Use our dashboard builder to create dashboards with exactly the right information you need to keep an eye on your infrastructure. Easily copy these dashboards to other environments.
+
+  -
+    slug: workflow
+    name: workflow
+    color: blue
+    title: Workflow features
+    human_title: Works for your team
+    human_teaser: "AppSignal helps your team stay focused on building great apps."
+    meta_title: "Integrations with issue trackers and communication tools"
+    meta_description: "AppSignal is built so you can stay productive. It integrates with your favorite tools like Slack, Pivotal Tracker, GitHub, PagerDuty, Trello, GitLab, Phabricator, Flowdock, HipChat and OpsGenie. Not enough? Use the webhook!"
+    usps:
+      -
+        title: Communication tools
+        text: You don't want to chase after information. So we bring it to your doorstep, whether that's email or Slack. We support integrations with Flowdock, HipChat, OpsGenie and Slack.
+      -
+        title: Issue tracking
+        text: Use AppSignal's built-in issue states or send issues to your issue tracker of choice. We offer integrations with GitHub, GitLab, Pivotal Tracker and Trello.
+      -
+        title: Team management
+        text: The days of switching between your error tracker, APM platform, server monitoring tool and metrics solution are over.
