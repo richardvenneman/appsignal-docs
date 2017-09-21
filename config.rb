@@ -19,11 +19,25 @@ set :images_dir, 'images'
 activate :syntax, :line_numbers => true
 
 helpers do
-  def link_with_active(name, path)
+  def link_with_active(*args, &block)
+    if block_given?
+      path, options = args
+    else
+      name, path, options = args
+    end
+    options ||= {}
+    options[:class] = options[:class].to_s
+    options[:class] += " active" if path == current_page.url
+
+    new_args =
+      if block_given?
+        [path, options]
+      else
+        [name, path, options]
+      end
     link_to(
-      name,
-      path,
-      :class => ('active' if path == current_page.url)
+      *new_args,
+      &block
     )
   end
 

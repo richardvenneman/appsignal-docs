@@ -1,11 +1,16 @@
 %nav.mod-side_nav
   %ul
     %li.section
+      %h2
+        = link_with_active '/' do
+          %i.fa.fa-home
+          Start
+
+    %li.section
       %h2{:data => { :menu => "getting-started" } }
         %i.fa.fa-fw.fa-angle-right
         Getting started
       %ul
-        %li= link_with_active 'Overview', '/'
         %li= link_with_active 'Your first application', '/getting-started/new-application.html'
         %li= link_with_active 'Your user account', '/getting-started/user-account.html'
 
