@@ -279,7 +279,7 @@ samples.
 
 ## `APPSIGNAL_WORKING_DIR_PATH` / `:working_dir_path`
 
-- Available since gem version `1.0.4`.
+- Available since gem version `2.3.6`.
 - Value: String. Default: detected by Ruby gem.
 
 Override the location where the AppSignal Ruby gem can store temporary files.  Use this is if the default location is not suitable.
