@@ -165,4 +165,11 @@ If you are running multiple applications using AppSignal on the same server, use
 # config/config.exs
 config :appsignal, :config,
   working_dir_path: "/tmp/project_1/"
-```
+  ```
+
+## `APPSIGNAL_FILES_WORLD_ACCESSIBLE` / `:files_world_accessible`
+
+- Available since package version `1.3.4`.
+- Value: Boolean `true`/`false`. Default: `true`
+
+If this is true the working directory that is created is accessible for all users. This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour.
