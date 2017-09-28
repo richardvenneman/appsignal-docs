@@ -153,6 +153,13 @@ Set this to `false` to disable [host metrics](/metrics/host.html).
 
 Configure the endpoint to send data to AppSignal.
 
+## `APPSIGNAL_FILES_WORLD_ACCESSIBLE` / `:files_world_accessible`
+
+- Available since gem version `2.3.6`.
+- Value: Boolean `true`/`false`. Default: `true`
+
+If this is true the working directory that is created is accessible for all users. This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour.
+
 ## `APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters`
 
 - Available since gem version `1.3.0`.
@@ -291,10 +298,3 @@ If you are running multiple applications using AppSignal on the same server, use
 production:
   working_dir_path: "/tmp/project_1/"
   ```
-
-## `APPSIGNAL_FILES_WORLD_ACCESSIBLE` / `:files_world_accessible`
-
-- Available since gem version `2.3.6`.
-- Value: Boolean `true`/`false`. Default: `true`
-
-If this is true the working directory that is created is accessible for all users. This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour.
