@@ -2,29 +2,32 @@
 title: "Resque"
 ---
 
-[Resque](https://github.com/resque/resque) is a Redis-backed Ruby library for
-creating background jobs, placing them on multiple queues, and processing them
-later.
+[Resque](https://github.com/resque/resque) is a Redis-backed Ruby library for creating background jobs, placing them on multiple queues, and processing them later.
 
 Support for Resque was added in AppSignal Ruby gem version `0.8`.
 
-The AppSignal Ruby gem extends the default job class (`Resque::Job`) if it is
-present. If your jobs inherit from this class no further action is required.
-If your jobs do not inherit from `Resque::Job` you need to add this line to
-your job classes:
+To enable instrumentation for Resque jobs you need to load in the AppSignal Resque plugin in your job classes.
 
 ```ruby
-extend Appsignal::Integrations::ResquePlugin
+class MyWorker
+  # Add the following line:
+  extend Appsignal::Integrations::ResquePlugin
+
+  def self.perform(*args)
+    # ...
+  end
+end
 ```
 
-## Resque and ActiveJob
+## Resque with ActiveJob
 
-When using ActiveJob, include `Appsignal::Integrations::ResqueActiveJobPlugin`
-instead:
+When using ActiveJob, include `Appsignal::Integrations::ResqueActiveJobPlugin` instead:
 
 ```ruby
 class BrokenJob < ApplicationJob
+  # Add the following line:
   include Appsignal::Integrations::ResqueActiveJobPlugin
+
   queue_as :default
 
   def perform(*args)
