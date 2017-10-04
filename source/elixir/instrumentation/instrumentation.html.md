@@ -35,6 +35,7 @@ package](https://hexdocs.pm/appsignal/).
   - [Phoenix channels](#decorator-phoenix-channels)
 - [Instrumentation helper functions](#instrumentation-helper-functions)
   - [Instrument helper](#helper-instrument-helper)
+      - [Adding asynchronous events to a transaction](#adding-asynchronous-events-to-a-transaction)
   - [Transactions](#helper-transactions)
   - [Transaction metadata](#helper-transaction-metadata)
   - [Namespaces](#helper-namespaces)
@@ -219,6 +220,8 @@ during the execution of this code will show up on AppSignal.com in the event
 timeline of this transaction sample. It will help provide more insight in where
 the most time was spent during the request.
 
+For more information on what event names to use in the `instrument/3` and `instrument/4` functions, please read our [event naming guidelines](/api/event-names.html).
+
 ```elixir
 # Phoenix controller example
 defmodule PhoenixExample.PostController do
@@ -253,6 +256,7 @@ end
 current transaction to `instrument/4`.
 
 ```elixir
+# Phoenix controller example
 defmodule PhoenixExample.PostController do
   use PhoenixExample.Web, :controller
   # Include instrument/4 instead of instrument/3
@@ -272,8 +276,41 @@ defmodule PhoenixExample.PostController do
 end
 ```
 
-For more information on what event names to use in the `instrument/3` function,
-please read our [event naming guidelines](/api/event-names.html).
+#### Adding asynchronous events to a transaction
+
+To add asynchronous events to a transaction in another process there are a couple things to keep in mind. These events can not exceed the runtime of the parent transaction. If they finish after a transaction is completed the events will be registered incompletely, as they don't have a end-time. They will also appear to miss some metadata such as an event name, title and body.
+
+A process spawned by a Phoenix controller can't run longer than it takes for the request to complete. If so, a new transaction should be started within that new process instead. For more information on how to start and complete transactions, see our [transactions section](#helper-transactions). These transactions cannot be linked together at this time. To wait for an asynchronous process before completing the transaction you can use something like [`Task.await/2`](https://hexdocs.pm/elixir/Task.html#await/2), see the example below.
+
+To add events to a another process' transaction you can pass along the `PID` of a process to the `instrument/4` function. If a transaction exists for that process, the event will be registered on that transaction, otherwise it's ignored.
+
+Make sure to wait for the process in which another event is tracked before completing the transaction.
+
+```elixir
+# Phoenix controller example
+defmodule PhoenixExample.PostController do
+  use PhoenixExample.Web, :controller
+  # Include instrument/4 instead of instrument/3
+  import Appsignal.Instrumentation.Helpers, only: [instrument: 4]
+
+  def index(conn, _params) do
+    parent = self()
+    task = Task.async(fn ->
+      instrument(parent, "foo.bar", "TEST", fn() ->
+        :timer.sleep(1000)
+      end)
+    end)
+
+    # Do other things while the task is running
+
+    # And wait for the task
+    Task.await(task)
+
+    # Then return the request
+    text conn, "Done!"
+  end
+end
+```
 
 ###^helper Transactions
 
