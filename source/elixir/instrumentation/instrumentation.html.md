@@ -282,7 +282,7 @@ To add asynchronous events to a transaction in another process there are a coupl
 
 A process spawned by a Phoenix controller can't run longer than it takes for the request to complete. If so, a new transaction should be started within that new process instead. For more information on how to start and complete transactions, see our [transactions section](#helper-transactions). These transactions cannot be linked together at this time. To wait for an asynchronous process before completing the transaction you can use something like [`Task.await/2`](https://hexdocs.pm/elixir/Task.html#await/2), see the example below.
 
-To add events to a another process' transaction you can pass along the `PID` of a process to the `instrument/4` function. If a transaction exists for that process, the event will be registered on that transaction, otherwise it's ignored.
+To add events to another process' transaction you can pass along the `PID` of a process to the `instrument/4` function. If a transaction exists for that process, the event will be registered on that transaction, otherwise it's ignored.
 
 Make sure to wait for the process in which another event is tracked before completing the transaction.
 
