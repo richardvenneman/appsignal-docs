@@ -51,6 +51,13 @@
         %li= link_with_active 'Billing', '/organization/billing.html'
 
     %li.section
+      %h2{:data => { :menu => "account" } }
+        %i.fa.fa-fw.fa-angle-right
+        Your user account
+      %ul
+        %li= link_with_active 'Two-factor authentication', '/account/two-factor-authentication.html'
+
+    %li.section
       %h2{:data => { :menu => "ruby" } }
         %i.fa.fa-fw.fa-angle-right
         AppSignal for Ruby
