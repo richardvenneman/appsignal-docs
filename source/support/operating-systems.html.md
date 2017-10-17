@@ -6,6 +6,7 @@ title: "Supported Operating Systems"
   - [Alpine Linux](#alpine-linux)
       - [Ruby](#alpine-linux-ruby)
       - [Elixir](#alpine-linux-elixir)
+- [FreeBSD](#freebsd)
 - [macOS](#macos)
 - [Microsoft Windows](#microsoft-windows)
 
@@ -66,6 +67,10 @@ If you're using Elixir, add this to your `mix.exs` file:
 ```
 
 For the latest available version see the full list on [Hex.pm](https://hex.pm/packages/appsignal) and if you run into any problems please [let us know](mailto:support@appsignal.com).
+
+## FreeBSD
+
+Support for FreeBSD systems was added in AppSignal for Ruby gem `2.4.0` and AppSignal for Elixir package `1.4.0`.
 
 ## macOS
 
