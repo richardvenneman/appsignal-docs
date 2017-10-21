@@ -70,7 +70,7 @@ For the latest available version see the full list on [Hex.pm](https://hex.pm/pa
 
 ## FreeBSD
 
-Support for FreeBSD systems was added in AppSignal for Ruby gem `2.4.0` and AppSignal for Elixir package `1.4.0`.
+Support for FreeBSD systems was added in AppSignal for Ruby gem `2.4.0` and AppSignal for Elixir package `1.4.0`. It currently does not support the [host metrics][host-metrics] feature.
 
 ## macOS
 
