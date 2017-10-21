@@ -12,20 +12,18 @@ A command line tool to install AppSignal in an application.
 
 Read more about the [appsignal install][cli-install] command line tool.
 
+## Diagnose
+
+A self diagnostic tool for the AppSignal for Ruby gem. This tool can be used to debug your AppSignal installation and is one of the first thing our support team asks for when there's an issue.
+
+Read more about the [appsignal diagnose][cli-diagnose] command line tool.
+
 ## Notify of deploy
 
 A command line tool to send a "Deploy Marker" for an application to AppSignal.
 
 Read more about the [appsignal notify_of_deploy][cli-notify_of_deploy] command
 line tool.
-
-## Diagnose
-
-A self diagnostic tool for the AppSignal Ruby gem. This tool can be used
-to debug your AppSignal installation and is one of the first thing our support
-team asks for when there's an issue.
-
-Read more about the [appsignal diagnose][cli-diagnose] command line tool.
 
 ## Demo
 
