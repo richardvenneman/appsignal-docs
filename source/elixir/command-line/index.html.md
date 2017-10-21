@@ -19,5 +19,5 @@ A command to demonstrate and test the AppSignal for Elixir package gem. Useful f
 Read more about the [appsignal demo][cli-demo] command line tool.
 
 [package]: https://github.com/appsignal/appsignal-elixir
-[cli-install]: /ruby/command-line/install.html
+[cli-install]: /elixir/command-line/install.html
 [cli-demo]: /elixir/command-line/demo.html
