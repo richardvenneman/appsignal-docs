@@ -218,7 +218,7 @@ The available agent components are:
  |                    |         |      Log level
  |                    |         Process PID
  |                    Agent component
- Timestamp in UTC
+ Timestamp in host time zone
 ```
 
 #### STDOUT log message breakdown
@@ -235,7 +235,7 @@ parent process' log output.
  |                    |         |      Log level
  |                    |         Process PID
  |                    Agent component
- Timestamp in UTC
+ Timestamp in host time zone
 ```
 
 ### Log location
