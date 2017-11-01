@@ -67,7 +67,7 @@ At the moment please install the `0.11` version of the appsignal gem if you use
 jRuby. Add this line to your `Gemfile`:
 
 ```ruby
-gem 'appsignal', '~> 0.11.17'
+gem 'appsignal', '~> 0.11.8'
 ```
 
 We are working to support jRuby for the `1.x` release, but cannot provide an
