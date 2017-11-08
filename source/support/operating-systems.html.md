@@ -33,7 +33,9 @@ The AppSignal integrations for Ruby and Elixir contains native extensions and a 
 
 [Alpine Linux] support was added in version `2.1.0` of the AppSignal for Ruby gem. Our AppSignal for Elixir package supports Alpine Linux since version `0.11.0`.
 
-In AppSignal for Ruby version 2.4.0 and AppSignal for Elixir we started shipping a separate build for Alpine Linux. Detection is based on the output from `ldd --version`. If your app is unable to call this program you can force the Alpine Linux compatible build by providing a special environment variable on install.
+In AppSignal for Ruby version `2.4.0` and AppSignal for Elixir `1.4.0` we started shipping a separate build for Alpine Linux. If you upgraded from an earlier version and are have problems compiling your app, our detection isn't working properly. For the Ruby gem, detection is based on the output from `ldd --version`. For our Elixir package we listen to the output of `:erlang.system_info(:system_architecture)`.
+
+If your app is unable to call the `ldd` program or the detection is off for some reason, you can force the Alpine Linux compatible build by providing a special environment variable on install.
 
 ```sh
 # For Ruby
