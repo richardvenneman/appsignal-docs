@@ -13,3 +13,8 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
   - AppSignal Ruby gem: `v2.1.x` - `v2.3.x`
   - AppSignal Elixir package: `v0.10.x` - `v1.3.x`
   - Systems: Linux distributions only - except Alpine Linux
+- [Compile errors on Alpine Linux after upgrading](known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html)
+  - Symptom: When upgrading to AppSignal Ruby gem 2.4 or Elixir package 1.4 AppSignal won't compile on Alpine Linux.
+  - AppSignal Ruby gem `v2.4.x`
+  - AppSignal Elixir package `v1.4.x`
+  - Systems: Alpine Linux only
