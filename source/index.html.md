@@ -27,6 +27,7 @@ In this documentation we aim to give you all the information you need to get sta
 
 - [Contact us](mailto:support@appsignal.com)
 - [Debugging guide](/support/debugging.html)
+- [Known issues](/support/known-issues.html)
 - [Supported Operating Systems](/support/operating-systems.html)
 - [Security overview](/appsignal/security.html)
 
