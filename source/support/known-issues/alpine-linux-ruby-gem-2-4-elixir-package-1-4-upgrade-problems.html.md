@@ -26,7 +26,7 @@ The AppSignal Ruby gem detects the system architecture by asking the [`ldd`](htt
 
 The AppSignal Elixir package detects the system architecture by asking [Erlang](https://www.erlang.org/)'s [`system_info`](http://erlang.org/doc/man/erlang.html#system_info-1) function for which architecture it has been compiled. If this function returns the wrong architecture type, AppSignal will assume the wrong architecture and try to install it for that architecture.
 
-For Elixir this has been reported with the [bitwalker/alpine-elixir](https://github.com/bitwalker/alpine-elixir) Docker image. This Docker image is based on the [bitwalker/alpine-erlang](https://github.com/bitwalker/alpine-erlang) which reports the wrong system architecture. A [fix was submitted](https://github.com/bitwalker/alpine-erlang/pull/16) to have these newer images from this vendor report the correct system architecture.
+For Elixir this has been reported with the [bitwalker/alpine-elixir](https://github.com/bitwalker/alpine-elixir) Docker image. This Docker image is based on the [bitwalker/alpine-erlang](https://github.com/bitwalker/alpine-erlang) which reports the wrong system architecture. A [fix was merged](https://github.com/bitwalker/alpine-erlang/pull/16) to have these newer images from this vendor report the correct system architecture. We expect newer versions of this image than tag `20.1.3` to be released with this fix.
 
 ## Symptoms
 
