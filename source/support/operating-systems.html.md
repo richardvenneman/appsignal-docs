@@ -2,38 +2,94 @@
 title: "Supported Operating Systems"
 ---
 
+The AppSignal integrations for Ruby and Elixir contains native extensions and a separate lightweight agent process. These native extensions are supported on most Linux distributions, FreeBSD and macOS/OSX. If an Operating System you use is not supported, please [get in touch](mailto:support@appsignal.com).
+
+- [Support table](#support-table)
 - [Linux](#linux)
   - [Alpine Linux](#alpine-linux)
       - [Ruby](#alpine-linux-ruby)
       - [Elixir](#alpine-linux-elixir)
+  - [CentOS](#centos)
 - [FreeBSD](#freebsd)
-- [macOS](#macos)
+- [macOS / OSX](#macos)
 - [Microsoft Windows](#microsoft-windows)
 
----
+## Support table
 
-| Operating System                  | 32-bit support | 64-bit support |
-| --------------------------------- | -------------- | -------------- |
-| macOS/OSX (`darwin`) <sup>1</sup> |                | ✓              |
-| Debian                            | ✓              | ✓              |
-| Fedora                            | ✓              | ✓              |
-| Alpine Linux <sup>2</sup>         | ✓              | ✓              |
-| FreeBSD <sup>1</sup>              |                | ✓              |
-| Microsoft Windows <sup>3</sup>    |                |                |
+| Operating System                                     | 32-bit support | 64-bit support |
+| ---------------------------------------------------- | -------------- | -------------- |
+| macOS/OSX (`darwin`) <sup>1</sup>                    |                | ✓              |
+| Linux <sup>2</sup>                                   | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - Alpine Linux <sup>3</sup> | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - CentOS                    | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - Debian                    | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - Fedora                    | ✓              | ✓              |
+| FreeBSD <sup>1</sup>                                 |                | ✓              |
+| Microsoft Windows <sup>4</sup>                       |                |                |
 
-- `1`: does not support [host metrics][host-metrics] (yet).
-- `2`: Supported since AppSignal for [Ruby](/ruby) version `2.1.x` and AppSignal for [Elixir](/elixir) version `0.11.0`.
-- `3`: Untested with the Windows subsystem for Linux.
+- `1`: Does not support [host metrics][host-metrics] (yet).
+- `2`: Depending on the integration version some older versions of the Operating System are supported. See the [Linux](#linux) section for more information.
+- `3`: Supported since AppSignal for [Ruby](/ruby) version `2.1.x` and AppSignal for [Elixir](/elixir) version `0.11.0`.
+- `4`: Untested with the Windows subsystem for Linux.
 
 ## Linux
 
-The AppSignal integrations for Ruby and Elixir contains native extensions and a separate lightweight agent process. These native extensions are supported on most Linux distributions. We test on Ubuntu, Fedora and Alpine Linux. If a Linux distribution you use is not supported, please [get in touch](mailto:support@appsignal.com).
+AppSignal tries to support Linux as best as possible, but some changes in our build process have caused some problems with supporting certain Linux distributions and versions. Our agent and extension are compiled against libc, and based on which version of libc we compile against we support certain older versions of Linux distributions and some not.
+
+AppSignal support for versions of libc has changed over the past few versions of the Ruby gem and Elixir package.
+
+This is the list of version of libc/musl AppSignal was compiled against over the last version of our integrations:
+
+- AppSignal for Ruby `v1.0.0` - `v2.0.x`  
+  AppSignal for Elixir `v0.0.x` - `v0.10.x`
+  - libc `v2.5`
+  - musl `N/A`
+- AppSignal for Ruby `v2.1.x` - `v2.3.x`  
+  AppSignal for Elixir `v0.11.x` - `v1.3.x`
+  - libc `N/A` - see [DNS timeouts known issue](/support/known-issues/dns-timeouts.html).
+  - musl `v1.1.16`
+- AppSignal for Ruby `v2.4.x` and higher  
+  AppSignal for Elixir `v1.4.x` and higher
+  - libc `v2.15`
+  - musl `v1.1.16` - see [Alpine Linux install problems after upgrading](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html).
+
+If your system uses an older libc version than we compile against you will experience problems installing or running the AppSignal agent. If this is the case you can instead opt-in to the musl build, which doesn't have this issue.
+
+To opt-in to the musl build, add the `APPSIGNAL_BUILD_FOR_MUSL` environment variable to your system environment before installing AppSignal and compiling your application.
+
+```sh
+# For Ruby
+export APPSIGNAL_BUILD_FOR_MUSL=1
+gem install appsignal
+# or with Bundler
+bundle install
+
+# For Elixir
+export APPSIGNAL_BUILD_FOR_MUSL=1
+mix deps.get
+mix compile
+```
+
+You can see which version of libc your system uses by running the following command: `ldd --version 2>&1`
+
+Example of output on Ubuntu 12.04:
+
+```
+$ ldd --version 2>&1
+ldd (Ubuntu EGLIBC 2.15-0ubuntu10.18) 2.15
+Copyright (C) 2012 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+```
 
 ### Alpine Linux
 
 [Alpine Linux] support was added in version `2.1.0` of the AppSignal for Ruby gem. Our AppSignal for Elixir package supports Alpine Linux since version `0.11.0`.
 
-In AppSignal for Ruby version `2.4.0` and AppSignal for Elixir `1.4.0` we started shipping a separate build for Alpine Linux. If you upgraded from an earlier version and are have problems compiling your app, our detection isn't working properly. For the Ruby gem, detection is based on the output from `ldd --version`. For our Elixir package we listen to the output of `:erlang.system_info(:system_architecture)`.
+In AppSignal for Ruby version `2.4.0` and AppSignal for Elixir `1.4.0` we started shipping a separate build for Alpine Linux. If you upgraded from an earlier version and are have problems compiling your app, our detection isn't working properly. See our [upgrading issue](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html) for more information.
+
+For the Ruby gem, detection is based on the output from `ldd --version`. For the Elixir package we listen to the output of `:erlang.system_info(:system_architecture)`.
 
 If your app is unable to call the `ldd` program or the detection is off for some reason, you can force the Alpine Linux compatible build by providing a special environment variable on install.
 
@@ -69,6 +125,14 @@ If you're using Elixir, add this to your `mix.exs` file:
 ```
 
 For the latest available version see the full list on [Hex.pm](https://hex.pm/packages/appsignal) and if you run into any problems please [let us know](mailto:support@appsignal.com).
+
+### CentOS
+
+CentOS is fully supported by the AppSignal extension. Depending on your CentOS version you may need to select another build type for AppSignal Ruby gem `v2.4.0` and AppSignal for Elixir `v1.4.0` and higher.
+
+For CentOS 7 and higher there is no problem upgrading to AppSignal for Ruby `v2.4.0` and AppSignal for Elixir `1.4.0` and higher.
+
+For CentOS 6 and older versions you will need to opt-in to the musl build for AppSignal instead. For more information, see the [Linux section](#linux).
 
 ## FreeBSD
 
