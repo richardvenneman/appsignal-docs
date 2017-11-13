@@ -53,9 +53,9 @@ This is the list of version of libc/musl AppSignal was compiled against over the
   - libc `v2.15`
   - musl `v1.1.16` - see [Alpine Linux install problems after upgrading](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html).
 
-If your system uses an older libc version than we compile against you will experience problems installing or running the AppSignal agent. If this is the case you can instead opt-in to the musl build, which doesn't have this issue.
+If your system uses an older libc version than we compile against you will experience problems installing or running the AppSignal agent. If this is the case you can instead opt-in to the musl build, which doesn't have this issue. This should no longer be a problem for AppSignal Ruby gem `v2.4.1` and higher, automatic detection for older libc versions was added and it will automatically switch to the musl build.
 
-To opt-in to the musl build, add the `APPSIGNAL_BUILD_FOR_MUSL` environment variable to your system environment before installing AppSignal and compiling your application.
+To opt-in to the musl build manually, add the `APPSIGNAL_BUILD_FOR_MUSL` environment variable to your system environment before installing AppSignal and compiling your application.
 
 ```sh
 # For Ruby
