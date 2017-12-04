@@ -37,8 +37,6 @@
 
     %nav.cta
       %ul
-        -# -# - if user_signed_in?
-        -# -#   %li= link_to 'go to app', accounts_path, :class => "button outline-dark small"
-        -# - else
-        %li= link_to 'log in', 'http://appsignal.com/users/sign_in', :class => "button outline-dark small"
-        %li= link_to 'sign up', 'http://appsignal.com/users/sign_up', :class => "button small"
+        %li.logged-in= link_to 'go to app', "https://appsignal.com/accounts", :class => "button outline-dark small"
+        %li.logged-out= link_to 'log in', 'http://appsignal.com/users/sign_in', :class => "button outline-dark small"
+        %li.logged-out= link_to 'sign up', 'http://appsignal.com/users/sign_up', :class => "button small"

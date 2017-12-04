@@ -1,6 +1,7 @@
 //= require jquery
+//= require js.cookie
 //= require navigation_store
-//= require dl_header.js
+//= require dl_header
 
 $(document).ready(function() {
   var navigationElement = $("#navigation");
@@ -47,4 +48,9 @@ $(document).ready(function() {
     storeScrollPosition($(this).scrollTop());
   });
   navigationElement.scrollTop(getScrollPosition());
+
+  if(Cookies.get("appsignal_signed_in") == "true") {
+    $(".logged-in").show();
+    $(".logged-out").hide();
+  }
 });
