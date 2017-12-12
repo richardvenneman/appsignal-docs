@@ -7,6 +7,7 @@ language of AppSignal.
 
 - [Agent](#agent)
 - [Allocations](#allocations)
+- [Anomaly detection](#anomaly-detection)
 - [API](#api)
 - [API key](#api-key)
 - [Applications](#applications)
@@ -82,6 +83,14 @@ On AppSignal.com the number of allocations is displayed in an Integer for an
 action, event groups and for specific events. This allocation number is the
 number of objects have been created in memory during an action/group/event. The
 size of the created object is not tracked.
+
+## Anomaly detection
+
+Anomaly detection is an AppSignal feature that allows users to detect abnormalities in their apps. These are events such as: an increased error rate or a limited amount of free memory on the app's host.
+
+Anomaly detection works with Triggers threshold conditions that create Alerts when their threshold is reached. When an Alert is opened, AppSignal will send notifications to whichever notifiers have been selected for the specific trigger.
+
+See our documentation about [Anomaly detection](/application/anomaly_detection/) for more information.
 
 ## API
 
