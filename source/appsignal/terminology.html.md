@@ -6,7 +6,6 @@ At AppSignal we use a lot of technical terms. Read on to learn more about the
 language of AppSignal.
 
 - [Agent](#agent)
-- [Alerting](#alerting)
 - [Allocations](#allocations)
 - [API](#api)
 - [API key](#api-key)
@@ -31,6 +30,7 @@ language of AppSignal.
 - [Metadata](#metadata)
 - [Metrics](#metrics)
 - [Namespace](#namespace)
+- [Notifications](#notifications)
 - [Organizations](#organizations)
 - [Owners](#owners)
 - [Performance issues](#performance-issues)
@@ -65,18 +65,6 @@ used to detect events worth [alerting](#alerting) users about.
 
 Read more about the [life cycle of an AppSignal
 request](/appsignal/request-lifecycle.html).
-
-## Alerting
-
-AppSignal sends alerts whenever a problem is detected with an
-[application](#applications). These alerts can be emails, Slack messages, a
-PagerDuty alert, and more depending on which [third-party
-integrations](#third-party-integrations) are configured.
-
-[Errors](#errors) and [slow requests](#performance-issues) that occur when an
-application is running are detected using AppSignal [libraries](#libraries).
-Once a problematic event is detected an alert is sent out to alert users of a
-problem.
 
 ## Allocations
 
@@ -386,6 +374,12 @@ panel.
 
 For more information about namespaces, please see our
 [namespaces](/application/namespaces.html) documentation.
+
+## Notifications
+
+AppSignal sends notifications whenever a problem is detected with an [application](#applications). These notifications can be email messages, Slack messages, a PagerDuty notification, and more depending on which [third-party integrations](#third-party-integrations) are configured.
+
+We send notifications about [errors](#errors), [slow requests](#performance-issues) and [Anomaly detection](/application/anomaly_detection/) [alerts](#alerts) that occur in an application using an AppSignal [library](#libraries). Once a problematic event is detected a notification is sent out to alert users of a problem.
 
 ## Organizations
 
