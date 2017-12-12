@@ -45,7 +45,7 @@ Instead, when editing a Trigger, a new Trigger with the new configuration is cre
 
 ## Warm-up and cooldown
 
-Warm-up and cooldown settings can be configured on a per Trigger basis. The setting allows you to configure the amount of minutes the system wait before opening an Alert and closing it.
+Warm-up and cooldown settings can be configured on a per Trigger basis. The setting allows you to configure the amount of minutes the system waits before opening an Alert and closing it.
 
 ### Warm-up
 
