@@ -2,16 +2,19 @@
 title: "Sidekiq"
 ---
 
-[Sidekiq](http://sidekiq.org) is a simple and efficient background processor
-for Ruby. It's also the processor we use to process jobs in AppSignal.
+[Sidekiq](http://sidekiq.org) is a simple and efficient background processor for Ruby. It's also the processor we use to process jobs in AppSignal.
 
 Support for Sidekiq was added in AppSignal Ruby gem version `0.8`.
 
+Job names are automatically detected based on the Sidekiq worker class name and are suffixed with the `perform` method name, resulting in something like: `MyWorker#perform`.
+
+If your app is using the Sidekiq [delayed extensions](https://github.com/mperham/sidekiq/wiki/Delayed-extensions), please upgrade to AppSignal Ruby gem version `2.4.1` or higher as support for this extension was improved.
+
+You can recognize events from Sidekiq with the name `perform_job.sidekiq` in the event timeline on the performance incident detail page.
+
 ## Using with Rails
 
-The AppSignal Ruby gem automatically inserts a listener into the Sidekiq server
-middleware stack if the `Sidekiq` module is present if you use Rails. No further action is
-required.
+The AppSignal Ruby gem automatically inserts a listener into the Sidekiq server middleware stack if the `Sidekiq` module is present if you use Rails. No further action is required.
 
 ## Using standalone
 
