@@ -8,39 +8,7 @@ Please follow the [installation guide](/getting-started/new-application.html) wh
 
 ### Requirements
 
-Before you can compile the AppSignal gem make sure the build/compilation tools
-are installed for your system.
-
-**Ubuntu / Debian**
-
-```
-apt-get update
-apt-get install build-essential
-```
-
-**Alpine Linux**
-
-```
-apk add --update alpine-sdk coreutils
-```
-
-**CentOS / Fedora**
-
-```
-yum install gcc gcc-c++ make openssl-devel
-```
-
-**Fedora 22+***
-
-```
-dnf install gcc gcc-c++ make openssl-devel
-```
-
-**macOS**
-
-```
-xcode-select --install
-```
+Before you can compile the AppSignal gem make sure the build/compilation tools are installed for your system. Please check the [Supported Operating Systems](/support/operating-systems.html) page for any system dependencies that may be required.
 
 ### Installing the gem
 
