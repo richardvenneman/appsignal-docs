@@ -166,11 +166,11 @@ The following system dependencies are required for Debian Linux distributions:
 ```
 # Dependencies for the AppSignal Ruby gem
 apt-get update
-apt-get install build-essential
+apt-get install build-essential ca-certificates
 
 # Dependencies for the AppSignal Elixir package
 apt-get update
-apt-get install build-essential curl
+apt-get install build-essential ca-certificates curl
 ```
 
 ### Fedora
