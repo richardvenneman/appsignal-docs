@@ -30,6 +30,7 @@ In this documentation we aim to give you all the information you need to get sta
 - [Known issues](/support/known-issues.html)
 - [Supported Operating Systems](/support/operating-systems.html)
 - [Security overview](/appsignal/security.html)
+- [Status](https://status.appsignal.com)
 
 ---
 
