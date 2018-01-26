@@ -22,6 +22,7 @@ documentation][hex-appsignal].
 - [Channels](#channels)
   - [Channels instrumentation with a channel's handle](#channel-instrumentation-with-a-channel-39-s-handle)
   - [Channels instrumentation without decorators](#channel-instrumentation-without-decorators)
+- [Instrumentation for custom Plugs](#instrumentation-for-included-plugs)
 - [Custom instrumentation](#custom-instrumentation)
 
 ## Incoming HTTP requests
@@ -138,6 +139,14 @@ defmodule SomeApp.MyChannel do
   end
 end
 ```
+
+## Instrumentation for included Plugs
+
+Exceptions in included Plugs are automatically caught by AppSignal, but
+performance samples need to be set up manually using the custom instrumentation
+helpers or decorators. See the
+[Plug](/elixir/integrations/plug.html#instrumentation-for-included-plugs)
+documentation for more information.
 
 ## Custom instrumentation
 
