@@ -119,7 +119,7 @@ There are three kinds of metrics we collect: gauge, measurement and count.
 
 | Field |  Description  |
 | ------ | ----- |
-| gauge | A gauge contains a number, if another gauge with the same key is set, the highest number will be persisted. |
+| gauge | A gauge is a number. If you set more than one gauge with the same key, the latest value for that moment in time is persisted. |
 | measurement | A measurement contains a duration of time, when multiple measurements with the same key are set, the average will be persisted. |
 | count | A count is a number that can be incremented, when multiple counts with the same key are set, the count is incremented by the value of each key. |
 
