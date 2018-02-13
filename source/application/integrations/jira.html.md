@@ -8,7 +8,7 @@ title: "JIRA"
 
 Before we can link AppSignal to JIRA we need to configure JIRA to accept our OAuth request.
 
-Sign in to JIRA and open the "Administration" dropdown in the header. Then select "Applications" from the dropdown.
+Sign in to JIRA and open the "Hamburger" menu on the bottom of the sidebar. Then select "Edit".
 
 ![Administration navigation](/images/screenshots/jira/navigation.png)
 
@@ -85,7 +85,7 @@ Required fields are:
 * Summary
 * Description
 
-In order to fix these messages, you have to add the fields to the JIRA screens by going to the "Issues" tab in the Administration section. First check which "screen" your issue type is using on the "Issue types" page, in the "Related Schemes" column for the issue type you selected in AppSignal.
+In order to fix these messages, you have to add the fields to the JIRA screens by going to the "Issues" tab in the "Settings" menu. First check which "screen" your issue type is using on the "Issue types" page, in the "Related Schemes" column for the issue type you selected in AppSignal.
 
 Then navigate to the "Screens" page in the "Screens" section.
 
