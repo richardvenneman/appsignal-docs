@@ -18,7 +18,7 @@ even more insights into the performance of your code.
 - [Command line tools](/ruby/command-line/index.html)
 - [Ruby implementation support](#ruby-implementation-support)
   - [Ruby MRI](#ruby-mri)
-  - [jRuby](#jruby)
+  - [JRuby](#jruby)
 
 ## Configuration
 
@@ -63,17 +63,15 @@ this version add to your `Gemfile`.
 gem 'appsignal'
 ```
 
-### jRuby
+### JRuby
 
--> ❗️ jRuby support is available in an alpha release of the AppSignal Ruby gem in version `2.5.0.alpha.1`
+JRuby support is [available](https://blog.appsignal.com/2018/02/14/ruby-gem-2-5.html) in version `2.5.0` and higher of the AppSignal Ruby gem. It's technically in beta while we make sure it's stable enough to be production ready.
 
-jRuby support was not available between version `0.11.x` and `2.4.x` of the AppSignal Ruby gem. We've recently started an alpha trial in version `2.5.0.alpha.1` of the AppSignal Ruby gem. Install it by adding the following to your `Gemfile` and running `bundle install`/`bundle update appsignal`.
+JRuby support was not available between version `0.11.x` and `2.4.x` of the AppSignal Ruby gem. If you can't upgrade to gem version `2.5.0` or higher, please [let us know](mailto:support@appsignal.com). In the meantime you can use the latest `0.11` release.
 
 ```ruby
-gem "appsignal", "2.5.0.alpha.1"
+gem "appsignal", "0.11.18"
 ```
-
-If you want to keep using the latest non-alpha supported release of our gem with jRuby support, please use version `0.11.18`.
 
 [ruby-lang]: https://www.ruby-lang.org/
 [appsignal-gem]: https://rubygems.org/gems/appsignal
