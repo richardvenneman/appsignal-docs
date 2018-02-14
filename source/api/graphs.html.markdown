@@ -12,13 +12,14 @@ Parameters:
 
 | Param | Type | Description  |
 | ------ | ------ | -----: |
+| kind | string | Aggregate of provided namespace (web, background, or your own) |
 |  action_name  |  string  |   Example: BlogPostsController-hash-show  |
 |  from  |  string (ISO8601)  |  defaults to 1 day ago if nil  |
 |  to  |  string (ISO8601)  |   defaults to now if nil  |
 |  timeframe  |  string  |   Can be: [hour, day, month, year]  |
 |  field  |  array  |   Can be: [mean, count, ex, ex_rate, pct]  |
 
-Leave the action_name parameter empty to get aggregated data of all actions in your site.
+Either provide the `action_name` or `kind` parameter.
 You can either specify the from an to values, __or__ the timeframe value.
 
 Valid timeframes are: `hour`, `day`, `month` and `year`
