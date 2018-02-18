@@ -14,7 +14,7 @@ In order to fix another known issue ([DNS timeouts](dns-timeouts.html)) AppSigna
 
 When installing an AppSignal integration, the installer will try to detect the system architecture for which it needs to download the [AppSignal extension](/appsignal/terminology.html#extension). If the detection mismatches the wrong extension build will be downloaded and installed. The installation will fail and AppSignal will not work.
 
-Our Ruby gem will not raise error, but log the problem to the `install.log` file in the `ext/` directory in the AppSignal gem directory.
+Our Ruby gem will not raise an error, but log the problem to the `install.log` file in the `ext/` directory in the AppSignal gem directory.
 
 The Elixir package will raise an error and halt any compilation. See [issue #273](https://github.com/appsignal/appsignal-elixir/issues/273) on the [appsignal-elixir](https://github.com/appsignal/appsignal-elixir/) repo for more details on the specific error.
 
