@@ -20,11 +20,14 @@ mix appsignal.demo
 
 ### With a specific environment
 
-By default no environment is selected. To make sure AppSignal can be started
-the correct environment needs to selected.
+```bash
+MIX_ENV=prod mix appsignal.demo
+```
+
+### With a release binary
 
 ```bash
-MIX_ENV=production mix appsignal.demo
+bin/your_app command appsignal_tasks demo
 ```
 
 ## Exit codes
