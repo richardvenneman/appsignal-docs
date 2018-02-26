@@ -34,6 +34,12 @@ mix appsignal.diagnose
 MIX_ENV=prod mix appsignal.diagnose
 ```
 
+### With a release binary
+
+```bash
+bin/your_app command appsignal_tasks diagnose
+```
+
 ## Exit codes
 
 - Exits with status code `0` if the command has completed successfully.
