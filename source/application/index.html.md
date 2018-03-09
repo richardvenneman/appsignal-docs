@@ -42,4 +42,6 @@ One common problem we've seen is that Applications start reporting under differe
 
 To allow AppSignal to be used for multiple applications on one host we need to set the `working_dir_path` configuration option ([Ruby](/ruby/configuration/options.html#appsignal_working_dir_path-working_dir_path) / [Elixir](/elixir/configuration/options.html#appsignal_working_dir_path-working_dir_path)). Using this configuration option, set a working directory path per application so that the AppSignal agent will not stop agents for other Applications that are running.
 
+Read more about the AppSignal [working directory](/appsignal/how-appsignal-operates.html#working-directory).
+
 [Application index]: https://appsignal.com/accounts

@@ -158,7 +158,7 @@ Configure the endpoint to send data to AppSignal.
 - Available since gem version `2.3.6`.
 - Value: Boolean `true`/`false`. Default: `true`
 
-If this is true the working directory that is created is accessible for all users. This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour.
+If this is set to `true` the [AppSignal working directory](/appsignal/how-appsignal-operates.html#working-directory) that is created is accessible for all users (Unix permissions `0666`). This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour (Unix permissions `0644`).
 
 ## `APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters`
 

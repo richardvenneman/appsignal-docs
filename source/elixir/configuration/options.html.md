@@ -86,7 +86,7 @@ Set this to `false` to disable [host metrics](/metrics/host.html).
 - Available since package version `1.3.4`.
 - Value: Boolean `true`/`false`. Default: `true`
 
-If this is true the working directory that is created is accessible for all users. This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour.
+If this is set to `true` the [AppSignal working directory](/appsignal/how-appsignal-operates.html#working-directory) that is created is accessible for all users (Unix permissions `0666`). This is often necessary because processes for the same app run under a different user. Set to `false` to disable this behaviour (Unix permissions `0644`).
 
 ## `APPSIGNAL_FILTER_PARAMETERS` / `:filter_parameters`
 
