@@ -24,4 +24,4 @@ The errors that occur here will not be grouped under an incident with an action 
 
 ## Background jobs
 
-AppSignal support ActiveJob for several background job libraries, such as Sidekiq. Please see the full list of Ruby [library integrations](/ruby/integrations) for more details.
+AppSignal supports ActiveJob for several background job libraries, such as Sidekiq. Please see the full list of Ruby [library integrations](/ruby/integrations) for more details.
