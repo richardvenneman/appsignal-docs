@@ -207,6 +207,8 @@ an action where an error/performance issue occurred and for host metrics. This
 way it's possible to see if the performance of an action was directly affected
 by a busy CPU or if the entire host was affected for longer periods of time.
 
+Learn more about what [CPU metrics](https://blog.appsignal.com/2018/03/06/understanding-cpu-statistics.html) mean on our blog.
+
 ## Elixir Alchemy
 
 Want to learn more about Elixir? In our email series Elixir Alchemy (1x p/mo)
