@@ -28,7 +28,7 @@ helpers do
     options ||= {}
     options[:class] = options[:class].to_s
     options[:class] += " active" if path == current_page.url
-    if options[:parent_active] && current_page.url.start_with?(path.sub(".html", "/"))
+    if options.delete(:parent_active) && current_page.url.start_with?(path.sub(".html", "/"))
       options[:class] += " active"
     end
 
