@@ -1,7 +1,6 @@
 ---
 title: "AppSignal documentation"
 title_no_brand: true
-pageable: false
 ---
 
 Welcome to the [AppSignal](https://appsignal.com) documentation!
