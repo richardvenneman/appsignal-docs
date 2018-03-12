@@ -5,14 +5,14 @@
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="flow">
+            <g id="Group-2" transform="translate(0.000000, 32.000000)" fill="#DC4904">
+                <polygon id="Rectangle" opacity="0.300000012" points="10 0 10 10 0 10"></polygon>
+                <polygon id="Rectangle" points="10 4 10 10 4 10"></polygon>
+            </g>
             <g id="Group-3" transform="translate(0.000000, -3.000000)">
                 <g id="Group" transform="translate(168.000000, 35.000000)" fill="#C31633">
                     <circle id="Oval" opacity="0.200000003" cx="5" cy="5" r="5"></circle>
                     <circle id="Oval" cx="5" cy="5" r="2"></circle>
-                </g>
-                <g id="Group-2" transform="translate(0.000000, 35.000000)" fill="#DC4904">
-                    <polygon id="Rectangle" opacity="0.300000012" points="10 0 10 10 0 10"></polygon>
-                    <polygon id="Rectangle" points="10 4 10 10 4 10"></polygon>
                 </g>
                 <polygon id="Rectangle" fill="#0961C4" opacity="0.300000012" transform="translate(418.000000, 40.000000) scale(-1, 1) translate(-418.000000, -40.000000) " points="423 35 423 45 413 45"></polygon>
                 <polygon id="Rectangle" fill="#0961C4" transform="translate(416.000000, 42.000000) scale(-1, 1) translate(-416.000000, -42.000000) " points="419 39 419 45 413 45"></polygon>
