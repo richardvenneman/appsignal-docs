@@ -19,6 +19,18 @@ set :images_dir, 'images'
 activate :syntax, :line_numbers => true
 
 helpers do
+  def title
+    if current_page.data.title
+      current_page.data.title.gsub(/<[^>]*>/, '').tap do |title|
+        unless current_page.data.title_no_brand
+          title << " | AppSignal documentation"
+        end
+      end
+    else
+      "AppSignal documentation"
+    end
+  end
+
   def link_with_active(*args, &block)
     if block_given?
       path, options = args

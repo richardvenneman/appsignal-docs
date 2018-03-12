@@ -4,13 +4,7 @@
   %head
     %meta{:charset => 'utf-8'}
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
-    %title
-      - if current_page.data.title
-        = current_page.data.title.gsub(/<[^>]*>/, '')
-        - unless current_page.data.title_no_brand
-          | AppSignal
-      - else
-        AppSignal: Monitor the crap out of your app.
+    %title= title
 
     = javascript_include_tag 'application'
 
