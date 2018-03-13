@@ -2,7 +2,7 @@
 title: "Supported Operating Systems"
 ---
 
-The AppSignal integrations for Ruby and Elixir contains native extensions and a separate lightweight agent process. These native extensions are supported on most Linux distributions, FreeBSD and macOS/OSX. If an Operating System you use is not supported, please [get in touch](mailto:support@appsignal.com).
+The AppSignal integrations for Ruby and Elixir contain native extensions and a separate lightweight agent process. These native extensions are supported on most Linux distributions, FreeBSD and macOS/OSX. If an Operating System you use is not supported, please [get in touch](mailto:support@appsignal.com).
 
 - [Support table](#support-table)
 - [Linux](#linux)
