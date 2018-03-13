@@ -2,21 +2,47 @@
 title: "Host metrics"
 ---
 
-%p The AppSignal agent collects various system metrics, which allows you to correlate performance issues or errors to abnormal host metrics. We collect the following metrics:
+%p The AppSignal agent collects various system metrics, which allows you to correlate performance issues and errors to abnormal host metrics. This data is available in the "Host metrics" section in the app overview, which allows you to inspect and <a href="https://blog.appsignal.com/2018/02/20/comparing-hosts.html">compare multiple hosts</a>. We also show a host metrics overview on the sample detail page for error and performance incidents.
+
+%p For a preview of how host metrics look in the AppSignal interface, please see our <a href="https://appsignal.com/tour/hosts">host metrics</a> tour page.
+
+.custom-wrapper.notice
+  %p
+    %strong Note:
+    This feature is available in the AppSignal for Ruby gem version <code>1.2</code> and newer.
+    It's turned on by default since Ruby gem version <code>1.3</code>.
+  %p
+    %strong Note:
+    This feature available in AppSignal for Elixir package version <code>0.10.0</code> and newer.
+    It's turned on by default since Elixir package version <code>0.10.0</code>.
+
+.custom-wrapper.notice
+  %p
+    %strong Note:
+    This feature is not available on the following architectures:
+    %ul
+      %li macOS/OSX (<code>darwin</code>)
+      %li FreeBSD
+    A list of supported Operating Systems is available on the <a href="/support/operating-systems.html">Supported Operating Systems</a> page.
+
+%h2 Collected metrics
+
+%p The following host metrics are collected by the AppSignal agent for every minute on your system.
 
 %table
-  %thead
-
   %tbody
     %tr
       %th CPU usage
-      %td User, nice, system, idle and iowait in percentages. Read more about <a href="https://blog.appsignal.com/2018/03/06/understanding-cpu-statistics.html">CPU metrics</a>.
+      %td
+        User, nice, system, idle and iowait in percentages.
+        %br
+        Read more about <a href="https://blog.appsignal.com/2018/03/06/understanding-cpu-statistics.html">CPU metrics</a> in our academy article.
     %tr
       %th Load average
-      %td 1 minute load average
+      %td 1 minute load average on the host.
     %tr
       %th Memory usage
-      %td Available and used memory.
+      %td Available, free and used memory. Also includes swap total and swap used.
     %tr
       %th Disk usage
       %td Percentage of every disk used.
@@ -28,26 +54,7 @@ title: "Host metrics"
       %td Throughput of data received and transmitted through every network interface.
 
 %p
-  Collecting these metrics is on by default. To enable it, use the
-  <code>enable_host_metrics</code> configuration option, for
+  These host metrics are collected by default. To disable it, use the <code>enable_host_metrics</code> configuration option, for
   <a href="/ruby/configuration/options.html#appsignal_enable_host_metrics-enable_host_metrics">Ruby</a>
-  and/or
+  and
   <a href="/elixir/configuration/options.html#appsignal_enable_host_metrics-enable_host_metrics">Elixir</a>.
-
-%p The collected host metrics are available in the "Hosts" section you can reach through the sidebar navigation. Select a host and then click the "Metrics" tab to see all collected metrics.
-
-%p If you have any feedback on this new feature #{link_to "we'd love to hear it!", "mailto:contact@appsignal.com"}
-
-.custom-wrapper.notice
-  %p
-    %strong Note:
-    This feature is available in the AppSignal Ruby gem version <code>1.2+</code>.
-    It's turned on by default since Ruby gem version <code>1.3</code>.
-
-.custom-wrapper.warning
-  %p
-    %strong Note:
-    This feature is not available on the following architectures:
-    %ul
-      %li macOS/OSX (<code>darwin</code>)
-      %li FreeBSD
