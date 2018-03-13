@@ -10,15 +10,15 @@ Sometimes requests sent later than others will appear first on AppSignal. By bre
 
 ## The gem
 
-When you include the `appsignal` gem in your Gemfile, AppSignal will start running as soon as you start your application. We check for a valid config file and start a thread that does all the heavy lifting. We wrap each incoming request or background job with a "transaction". This transaction collects all instrumentation that's being generated during the request. It also tries to get environment variables, session data and parameters where needed.
+When you include the `appsignal` gem in your `Gemfile`, AppSignal will start running as soon as you start your application. We check for a valid config file and start a thread that does all the heavy lifting. We wrap each incoming request or background job with a "transaction". This transaction collects all instrumentation that's being generated during the request. It also tries to get environment variables, session data and parameters where needed.
 
-After your application serves the request, the transaction is closed and placed into a queue. Depending on your environment (development/production) and the gem version, the thread that was started during the application start sleeps a certain amount of time. Once the sleep is over it processes the queue of transactions and sends it to our AppSignal push api.
+After your application serves the request, the transaction is closed and placed into a queue. Depending on your environment (development/production) and the gem version, the thread that was started during the application start sleeps a certain amount of time. Once the sleep is over it processes the queue of transactions and sends it to our AppSignal Push API.
 
 Because you can have multiple processes and webservers that all started at a different time, it can happen that a request on one server is sent a few seconds after its transaction has been closed, while on another server it can take up to 60 seconds before this happens. This is the reason AppSignal is eventually consistent.
 
-## The push api
+## The Push API
 
-Our push api has one and one purpose only, to receive data and push it onto a queue as fast and efficiently as possible. From here workers process the transaction data from the gem and generate notifications, store samples of slow or faulty requests and push statistical data for each transaction into a "bucket".
+Our Push API has one and one purpose only, to receive data and Push it onto a queue as fast and efficiently as possible. From here workers process the transaction data from the gem and generate notifications, store samples of slow or faulty requests and Push statistical data for each transaction into a "bucket".
 
 
 ## Map/Reduce
@@ -27,6 +27,6 @@ Once every few seconds a process starts that takes all the data from the "bucket
 
 ## Conclusion
 
-In a worst case scenario it can take up to 90 seconds from request to sample on the performance page. We're constantly trying to minimize this time, but we have to balance the amount of requests our push api receives and data size of each request with processing speed.
+In a worst case scenario it can take up to 90 seconds from request to sample on the performance page. We're constantly trying to minimize this time, but we have to balance the amount of requests our Push API receives and data size of each request with processing speed.
 
-If you would like to know more about this subject, don't hesitate to [contact us](mailto:contact@appsignal.com)!
+If you would like to know more about this subject, don't hesitate to [contact us](mailto:support@appsignal.com)!
