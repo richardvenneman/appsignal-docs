@@ -4,36 +4,25 @@ title: "Security overview"
 
 These are the things we do at AppSignal to keep your data safe.
 
-## Language specific agents
+## Language specific libraries
 
-The [Ruby gem](https://github.com/appsignal/appsignal-ruby) and the [Elixir
-package](https://github.com/appsignal/appsignal-elixir) are public code, hosted
-on GitHub. You can browse the source to see how we handle data transmission.
+The [Ruby gem](https://github.com/appsignal/appsignal-ruby) and the [Elixir package](https://github.com/appsignal/appsignal-elixir) are public code, hosted on GitHub. You can browse the source to see how we handle the data. Our closed-source [agent](/appsignal/terminology.html#agent) will send the actual data to the AppSignal servers.
 
-Built into the Ruby gem and Elixir package is a system that allows you to scrub
-any data you don't want to send over the wire, such as passwords and
-identifiable user information. See the [Ruby gem
-documentation](/ruby/configuration/parameter-filtering.html) and [Elixir
-documentation](https://hexdocs.pm/appsignal/) on how to do this.
+Built into the Ruby gem and Elixir package is a system that allows you to scrub any data you don't want to send over the wire, such as passwords and identifiable user information. See the [Ruby gem documentation](/ruby/configuration/parameter-filtering.html) and [Elixir documentation](/elixir/configuration/parameter-filtering.html) on how to do this.
+
+It's also possible to ignore entire actions (such as controller actions and background jobs) by configuring the ignore actions option (for [Ruby](/ruby/configuration/ignore-actions.html) and [Elixir](/elixir/configuration/ignore-actions.html)). These actions will not be monitored and no data will be sent to the AppSignal servers.
 
 ## System agent
 
-With the release of the AppSignal Ruby gem version 1.0 on the 12th of January
-2016 we've shipped all our language specific agents with a system agent.
+With the release of the AppSignal Ruby gem version 1.0 on the 12th of January 2016 we started shipping all our language specific libraries with a system agent.
 
-When an application with AppSignal integration starts the language integration
-starts a UNIX separate process. The Ruby gem and Elixir package will send all
-transaction samples to this agent through a UNIX socket. The agent will
-periodically sends the transaction samples to the AppSignal servers.
+When an application with AppSignal integration starts the language integration starts a separate UNIX process. The Ruby gem and Elixir package will send all transaction samples to this agent through a UNIX socket. The agent will periodically sends the transaction samples to the AppSignal servers.
 
-The system agent will also collect host specific data such as CPU usage, load
-average, memory usage, disk usage, etc. See the [Host
-metrics](/metrics/host.html) for more information.
+The system agent will also collect host specific data such as CPU usage, load average, memory usage, disk usage, etc. See the [Host metrics](/metrics/host.html) for more information.
 
 The data is sent through a secure (SSL) connection to our servers.
 
-The code of this system agent is not publicly available, but uses the same
-basic principle of how our Ruby gem pre `1.0` sends the data to our servers.
+The code of this system agent is not publicly available, but uses the same basic principle of how our Ruby gem pre `1.0` sends the data to our servers.
 
 ## Payment information
 
