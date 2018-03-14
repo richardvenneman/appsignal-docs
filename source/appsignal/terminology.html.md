@@ -143,12 +143,9 @@ Three different capitalized versions of the AppSignal name?
 
 Yes.. Let's explain!
 
-- `AppSignal` - The name of the company, the application and almost everything
-  else related to AppSignal. You're probably right using this capitalized
-  version.
-- `Appsignal` - The Ruby and Elixir integration name in the code. Only used in
-  the Ruby and Elixir code context.
-- `appsignal` - The AppSignal Ruby gem and Elixir package name.
+- `AppSignal` - The name of the company, the application and almost everything else related to AppSignal. You're probably right using this capitalized version.
+- `Appsignal` - The library name in the [Ruby](/ruby) gem and [Elixir](/elixir) package. Only used in the Ruby and Elixir code context.
+- `appsignal` - The AppSignal [Ruby gem](https://rubygems.org/gems/appsignal) and [Elixir package](https://hex.pm/packages/appsignal) name.
 
 ## Blog
 
