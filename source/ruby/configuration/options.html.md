@@ -102,8 +102,7 @@ Select which logger to the AppSignal agent should use. Accepted values are
   - Print AppSignal logs in the parent process' STDOUT instead of to a file.
     Useful with hosting solutions such as container systems and Heroku.
 
--> **Note**: At this time only the Ruby agent supports this feature and the
-   system agent which is used by the Ruby agent does not yet support this.
+-> **Note**: At this time only the Ruby library supports this feature and the [AppSignal agent](/appsignal/how-appsignal-operates.html), which is used by the Ruby library, does not yet support this.
 
 ## `APPSIGNAL_LOG_PATH` / `:log_path`
 
@@ -289,7 +288,7 @@ samples.
 - Available since gem version `2.3.6`.
 - Value: String. Default: detected by Ruby gem.
 
-Override the location where the AppSignal Ruby gem can store temporary files.  Use this is if the default location is not suitable.
+Override the location where AppSignal for Ruby can store temporary files. Use this option if the default location is not suitable. See our [how AppSignal operates](/appsignal/how-appsignal-operates.html) page for more information about the purpose of this working directory.
 
 If you are running multiple applications using AppSignal on the same server, use this configuration option to select different working directories for every AppSignal instance, otherwise the two instances could conflict with one another. For more information on this scenario see our [Running multiple applications on one host](/application/index.html#running-multiple-applications-on-one-host) documentation.
 
