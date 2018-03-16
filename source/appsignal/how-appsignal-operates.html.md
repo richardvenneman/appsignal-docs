@@ -58,12 +58,12 @@ The working directory's responsibilities:
 
 ####^working-directory Location
 
-The default location of the working directory is `/tmp/appsignal`. If you use a [Capistrano](http://capistranorb.com/) style directory structure it will create a directory named `appsignal` in `app/shared`. On Heroku style deployments it will create the directory in `/app/tmp`. If neither of these paths are detected, the AppSignal directory will be created in the default location.
+The default location of the working directory is `/tmp/appsignal`. If you use a [Capistrano](http://capistranorb.com/) style directory structure it will create a directory named `appsignal` in `app/shared`. On [Heroku](https://heroku.com) style deployments it will create the directory in `/app/tmp`. If neither of these paths are detected, the AppSignal directory will be created in the default location.
 
 The location of the working directory can be customized with the `working_dir_path` config option ([Ruby](/ruby/configuration/options.html#appsignal_working_dir_path-working_dir_path) / [Elixir](/elixir/configuration/options.html#appsignal_working_dir_path-working_dir_path)). Any path configured this way will have precedence over any path it can detect.
 
 ####^working-directory Permissions
 
-By default the working directly is writable for everyone (Unix permissions `0666`). This is the default, because over time we've seen many support requests that originated from the working directory existing, but not being writable by the AppSignal agent. For example: when the app is started by the deploy user on deploy of the app, but by another user using during a host restart. This gives directory ownership to one of the user accounts, while making it unwritable for the other user.
+By default the working directly is writable for everyone (Unix permissions `0666`). This is the default, because over time we've seen many support requests that originated from the working directory existing, but not being writable by the AppSignal agent. For example: when the app is started by the deploy user on deploy of the app, but by another user during a host restart. This gives directory ownership to one of the user accounts, while making it unwritable for the other user.
 
 It's possible to disable the global read and write permissions (and give the working directory Unix permissions `0644`) by setting the `files_world_accessible` config option ([Ruby](/ruby/configuration/options.html#appsignal_files_world_accessible-files_world_accessible) / [Elixir](/elixir/configuration/options.html#appsignal_files_world_accessible-files_world_accessible)) to `false` for your apps.
