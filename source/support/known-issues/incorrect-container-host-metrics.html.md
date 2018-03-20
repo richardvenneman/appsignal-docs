@@ -1,5 +1,5 @@
 ---
-title: Incorrect Docker host metrics reported
+title: Incorrect container host metrics reported
 ---
 
 ## Affected components
