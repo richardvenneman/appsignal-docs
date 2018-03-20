@@ -6,7 +6,7 @@ title: Compile errors on Alpine Linux after upgrading
 
 - AppSignal for Ruby gem versions `2.4.x` and higher.
 - AppSignal for Elixir package versions `1.4.x` and higher.
-- In combination with hosts running Alpine Linux.
+- Systems: In combination with hosts running Alpine Linux.
 
 ## Description
 

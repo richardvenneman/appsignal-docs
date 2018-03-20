@@ -2,11 +2,11 @@
 title: DNS timeouts
 ---
 
-## Affected versions
+## Affected components
 
-- AppSignal for Ruby gem versions `2.1.x` - `2.3.x` (later versions only partially affected, see [workarounds](#workaround))
-- AppSignal for Elixir package versions `0.10.x` - `1.3.x` (later versions only partially affected, see [workarounds](#workaround))
-- In combination with hosts running [libc], not musl libc (Alpine Linux). macOS is unaffected.
+- AppSignal for Ruby gem versions: `2.1.x` - `2.3.x` (later versions only partially affected, see [workarounds](#workaround))
+- AppSignal for Elixir package versions: `0.10.x` - `1.3.x` (later versions only partially affected, see [workarounds](#workaround))
+- Systems: In combination with hosts running [libc], not musl libc (Alpine Linux). macOS is unaffected.
 
 ## Description
 
