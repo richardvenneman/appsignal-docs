@@ -66,8 +66,5 @@
       .layout-footer
         = partial 'footer'
 
-    - if build?
-      %img{:src => "https://appsignal.com/ident.gif?page=#{URI.encode("docs: #{current_page.path}")}", :style => "display: block; border: 0; height: 0; width: 0"}
-
   <script src="https://use.typekit.net/sdq1pbx.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>

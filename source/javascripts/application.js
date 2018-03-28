@@ -53,4 +53,18 @@ $(document).ready(function() {
     $(".logged-in").show();
     $(".logged-out").hide();
   }
+
+  // Track pageview
+  if (window.location.host == "docs.appsignal.com") {
+    var tracker_src = "https://appsignal.com/ident.gif?page=" +
+      encodeURI("docs: " + window.location.pathname) +
+      "&" +
+      window.location.search.slice(1, window.location.search.length);
+    var img = document.createElement("img");
+    img.src = tracker_src;
+    img.height = "1";
+    img.width = "1";
+    img.style = "display:none;";
+    document.body.appendChild(img);
+  }
 });

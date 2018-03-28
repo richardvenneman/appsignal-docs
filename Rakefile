@@ -4,21 +4,21 @@ require "middleman-cloudfront"
 desc "Build the website from source"
 task :build do
   puts "## Building website"
-  status = system("bundle exec middleman build --clean")
+  status = system("middleman build --clean")
   puts status ? "OK" : "FAILED"
 end
 
 desc "Run the preview server at http://localhost:4567"
 task :preview do
-  system("bundle exec middleman server")
+  system("middleman server")
 end
 
 desc "Deploy website via rsync"
 task :deploy do
    puts '## Syncing to S3...'
-   system "bundle exec middleman s3_sync"
+   system "middleman s3_sync"
    puts '## Invalidating cloudfront...'
-   system "bundle exec middleman invalidate"
+   system "middleman invalidate"
    puts '## Deploy complete.'
 end
 
