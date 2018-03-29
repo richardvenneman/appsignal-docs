@@ -20,10 +20,10 @@ When a new deploy is detected, the list of incidents is empty for the newest dep
 
 There are two methods of notifying AppSignal of a new deploy. These two methods cannot be used together.
 
-1. Using the `APP_REVISION` system environment variable, and;
+1. Using the `revision` config option, and;
 2. Creating a deploy notification manually with the AppSignal Push API.
 
-The first method (`APP_REVISION` environment variable) is our recommended approach, because it's the most reliable method and works better for applications with more than one host. We detect the revision from the application itself so we know which instance is running what version.
+The first method (`revision` config option) is our recommended approach, because it's the most reliable method and works better for applications with more than one host. We detect the revision from the application itself so we know which instance is running what version.
 
 The second approach (creating a deploy marker manually) is a method only really useful for small applications that use one host. It creates a new deploy marker at a specific time, regardless of the version the application is actually running. This also means it's also more error prone.
 
