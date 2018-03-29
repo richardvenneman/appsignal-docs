@@ -77,58 +77,58 @@ The data format is an array with events encoded in json.
 An example of a log entry with an exception:
 
 ```
-  [
-    {
-      "request_id":"120b49a2a709d6c9a07657c10d891768",
-      "log_entry":{
-        "action":"BlogPostsController#index",
-        "params":{
-          "controller":"blog_posts",
-          "action":"index"
-        },
-        "format":"html",
-        "method":"GET",
-        "path":"/blog",
-        "exception":[
-          "RuntimeError",
-          "an error occured"
-        ],
-        "duration":1.4929999999999999,
+[
+  {
+    "request_id":"120b49a2a709d6c9a07657c10d891768",
+    "log_entry":{
+      "action":"BlogPostsController#index",
+      "params":{
+        "controller":"blog_posts",
+        "action":"index"
+      },
+      "format":"html",
+      "method":"GET",
+      "path":"/blog",
+      "exception":[
+        "RuntimeError",
+        "an error occured"
+      ],
+      "duration":1.4929999999999999,
+      "time":"2012-08-22T15:30:45+02:00",
+      "end":"2012-08-22T15:30:45+02:00",
+      "name":"/blog",
+      "environment":"development",
+      "hostname":"localhost"
+    },
+    "events":[
+      {
+        "name":"start_processing.action_controller",
+        "duration":0.004,
         "time":"2012-08-22T15:30:45+02:00",
         "end":"2012-08-22T15:30:45+02:00",
-        "name":"/blog",
-        "environment":"development",
-        "hostname":"localhost"
-      },
-      "events":[
-        {
-          "name":"start_processing.action_controller",
-          "duration":0.004,
-          "time":"2012-08-22T15:30:45+02:00",
-          "end":"2012-08-22T15:30:45+02:00",
-          "payload":{
-            "controller":"BlogPostsController",
-            "action":"index",
-            "params":{
-              "controller":"blog_posts",
-              "action":"index"
-            },
-            "format":"html",
-            "method":"GET",
-            "path":"/blog"
-          }
+        "payload":{
+          "controller":"BlogPostsController",
+          "action":"index",
+          "params":{
+            "controller":"blog_posts",
+            "action":"index"
+          },
+          "format":"html",
+          "method":"GET",
+          "path":"/blog"
         }
+      }
+    ],
+    "exception":{
+      "backtrace":[
+        "app/controllers/blog_posts_controller.rb:6:in `index'",
+        "script/rails:6:in `require'",
+        "script/rails:6:in `<main>'"
       ],
-      "exception":{
-        "backtrace":[
-          "app/controllers/blog_posts_controller.rb:6:in `index'",
-          "script/rails:6:in `require'",
-          "script/rails:6:in `<main>'"
-        ],
-        "exception":"RuntimeError",
-        "message":"an error occured"
-      },
-      "failed":true
-    }
-  ]
+      "exception":"RuntimeError",
+      "message":"an error occured"
+    },
+    "failed":true
+  }
+]
 ```

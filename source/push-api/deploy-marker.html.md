@@ -23,5 +23,5 @@ The post body data format is in JSON.
 A curl example:
 
 ```
-  curl -X POST -d "{\"revision\":\"ba70cebcd05d131e00e776b35616d7bc0ba919fb\",\"repository\":\"master\",\"user\":\"test user\"}" "https://push.appsignal.com/1/markers?api_key=abc&name=test&environment=production"
+curl -X POST -d "{\"revision\":\"ba70cebcd05d131e00e776b35616d7bc0ba919fb\",\"repository\":\"master\",\"user\":\"test user\"}" "https://push.appsignal.com/1/markers?api_key=abc&name=test&environment=production"
 ```
