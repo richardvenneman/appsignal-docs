@@ -201,4 +201,13 @@ If you are running multiple applications using AppSignal on the same server, use
 # config/config.exs
 config :appsignal, :config,
   working_dir_path: "/tmp/project_1/"
-  ```
+```
+
+## `APP_REVISION` / `:revision`
+
+- Available since gem version `1.5.0` (currently in beta).
+- Value: String. Default: `""`.
+
+Set the app revision for the currently running version of your app. Used to create deploy markers and tag all incoming data to a certain deploy for the host.
+
+Read more about deploy markers on the [deploy markers](/application/markers/deploy-markers.html).

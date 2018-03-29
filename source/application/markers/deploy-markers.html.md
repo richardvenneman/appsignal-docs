@@ -13,7 +13,7 @@ When a new deploy is detected, the list of incidents is empty for the newest dep
 ## Table of Contents
 
 - [Deploy methods](#deploy-methods)
-  - [`APP_REVISION` environment variable](#app_revision-environment-variable) (recommended method)
+  - [Revision config option](#revision-config-option) (recommended method)
   - [Manually create a Deploy marker](#manually-create-a-deploy-marker)
 
 ## Deploy methods
@@ -27,13 +27,19 @@ The first method (`APP_REVISION` environment variable) is our recommended approa
 
 The second approach (creating a deploy marker manually) is a method only really useful for small applications that use one host. It creates a new deploy marker at a specific time, regardless of the version the application is actually running. This also means it's also more error prone.
 
-## `APP_REVISION` environment variable
+## Revision config option
 
-The recommended approach of letting AppSignal know a new version of your application is deployed is by using the `APP_REVISION` environment variable.
+The recommended approach of letting AppSignal know a new version of your application is deployed is by using the `revision` config option or the `APP_REVISION` environment variable ([Ruby](/ruby/configuration/options.html#app_revision-revision)/[Elixir](/elixir/configuration/options.html#app_revision-revision)).
 
-This variable is set per instance of an application which has the benefit of every version of an application running at the same time reporting the errors under the correct deploy rather than the latest AppSignal knows about.
+This config option is set per instance of an application which has the benefit of every version of an application running at the same time reporting the errors under the correct deploy rather than the latest AppSignal knows about.
 
 For example: If one machine is still running an older version of the application all the errors from that instance are reported under the previous deploy marker rather than the last known deploy marker.
+
+### Config option
+
+The `revision` config option has been recently added and is in beta for [Elixir](/elixir/configuration/options.html#app_revision-revision) and planned to be released in [Ruby](/ruby/configuration/options.html#app_revision-revision) gem version `2.6.0`.
+
+If you're running a version in which this config option is not available we recommend using the [`APP_REVISION` environment variable](#system-environment-variable) instead.
 
 ### System environment variable
 
