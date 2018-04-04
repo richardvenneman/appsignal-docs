@@ -1,7 +1,4 @@
-require "dotenv"
 require "lib/appsignal_markdown"
-
-Dotenv.load
 
 DOCS_ROOT   = File.expand_path(File.dirname(__FILE__))
 GITHUB_ROOT = "https://github.com/appsignal/appsignal-docs/tree/master"
@@ -70,18 +67,4 @@ configure :build do
   activate :gzip
   activate :minify_css
   activate :cache_buster
-end
-
-activate :s3_sync do |s3|
-  s3.aws_access_key_id     = ENV['AWS_DOCS_ID']
-  s3.aws_secret_access_key = ENV['AWS_DOCS_KEY']
-  s3.bucket                = ENV['AWS_DOCS_BUCKET']
-  s3.region                = 'eu-west-1'
-  s3.prefer_gzip           = true
-end
-
-activate :cloudfront do |cf|
-  cf.access_key_id     = ENV['AWS_DOCS_ID']
-  cf.secret_access_key = ENV['AWS_DOCS_KEY']
-  cf.distribution_id   = ENV['AWS_DOCS_CF']
 end
