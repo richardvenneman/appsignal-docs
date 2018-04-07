@@ -23,7 +23,6 @@ To enable notifications and issue tracker integration for external services, go 
 - [Slack](#slack)
 - [Trello](#trello)
 - [Webhook](/application/integrations/webhooks.html)
-- [Zapier](#zapier)
 
 ## Discord
 
@@ -110,9 +109,3 @@ Website: [https://www.slack.com](https://www.slack.com)
 Trello makes it easy to organize anything with anyone.
 
 Website: [https://trello.com](https://trello.com)
-
-## Zapier
-
-Zapier makes it easy to automate tasks between web apps.
-
-Website: [https://zapier.com/](https://zapier.com/)
