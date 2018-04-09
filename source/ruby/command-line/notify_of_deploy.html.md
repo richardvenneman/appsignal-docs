@@ -2,6 +2,8 @@
 title: "AppSignal for Ruby: Notify of deploy"
 ---
 
+!> **Warning**: This method of notifying AppSignal of deploys is **deprecated**. Please use the new `revision` config option instead. Read our [deploy marker](/application/markers/deploy-markers.html) section for more information on how to create deploy markers.
+
 Command line tool to send a "Deploy Marker" for an application to AppSignal.
 
 Deploy markers are used on AppSignal.com to indicate changes in an application,
