@@ -69,9 +69,11 @@ Warm-up and cooldown settings can be configured on a per Trigger basis. The sett
 
 ### Warm-up
 
-When a metric value goes over a certain threshold condition it will open an Alert. When a warm-up time is configured it will wait with notifying you until after the warm-up time, as long as the metric value is still above the threshold.
+When a threshold condition is met an Alert is opened, e.g. the error rate is higher than 5%.
 
-If the Alert is no longer occurring when the warm-up time is over the Alert is immediately closed. You can still see the occurrence in the AppSignal web interface, but no notification will be send.
+When a warm-up duration is configured for a trigger it will wait with notifying you until after the warm-up time has passed. The threshold condition needs to be met for the entire warm-up duration before the alert is opened. The alert in warm-up is immediately closed if the condition is no longer met during this time.
+
+Alerts that have only entered the warm-up phase are visible in the AppSignal web interface, but no notification will be send for these alerts.
 
 ### Cooldown
 
