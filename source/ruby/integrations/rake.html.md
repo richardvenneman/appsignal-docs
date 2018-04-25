@@ -87,48 +87,6 @@ For more information on how to integrate AppSignal in a pure Ruby application, s
 
 See our example repository for a [Ruby + Rake + AppSignal][ruby-rake-example] example application.
 
-### A more comprehensive example using threads
-
-Add performance monitoring to a continuously running multi-threaded Rake task for `v1.1.6`. Based on work of leehambley.
-
-```ruby
-# Rakefile
-namespace :mycrazyproject do
-  task :do_something => :environment do
-    while true
-      User.where(:active => true).find_in_batches(:batch_size => 20) do |batch_of_users|
-        # We collect a bunch of new threads, one for each
-        # user, each...
-        batch_threads = batch_of_users.collect do |user_outer|
-          Thread.new(user_outer) do |u|
-            transaction.set_action("name.of.background.action.you.want.in.appsignal")
-
-            begin
-              ActiveSupport::Notifications.instrument(
-                'perform_job.long_running_task',
-                :class => 'User',
-                :method => 'long_running_task'
-              ) do
-                  u.long_running_task
-                end
-              rescue => err
-                transaction.set_error(err)
-              ensure
-                # Complete the transaction
-                Appsignal::Transaction.complete_current!
-              end
-          end
-        end
-
-        # Joining threads means waiting for them to finish
-        # before moving onto the next batch.
-        batch_threads.map(&:join)
-      end
-    end
-  end
-end
-```
-
 [rake]: https://github.com/ruby/rake
 [integration]: /ruby/instrumentation/integrating-appsignal.html
 [custom-instrumentation]: /ruby/instrumentation/instrumentation.html
