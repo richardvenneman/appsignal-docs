@@ -20,9 +20,11 @@ In relation to our customers, AppSignal is both a Data Controller and a Data Pro
 
 ### Data Controller
 
-AppSignal is the Data Controller for the information we collect about our customers, which means that we determine the "purposes and means" of the data we collect as the Controller. Some examples: their name, their email address, their credit card number, and any other data that we collect based on the GDPR legal bases. This data is safeguarded by various policies and procedures.
+AppSignal is the Data Controller for the information we collect about our customers and visitors, which means that we determine the "purposes and means" of the data we collect as the Controller. Some examples: their name, their email address, their credit card number, and any other data that we collect based on the GDPR legal bases. This data is safeguarded by various policies and procedures.
 
 When sharing data with vendors, we have made sure there are contracts in place that ensure they also receive and process this data in a lawful way.
+
+You can read more about the data we collect for which purpose in our new [Privacy Policy](https://appsignal.com/privacy-policy).
 
 ### Data Processor
 
