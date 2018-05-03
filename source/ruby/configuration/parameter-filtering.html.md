@@ -93,7 +93,7 @@ send_params: false
 
 ## Skip sending session data
 
-If you don't want to send you session data to AppSignal you can add this to the
+If you don't want to send your session data to AppSignal you can add this to the
 config in `appsignal.yml`:
 
 ```yaml
