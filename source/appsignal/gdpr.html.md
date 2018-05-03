@@ -26,13 +26,13 @@ When sharing data with vendors, we have made sure there are contracts in place t
 
 ### Data Processor
 
-Our customers are the Data Controllers for the data that their applications gather and send to AppSignal. AppSignal processes that data on behalf of them, which makes it the Data Processor. To enable our customers to be fully GDPR compliant while using AppSignal, we have taken various measures.
+Our customers are the Data Controllers for the data that their applications gather and send to AppSignal. AppSignal processes that data on behalf of them, which makes us the Data Processor. To enable our customers to be fully GDPR compliant while using AppSignal, we have taken various measures.
 
 In short: AppSignal doesn't wish to receive any personal data about your visitors, and will provide the tools that enable you to strip this information before sending it to AppSignal for processing. For more details, see below.
 
 #### Data Processing Agreement
 
-We have created a Data Processing Agreement that explains that eg. how we are a Data Processor, how we limit processing to the level needed to be able to provide the AppSignal service, that we will ensure that our vendors are compliant too, etc (this is an incomplete list for illustrative purposes only; please see the full Data Processing Agreement for all the details).
+We have created a Data Processing Agreement that explains eg. how we are a Data Processor, how we limit processing to the level needed to be able to provide the AppSignal service, that we will ensure that our vendors are compliant too, etc (this is an incomplete list for illustrative purposes only; please see the full Data Processing Agreement for all the details).
 
 The Data Processing Agreement is accessible to all owners for an organization on AppSignal. You can find it by going to your "[Profile & Settings](https://appsignal.com/users/edit)" and look for the agreement in the left navigation (there is one for each organization). You can digitally sign the Data Processing Agreement, and once signed we will display who signed it and when.
 
