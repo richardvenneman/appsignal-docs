@@ -12,6 +12,9 @@ configuration is loaded.
 ## Table of Contents
 
 - [Minimal required configuration](#minimal-required-configuration)
+- [Configuration methods](#configuration-methods)
+  - [YAML configuration file](#yaml-configuration-file)
+  - [System environment variables](#system-environment-variables)
 - [Configuration options](/ruby/configuration/options.html)
   - [Ignore actions](/ruby/configuration/ignore-actions.html)
   - [Ignore errors](/ruby/configuration/ignore-errors.html)
@@ -45,6 +48,39 @@ Rails application.
 If you use a framework that is aware of environments and [is supported by the
 AppSignal gem](/ruby/integrations/index.html), the environment is detected
 automatically.
+
+## Configuration methods
+
+### YAML configuration file
+
+The AppSignal Ruby gem can be configured with an configuration file. During installation the Ruby gem will create a `config/appsignal.yml` file, if selected. In this file some default configuration is supplied and can be modified to fit your application's needs. This `config/appsignal.yml` file supports ERB tags so that system environment variables can also be loaded in this file.
+
+The `config/appsignal.yml` configuration examples shown for configuration options will use the `default` YAML anchor. The AppSignal installer will create an `config/appsignal.yml` file with this anchor by default. If not present, make sure you add the config option to the correct environment.
+
+```yml
+# config/appsignal.yml
+# Define the "defaults" anchor
+default: &defaults
+  name: "My app"
+  # Supports ERB
+  push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
+
+production:
+  # Loads the defaults in the production environment by referencing the anchor
+  <<: *defaults
+  # production environment specific configuration
+  active: true
+```
+
+### System environment variable
+
+An alternative way of configuring AppSignal is by using system environment variables on the host the application AppSignal is monitoring is running on. This is common on platforms such as Heroku.
+
+Make sure these environment variables are configured in the way that's compatible with your Operating System and that the values get loaded before your app with AppSignal is started.
+
+```sh
+export APPSIGNAL_APP_NAME="My app"
+```
 
 ## Example configuration file
 
