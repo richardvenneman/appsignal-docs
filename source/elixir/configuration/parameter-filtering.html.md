@@ -1,12 +1,31 @@
 ---
-title: "Configure parameter filtering"
+title: "Parameter filtering"
 ---
 
-In most apps at least some of the data that might be posted to the app is
-sensitive information that should not leave the network. We support two ways of
-filtering parameters from being sent to AppSignal.
+In most apps, at least some of the data that is sent to the application is sensitive or personally identifiable information that should not leave the network. To prevent AppSignal from storing this data the Ruby gem should be configured to not send this data at all or filter out specific values.
 
-## Phoenix's filter_parameters configuration
+We support two ways of filtering parameters from being sent to AppSignal. Either with the built-in AppSignal parameter filtering or, when using Phoenix, using the Phoenix parameter filtering.
+
+!> **Warning**: Do not send personal data to AppSignal. If your parameters or session data contain personal data, please use filtering to avoid sending this data to AppSignal.
+
+## Table of Contents
+
+- [AppSignal parameter filtering](#appsignal-parameter-filtering)
+- [Phoenix's filter_parameters configuration](#phoenix-filter_parameters-configuration)
+
+## AppSignal parameter filtering
+
+If you're not using Phoenix, or want to filter parameters without changing the
+Phoenix.Logger's configuration, you can set up filtered parameters in the
+AppSignal configuration file.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  filter_parameters: ["password", "secret"]
+```
+
+## Phoenix filter_parameters configuration
 
 You can use Phoenix's parameter filtering, which is used to keep sensitive
 information from the logs. AppSignal will also follow these filtering rules.
@@ -20,31 +39,3 @@ config :phoenix,
 If `:filter_parameters` is not set, Phoenix will default to `["password"]`. This
 means that a Phoenix app will not send any passwords to AppSignal without any
 configuration.
-
-## AppSignal's built-in filtering
-
-If you're not using Phoenix, or want to filter parameters without changing the
-Phoenix.Logger's configuration, you can set up filtered parameters in the
-AppSignal configuration file.
-
-```elixir
-# config/config.exs
-config :appsignal, :config,
-  filter_parameters: ["password", "secret"]
-```
-
-## Skip sending session data
-
-If you don't want to send your session data to AppSignal you can add this to the
-AppSignal configuration file:
-
-```elixir
-# config/config.exs
-config :appsignal, :config,
-  skip_session_data: true
-```
-
-!> **Note**: Do not send personal data to AppSignal. If your parameters contain
-   personal data, please use filtering. If your session data contains personal
-   data, please skip sending it to AppSignal _until we add filtering to session
-   data too (soon!)_.

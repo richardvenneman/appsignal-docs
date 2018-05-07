@@ -6,41 +6,6 @@ The following list includes all configuration options with the name of the envir
 
 For more information on how to configure AppSignal with a configuration file or system environment variables, see our [Configuration](/ruby/configuration) topic.
 
-## Configuration
-
-### YAML configuration file
-
-The AppSignal Ruby gem can be configured with an configuration file. During installation the Ruby gem will create a `config/appsignal.yml` file, if selected. In this file some default configuration is supplied and can be modified to fit your application's needs. This `config/appsignal.yml` file supports ERB tags so that system environment variables can also be loaded in this file.
-
-The `config/appsignal.yml` configuration examples shown for configuration options will use the `default` YAML anchor. The AppSignal installer will create an `config/appsignal.yml` file with this anchor by default. If not present, make sure you add the config option to the correct environment.
-
-```yml
-# config/appsignal.yml
-# Define the "defaults" anchor
-default: &defaults
-  name: "My app"
-  # Supports ERB
-  push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
-
-production:
-  # Loads the defaults in the production environment by referencing the anchor
-  <<: *defaults
-  # production environment specific configuration
-  active: true
-```
-
-### System environment variable
-
-An alternative way of configuring AppSignal is by using system environment variables on the host the application AppSignal is monitoring is running on. This is common on platforms such as Heroku.
-
-Make sure these environment variables are configured in the way that's compatible with your Operating System and that the values get loaded before your app with AppSignal is started.
-
-```sh
-export APPSIGNAL_APP_NAME="My app"
-```
-
-## Configuration options
-
 ## `APPSIGNAL_ACTIVE` / `:active`
 
 - Available since gem version `0.3.0`.
@@ -199,12 +164,38 @@ If this is set to `true` the [AppSignal working directory](/appsignal/how-appsig
 - Available since gem version `1.3.0`.
 - Value: `Array<String>`. Default: `[]`
 
-List of parameter keys that should be ignored using AppSignal filtering. Their
-values will be replaced with `FILTERED` when transmitted to AppSignal. You can
-configure this with a list of keys in the configuration file:
+List of parameter keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
 
-Read more about [parameter
-filtering](/ruby/configuration/parameter-filtering.html).
+```yml
+# config/appsignal.yml
+default: &defaults
+  filter_parameters:
+    - password
+    - email
+    - api_token
+    - token
+```
+
+Read more about [parameter filtering](/ruby/configuration/parameter-filtering.html).
+
+## `APPSIGNAL_FILTER_SESSION_DATA` / `:filter_session_data`
+
+- Available since gem version `2.6.0`.
+- Value: `Array<String>`. Default: `[]`
+
+List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
+
+```yml
+# config/appsignal.yml
+default: &defaults
+  filter_session_data:
+    - name
+    - email
+    - api_token
+    - token
+```
+
+Read more about [session data filtering](/ruby/configuration/session-data-filtering.html).
 
 ## `APPSIGNAL_HOSTNAME` / `:hostname`
 

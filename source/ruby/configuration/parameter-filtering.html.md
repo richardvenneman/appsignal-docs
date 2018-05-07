@@ -1,32 +1,41 @@
 ---
-title: "Configure parameter filtering"
+title: "Parameter filtering"
 ---
 
-In most apps at least some of the data that might be posted to the app
-is sensitive information that should not leave the network.
+In most apps, at least some of the data that is sent to the application is sensitive or personally identifiable information that should not leave the network. To prevent AppSignal from storing this data the Ruby gem should be configured to not send this data at all or filter out specific values.
 
-We support two methods of parameter filtering. If you use Rails, you can use
-[Rails' configuration directly](#rails-parameter-filtering) and we will listen
-to it. If you use another framework, like Sinatra or Padrino, you can use
-AppSignal's own built-in filtering instead.
+Parameter filtering ensures that no passwords or email addresses sent to your application when a user signs in are stored on AppSignal transactions. The same applies to any other data sent with API requests, such as an authentication token.
 
-## AppSignal parameter filtering (since gem 1.3)
+We support two methods of parameter filtering. If you use Rails, you can use [Rails' configuration directly](#rails-parameter-filtering) and we will listen to it. If you use another framework, like Sinatra or Padrino, you can use AppSignal's own built-in filtering instead.
+
+!> **Warning**: Do not send personal data to AppSignal. If your parameters or session data contain personal data, please use filtering to avoid sending this data to AppSignal.
+
+## Table of Contents
+
+- [Parameter filtering](#parameter-filtering)
+    - [AppSignal parameter filtering](#appsignal-parameter-filtering)
+    - [Rails parameter filtering](#rails-parameter-filtering)
+      - [Filtering specific keys - Blacklisting](#filtering-specific-keys-blacklisting)
+      - [Allowing specific keys - Whitelisting](#allowing-specific-keys-whitelisting)
+    - [Filter all parameters](#filter-all-parameters)
+
+## AppSignal parameter filtering
+
+-> This feature is available since AppSignal Ruby gem [version 1.3.0](https://blog.appsignal.com/2016/08/29/gem-1-3.html).
 
 We support basic parameters filtering directly in the Ruby gem using a blacklist. This parameter filtering is applied to any query parameters in an HTTP request and any argument for background jobs (since Ruby gem 2.3.0).
 
 This filtering supports key based filtering for hashes, the values of which will be replaced with the `[FILTERED]` value. There's support for nested hashes and nested hashes in arrays. Any hash we encounter in your parameters will be filtered.
 
-To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The `filter_parameters` value is an Array of strings.
+To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The [`filter_parameters`](/ruby/configuration/options.html#appsignal_filter_parameters-filter_parameters) value is an Array of Strings.
 
 ```yml
-# config/appsignal.yml
+# Example: config/appsignal.yml
 production:
   filter_parameters:
     - password
     - confirm_password
 ```
-
-It's also possible to set this filter_parameters value using [an environment variable](/ruby/configuration/options.html#filter_parameters).
 
 ## Rails parameter filtering
 
@@ -75,32 +84,16 @@ config.filter_parameters << lambda do |key, value|
 end
 ```
 
-You can of course let the lambda do anything you'd like, so you can come
-up with your own way of determining what needs to be filtered.
+You can have the lambda check against anything you'd like, so you can come up with your own way of determining what needs to be filtered.
 
-Some further information about filtering parameters can be found in the Rails
-guide about
-[ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameters-filtering).
+Some further information about filtering parameters can be found in the Rails guides about [ActionController](http://guides.rubyonrails.org/action_controller_overview.html#parameters-filtering).
 
 ## Filter all parameters
 
-To filter all parameters without using the ActionController filtering, set
-`send_params` to false in your `appsignal.yml`:
+To filter all parameters without individual parameter filtering, set [`send_params`](/ruby/configuration/options.html#appsignal_send_params-send_params) to `false`.
 
 ```yaml
-send_params: false
+# Example: config/appsignal.yml
+production:
+  send_params: false
 ```
-
-## Skip sending session data
-
-If you don't want to send your session data to AppSignal you can add this to the
-config in `appsignal.yml`:
-
-```yaml
-skip_session_data: true
-```
-
-!> **Note**: Do not send personal data to AppSignal. If your parameters contain
-   personal data, please use filtering. If your session data contains personal
-   data, please skip sending it to AppSignal _until we add filtering to session
-   data too (soon!)_.

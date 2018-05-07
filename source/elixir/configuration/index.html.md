@@ -12,7 +12,10 @@ in the Elixir package and what the minimal configuration needed is.
 
 - [Minimal required configuration](#minimal-required-configuration)
 - [Configuration options](/elixir/configuration/options.html)
+  - [Ignore actions](/elixir/configuration/ignore-actions.html)
+  - [Ignore errors](/elixir/configuration/ignore-errors.html)
   - [Parameter filtering](/elixir/configuration/parameter-filtering.html)
+  - [Session data filtering](/elixir/configuration/session-data-filtering.html)
 - [Application environments](#application-environments)
   - [Disable AppSignal for tests](#disable-appsignal-for-tests)
 - [Application versions](#application-versions)

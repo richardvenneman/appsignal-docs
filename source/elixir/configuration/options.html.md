@@ -92,9 +92,30 @@ If this is set to `true` the [AppSignal working directory](/appsignal/how-appsig
 
 - Value: list(String). Default: `[]`
 
-List of parameter keys that should be ignored using AppSignal filtering. Their
-values will be replaced with `FILTERED` when transmitted to AppSignal. You can
-configure this with a list of keys in the configuration file.
+List of parameter keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  filter_parameters: ["password", "secret"]
+```
+
+Read more about [parameter filtering](/elixir/configuration/parameter-filtering.html).
+
+## `APPSIGNAL_FILTER_SESSION_DATA` / `:filter_session_data`
+
+- Available since package version `1.6.0`.
+- Value: list(String). Default: `[]`
+
+List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  filter_session_data: ["name", "email", "api_token", "token"]
+```
+
+Read more about [session data filtering](/elixir/configuration/session-data-filtering.html).
 
 ## `APPSIGNAL_HOSTNAME` / `:hostname`
 

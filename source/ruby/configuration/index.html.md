@@ -19,6 +19,7 @@ configuration is loaded.
   - [Ignore actions](/ruby/configuration/ignore-actions.html)
   - [Ignore errors](/ruby/configuration/ignore-errors.html)
   - [Parameter filtering](/ruby/configuration/parameter-filtering.html)
+  - [Session data filtering](/ruby/configuration/session-data-filtering.html)
 - [Configuration load order](/ruby/configuration/load-order.html)
 - [Example configuration file](#example-configuration-file)
 
