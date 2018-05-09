@@ -10,7 +10,7 @@ In Rails applications AppSignal automatically stores the contents of the user's 
 
 !> **Warning**: Do not send personal data to AppSignal. If your parameters or session data contain personal data, please use filtering to avoid sending this data to AppSignal.
 
--> This feature is available since AppSignal Ruby gem [version 2.6.0](https://blog.appsignal.com/2018/05/07/ruby-gem-2-6.html).
+-> This feature is available since AppSignal Ruby gem [version 2.6.0](https://blog.appsignal.com/2018/05/08/ruby-gem-2-6.html).
 
 ## Table of Contents
 
