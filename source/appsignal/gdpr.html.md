@@ -48,7 +48,7 @@ Any non-whitelisted headers are stripped before being sent to AppSignal.
 
 We've had filtering options for _parameters_ for a long time already, but in our documentation ([Ruby](https://docs.appsignal.com/ruby/configuration/parameter-filtering.html) / [Elixir](https://docs.appsignal.com/elixir/configuration/parameter-filtering.html)) we now stress the importance with regard to GDPR.
 
-The latest Ruby gem and Elixir package releases expand this filtering feature to session data too. It allows customers to send parameters to AppSignal without exposing personal data, by replacing that data with `[FILTERED]`. Alternatively, a customer can choose to not send any parameters or session data at all.
+Recent Ruby gem and Elixir package releases expand this filtering feature to session data too ([Ruby](https://docs.appsignal.com/ruby/configuration/session-data-filtering.html) / [Elixir](https://docs.appsignal.com/elixir/configuration/session-data-filtering.html)). It allows customers to send parameters to AppSignal without exposing personal data, by replacing that data with `[FILTERED]`. Alternatively, a customer can choose to not send any parameters or session data at all.
 
 Data is filtered before being sent to AppSignal.
 
