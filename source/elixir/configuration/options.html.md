@@ -104,7 +104,7 @@ Read more about [parameter filtering](/elixir/configuration/parameter-filtering.
 
 ## `APPSIGNAL_FILTER_SESSION_DATA` / `:filter_session_data`
 
-- Available since package version `1.6.0`.
+- Available since package version `1.6.0` (upgrade to `1.6.3` is recommended).
 - Value: list(String). Default: `[]`
 
 List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
@@ -195,7 +195,7 @@ with when sending data to AppSignal.
 
 ## `APPSIGNAL_REQUEST_HEADERS` / `:request_headers`
 
-- Available since gem version `1.6.0`.
+- Available since package version `1.6.0` (upgrade to `1.6.3` is recommended).
 - Value: `list(String)`. Default: `[]`.
 
 The `request_headers` config option contains a list of HTTP request headers which are read and stored by the AppSignal Elixir package.

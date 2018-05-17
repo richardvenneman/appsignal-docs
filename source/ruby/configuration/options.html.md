@@ -180,7 +180,7 @@ Read more about [parameter filtering](/ruby/configuration/parameter-filtering.ht
 
 ## `APPSIGNAL_FILTER_SESSION_DATA` / `:filter_session_data`
 
-- Available since gem version `2.6.0`.
+- Available since gem version `2.6.0` (upgrade to `2.6.1` is recommend).
 - Value: `Array<String>`. Default: `[]`
 
 List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
@@ -278,7 +278,7 @@ key](/appsignal/terminology.html#push-api-key).
 
 ## `APPSIGNAL_REQUEST_HEADERS` / `:request_headers`
 
-- Available since gem version `2.6.0`.
+- Available since gem version `2.6.0` (upgrade to `2.6.1` is recommend).
 - Value: `Array<String>`. Default: `[]`.
 
 The `request_headers` config option contains a list of HTTP request headers which are read and stored by the AppSignal Ruby gem.
@@ -365,7 +365,7 @@ default: &defaults
 
 ## `APP_REVISION` / `:revision`
 
-- Available since gem version `2.6.0` (currently unreleased).
+- Available since gem version `2.6.0` (upgrade to `2.6.1` is recommended).
 - Value: String. Default: `""`.
 
 Set the app revision for the currently running version of your app. Used to create deploy markers and tag all incoming data to a certain deploy for the host.
