@@ -1,5 +1,5 @@
 ---
-title: "Absinthe <sup>Unoffocial support</sup>"
+title: "Absinthe <sup>Unofficial support</sup>"
 ---
 
 !> **Warning:** Use this solution at your own risk.
