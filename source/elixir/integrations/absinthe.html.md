@@ -4,10 +4,11 @@ title: "Absinthe <sup>Unoffocial support</sup>"
 
 !> **Warning:** Use this solution at your own risk.
 
+!> **Warning:** This solution does not work with Elixir package version 1.5.0 and newer.
+
 -> **Note:** AppSignal for Elixir doesn't officially integrate with Absinthe, please track our progress on adding other integrations in [this GitHub issue](https://github.com/appsignal/appsignal-elixir/issues/176).
 
 We've heard our users ask for support for Absinthe. Although we cannot currently move our focus to Absinthe support we've noticed our normal Plug does not work out-of-the-box for Absinthe apps.
-
 
 ## Problems with Absinthe instrumentation
 
