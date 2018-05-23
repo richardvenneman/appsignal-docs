@@ -14,6 +14,7 @@ We support two methods of parameter filtering. If you use Rails, you can use [Ra
 
 - [Parameter filtering](#parameter-filtering)
     - [AppSignal parameter filtering](#appsignal-parameter-filtering)
+      - [Processor parameter filtering](#processor-parameter-filtering)
     - [Rails parameter filtering](#rails-parameter-filtering)
       - [Filtering specific keys - Blacklisting](#filtering-specific-keys-blacklisting)
       - [Allowing specific keys - Whitelisting](#allowing-specific-keys-whitelisting)
@@ -36,6 +37,10 @@ production:
     - password
     - confirm_password
 ```
+
+### Processor parameter filtering
+
+<%= partial "shared/processor_filtering" %>
 
 ## Rails parameter filtering
 
