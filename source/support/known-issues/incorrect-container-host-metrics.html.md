@@ -20,9 +20,17 @@ AppSignal uses a library called [probes-rs], created by AppSignal, to report hos
 
 ## Solution
 
-None available at this time.
+None complete solution is available at this time. Please try our [alpha release](#alpha-releases) and let us know if it works for you.
 
-We are researching a solution for this issue. If you have a specific container system you are using you want us to support, or to be updated about any change on this issue, please let us know at [support@appsignal.com].
+### Alpha releases
+
+We've released an alpha for a potential fix for container host metrics. Please try out Ruby gem `2.7.0.alpha.2` and Elixir package `1.7.0-alpha.2` or newer and let us know if it works on [support@appsignal.com].
+
+Note that since this is an alpha release we do not recommend running this on your production system.
+
+Also note that it reads the container runtime metrics. If no limits for your container's memory has been configured, the container will report the maximum possible value. A container without swap (support) will report a 0 value. For more information on how to limit your container's memory see the [Docker documentation](https://docs.docker.com/config/containers/resource_constraints/#memory).
+
+Let us know if it's reporting the memory statistics accurately for your apps or if it doesn't. In which case it would help us a lot if you could send us the `appsignal.log` file and some information about your app's container setup so we can reproduce the issue.
 
 ## Workaround
 
