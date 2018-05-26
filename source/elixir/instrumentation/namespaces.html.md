@@ -22,5 +22,27 @@ namespace.
 Please see the documentation for [decorators][namespace_decorator] or
 [instrumentation helpers][namespace_helper] on how to configure a namespace.
 
+## Ignore by namespace
+
+To ignore all actions in a namespace you can configure AppSignal to ignore one or more namespaces in your app's configuration. It's also possible to only [ignore one or more specific actions](/elixir/configuration/ignore-actions.html).
+
+Ignoring actions or namespaces will **ignore all transaction data** from this action or namespace. No errors and performance issues will be reported. [Custom metrics data](/metrics/custom.html) recorded in an action will still be reported.
+
+For more information about this config option, see the [`ignore_namespaces` config option](/elixir/configuration/options.html#appsignal_ignore_namespaces-ignore_namespaces) documentation.
+
+```elixir
+# config/appsignal.exs
+use Mix.Config
+
+config :appsignal, :config,
+  ignore_namespaces: ["admin", "private"]
+```
+
+You can also configure ignore actions using an environment variable.
+
+```bash
+export APPSIGNAL_IGNORE_NAMESPACES="admin,private"
+```
+
 [namespace_decorator]: /elixir/instrumentation/instrumentation.html#decorator-namespaces
 [namespace_helper]: /elixir/instrumentation/instrumentation.html#helper-namespaces

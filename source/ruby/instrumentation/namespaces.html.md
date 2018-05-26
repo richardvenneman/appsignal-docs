@@ -55,5 +55,26 @@ transaction = Appsignal::Transaction.create(
 transaction.set_namespace("slow_admin")
 ```
 
+## Ignore by namespace
+
+To ignore all actions in a namespace you can configure AppSignal to ignore one or more namespaces in your app's configuration. It's also possible to only [ignore one or more specific actions](/ruby/configuration/ignore-actions.html).
+
+Ignoring actions or namespaces will **ignore all transaction data** from this action or namespace. No errors and performance issues will be reported. [Custom metrics data](/metrics/custom.html) recorded in an action will still be reported.
+
+For more information about this config option, see the [`ignore_namespaces` config option](/ruby/configuration/options.html#appsignal_ignore_namespaces-ignore_namespaces) documentation.
+
+```yaml
+default: &defaults
+  ignore_namespaces:
+    - "admin"
+    - "private"
+```
+
+You can also configure ignore namespaces using an environment variable.
+
+```bash
+export APPSIGNAL_IGNORE_NAMESPACES="admin,private"
+```
+
 [set_namespace]: http://www.rubydoc.info/gems/appsignal/Appsignal.set_namespace
 [transaction_initialize]: http://www.rubydoc.info/gems/appsignal/Appsignal%2FTransaction:initialize

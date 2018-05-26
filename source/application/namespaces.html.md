@@ -49,13 +49,12 @@ documentation for our [Ruby](/ruby/instrumentation/namespaces.html) and
 
 ## Ignoring namespaces
 
--> The `ignore_namespaces` feature was introduced in AppSignal for Ruby gem
-   version 2.3.0 and AppSignal for Elixir package version 1.3.0.
+-> The `ignore_namespaces` feature was introduced in AppSignal for Ruby gem version 2.3.0 and AppSignal for Elixir package version 1.3.0.
 
-Sometimes you have a certain part of an application that does not need to be monitored by AppSignal. The most common use case is an administration panel that you use internally and doesn't need constant monitoring.
+Sometimes you have a certain part of an application that does not need to be monitored by AppSignal. The most common use case is an administration panel that you use internally which doesn't need constant monitoring. By ignoring an entire namespace AppSignal will ignore all transactional data from all actions in the configured namespaces.
 
-First, make sure to configure AppSignal to report all actions you want to ignore under a certain namespace, as described in the [Custom namespaces](#custom-namespaces) and custom instrumentation sections for [Ruby](/ruby/instrumentation/namespaces.html) & [Elixir](/elixir/instrumentation/namespaces.html).
+To ignore a namespace first make sure to configure AppSignal to report all actions you want to ignore under a certain namespace, as described in the [Custom namespaces](#custom-namespaces) section.
 
-Then update the AppSignal configuration to ignore an entire namespace with the `ignore_namespaces` option ([Ruby](/ruby/configuration/options.html#appsignal_ignore_namespaces-ignore_namespaces) & [Elixir](/elixir/configuration/options.html#appsignal_ignore_namespaces-ignore_namespaces)).
+Then configure AppSignal in your app to ignore the namespace, see the documentation for [Ruby](/ruby/instrumentation/namespaces.html#ignore-by-namespace) & [Elixir](/elixir/instrumentation/namespaces.html#ignore-by-namespace) apps.
 
 After restarting your app the actions in the selected namespace should no longer be reported on AppSignal.com.
