@@ -17,22 +17,7 @@ To setup AppSignal to receive these metrics, please follow the guide below.
 
 ### Disable AppSignal host metrics collection
 
-By default the AppSignal agent will collect host metrics from Heroku Dynos, but since these aren’t accurate, we have to stop collecting them.
-This is a counter intuitive step to be sure, but this is necessary to avoid duplicate reporting of host metrics for Heroku apps. We will disable host metrics collection on Heroku by default some time in the future.
-
-Disable AppSignal host metrics collection by configuring the `enable_host_metrics` option.
-
-Either in the `config/appsignal.yml` configuration file:
-
-```
-enable_host_metrics: false
-```
-
-Or by setting the system environment variable:
-
-```
-APPSIGNAL_ENABLE_HOST_METRICS=false
-```
+The easiest way to have proper Heroku Host metrics (and hostnames) is to update the Ruby/Elixir integration to `2.6.x` or higher. This will take care of disabling faulty metrics and will use the Heroku Dyno name as hostname (e.g. `web.1`) instead of the UUID used right now.
 
 ### Enable host runtime metrics on Heroku
 
