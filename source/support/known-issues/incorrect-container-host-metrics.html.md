@@ -24,7 +24,7 @@ None complete solution is available at this time. Please try our [alpha release]
 
 ### Alpha releases
 
-We've released an alpha for a potential fix for container host metrics. Please try out Ruby gem `2.7.0.alpha.2` and Elixir package `1.7.0-alpha.2` or newer and let us know if it works on [support@appsignal.com].
+We've released an alpha for a potential fix for container host metrics. Please try out Ruby gem `2.7.0.alpha.4` and Elixir package `1.7.0-alpha.4` or newer and let us know if it works on [support@appsignal.com].
 
 Note that since this is an alpha release we do not recommend running this on your production system.
 
