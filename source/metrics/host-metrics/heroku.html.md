@@ -15,11 +15,15 @@ To setup AppSignal to receive these metrics, please follow the guide below.
 
 !> **Note**: This is a beta feature, meaning that the logplex endpoint can change at any time, at which point you will need to re-add the logdrain.
 
-### Disable AppSignal host metrics collection
+### 1. Update the agent to 2.6.x or better
 
-The easiest way to have proper Heroku Host metrics (and hostnames) is to update the Ruby/Elixir integration to `2.6.x` or higher. This will take care of disabling faulty metrics and will use the Heroku Dyno name as hostname (e.g. `web.1`) instead of the UUID used right now.
+We switched from using the dyno's UUID to the name (e.g. `web.1`), to make sure we can match the metrics we get from the Logplex drain with the data we receive from the integration, please make sure to run `2.6.x` or better.
 
-### Enable host runtime metrics on Heroku
+### 2. Disable AppSignal host metrics collection
+
+Either set the env var `APPSIGNAL_ENABLE_HOST_METRICS` or the yaml config `:enable_host_metrics` to false.
+
+### 3. Enable host runtime metrics on Heroku
 
 The Heroku host [runtime metrics](https://devcenter.heroku.com/articles/log-runtime-metrics) feature will log the host metrics for your dynos at set intervals to your app's log.
 
@@ -40,7 +44,7 @@ source=web.1 dyno=heroku.2808254.d97d0ea7-cf3d-411b-b453-d2943a50b456 sample#mem
 
 Please see the [Heroku Logplex documentation](https://devcenter.heroku.com/articles/log-runtime-metrics) for more information on how to set this up if you run into problems.
 
-### Add a Logplex drain
+### 4. Add a Logplex drain
 
 In order to get the Dyno's host metrics to AppSignal you have to create a new Logplex drain.
 
