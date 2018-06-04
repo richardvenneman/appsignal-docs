@@ -39,6 +39,19 @@ For example: If one machine is still running an older version of the application
 
 The `revision` config option has been released in [Ruby](/ruby/configuration/options.html#app_revision-revision) gem version `2.6.1` and [Elixir](/elixir/configuration/options.html#app_revision-revision) package version `1.6.3`.
 
+```yml
+# For Ruby
+# config/appsignal.yml
+production:
+  revision: "abcdef12"
+```
+
+```elixir
+# For Elixir
+# config/appsignal.exs
+config :appsignal, :config, revision: "abcdef12"
+```
+
 If you're running a version in which this config option is not available we recommend using the [`APP_REVISION` environment variable](#system-environment-variable) instead.
 
 ### System environment variable
