@@ -24,11 +24,11 @@ None complete solution is available at this time. Please try our [alpha release]
 
 ### Alpha releases
 
-We've released an alpha for a potential fix for container host metrics. Please try out Ruby gem `2.7.0.alpha.2` and Elixir package `1.7.0-alpha.2` or newer and let us know if it works on [support@appsignal.com].
+We've released an alpha for a potential fix for container host metrics. Please try out Ruby gem `2.7.0.alpha.4` and Elixir package `1.7.0-alpha.4` or newer and let us know if it works on [support@appsignal.com].
 
 Note that since this is an alpha release we do not recommend running this on your production system.
 
-Also note that it reads the container runtime metrics. If no limits for your container's memory has been configured, the container will report the maximum possible value. A container without swap (support) will report a 0 value. For more information on how to limit your container's memory see the [Docker documentation](https://docs.docker.com/config/containers/resource_constraints/#memory).
+Also note that it reads the container runtime metrics. If no limits for your container's memory has been configured, the container will report the maximum possible value. A container without swap (support) will report a 0 value. For more information on how to limit your container's memory see the [Docker](https://docs.docker.com/config/containers/resource_constraints/#memory) or [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/) documentation.
 
 Let us know if it's reporting the memory statistics accurately for your apps or if it doesn't. In which case it would help us a lot if you could send us the `appsignal.log` file and some information about your app's container setup so we can reproduce the issue.
 
