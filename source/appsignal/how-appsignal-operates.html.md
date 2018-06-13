@@ -60,7 +60,7 @@ The working directory's responsibilities:
 
 The default location of the working directory is `/tmp/appsignal`. If you use a [Capistrano](http://capistranorb.com/) style directory structure it will create a directory named `appsignal` in `app/shared`. On [Heroku](https://heroku.com) style deployments it will create the directory in `/app/tmp`. If neither of these paths are detected, the AppSignal directory will be created in the default location.
 
-The location of the working directory can be customized with the `working_dir_path` config option ([Ruby](/ruby/configuration/options.html#appsignal_working_dir_path-working_dir_path) / [Elixir](/elixir/configuration/options.html#appsignal_working_dir_path-working_dir_path)). Any path configured this way will have precedence over any path it can detect.
+The location of the working directory can be customized with the `working_directory_path` config option ([Ruby](/ruby/configuration/options.html#appsignal_working_directory_path-working_directory_path) / [Elixir](/elixir/configuration/options.html#appsignal_working_directory_path-working_directory_path)). Any path configured this way will have precedence over any path it can detect.
 
 ####^working-directory Permissions
 
