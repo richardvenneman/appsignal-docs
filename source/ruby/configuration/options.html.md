@@ -350,9 +350,9 @@ samples.
 
 ## `APPSIGNAL_WORKING_DIR_PATH` / `:working_dir_path`
 
-- Value: String. Default: detected by agent
+!> **Warning**: This config option is deprecated in Ruby gem 2.7.0. Please use the [`working_directory_path`](#appsignal_working_directory_path-working_directory_path) option instead for Ruby gem 2.7.0 and newer.
 
-*DEPRECATED*
+- Value: String. Default: detected by agent
 
 Override the location where AppSignal for Ruby creates a working directory.
 
