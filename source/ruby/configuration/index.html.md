@@ -143,7 +143,7 @@ production:
   log_path: '/home/my_app/app/shared/log'
 
   # Set AppSignal working dir
-  working_dir_path: '/tmp/appsignal'
+  working_directory_path: '/tmp/appsignal'
 
   # When it's not possible to connect to the outside world without a proxy
   http_proxy: 'proxy.mydomain.com:8080'

@@ -354,21 +354,21 @@ samples.
 
 - Value: String. Default: detected by agent
 
-Override the location where AppSignal for Ruby creates a working directory.
+Override the location where AppSignal for Ruby creates a working directory. See [`working_directory_path`](#appsignal_working_directory_path-working_directory_path) for the behavior it is applicable. This config option appends `/appsignal` to the specified path, where [`working_directory_path`](#appsignal_working_directory_path-working_directory_path) does not.
 
 ## `APPSIGNAL_WORKING_DIRECTORY_PATH` / `:working_directory_path`
 
-- Available since gem version `2.8.0`.
+- Available since gem version `2.8.0`. (Please use the [`working_dir_path`](#appsignal_working_dir_path-working_dir_path) option on earlier versions.)
 - Value: String. Default: `""`
 
 Override the location where AppSignal for Ruby can store temporary files. Use this option if the default location is not suitable. See our [how AppSignal operates](/appsignal/how-appsignal-operates.html) page for more information about the purpose of this working directory.
 
-If you are running multiple applications using AppSignal on the same server, use this configuration option to select different working directories for every AppSignal instance, otherwise the two instances could conflict with one another. For more information on this scenario see our [Running multiple applications on one host](/application/index.html#running-multiple-applications-on-one-host) documentation.
+If you are running multiple applications using AppSignal on the same server, use this configuration option to select different working directories for every AppSignal instance, otherwise the two instances could conflict with one another. For more information on this scenario see our [running multiple applications on one host](/application/index.html#running-multiple-applications-on-one-host) documentation.
 
 ```yml
 # config/appsignal.yml
 default: &defaults
-  working_dir_path: "/tmp/project_1/"
+  working_directory_path: "/tmp/project_1/"
 ```
 
 ## `APP_REVISION` / `:revision`

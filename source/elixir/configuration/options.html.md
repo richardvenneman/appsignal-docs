@@ -249,11 +249,12 @@ Override the location where AppSignal for Elixir creates a working directory.
 
 ## `APPSIGNAL_WORKING_DIRECTORY_PATH` / `:working_directory_path`
 
+- Available since package version `1.8.0`. (Please use the [`working_dir_path`](#appsignal_working_dir_path-working_dir_path) option on earlier versions.)
 - Value: String. Default: `""`
 
 Override the location where AppSignal for Elixir can store temporary files. Use this option if the default location is not suitable. See our [how AppSignal operates](/appsignal/how-appsignal-operates.html) page for more information about the purpose of this working directory.
 
-If you are running multiple applications using AppSignal on the same server, use this configuration option to select different working directories for every AppSignal instance, otherwise the two instances could conflict with one another. For more information on this scenario see our [Running multiple applications on one host](/application/index.html#running-multiple-applications-on-one-host) documentation.
+If you are running multiple applications using AppSignal on the same server, use this configuration option to select different working directories for every AppSignal instance, otherwise the two instances could conflict with one another. For more information on this scenario see our [running multiple applications on one host](/application/index.html#running-multiple-applications-on-one-host) documentation.
 
 ```elixir
 # config/config.exs
