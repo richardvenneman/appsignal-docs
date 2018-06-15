@@ -359,7 +359,7 @@ Override the location where AppSignal for Ruby creates a working directory. See 
 ## `APPSIGNAL_WORKING_DIRECTORY_PATH` / `:working_directory_path`
 
 - Available since gem version `2.8.0`. (Please use the [`working_dir_path`](#appsignal_working_dir_path-working_dir_path) option on earlier versions.)
-- Value: String. Default: `""`
+- Value: String. Default: detected by agent
 
 Override the location where AppSignal for Ruby can store temporary files. Use this option if the default location is not suitable. See our [how AppSignal operates](/appsignal/how-appsignal-operates.html) page for more information about the purpose of this working directory.
 
