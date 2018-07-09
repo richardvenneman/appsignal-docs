@@ -16,8 +16,8 @@ using environment variables.
 Make sure the AppSignal for Elixir package is installed in your application
 using Mix.
 
-Add it as a dependency to your application and add it as a sub application of
-your application.
+Add it as a dependency to your application and add it to the :extra_applications 
+of your application.
 
 ```elixir
 # mix.exs
@@ -30,7 +30,7 @@ your application.
   def application do
     [
       mod: {MyAwesomeApp, []},
-      applications: [:appsignal, ...]
+      extra_applications: [:appsignal, ...]
     ]
   end
 

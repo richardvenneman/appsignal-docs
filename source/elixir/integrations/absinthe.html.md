@@ -1,13 +1,14 @@
 ---
-title: "Absinthe <sup>Unoffocial support</sup>"
+title: "Absinthe <sup>Unofficial support</sup>"
 ---
 
 !> **Warning:** Use this solution at your own risk.
 
+!> **Warning:** This solution was updated to work with AppSignal Elixir package version 1.5.0 and newer. The old version, previously documented here, doesn't work on newer packages anymore.
+
 -> **Note:** AppSignal for Elixir doesn't officially integrate with Absinthe, please track our progress on adding other integrations in [this GitHub issue](https://github.com/appsignal/appsignal-elixir/issues/176).
 
 We've heard our users ask for support for Absinthe. Although we cannot currently move our focus to Absinthe support we've noticed our normal Plug does not work out-of-the-box for Absinthe apps.
-
 
 ## Problems with Absinthe instrumentation
 
@@ -28,10 +29,9 @@ defmodule AppsignalAbsinthePlug do
 
   def init(_), do: nil
 
-  def call(%Plug.Conn{request_path: "/graphql", method: "POST"} = conn, _) do
-    Transaction.lookup_or_create_transaction(nil, :http_request)
-    |> Transaction.set_action("POST /graphql")
-
+  @path "/graphql" # Change me to your route's path
+  def call(%Plug.Conn{request_path: @path, method: "POST"} = conn, _) do
+    Transaction.set_action("POST " <> @path)
     conn
   end
 

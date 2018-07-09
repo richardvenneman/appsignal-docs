@@ -4,7 +4,7 @@ title: "AppSignal Elixir configuration options"
 
 The following list includes all configuration options with the name of the environment variable and the name of the key in the configuration file.
 
-For more information on how to configure AppSignal with a configuration file or system environment variables, see our [Configuration](/ruby/configuration) topic.
+For more information on how to configure AppSignal with a configuration file or system environment variables, see our [Configuration](/elixir/configuration) topic.
 
 ## `APPSIGNAL_ACTIVE` / `:active`
 
@@ -92,9 +92,30 @@ If this is set to `true` the [AppSignal working directory](/appsignal/how-appsig
 
 - Value: list(String). Default: `[]`
 
-List of parameter keys that should be ignored using AppSignal filtering. Their
-values will be replaced with `FILTERED` when transmitted to AppSignal. You can
-configure this with a list of keys in the configuration file.
+List of parameter keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  filter_parameters: ["password", "secret"]
+```
+
+Read more about [parameter filtering](/elixir/configuration/parameter-filtering.html).
+
+## `APPSIGNAL_FILTER_SESSION_DATA` / `:filter_session_data`
+
+- Available since package version `1.6.0` (upgrade to `1.6.3` is recommended).
+- Value: list(String). Default: `[]`
+
+List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  filter_session_data: ["name", "email", "api_token", "token"]
+```
+
+Read more about [session data filtering](/elixir/configuration/session-data-filtering.html).
 
 ## `APPSIGNAL_HOSTNAME` / `:hostname`
 
@@ -172,6 +193,35 @@ Configure the endpoint to send data to AppSignal.
 The [Push API key](/appsignal/terminology.html#push-api-key) to authenticate
 with when sending data to AppSignal.
 
+## `APPSIGNAL_REQUEST_HEADERS` / `:request_headers`
+
+- Available since package version `1.6.0` (upgrade to `1.6.3` is recommended).
+- Value: `list(String)`. Default: `[]`.
+
+The `request_headers` config option contains a list of HTTP request headers which are read and stored by the AppSignal Elixir package.
+
+This `request_headers` config option is a *whitelist*, which means that it will only take headers as specified by this config option. If this config option is unset it will use the AppSignal default.
+
+Following list is the AppSignal package default.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  request_headers: ~w(
+    accept accept-charset accept-encoding accept-language cache-control
+    connection content-length path-info range request-method
+    request-uri server-name server-port server-protocol
+  )
+```
+
+To configure AppSignal to not store any HTTP request headers on AppSignal transactions, configure the option with an empty array.
+
+```elixir
+# config/appsignal.exs
+config :appsignal, :config,
+  request_headers: []
+```
+
 ## `APPSIGNAL_RUNNING_IN_CONTAINER` / `:running_in_container`
 
 - Value: `true`/`false`. Default: `false`
@@ -205,7 +255,7 @@ config :appsignal, :config,
 
 ## `APP_REVISION` / `:revision`
 
-- Available since gem version `1.5.0` (currently in beta).
+- Available since package version `1.5.0`.
 - Value: String. Default: `""`.
 
 Set the app revision for the currently running version of your app. Used to create deploy markers and tag all incoming data to a certain deploy for the host.

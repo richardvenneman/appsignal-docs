@@ -30,3 +30,8 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
   - Symptom: Actions in Plug apps are marked as "unknown" in AppSignal.
   - Affected components:
       - AppSignal Elixir package versions: `v1.5.0-beta.1` - most recent
+- [No errors are reported to AppSignal for Rails 5.1](known-issues/rails-5-1-missing-errors.html)
+  - Symptom: No errors are reported to AppSignal after upgrading to Rails 5.1.
+  - Affected components:
+      - AppSignal Ruby package versions: `v2.2.1` and earlier
+      - Apps running Rails 5.1 or higher

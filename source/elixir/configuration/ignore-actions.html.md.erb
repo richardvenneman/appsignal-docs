@@ -2,12 +2,14 @@
 title: "Ignore actions"
 ---
 
-Sometimes you have a certain action that you don't need to log to AppSignal.
-The most common use case is an action that your load balancer uses to check if
-your app is still responding.
+<%= partial "shared/ignore_actions" %>
 
-You can ignore these actions from being sent to AppSignal in the integration
-configuration. This works both for controller and for background jobs.
+## Table of Contents
+
+- [Ignore by action name](#ignore-by-action-name)
+- [Ignore by namespace](/elixir/instrumentation/namespaces.html#ignore-by-namespace) - Namespace documentation
+
+## Ignore by action name
 
 ```elixir
 # config/appsignal.exs

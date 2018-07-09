@@ -10,7 +10,14 @@ clients. This is easily done with "organizations" in AppSignal.
 Organizations are basically umbrellas for your applications, which we charge on
 the organization level.
 
-## Create a new organization
+## Table of Contents
+
+- [Creating a new organization](#creating-a-new-organization)
+- [Leaving an organization](#leaving-an-organization)
+- [Team management](/organization/team)
+- [Billing](/organization/billing.html)
+
+## Creating a new organization
 
 Once you sign up for an AppSignal account you will need to create an
 Organization, except when you accept an invitation to another organization.

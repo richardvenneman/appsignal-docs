@@ -1,0 +1,34 @@
+---
+title: "Ignore actions"
+---
+
+<%= partial "shared/ignore_actions" %>
+
+## Table of Contents
+
+- [Ignore by action name](#ignore-by-action-name)
+- [Ignore by namespace](/ruby/instrumentation/namespaces.html#ignore-by-namespace) - Namespace documentation
+
+## Ignore by action name
+
+```yaml
+default: &defaults
+  ignore_actions:
+    - "ApplicationController#is_up"
+    - "MyBackgroundWorker#perform"
+```
+
+If you use Sinatra or any other framework, use the HTTP method and path you used to specify your route, for example:
+
+```yaml
+default: &defaults
+  ignore_actions:
+    - "GET /pages/:id"
+    - "POST /pages/create"
+```
+
+You can also configure ignore actions via an environment variable.
+
+```bash
+export APPSIGNAL_IGNORE_ACTIONS="ApplicationController#is_up,MyBackgroundWorker#perform"
+```

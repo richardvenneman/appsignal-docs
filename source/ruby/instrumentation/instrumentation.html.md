@@ -204,6 +204,9 @@ The method for instrumenting your code using `ActiveSupport::Notifications`
 is very similar to how AppSignal does it. Using the article fetcher example
 again you can see the differences are quite small.
 
+Also see our documentation on AppSignal [event formatters](event-formatters.html) when using `ActiveSupport::Notifications`.  
+For more information about ActiveSupport::Notifications instrumentation, see the official Rails [`ActiveSupport::Notifications` documentation](http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html).
+
 ```ruby
 require "active_support"
 

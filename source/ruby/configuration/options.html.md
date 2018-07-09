@@ -65,7 +65,7 @@ Configure DNS servers for the AppSignal agent to use.
 
 ```yml
 # config/appsignal.yml
-production:
+default: &defaults
   dns_servers:
   - 8.8.8.8
   - 8.8.4.4
@@ -164,12 +164,38 @@ If this is set to `true` the [AppSignal working directory](/appsignal/how-appsig
 - Available since gem version `1.3.0`.
 - Value: `Array<String>`. Default: `[]`
 
-List of parameter keys that should be ignored using AppSignal filtering. Their
-values will be replaced with `FILTERED` when transmitted to AppSignal. You can
-configure this with a list of keys in the configuration file:
+List of parameter keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
 
-Read more about [parameter
-filtering](/ruby/configuration/parameter-filtering.html).
+```yml
+# config/appsignal.yml
+default: &defaults
+  filter_parameters:
+    - password
+    - email
+    - api_token
+    - token
+```
+
+Read more about [parameter filtering](/ruby/configuration/parameter-filtering.html).
+
+## `APPSIGNAL_FILTER_SESSION_DATA` / `:filter_session_data`
+
+- Available since gem version `2.6.0` (upgrade to `2.6.1` is recommend).
+- Value: `Array<String>`. Default: `[]`
+
+List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal. You can configure this with a list of keys in the configuration file.
+
+```yml
+# config/appsignal.yml
+default: &defaults
+  filter_session_data:
+    - name
+    - email
+    - api_token
+    - token
+```
+
+Read more about [session data filtering](/ruby/configuration/session-data-filtering.html).
 
 ## `APPSIGNAL_HOSTNAME` / `:hostname`
 
@@ -250,6 +276,45 @@ The key to authenticate with our push API.
 Read more about the [AppSignal Push API
 key](/appsignal/terminology.html#push-api-key).
 
+## `APPSIGNAL_REQUEST_HEADERS` / `:request_headers`
+
+- Available since gem version `2.6.0` (upgrade to `2.6.1` is recommend).
+- Value: `Array<String>`. Default: `[]`.
+
+The `request_headers` config option contains a list of HTTP request headers which are read and stored by the AppSignal Ruby gem.
+
+This `request_headers` config option is a *whitelist*, which means that it will only take headers as specified by this config option. If this config option is unset it will use the AppSignal default.
+
+Following list is the AppSignal gem default.
+
+```yml
+# config/appsignal.yml
+default: &defaults
+  request_headers:
+    - HTTP_ACCEPT
+    - HTTP_ACCEPT_CHARSET
+    - HTTP_ACCEPT_ENCODING
+    - HTTP_ACCEPT_LANGUAGE
+    - HTTP_CACHE_CONTROL
+    - HTTP_CONNECTION
+    - CONTENT_LENGTH
+    - PATH_INFO
+    - HTTP_RANGE
+    - REQUEST_METHOD
+    - REQUEST_URI
+    - SERVER_NAME
+    - SERVER_PORT
+    - SERVER_PROTOCOL
+```
+
+To configure AppSignal to not store any HTTP request headers on AppSignal transactions, configure the option with an empty array.
+
+```yml
+# config/appsignal.yml
+default: &defaults
+  request_headers: []
+```
+
 ## `APPSIGNAL_RUNNING_IN_CONTAINER` / `:running_in_container`
 
 - Available since gem version `1.0.0`.
@@ -294,13 +359,13 @@ If you are running multiple applications using AppSignal on the same server, use
 
 ```yml
 # config/appsignal.yml
-production:
+default: &defaults
   working_dir_path: "/tmp/project_1/"
 ```
 
 ## `APP_REVISION` / `:revision`
 
-- Available since gem version `2.6.0` (currently unreleased).
+- Available since gem version `2.6.0` (upgrade to `2.6.1` is recommended).
 - Value: String. Default: `""`.
 
 Set the app revision for the currently running version of your app. Used to create deploy markers and tag all incoming data to a certain deploy for the host.

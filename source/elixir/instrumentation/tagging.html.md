@@ -10,6 +10,12 @@ the request, session or environment parameters.
 Appsignal.Transaction.set_sample_data("tags", %{locale: "en"})
 ```
 
+!> **Warning**: Do not use tagging to send personal data such as names or email
+   addresses to AppSignal. If you want to identify a person, consider using a
+   user ID, hash or pseudonymized identifier instead. You can use
+   [link templates](/application/link-templates.html) to link them to your own
+   system.
+
 ## Tags
 
 Using tags you can easily add more information to errors and performance issues
@@ -40,10 +46,3 @@ will result in the following data:
 
 Tags can also be used to create link templates. Read more about link templates
 in our [link templates guide](/application/link-templates.html).
-
-## Sending personal data
-
-Please be mindful of sending personal data about your users to AppSignal. You
-can choose to send user data, but a better workflow would be to send user IDs
-or hashes and use [link templates](/application/link-templates.html) to link
-them back to your own system.

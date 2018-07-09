@@ -24,7 +24,7 @@ source "https://rubygems.org"
 gem "appsignal"
 ```
 
-Then run `bundle install` to instal the gem.
+Then run `bundle install` to install the gem.
 
 To install AppSignal in your application we recommend you run the `appsignal install` command. Please provide it with your [Push API key](/appsignal/terminology.html#push-api-key) to configure it properly.
 
@@ -32,10 +32,6 @@ To install AppSignal in your application we recommend you run the `appsignal ins
 bundle exec appsignal install YOUR_PUSH_API_KEY
 ```
 
-This will present you with an installation script that can integrate
-automatically in some frameworks and gems and will allow you to configure
-AppSignal.
+This will present you with an installation script that can integrate automatically in some frameworks and gems and will allow you to configure AppSignal.
 
-For more information on how to integrate AppSignal into your application see
-the [integrations documentation](/ruby/integrations/index.html) to see what
-steps are necessary.
+For more information on how to integrate AppSignal into your application see the [integrations documentation](/ruby/integrations/index.html) to see what steps are necessary.

@@ -1,5 +1,5 @@
 ---
-title: Plug actions registered as "unkown"
+title: Plug actions registered as "unknown"
 ---
 
 ## Affected components
