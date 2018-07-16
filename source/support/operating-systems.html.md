@@ -192,7 +192,7 @@ Support for FreeBSD systems was added in AppSignal for Ruby gem `2.4.0` and AppS
 The following system dependencies are required for FreeBSD Linux distributions:
 
 ```
-dnf install gcc gcc-c++ make openssl-devel
+pkg install gcc gmake openssl-devel
 ```
 
 ## macOS
