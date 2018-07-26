@@ -35,3 +35,8 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
   - Affected components:
       - AppSignal Ruby package versions: `v2.2.1` and earlier
       - Apps running Rails 5.1 or higher
+- [Apps on Elixir OTP 21 don't report data](known-issues/elixir-otp-21.html)
+  - Symptom: No data is reported to AppSignal after upgrading to OTP 21.
+  - Affected components:
+      - AppSignal for Elixir package versions: `v1.6.5` and earlier
+      - Apps running OTP 21 or higher
