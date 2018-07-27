@@ -40,7 +40,7 @@ When running multiple applications on one host some odd behavior may occur.  Thi
 
 One common problem we've seen is that Applications start reporting under different names and/or environments. Such as an application switching between the staging and production environment after a deploy or restart of an application process or worker.
 
-To allow AppSignal to be used for multiple applications on one host we need to set the `working_dir_path` configuration option ([Ruby](/ruby/configuration/options.html#appsignal_working_dir_path-working_dir_path) / [Elixir](/elixir/configuration/options.html#appsignal_working_dir_path-working_dir_path)). Using this configuration option, set a working directory path per application so that the AppSignal agent will not stop agents for other Applications that are running.
+To allow AppSignal to be used for multiple applications on one host we need to set the `working_directory_path` configuration option ([Ruby](/ruby/configuration/options.html#appsignal_working_directory_path-working_directory_path) / [Elixir](/elixir/configuration/options.html#appsignal_working_directory_path-working_directory_path)). Using this configuration option, set a working directory path per application so that the AppSignal agent will not stop agents for other Applications that are running.
 
 Read more about the AppSignal [working directory](/appsignal/how-appsignal-operates.html#working-directory).
 
