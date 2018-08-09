@@ -19,21 +19,23 @@ The AppSignal integrations for Ruby and Elixir contain native extensions and a s
 
 ## Support table
 
-| Operating System                                     | 32-bit support | 64-bit support |
-| ---------------------------------------------------- | -------------- | -------------- |
-| macOS/OSX (`darwin`) <sup>1</sup>                    |                | ✓              |
-| Linux <sup>2</sup>                                   | ✓              | ✓              |
-| &nbsp;&nbsp;&nbsp;&nbsp; - Alpine Linux <sup>3</sup> | ✓              | ✓              |
-| &nbsp;&nbsp;&nbsp;&nbsp; - CentOS                    | ✓              | ✓              |
-| &nbsp;&nbsp;&nbsp;&nbsp; - Debian                    | ✓              | ✓              |
-| &nbsp;&nbsp;&nbsp;&nbsp; - Fedora                    | ✓              | ✓              |
-| FreeBSD <sup>1</sup>                                 |                | ✓              |
-| Microsoft Windows <sup>4</sup>                       |                |                |
+| Operating System                                       | 32-bit support | 64-bit support |
+| ------------------------------------------------------ | -------------- | -------------- |
+| macOS/OSX (`darwin`) <sup>1</sup>                      |                | ✓              |
+| Linux <sup>2 3</sup>                                   | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - Alpine Linux <sup>4 5</sup> | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - CentOS                      | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - Debian                      | ✓              | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - Fedora                      | ✓              | ✓              |
+| FreeBSD <sup>1</sup>                                   |                | ✓              |
+| Microsoft Windows <sup>6</sup>                         |                |                |
 
 - `1`: Does not support [host metrics][host-metrics] (yet).
 - `2`: Depending on the integration version some older versions of the Operating System are supported. See the [Linux](#linux) section for more information.
-- `3`: Supported since AppSignal for [Ruby](/ruby) version `2.1.x` and AppSignal for [Elixir](/elixir) version `0.11.0`.
-- `4`: Untested with the Windows subsystem for Linux.
+- `3`: Some older systems may not support dynamic builds, which is required for JRuby. See the [Linux](#linux) section for more information.
+- `4`: Supported since AppSignal for [Ruby](/ruby) version `2.1.x` and AppSignal for [Elixir](/elixir) version `0.11.0`.
+- `5`: Not supported for dynamic builds, which is required for JRuby.
+- `6`: Untested with the Windows subsystem for Linux.
 
 ## Linux
 
@@ -59,6 +61,8 @@ This is the list of version of libc/musl AppSignal was compiled against over the
   - musl `v1.1.16` - see [Alpine Linux install problems after upgrading](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html).
 
 If your system uses an older libc version than we compile against you will experience problems installing or running the AppSignal agent. If this is the case you can instead opt-in to the musl build, which doesn't have this issue. This should no longer be a problem for AppSignal Ruby gem `v2.4.1` and higher, automatic detection for older libc versions was added and it will automatically switch to the musl build.
+
+**Warning**: When an older libc version is detected or the musl build is selected manually, JRuby is not supported. It requires a dynamic build of the AppSignal extension, which is not supported for the musl build.
 
 To opt-in to the musl build manually, add the `APPSIGNAL_BUILD_FOR_MUSL` environment variable to your system environment before installing AppSignal and compiling your application.
 
@@ -90,11 +94,11 @@ Written by Roland McGrath and Ulrich Drepper.
 
 ### Alpine Linux
 
-[Alpine Linux] support was added in version `2.1.0` of the AppSignal for Ruby gem. Our AppSignal for Elixir package supports Alpine Linux since version `0.11.0`.
+[Alpine Linux] support was added in version `2.1.0` of the AppSignal for Ruby gem. (JRuby is not supported on Alpine Linux.) Our AppSignal for Elixir package supports Alpine Linux since version `0.11.0`.
 
 The following system dependencies are required for Alpine Linux:
 
-```
+```sh
 # Dependencies for the AppSignal Ruby gem
 apk add --update alpine-sdk coreutils
 
@@ -104,7 +108,7 @@ apk add --update alpine-sdk coreutils curl
 
 In AppSignal for Ruby version `2.4.0` and AppSignal for Elixir `1.4.0` we started shipping a separate build for Alpine Linux. If you upgraded from an earlier version and are have problems compiling your app, our detection isn't working properly. See our [upgrading issue](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html) for more information.
 
-For the Ruby gem, detection is based on the output from `ldd --version`. For the Elixir package we listen to the output of `:erlang.system_info(:system_architecture)`.
+For both the Ruby gem and Elixir package, detection is based on the output from `ldd --version`.
 
 If your app is unable to call the `ldd` program or the detection is off for some reason, you can force the Alpine Linux compatible build by providing a special environment variable on install.
 
@@ -147,7 +151,7 @@ CentOS is fully supported by the AppSignal extension. Depending on your CentOS v
 
 The following system dependencies are required for CentOS:
 
-```
+```sh
 # Dependencies for the AppSignal Ruby gem
 yum install gcc gcc-c++ make openssl-devel
 
@@ -163,7 +167,7 @@ For CentOS 6 and older versions you will need to opt-in to the musl build for Ap
 
 The following system dependencies are required for Debian Linux distributions:
 
-```
+```sh
 # Dependencies for the AppSignal Ruby gem
 apt-get update
 apt-get install build-essential ca-certificates
@@ -177,7 +181,7 @@ apt-get install build-essential ca-certificates curl
 
 The following system dependencies are required for Fedora Linux distributions:
 
-```
+```sh
 # Dependencies for the AppSignal Ruby gem
 dnf install gcc gcc-c++ make openssl-devel
 
@@ -191,7 +195,7 @@ Support for FreeBSD systems was added in AppSignal for Ruby gem `2.4.0` and AppS
 
 The following system dependencies are required for FreeBSD Linux distributions:
 
-```
+```sh
 pkg install gcc gmake openssl-devel
 ```
 
@@ -201,7 +205,7 @@ macOS (OS X) is supported by AppSignal for Ruby and Elixir. It currently does no
 
 Please make sure Xcode is installed with the command line build tools.
 
-```
+```sh
 xcode-select --install
 ```
 
@@ -215,7 +219,7 @@ If you use Microsoft Windows and would like us to support it, [send us an e-mail
 
 Do make sure you have the [RubyInstaller](https://rubyinstaller.org/) DevKit installed before installing AppSignal. Otherwise there will be the following error during installation of our C-extension.
 
-```
+```sh
 $ gem install appsignal
 Fetching appsignal 2.2.1
 Installing appsignal 2.2.1 with native extensions
