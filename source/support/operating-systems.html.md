@@ -125,7 +125,7 @@ mix deps.get
 mix compile
 ```
 
-#### Ruby
+####^alpine-linux Ruby
 
 For the Ruby gem add this to your `Gemfile`:
 
@@ -135,7 +135,7 @@ gem "appsignal", ">= 2.1.0" # or a newer version
 
 For the latest available version see the full list on [RubyGems.org](https://rubygems.org/gems/appsignal/versions) and if you run into any problems please [let us know](mailto:support@appsignal.com).
 
-#### Elixir
+####^alpine-linux Elixir
 
 If you're using Elixir, add this to your `mix.exs` file:
 
