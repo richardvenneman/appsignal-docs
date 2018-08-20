@@ -2,45 +2,41 @@
 title: "Custom metrics <sup>Beta</sup>"
 ---
 
-With AppSignal for both Ruby and Elixir, it's possible to add custom
-instrumentation ([Ruby](/ruby/instrumentation/index.html) /
-[Elixir](/elixir/instrumentation/index.html)) to get more details about your
-application performance. But sometimes you want to track other metrics as well.
+With AppSignal for both Ruby and Elixir, it's possible to add custom instrumentation to [transactions](/appsignal/terminology.html#transactions) ([Ruby](/ruby/instrumentation/index.html) / [Elixir](/elixir/instrumentation/index.html)) to get more details about your application's performance. This instrumentation is per sample and don't give a complete picture of your application. Instead, you can use custom metrics for application-wide metrics.
 
-To track such metrics, you can send custom metrics to AppSignal.
-These metrics enable you to track anything in your application, from new
-accounts to database disk usage. These are not replacements for code
-instrumentation, but an additional way to make certain data in your code more
-accessible and measurable over time.
+To track application-wide metrics, you can send custom metrics to AppSignal. These metrics enable you to track anything in your application, from newly registered users to database disk usage. These are not replacements for custom instrumentation, but provide an additional way to make certain data in your code more accessible and measurable over time.
 
-Also read our blog post [about custom
-metrics](http://blog.appsignal.com/blog/2016/01/26/custom-metrics.html).
+Also see our blog post [about custom metrics](http://blog.appsignal.com/blog/2016/01/26/custom-metrics.html) for more information.
 
-**Note**: This feature was introduced with the `1.0` version of the AppSignal
-Ruby gem. It allows sending various metrics to AppSignal where they can be
-graphed. It is also available in the Elixir package.
+-> **Note**: This feature was introduced with the `1.0` version of the AppSignal for Ruby gem. It is also available in the Elixir package.
 
 ## Table of Contents
 
-- [Collecting metrics](#collecting-metrics)
-- [Metric dashboards](#metric-dashboards)
+- [Metric types](#metric-types)
+  - [Gauge](#gauge)
+  - [Measurement](#measurement)
+  - [Count](#count)
+- [Metric naming](#metric-naming)
+- [Metric values](#metric-values)
+- [Dashboards](#dashboards)
 
-## Collecting metrics
+## Metric types
 
-There are three kinds of metrics we collect:
+There are three kinds of metrics we collect all with their own purpose.
 
-- [gauge](#guage);
-- [measurement](#measurement), and;
-- [count](#count).
+- [Gauge](#gauge)
+- [Measurement](#measurement)
+- [Count](#count)
 
 ### Gauge
 
-A gauge is a number. If you set more than one gauge with the same key, the
-latest value for that moment in time is persisted:
+A gauge is a metric value at a specific time. If you set more than one gauge with the same key, the latest value for that moment in time is persisted.
+
+Gauges are used for things like tracking sizes of databases, disks, or other absolute values like CPU usage, a numbers of items (users, accounts, etc.). Currently all AppSignal [host metrics](host.html) are stored as gauges.
 
 ```ruby
-# The key should be a string, the value a number
-# Appsignal.set_gauge(key, val)
+# The first argument is a string, the second argument a number
+# Appsignal.set_gauge(metric_name, value)
 Appsignal.set_gauge("database_size", 100)
 Appsignal.set_gauge("database_size", 10)
 
@@ -49,34 +45,66 @@ Appsignal.set_gauge("database_size", 10)
 
 ### Measurement
 
-With a measurement, the average and count will be persisted:
+At AppSignal measurements are used for things like response times. We allow you to track a metric with wildly varying values over time and create graphs based on their average value or call count during that time.
+
+By tracking a measurement, the average and count will be persisted for the metric. A measurement metric creates two metrics, one with the `_count` suffix which counts how many times the helper was called and the `_mean` suffix which contains the average metric value for the point in time.
 
 ```ruby
-# The key should be a string, the value a number
-# Appsignal.add_distribution_value(key, val)
+# The first argument is a string, the second argument a number
+# Appsignal.add_distribution_value(metric_name, value)
 Appsignal.add_distribution_value("memory_usage", 100)
 Appsignal.add_distribution_value("memory_usage", 110)
 
-# Will yield a graph where the `memory_usage_count` is 2 and the `memory_usage_mean` is 105
+# Will yield a graph where the `memory_usage_count` metric is 2 and the `memory_usage_mean` metric is 105
 ```
 
 ### Count
 
-When set multiple times, the sum will be persisted:
+The count metric type stores a number value for a given time frame. These count values are combined into a total count value for the display time frame resolution. This means that when viewing a graph with a minutely resolution it will combine the values of the given minute, and for the hourly resolution combines the values of per hour.
+
+Counts are good to use to track events. With a [gauge](#gauge) you can track how many of something (users, comments, etc.) there is at a certain time, but with events you can track how many events occurred at a specific time (users signing in, comments being made, etc.).
+
+When the helper is called multiple times, the total/sum of all calls is persisted.
 
 ```ruby
-# The key should be a string, the value a number
-# Appsignal.increment_counter(key, val)
+# The first argument is a string, the second argument a number
+# Appsignal.increment_counter(metric_name, value)
 Appsignal.increment_counter("login_count", 1)
 Appsignal.increment_counter("login_count", 1)
 
-# Will yield a graph where the `login_count` is 2
+# Will yield a graph where the `login_count` is 2 for a point in the minutely/hourly resolution
 ```
 
--> **Note**: Only numbers, letters and underscores (`[a-z0-9_]`) are allowed
-   as metric keys. Any other characters will be replaced with an underscore.
+## Metric naming
 
-## Metric dashboards
+We recommend naming your metrics something easily recognizable and without too many dynamic elements. While you can wildcard parts of the metric name for dashboard creation, we recommend you only use this for small grouping and not use IDs for metric names.
+
+Metric names only support numbers, letters, dots and underscores (`[a-z0-9._]`) as valid characters. Any other characters will be replaced with an underscore by our processor. In the "Metrics" feature (as listed in the AppSignal navigation for your app) under "Edit dashboards" a list is displayed with all metrics received in the last hour. In this list you can see their names as sanitized by our processor.
+
+Some examples of good metric names are:
+
+- `database_size`
+- `account_count`
+- `users.count`
+- `notifier.failed`
+- `notifier.perform`
+- `notifier.success`
+
+By default AppSignal already tracks metrics for your application, such as [host metrics](host.html). See the metrics list on the "Edit dashboards" page for the metrics that are already available for your app.
+
+## Metric values
+
+Metrics only support numbers as valid values. Any other value will be silently ignored or will raise an error as triggered by the implementation language number parser. For Ruby and Elixir we support a [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) and [integer](https://en.wikipedia.org/wiki/Integer) as valid values.
+
+```ruby
+# Integer
+Appsignal.increment_counter("login_count", 1)
+# Double
+Appsignal.increment_counter("assignment_completed", 0.12)
+```
+
+
+## Dashboards
 
 This feature is in beta. This means there isn't a UI to configure dashboards,
 and this syntax _will_ change in the (near) future. Below is an example of our
