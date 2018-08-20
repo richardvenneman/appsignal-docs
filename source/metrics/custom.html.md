@@ -15,7 +15,7 @@ Also see our blog post [about custom metrics](http://blog.appsignal.com/blog/201
 - [Metric types](#metric-types)
   - [Gauge](#gauge)
   - [Measurement](#measurement)
-  - [Count](#count)
+  - [Counter](#counter)
 - [Metric naming](#metric-naming)
 - [Metric values](#metric-values)
 - [Dashboards](#dashboards)
@@ -26,7 +26,7 @@ There are three kinds of metrics we collect all with their own purpose.
 
 - [Gauge](#gauge)
 - [Measurement](#measurement)
-- [Count](#count)
+- [Counter](#counter)
 
 ### Gauge
 
@@ -58,11 +58,11 @@ Appsignal.add_distribution_value("memory_usage", 110)
 # Will yield a graph where the `memory_usage_count` metric is 2 and the `memory_usage_mean` metric is 105
 ```
 
-### Count
+### Counter
 
-The count metric type stores a number value for a given time frame. These count values are combined into a total count value for the display time frame resolution. This means that when viewing a graph with a minutely resolution it will combine the values of the given minute, and for the hourly resolution combines the values of per hour.
+The counter metric type stores a number value for a given time frame. These counter values are combined into a total count value for the display time frame resolution. This means that when viewing a graph with a minutely resolution it will combine the values of the given minute, and for the hourly resolution combines the values of per hour.
 
-Counts are good to use to track events. With a [gauge](#gauge) you can track how many of something (users, comments, etc.) there is at a certain time, but with events you can track how many events occurred at a specific time (users signing in, comments being made, etc.).
+Counters are good to use to track events. With a [gauge](#gauge) you can track how many of something (users, comments, etc.) there is at a certain time, but with events you can track how many events occurred at a specific time (users signing in, comments being made, etc.).
 
 When the helper is called multiple times, the total/sum of all calls is persisted.
 
