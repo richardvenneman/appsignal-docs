@@ -10,7 +10,7 @@ title: Shutdown of AppSignal Push API version 1
 
 Since the last release of the `0.x` series Ruby gem, a lot has changed about the AppSignal infrastructure. The Ruby gems from the `0.x` series push to a different Push API than the newer `1.x` series, and higher, do. To simplify our infrastructure and remove a lot of old systems we're shutting down the Push API version 1.
 
-After the 30th of August we will shutdown the Push API version 1 and Ruby gems from the `0.x` series will no longer function.
+After the 1st of November we will shutdown the Push API version 1 and Ruby gems from the `0.x` series will no longer function.
 
 ### Upgrading
 
@@ -26,9 +26,9 @@ Then run `bundle update appsignal` to update the AppSignal Ruby gem. Commit the 
 
 ## Symptoms
 
-Before the 30th of August you will have received one or more emails, linking to this page, recommending an upgrade of the AppSignal Ruby gem.
+Before the 1st of November you will have received one or more emails, linking to this page, recommending an upgrade of the AppSignal Ruby gem.
 
-After the 30th of August 2018, no data will be reported to AppSignal.
+After the 1st of November 2018, no data will be reported to AppSignal.
 
 ## Solution
 
