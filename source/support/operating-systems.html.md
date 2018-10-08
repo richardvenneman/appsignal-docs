@@ -102,7 +102,9 @@ The following system dependencies are required for Alpine Linux:
 # Dependencies for the AppSignal Ruby gem
 apk add --update alpine-sdk coreutils
 
-# Dependencies for the AppSignal Elixir package
+# Dependencies for the AppSignal for Elixir package version 1.7.0 and newer
+apk add --update alpine-sdk coreutils
+# Dependencies for the AppSignal for Elixir package version 1.6.3 and older
 apk add --update alpine-sdk coreutils curl
 ```
 
