@@ -4,6 +4,8 @@ title: "Known issues"
 
 This page contains a list of publicly documented known issues for AppSignal integrations. If you're experiencing any of the listed issues, please follow the described fixes or workarounds. If none are documented, please contact us at [support@appsignal.com](mailto:support@appsignal.com).
 
+Not all known issues are documented here. Only those that are taking some time to get fixed, remain an issue in some way after they have been fixed or benefit from a separate support page.
+
 See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsignal/appsignal-ruby/issues) and [Elixir package](https://github.com/appsignal/appsignal-elixir/issues) for other known issues.
 
 ## List of known issues
