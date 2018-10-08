@@ -8,6 +8,11 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
 
 ## List of known issues
 
+- [Extension compilation system dependencies are required at runtime](known-issues/compilation-dependencies-required-at-runtime.html)
+  - Symptom: The AppSignal extension returns an error on start.
+  - Affected components:
+    - AppSignal for Elixir package versions: `v1.8.0` and later
+    - AppSignal for Ruby package versions: `v2.7.0` and later, but less likely to occur
 - [Shutdown of AppSignal Push API version 1](known-issues/shutdown-of-push-api-version-1.html)
   - Symptom: No data is being reported to AppSignal after the 30th of August 2018.
   - Affected components:
