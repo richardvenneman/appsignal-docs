@@ -15,6 +15,7 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
   - Affected components:
       - AppSignal for Elixir package versions: `v1.8.0` and later
       - AppSignal for Ruby package versions: `v2.7.0` and later, but less likely to occur
+      - Systems: Alpine Linux only.
 - [Shutdown of AppSignal Push API version 1](known-issues/shutdown-of-push-api-version-1.html)
   - Symptom: No data is being reported to AppSignal after the 30th of August 2018.
   - Affected components:
