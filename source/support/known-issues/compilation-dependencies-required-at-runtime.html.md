@@ -4,8 +4,12 @@ title: Extension compilation system dependencies are required at runtime
 
 ## Affected components
 
-- AppSignal for Elixir package versions: `v1.8.0` and later.
+- AppSignal for Elixir package versions: Only `v1.8.0`. Fixed in `v1.8.1`.
 - AppSignal for Ruby package versions: `v2.7.0` and later, but less likely to occur. Read more in the [description](#description).
+- Systems:
+  - [Linux](/support/operating-systems.html#linux) musl builds.
+  - [Linux](/support/operating-systems.html#linux) libc builds. (Less common.)
+  - [FreeBSD](/support/operating-systems.html#freebsd) builds. (Less common.)
 
 ## Description
 
@@ -34,7 +38,9 @@ In the affected releases not all dependencies are statically linked during insta
 
 ## Solution
 
-None available at this time. We want to fix this in a future release.
+For AppSignal for Elixir a new version with a fix for this issue has been released. Please install AppSignal for Elixir version 1.8.1 or higher.
+
+For Ruby no fix is available at this time. We want to fix this in a future release.
 
 Please let us know at support@appsignal.com if you currently have this issue. It would help us a lot if you provide the following information:
 
