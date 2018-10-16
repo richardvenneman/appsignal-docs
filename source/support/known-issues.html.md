@@ -13,8 +13,10 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
 - [Extension compilation system dependencies are required at runtime](known-issues/compilation-dependencies-required-at-runtime.html)
   - Symptom: No data is reported to AppSignal on the affected package versions.
   - Affected components:
-      - AppSignal for Elixir package versions: Only `v1.8.0`. Linux builds fixed in `v1.8.1`.
-      - AppSignal for Ruby package versions: `v2.7.0` and later, but less likely to occur
+      - AppSignal for Elixir package versions: Only `v1.8.0`.
+          - Linux builds fixed in `v1.8.1`.
+      - AppSignal for Ruby package versions: `v2.7.0` and `v2.7.1`, but less likely to occur.
+          - Linux builds fixed in `v2.7.2`.
     - Systems:
       - [Linux](/support/operating-systems.html#linux) musl builds.
       - [Linux](/support/operating-systems.html#linux) libc builds. (Less common.)
