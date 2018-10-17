@@ -53,7 +53,7 @@ No specific changes were made for the installation of the AppSignal extension fo
 - Elixir package
     - For AppSignal for Elixir a new version with a fix for this issue has been released. Please install AppSignal for Elixir version 1.8.1 or higher.
 - Ruby gem
-    - For AppSignal for Ruby a new version with a fix for this issue will be released. Please install AppSignal for Ruby version 2.7.2 or higher when available.
+    - For AppSignal for Ruby a new version with a fix for this issue has been released. Please install AppSignal for Ruby version 2.7.2 or higher.
 
 Please let us know at support@appsignal.com if you are currently experiencing this issue. It would help us a lot if you provide the following information:
 
