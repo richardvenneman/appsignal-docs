@@ -2,6 +2,7 @@
 //= require js.cookie
 //= require navigation_store
 //= require dl_header
+//= require analytics
 
 $(document).ready(function() {
   var navigationElement = $("#navigation");
@@ -56,6 +57,7 @@ $(document).ready(function() {
 
   if (Cookies.get("cookie_consent") == "true") {
     $(".mod-cookies").hide();
+    loadAnalyticsScripts();
   }
 
   // Track pageview
@@ -83,5 +85,7 @@ $(document).ready(function() {
     img.width = "1";
     img.style = "display:none;";
     document.body.appendChild(img);
+
+    loadAnalyticsScripts();
   })
 });
