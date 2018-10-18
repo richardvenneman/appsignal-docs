@@ -8,9 +8,6 @@
     %title= title
 
     = stylesheet_link_tag 'application'
-    /[if lt IE 9]
-      = stylesheet_link_tag 'ie-lt-9'
-      = javascript_include_tag 'html5shiv'
 
     - if build?
       :javascript
