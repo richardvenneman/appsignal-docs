@@ -16,15 +16,15 @@ We support two methods of parameter filtering. If you use Rails, you can use [Ra
     - [AppSignal parameter filtering](#appsignal-parameter-filtering)
       - [Processor parameter filtering](#processor-parameter-filtering)
     - [Rails parameter filtering](#rails-parameter-filtering)
-      - [Filtering specific keys - Blacklisting](#filtering-specific-keys-blacklisting)
-      - [Allowing specific keys - Whitelisting](#allowing-specific-keys-whitelisting)
+      - [Filtering specific keys - Denylist](#filtering-specific-keys-denylist)
+      - [Allowing specific keys - Allowlist](#allowing-specific-keys-allowlist)
     - [Filter all parameters](#filter-all-parameters)
 
 ## AppSignal parameter filtering
 
 -> This feature is available since AppSignal Ruby gem [version 1.3.0](https://blog.appsignal.com/2016/08/29/gem-1-3.html).
 
-We support basic parameters filtering directly in the Ruby gem using a blacklist. This parameter filtering is applied to any query parameters in an HTTP request and any argument for background jobs (since Ruby gem 2.3.0).
+We support basic parameters filtering directly in the Ruby gem using a denylist. This parameter filtering is applied to any query parameters in an HTTP request and any argument for background jobs (since Ruby gem 2.3.0).
 
 This filtering supports key based filtering for hashes, the values of which will be replaced with the `[FILTERED]` value. There's support for nested hashes and nested hashes in arrays. Any hash we encounter in your parameters will be filtered.
 
@@ -51,11 +51,9 @@ AppSignal leverages this mechanism so you can centralize this
 configuration. Both your logs and the data sent to AppSignal will be
 filtered with a single piece of configuration.
 
-### Filtering specific keys - Blacklisting
+### Filtering specific keys - Denylist
 
-There are two ways to determine which keys get filtered. The first one
-is blacklisting specific keys. In this example the value of `:secret`
-in any post in the app will  be replaced with `[FILTERED]`.
+There are two ways to determine which keys get filtered. The first one is adding specific keys to the denylist. In this example the value of `:secret` in any post in the app will  be replaced with `[FILTERED]`.
 
 ```ruby
 # config/application.rb
@@ -71,19 +69,17 @@ with larger, more complex applications. Especially when using features
 like `accepts_nested_attributes_for`. If we forget to explicitly add
 keys they will not be filtered.
 
-### Allowing specific keys - Whitelisting
+### Allowing specific keys - Allowlist
 
-If you use a lambda instead of a list of keys you get a lot of
-flexibility. In the following example we use a lambda to setup a
-whitelist instead of a blacklist.
+If you use a lambda instead of a list of keys you get a lot of flexibility. In the following example we use a lambda to setup an allowlist instead of a denylist.
 
 ```ruby
-# config/initializers/parameter_whitelisting.rb
-WHITELISTED_KEYS_MATCHER = /((^|_)ids?|action|controller|code$)/.freeze
+# config/initializers/parameter_filtering.rb
+ALLOWED_KEYS_MATCHER = /((^|_)ids?|action|controller|code$)/.freeze
 SANITIZED_VALUE = '[FILTERED]'.freeze
 
 config.filter_parameters << lambda do |key, value|
-  unless key.match(WHITELISTED_KEYS_MATCHER)
+  unless key.match(ALLOWED_KEYS_MATCHER)
     value.replace(SANITIZED_VALUE)
   end
 end

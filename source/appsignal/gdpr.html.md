@@ -38,11 +38,11 @@ We have created a Data Processing Agreement that explains eg. how we are a Data 
 
 The Data Processing Agreement is accessible to all owners for an organization on AppSignal. You can find it by going to your "[Profile & Settings](https://appsignal.com/users/edit)" and look for the agreement in the left navigation (there is one for each organization). You can digitally sign the Data Processing Agreement, and once signed we will display who signed it and when.
 
-#### Whitelisted request headers only
+#### Allowed request headers only
 
-We have always made sure to strip any personal data from incoming events such as database queries, but we did store request headers such as `REMOTE_ADDR`. Depending on architecture, this can expose useful information about load balancers or internal IP addresses. In most cases though, this sent visitor IP addresses to AppSignal. Since IP addresses are personal data, we have created a whitelist of headers that we believe will not contain personal data. Customers can add additional headers to the whitelist ([Ruby](https://docs.appsignal.com/ruby/configuration/options.html#appsignal_request_headers-request_headers) / [Elixir](https://docs.appsignal.com/elixir/configuration/options.html#appsignal_request_headers-request_headers)) as needed, as long a they don't identify an individual (eg. if `REMOTE_ADDR` contains the IP address of a load balancer, that's fine).
+We have always made sure to strip any personal data from incoming events such as database queries, but we did store request headers such as `REMOTE_ADDR`. Depending on architecture, this can expose useful information about load balancers or internal IP addresses. In most cases though, this sent visitor IP addresses to AppSignal. Since IP addresses are personal data, we have created a default allowlist of headers that we believe will not contain personal data. Customers can add additional headers to the allowlist ([Ruby](https://docs.appsignal.com/ruby/configuration/options.html#appsignal_request_headers-request_headers) / [Elixir](https://docs.appsignal.com/elixir/configuration/options.html#appsignal_request_headers-request_headers)) as needed, as long a they don't identify an individual (eg. if `REMOTE_ADDR` contains the IP address of a load balancer, that's fine).
 
-Any non-whitelisted headers are stripped before being sent to AppSignal.
+Any non-allowlisted headers are stripped before being sent to AppSignal.
 
 #### Filtering options for parameters and session data
 
