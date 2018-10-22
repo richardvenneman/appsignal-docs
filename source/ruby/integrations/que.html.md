@@ -11,3 +11,12 @@ No manual integration is necessary. If Que is detected when AppSignal starts we 
 Job names are automatically detected based on the Que worker class name and are suffixed with the `run` method name, resulting in something like: `MyWorker#run`.
 
 You can recognize events from Que with the name `perform_job.que` in the event timeline on the performance incident detail page.
+
+## Example application
+
+We have an example application in our examples repository on GitHub.
+
+- [AppSignal + Rails 5 + Que][example-app]  
+  The example shows how to set up a Rails 5 app with Que monitored by AppSignal.
+
+[example-app]: https://github.com/appsignal/appsignal-examples/tree/rails-5+que
