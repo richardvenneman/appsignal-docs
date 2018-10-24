@@ -82,7 +82,7 @@ Anomaly detection is an AppSignal feature that allows users to detect abnormalit
 
 Anomaly detection works with Triggers threshold conditions that create Alerts when their threshold is reached. When an Alert is opened, AppSignal will send notifications to whichever notifiers have been selected for the specific trigger.
 
-See our documentation about [Anomaly detection](/application/anomaly_detection/) for more information.
+See our documentation about [Anomaly detection](/application/anomaly-detection/) for more information.
 
 ## API
 
@@ -379,7 +379,7 @@ For more information about namespaces, please see our
 
 AppSignal sends notifications whenever a problem is detected with an [application](#applications). These notifications can be email messages, Slack messages, a PagerDuty notification, and more depending on which [third-party integrations](#third-party-integrations) are configured.
 
-We send notifications about [errors](#errors), [slow requests](#performance-issues) and [Anomaly detection](/application/anomaly_detection/) [alerts](#alerts) that occur in an application using an AppSignal [library](#libraries). Once a problematic event is detected a notification is sent out to alert users of a problem.
+We send notifications about [errors](#errors), [slow requests](#performance-issues) and [Anomaly detection](/application/anomaly-detection/) [alerts](#alerts) that occur in an application using an AppSignal [library](#libraries). Once a problematic event is detected a notification is sent out to alert users of a problem.
 
 ## Organizations
 
