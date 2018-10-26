@@ -57,3 +57,8 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
       - AppSignal Ruby gem versions: `v2.1.x` - `v2.3.x`
       - AppSignal Elixir package versions: `v0.10.x` - `v1.3.x`
       - Systems: Linux distributions only - except Alpine Linux.
+- [Action names from Sidekiq's delayed extension are incorrect](known-issues/sidekiq-delayed-extension-action-names.html)
+  - Symptom: An incident is created per job. The action name of the incident includes job arguments.
+  - Affected components:
+      - AppSignal for Ruby package versions: `v2.4.1` - `v2.5.2`
+      - Integrations: Sidekiq.
