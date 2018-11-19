@@ -1,0 +1,29 @@
+<% options = options_for(integration).sort_by { |o| o[:key] } %>
+<% required_options = options.select { |o| o[:required] } %>
+<% not_required_options = options.reject { |o| o[:required] } %>
+<h2>Available options</h2>
+<ul>
+  <li>
+    Required options
+    <ul>
+      <% required_options.each do |option| %>
+        <li><%= link_to option[:key], "#option-#{option[:key]}" %></li>
+      <% end %>
+    </ul>
+  </li>
+  <li>
+    Options
+    <ul>
+      <% not_required_options.each do |option| %>
+        <li><%= link_to option[:key], "#option-#{option[:key]}" %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+
+<% required_options.each do |option| %>
+  <%= partial "shared/option", :locals => { :option => option, :integration => integration } %>
+<% end %>
+<% not_required_options.each do |option| %>
+  <%= partial "shared/option", :locals => { :option => option, :integration => integration } %>
+<% end %>

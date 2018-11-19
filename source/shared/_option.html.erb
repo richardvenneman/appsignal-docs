@@ -1,0 +1,63 @@
+<h2>
+  <%= content_tag :a, "", :class => :anchor, :name => "option-#{option[:key]}".downcase %>
+  <%= content_tag :a, "", :class => :anchor, :name => "option-#{option[:env_key]}".downcase %>
+  <%= content_tag :a, "", :class => :anchor, :name => "#{option[:env_key]}-#{option[:key]}".downcase %>
+  <%= link_to option[:key], "#option-#{option[:key]}".downcase %>
+</h2>
+<% integration_details = option[integration] %>
+
+<table class="option">
+  <tr>
+    <th>Config file key</th>
+    <td>
+      <code title="Key used in the AppSignal configuration file format"><%= option[:key] %></code>
+    </td>
+  </tr>
+  <tr>
+    <th>System environment key</th>
+    <td>
+      <code title="Key used in the system environment variables"><%= option[:env_key] %></code>
+    </td>
+  </tr>
+  <tr>
+    <th>Required</th>
+    <td>
+      <% if option[:required] %>
+        <span title="Required option">yes</span>
+      <% else %>
+        <span title="Not required option">no</span>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><%= option_type_format(integration_details) %></td>
+  </tr>
+  <tr>
+    <th>Default value</th>
+    <td><%= option_default_value(integration_details) %></td>
+  </tr>
+  <% if integration_details[:since] %>
+    <tr>
+      <th>Available since version</th>
+      <td><code><%= integration_details[:since] %></code></td>
+    </tr>
+    <% if integration_details[:since_notes] %>
+      <% integration_details[:since_notes].each do |note| %>
+        <tr>
+          <th></th>
+          <td><%= inline_markdown(note) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>
+
+<h3>Description</h3>
+
+<% description = option[:description] %>
+<% if integration_details[:description] %>
+  <% description = [*integration_details[:description], *description] %>
+<% end %>
+<% description = description.is_a?(Array) ? description.join("\n\n") : description %>
+<%= markdown description %>
