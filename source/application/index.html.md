@@ -4,7 +4,7 @@ title: "Applications"
 
 Applications (previously known as "sites", also referred to as "apps") are Ruby and Elixir applications monitored by AppSignal. Every application is unique by the combination of its name and environment.
 
-A list of Applications appears on the [Application index] and in the application quick switcher. Every application has a parent [organization](/organizations/index.html), which can have multiple applications. (Exception: Organizations created by the Heroku add-on only support one application.)
+A list of Applications appears on the [Application index] and in the application quick switcher. Every application has a parent [organization](/organization/index.html), which can have multiple applications. (Exception: Organizations created by the Heroku add-on only support one application.)
 
 ## Table of Contents
 
