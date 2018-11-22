@@ -41,6 +41,8 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
   #   scrolled to the position on the page.
   # - Anchor prefix: Start a heading with a caret symbol to prefix the
   #   heading's anchor id. `##^prefix My heading` becomes `#prefix-my-heading`.
+  # - Anchor override: Start a heading with an equals symbol to override the
+  #   heading's anchor id. `##=my-anchor My heading` becomes `#my-anchor`.
   # - Strips out any html tags from titles so that they don't get included in
   #   the generated anchors.
   #
@@ -56,6 +58,12 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
   #   <!-- HTML output -->
   #   <h2><span class="anchor" id="my-prefix-my-heading"></span><a href="#my-prefix-my-heading">My heading</a></h2>
   #
+  # @example with a anchor override
+  #   <!-- Markdown input -->
+  #   ##=my-anchor My heading
+  #   <!-- HTML output -->
+  #   <h2><span class="anchor" id="my-anchor"></span><a href="#my-anchor">My heading</a></h2>
+  #
   # @example with html in the heading
   #   <!-- Markdown input -->
   #   ## My <code>html</code> heading
@@ -67,9 +75,12 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
     if text =~ /^\^([a-zA-Z0-9\-_]+) /
       anchor_prefix = $1
       text = text.sub("^#{anchor_prefix} ", "")
+      anchor = FormatHelpersWrapper.strip_tags(text).parameterize
+      anchor = "#{anchor_prefix}-#{anchor}" if anchor_prefix
+    elsif text =~ /^=([a-zA-Z0-9\-_]+) /
+      anchor = $1
+      text = text.sub("=#{anchor} ", "")
     end
-    anchor = FormatHelpersWrapper.strip_tags(text).parameterize
-    anchor = "#{anchor_prefix}-#{anchor}" if anchor_prefix
     %(<h%s><span class="anchor" id="%s"></span><a href="#%s">%s</a></h%s>) % [level, anchor, anchor, text, level]
   end
 

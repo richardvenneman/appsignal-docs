@@ -16,7 +16,7 @@ options can be mixed without losing configuration from a different option.
 Using an initializer, a configuration file and environment variables together
 will work.
 
-### 1. Gem defaults
+###=default 1. Gem defaults
 
 The AppSignal gem starts with loading its default configuration, setting paths
 and enabling certain features.
@@ -25,7 +25,7 @@ The agent defaults can be found in the [gem source]
 (https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb)
 as `Appsignal::Config::DEFAULT_CONFIG`.
 
-### 2. System detected settings
+###=system 2. System detected settings
 
 The gem detects what kind of system it's running on and configures itself
 accordingly.
@@ -33,7 +33,7 @@ accordingly.
 For example, when it's running inside a container based system (such as Docker
 and Heroku) it sets the configuration option `:running_in_container` to `true`.
 
-### 3. Initial configuration given to `Config` initializer
+###=initial 3. Initial configuration given to `Config` initializer
 
 When manually creating a `Appsignal::Config` class you can pass in the
 initial configuration you want to apply. This is a hash of any of the
@@ -50,7 +50,7 @@ Appsignal.config = Appsignal::Config.new(Dir.pwd, "production", {
 This step will override all given options from the defaults or system
 detected configuration.
 
-### 4. `appsignal.yml` config file
+###=file 4. `appsignal.yml` config file
 
 The most common way to configure your application is using the `appsignal.yml`
 file. When you use the `appsignal install` command the gem will create on for
@@ -61,7 +61,7 @@ The path of this configuration file is `{project_root}/config/appsignal.yml`.
 This step will override all given options from the defaults, system
 detected and initializer configuration.
 
-### 5. Environment variables
+###=env 5. Environment variables
 
 Lastly AppSignal will look for its configuration in environment variables.
 When found these will override all given configuration options from

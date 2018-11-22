@@ -11,7 +11,7 @@ options can be mixed without losing configuration from a different option.
 Using an initializer, a configuration file and environment variables together
 will work.
 
-### 1. Package defaults
+###=default 1. Package defaults
 
 The AppSignal package starts with loading its default configuration, setting
 paths and enabling certain features.
@@ -20,7 +20,7 @@ The agent defaults can be found in the [package source]
 (https://github.com/appsignal/appsignal-elixir/blob/master/lib/appsignal/config.ex)
 as `Appsignal.Config.default_config`.
 
-### 2. System detected settings
+###=system 2. System detected settings
 
 The package detects what kind of system it's running on and configures itself
 accordingly.
@@ -28,7 +28,7 @@ accordingly.
 For example, when it's running on Heroku it sets the configuration option
 `:running_in_container` to `true` and `:log` to `"stdout"`.
 
-### 3. Mix configuration
+###=file 3. Mix configuration
 
 The AppSignal package is most commonly configured with configuration in the Mix
 configuration file.
@@ -44,7 +44,7 @@ config :appsignal, :config,
 This step will override all given options from the defaults or system
 detected configuration.
 
-### 4. Environment variables
+###=env 4. Environment variables
 
 Lastly AppSignal will look for its configuration in environment variables.
 When found these will override all given configuration options from
