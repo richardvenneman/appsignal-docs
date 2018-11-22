@@ -3,7 +3,7 @@ title: "Custom markers"
 ---
 
 Markers are little icons used in graphs on AppSignal.com to indicate a change.
-This can be a code deploy using a ["Deploy marker"](deploy-marker.html) or a
+This can be a code deploy using a ["Deploy marker"](deploy-markers.html) or a
 special event with a "Custom marker".
 
 Custom markers can be used for anything from scaling operations, to sudden
