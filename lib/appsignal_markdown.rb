@@ -80,6 +80,8 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
     elsif text =~ /^=([a-zA-Z0-9\-_]+) /
       anchor = $1
       text = text.sub("=#{anchor} ", "")
+    else
+      anchor = FormatHelpersWrapper.strip_tags(text).parameterize
     end
     %(<h%s><span class="anchor" id="%s"></span><a href="#%s">%s</a></h%s>) % [level, anchor, anchor, text, level]
   end
