@@ -32,9 +32,9 @@ The AppSignal integrations for Ruby and Elixir contain native extensions and a s
 
 - `1`: Does not support [host metrics][host-metrics] (yet).
 - `2`: Depending on the integration version some older versions of the Operating System are supported. See the [Linux](#linux) section for more information.
-- `3`: Some older systems may not support dynamic builds, which is required for JRuby. See the [Linux](#linux) section for more information.
+- `3`: Older systems may require a dynamic builds, which is required for JRuby, which are supported since Ruby gem `2.8.0`. See the [Linux](#linux) section for more information.
 - `4`: Supported since AppSignal for [Ruby](/ruby) version `2.1.x` and AppSignal for [Elixir](/elixir) version `0.11.0`.
-- `5`: Not supported for dynamic builds, which is required for JRuby.
+- `5`: Dynamic builds (which are required for JRuby) are supported since Ruby gem `2.8.0`.
 - `6`: Untested with the Windows subsystem for Linux.
 
 ## Linux
@@ -62,7 +62,7 @@ This is the list of version of libc/musl AppSignal was compiled against over the
 
 If your system uses an older libc version than we compile against you will experience problems installing or running the AppSignal agent. If this is the case you can instead opt-in to the musl build, which doesn't have this issue. This should no longer be a problem for AppSignal Ruby gem `v2.4.1` & Elixir package `v1.4.3` and higher, automatic detection for older libc versions was added and it will automatically switch to the musl build.
 
-**Warning**: When an older libc version is detected or the musl build is selected manually, JRuby is not supported. It requires a dynamic build of the AppSignal extension, which is not supported for the musl build.
+**Warning**: When an older libc version is detected or the musl build is selected manually, a dynamic build will be used. For JRuby this is supported since Ruby gem `2.8.0`. This scenario requires a dynamic build of the AppSignal extension, which was not previously supported for the musl build.
 
 To opt-in to the musl build manually, add the `APPSIGNAL_BUILD_FOR_MUSL` environment variable to your system environment before installing AppSignal and compiling your application.
 
