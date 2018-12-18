@@ -137,23 +137,23 @@ namespace :my_project do
       Appsignal::Transaction::GenericRequest.new({})
     )
 
-    # Add instrumentation
-    ActiveSupport::Notifications.instrument(
-      'perform_job.some_name_for_this',
-      :class => 'Foo',
-      :method => 'bar'
-    ) do
-      begin
+    begin
+      # Add instrumentation
+      ActiveSupport::Notifications.instrument(
+        'perform_job.some_name_for_this',
+        :class => 'Foo',
+        :method => 'bar'
+      ) do
         # Do stuff
         Foo.bar
-      rescue => exception
-        # Catch exceptions
-        Appsignal.set_error(exception)
-        raise exception
-      ensure
-        # Complete transaction
-        Appsignal::Transaction.complete_current!
       end
+    rescue => exception
+      # Catch exceptions
+      Appsignal.set_error(exception)
+      raise exception
+    ensure
+      # Complete transaction
+      Appsignal::Transaction.complete_current!
     end
   end
 end
