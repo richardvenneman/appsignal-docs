@@ -10,6 +10,13 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
 
 ## List of known issues
 
+- [Extension not installing on Ruby 2.6](known-issues/ruby-2-6-extension-not-installing.html)
+  - Symptom: No data is reported to AppSignal on the affected package versions.
+  - Affected components:
+      - AppSignal for Ruby package versions: `v2.8.0` and earlier.
+    - Systems:
+      - [Linux](/support/operating-systems.html#linux) musl builds.
+      - [Linux](/support/operating-systems.html#linux) libc builds.
 - [Extension compilation system dependencies are required at runtime](known-issues/compilation-dependencies-required-at-runtime.html)
   - Symptom: No data is reported to AppSignal on the affected package versions.
   - Affected components:
