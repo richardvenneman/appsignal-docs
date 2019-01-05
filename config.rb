@@ -13,7 +13,9 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
-activate :syntax, :line_numbers => true
+activate :syntax,
+  :line_numbers => true,
+  :css_class => "code-block"
 
 helpers do
   def title
