@@ -12,7 +12,7 @@ A fully generated marker endoint url can be found at: "App settings" > "Push & D
 
 The post body data format is in JSON.
 
-```
+```json
 {
   "revision":"git revision hash",
   "repository":"git branch or repo",

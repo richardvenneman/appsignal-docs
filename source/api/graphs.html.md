@@ -48,7 +48,7 @@ Example request:
 
 This endpoint returns a JSON object:
 
-```
+```json
 {
   "from": "2013-09-03T22:00:00Z",
   "to": "2013-10-04T00:00:00Z",

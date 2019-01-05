@@ -41,7 +41,7 @@ https://appsignal.com/api/5114f7e38c5ce90000000011/samples.json?token=HseUe&acti
 
 This endpoint returns the following JSON (a slow sample and an error sample):
 
-```
+```json
 {
   "count": 2,
   "log_entries": [
@@ -66,12 +66,11 @@ This endpoint returns the following JSON (a slow sample and an error sample):
       "time": 1475761080,
       "is_exception": true,
       "exception": {
-        "name": 'ActionView::Template::Error'
+        "name": "ActionView::Template::Error"
       }
     }
   ]
 }
-
 ```
 
 ## Samples show
@@ -88,7 +87,7 @@ Parameters:
 
 This is a __SLOW__ log entry:
 
-```
+```json
 {
   "id": "51f29e7b183d700800150358_SlowController#show_1476962400",
   "action": "slow#request",
@@ -130,7 +129,7 @@ This is a __SLOW__ log entry:
 
 This is an __ERROR__ log entry:
 
-```
+```json
 {
     "id": "57f653fa16b7e24cb0dc9e2b_ErrorController#trigger_1475761080",
     "action": "Error#trigger",
