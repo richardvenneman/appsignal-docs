@@ -60,7 +60,7 @@ We currently support Ruby `1.9.3+` for the latest gem version `1.x`. To use
 this version add to your `Gemfile`.
 
 ```ruby
-gem 'appsignal'
+gem "appsignal"
 ```
 
 ### JRuby

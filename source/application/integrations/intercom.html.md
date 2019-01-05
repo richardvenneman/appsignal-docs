@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-
 ```
 
 The `current_user.id` needs to be the same as the field `user_id` used to sync to Intercom.
@@ -43,15 +42,15 @@ The `current_user.id` needs to be the same as the field `user_id` used to sync t
 Your Intercom JavaScript integration would look something like this:
 
 ```javascript
-  <script>
-    window.intercomSettings = {
-      name:       "<%= current_user.name %>",
-      email:      "<%= current_user.email %>",
-      user_id:    "<%= current_user.id %>",
-      created_at: <%= current_user.created_at.to_i %>,
-      app_id:     "<%= ENV['INTERCOM_APP_ID'] %>"
-    };
-  </script>
+<script>
+  window.intercomSettings = {
+    name:       "<%= current_user.name %>",
+    email:      "<%= current_user.email %>",
+    user_id:    "<%= current_user.id %>",
+    created_at: <%= current_user.created_at.to_i %>,
+    app_id:     "<%= ENV['INTERCOM_APP_ID'] %>"
+  };
+</script>
 ```
 
 Deploy this change to your server.
