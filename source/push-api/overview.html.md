@@ -16,7 +16,7 @@ Note that the api key is not your personal token used in the "normal" api. The `
 
 The data format is an array with events encoded in json.
 
-```
+```json
 [
   {
     "request_id":"650ec2791865a60fd978b3da1d9ee286",
@@ -50,7 +50,7 @@ The data format is an array with events encoded in json.
         "end":"2012-08-22T15:29:17+02:00",
         "payload":{
           "controller":"BlogPostsController",
-          "action":"show",
+          "action":"show"
           },
           "format":"html",
           "method":"GET",
@@ -65,7 +65,7 @@ The data format is an array with events encoded in json.
         "payload":{
           "identifier":"/var/www/app/views/blog_posts/_blog_post.html.haml"
         }
-      },
+      }
     ],
     "exception":{
     },
@@ -76,7 +76,7 @@ The data format is an array with events encoded in json.
 
 An example of a log entry with an exception:
 
-```
+```json
 [
   {
     "request_id":"120b49a2a709d6c9a07657c10d891768",
