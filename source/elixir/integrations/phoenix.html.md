@@ -98,6 +98,18 @@ If you're using Ecto 3, attach `Appsignal.Ecto` to Telemetry query events in you
 application's `start/2` function:
 
 ```elixir
+:telemetry.attach(
+  "appsignal-ecto",
+  [:my_app, :repo, :query],
+  &Appsignal.Ecto.handle_event/4,
+  nil
+)
+```
+
+For versions of Telemetry < 0.3.0, you'll need to call it slightly differently:
+
+
+```elixir
 Telemetry.attach(
   "appsignal-ecto",
   [:my_app, :repo, :query],
