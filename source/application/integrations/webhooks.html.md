@@ -8,9 +8,15 @@ To receive a webhook, go to the "Notifications" tab the site's sidebar, click th
 
 ![Webhook](/images/screenshots/app_webhook.png)
 
-Depending on the incident we push three different JSON bodies.
+## Table of Contents
 
-## Marker
+There are multiple webhooks available. Which payloads the webhook receives can be configured in the configuration form for the webhook as seen in the screenshot above.
+
+- [Deploy markers](#deploy-markers)
+- [Exceptions](#exceptions)
+- [Performance](#performance)
+
+## Deploy markers
 
 ```json
 {
@@ -25,7 +31,7 @@ Depending on the incident we push three different JSON bodies.
 }
 ```
 
-## Exception
+## Exceptions
 
 ```json
 {
