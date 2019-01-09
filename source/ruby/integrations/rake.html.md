@@ -12,11 +12,15 @@ Depending on what version of the AppSignal gem you use and in what context some 
 
 ## Table of Contents
 
-- [Rails applications](#rails-applications)
-- [Ruby applications](#ruby-applications)
+- [Integrations](#integrations)
+  - [Rails applications](#rails-applications)
+  - [Ruby applications](#ruby-applications)
+- [`Appsignal.stop` requirement](#appsignal-stop-requirement)
 - [Examples](#examples)
 
-## Rails applications
+## Integrations
+
+### Rails applications
 
 For Rails applications make sure you depend on the `:environment` task. This loads the Rails application into memory and starts AppSignal as part of the application.
 
@@ -28,7 +32,7 @@ task :my_task => :environment do
 end
 ```
 
-### Rakefile
+#### Rakefile
 
 Your Rails application's `Rakefile` should look something like the example below. This should already be the case, no need to change it.
 
@@ -44,9 +48,9 @@ Rails.application.load_tasks
 
 (For older versions of the AppSignal gem, versions `< 1`, you will need to require the Rake integration manually. It is automatically loaded for version `1.x` and higher.)
 
-## Ruby applications
+### Ruby applications
 
-For pure Ruby applications some extra steps are required to load AppSignal. AppSignal needs to be required, configured and loaded. See the example below.
+For pure Ruby applications some extra steps are required to load AppSignal. AppSignal needs to be required, configured and loaded. See also our [integration guide][integration].
 
 ```ruby
 # Rakefile
@@ -61,25 +65,33 @@ task :foo do
 end
 ```
 
-When not relying on our automatic exception handling, and instead using `Appsignal.send_error` another step is required. To flush the recorded error to our [agent](/appsignal/terminology.html#agent) it's necessary to call `Appsignal.stop("rake")`. This is normally done for you with the AppSignal exception handling, but is necessary in this scenario.
+## `Appsignal.stop` requirement
+
+To send data that's collected in your Rake tasks to the AppSignal servers, `Appsignal.stop` needs to be called. This is done for you when an error is raised in a task.
 
 ```ruby
 # Rakefile
-require "appsignal"
-
-Appsignal.config = Appsignal::Config.new(Dir.pwd, "development")
-Appsignal.start
-Appsignal.start_logger
-
 task :foo do
+  # Is automatically sent to AppSignal
+  raise "My error"
+end
+```
+
+Tasks that do not raise an error, but do call `Appsignal.send_error` or any of the [custom metrics](/metrics/custom.html) helper methods, need to call `Appsignal.stop` before the task is finished.
+
+```ruby
+# Rakefile
+task :foo do
+  # Helper methods that require an `Appsignal.stop` call if no error is raised
   Appsignal.send_error StandardError.new("bar")
+  # Custom metrics helpers: https://docs.appsignal.com/metrics/custom.html
+  Appsignal.increment_counter "my_custom_counter"
+
   # "rake" is the parent process name which is being stopped and the reason why
   # AppSignal is stopping.
   Appsignal.stop "rake"
 end
 ```
-
-For more information on how to integrate AppSignal in a pure Ruby application, see our [integration guide][integration].
 
 ## Examples
 
