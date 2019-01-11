@@ -131,7 +131,7 @@ helpers do
     when "nil"
       "nil (This is unset by default)"
     else
-      content_tag :code, default.inspect
+      content_tag :code, default.to_s
     end
   end
 end
