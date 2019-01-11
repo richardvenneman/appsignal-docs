@@ -303,7 +303,9 @@ options:
   - config_key: filter_session_data
     env_key: APPSIGNAL_FILTER_SESSION_DATA
     ruby:
-      since: 2.6.0 (upgrade to `2.6.1` is recommend)
+      since: 2.6.0
+      since_notes:
+        - An upgrade to version `2.6.1` is recommended.
       type:
         array:
           - string
