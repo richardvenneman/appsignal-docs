@@ -34,7 +34,7 @@ By configuring the `ignore_actions` option for the [Ruby gem](/ruby/configuratio
 #### How to filter data that's being send to AppSignal?
 
 - Filter parameters and background job arguments for the [Ruby gem](/ruby/configuration/ignore-errors.html) and [Elixir package](/elixir/configuration/ignore-errors.html).
-- Skip sending session data from requests for the [Ruby gem](/ruby/configuration/options.html#appsignal_skip_session_data-skip_session_data) and [Elixir package](/elixir/configuration/options.html#appsignal_skip_session_data-skip_session_data).
+- Skip sending session data from requests for the [Ruby gem](/ruby/configuration/options.html#option-skip_session_data) and [Elixir package](/elixir/configuration/options.html#option-skip_session_data).
 
 ### How to add additional instrumentation to my app?
 

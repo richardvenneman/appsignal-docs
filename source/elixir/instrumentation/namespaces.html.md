@@ -50,7 +50,7 @@ To ignore all actions in a namespace you can configure AppSignal to ignore one o
 
 Ignoring actions or namespaces will **ignore all transaction data** from this action or namespace. No errors and performance issues will be reported. [Custom metrics data](/metrics/custom.html) recorded in an action will still be reported.
 
-For more information about this config option, see the [`ignore_namespaces` config option](/elixir/configuration/options.html#appsignal_ignore_namespaces-ignore_namespaces) documentation.
+For more information about this config option, see the [`ignore_namespaces` config option](/elixir/configuration/options.html#option-ignore_namespaces) documentation.
 
 ```elixir
 # config/appsignal.exs

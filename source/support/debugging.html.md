@@ -187,7 +187,7 @@ the next thing you can look into. The AppSignal agents create log files to
 output useful information and problems that were encountered in the agent
 itself.
 
-By default the agents log "info"-level logs and higher (warning & error). To log more data relevant for debugging, enable the debug option ([Ruby](/ruby/configuration/options.html#appsignal_debug-debug) / [Elixir](/elixir/configuration/options.html#appsignal_debug-debug)).
+By default the agents log "info"-level logs and higher (warning & error). To log more data relevant for debugging, enable the debug option ([Ruby](/ruby/configuration/options.html#option-debug) / [Elixir](/elixir/configuration/options.html#option-debug)).
 
 ### Logs contents
 
@@ -241,7 +241,7 @@ parent process' log output.
 There are two methods of saving logs from the AppSignal library. By writing the
 logs to a log-file and by printing the logs in the process' STDOUT. See the
 [`log`
-configuration](/ruby/configuration/options.html#appsignal_log-log)
+configuration](/ruby/configuration/options.html#option-log)
 for more information.
 
 Logs written to a log file are not written to your application's log files, but

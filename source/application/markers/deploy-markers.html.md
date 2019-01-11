@@ -29,7 +29,7 @@ The second approach (creating a deploy marker manually) is a method only really 
 
 ## Revision config option
 
-The recommended approach of letting AppSignal know a new version of your application is deployed is by using the `revision` config option or the `APP_REVISION` environment variable ([Ruby](/ruby/configuration/options.html#app_revision-revision)/[Elixir](/elixir/configuration/options.html#app_revision-revision)).
+The recommended approach of letting AppSignal know a new version of your application is deployed is by using the `revision` config option or the `APP_REVISION` environment variable ([Ruby](/ruby/configuration/options.html#option-revision)/[Elixir](/elixir/configuration/options.html#option-revision)).
 
 This config option is set per instance of an application which has the benefit of every version of an application running at the same time reporting the errors under the correct deploy rather than the latest AppSignal knows about.
 
@@ -37,7 +37,7 @@ For example: If one machine is still running an older version of the application
 
 ### Config option
 
-The `revision` config option has been released in [Ruby](/ruby/configuration/options.html#app_revision-revision) gem version `2.6.1` and [Elixir](/elixir/configuration/options.html#app_revision-revision) package version `1.6.3`.
+The `revision` config option has been released in [Ruby](/ruby/configuration/options.html#option-revision) gem version `2.6.1` and [Elixir](/elixir/configuration/options.html#option-revision) package version `1.6.3`.
 
 ```yml
 # For Ruby

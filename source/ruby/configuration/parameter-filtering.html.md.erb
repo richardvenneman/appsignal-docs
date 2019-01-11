@@ -28,7 +28,7 @@ We support basic parameters filtering directly in the Ruby gem using a denylist.
 
 This filtering supports key based filtering for hashes, the values of which will be replaced with the `[FILTERED]` value. There's support for nested hashes and nested hashes in arrays. Any hash we encounter in your parameters will be filtered.
 
-To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The [`filter_parameters`](/ruby/configuration/options.html#appsignal_filter_parameters-filter_parameters) value is an Array of Strings.
+To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The [`filter_parameters`](/ruby/configuration/options.html#option-filter_parameters) value is an Array of Strings.
 
 ```yml
 # Example: config/appsignal.yml
@@ -91,7 +91,7 @@ Some further information about filtering parameters can be found in the Rails gu
 
 ## Filter all parameters
 
-To filter all parameters without individual parameter filtering, set [`send_params`](/ruby/configuration/options.html#appsignal_send_params-send_params) to `false`.
+To filter all parameters without individual parameter filtering, set [`send_params`](/ruby/configuration/options.html#option-send_params) to `false`.
 
 ```yaml
 # Example: config/appsignal.yml

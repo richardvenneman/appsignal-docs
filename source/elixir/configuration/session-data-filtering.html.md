@@ -18,11 +18,11 @@ In Rails applications AppSignal automatically stores the contents of the user's 
 
 ## AppSignal session data filtering
 
-Session data filtering will filter out any values from specified keys in the [`filter_session_data`](/elixir/configuration/options.html#appsignal_filter_session_data-filter_session_data) configuration option. Any filtered out value will be replaced with `[FILTERED]` before it leaves your application and is send to the AppSignal servers. This means that AppSignal never receives any of the filtered data.
+Session data filtering will filter out any values from specified keys in the [`filter_session_data`](/elixir/configuration/options.html#option-filter_session_data) configuration option. Any filtered out value will be replaced with `[FILTERED]` before it leaves your application and is send to the AppSignal servers. This means that AppSignal never receives any of the filtered data.
 
 In the session data filtering, there's support for nested hashes and nested hashes in arrays. Any hash we encounter in your parameters will be filtered.
 
-To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The [`filter_session_data`](/elixir/configuration/options.html#appsignal_filter_session_data-filter_session_data) value is an Array of Strings.
+To use this filtering, add the following to your `config/appsignal.yml` file in the environment group you want it to apply. The [`filter_session_data`](/elixir/configuration/options.html#option-filter_session_data) value is an Array of Strings.
 
 ```elixir
 # config/appsignal.exs
@@ -32,7 +32,7 @@ config :appsignal, :config,
 
 ## Skip sending session data
 
-To filter all session data without individual key filtering, set [`skip_session_data`](/elixir/configuration/options.html#appsignal_skip_session_data-skip_session_data) to `true`. This means that the session data is set to `nil` and will not be stored for AppSignal transactions.
+To filter all session data without individual key filtering, set [`skip_session_data`](/elixir/configuration/options.html#option-skip_session_data) to `true`. This means that the session data is set to `nil` and will not be stored for AppSignal transactions.
 
 ```elixir
 # config/appsignal.exs

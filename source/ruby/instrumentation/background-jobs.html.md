@@ -72,7 +72,7 @@ background job and add them to the current AppSignal transaction.
 
 Optionally it's possible to filter out ignored exceptions. This can be
 configured in the
-[configuration](/ruby/configuration/options.html#appsignal_ignore_errors-ignore_errors).
+[configuration](/ruby/configuration/options.html#option-ignore_errors).
 
 ```ruby
 Appsignal::Transaction.create(

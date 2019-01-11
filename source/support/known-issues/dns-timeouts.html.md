@@ -34,7 +34,7 @@ Upgrade to the latest version of AppSignal for the language your app uses.
 These workaround are no longer necessary unless you're unable to upgrade to the latest AppSignal version for the language your app uses.
 
 - The hardcoded DNS servers were reverted in AppSignal for Ruby gem version `2.2.0` and AppSignal for Elixir package `1.3.0`.
-  This won't fix the musl libc "ndots" bug, but provides a configuration option for the DNS servers ([Ruby](/ruby/configuration/options.html#appsignal_dns_servers-dns_servers) & [Elixir](/elixir/configuration/options.html#appsignal_dns_servers-dns_servers)) if an application encounters into this problem. This allows for a (local) DNS server to be set manually if musl libc can't read the DNS configuration of the host.
+  This won't fix the musl libc "ndots" bug, but provides a configuration option for the DNS servers ([Ruby](/ruby/configuration/options.html#option-dns_servers) & [Elixir](/elixir/configuration/options.html#option-dns_servers)) if an application encounters into this problem. This allows for a (local) DNS server to be set manually if musl libc can't read the DNS configuration of the host.
 - Allow outgoing DNS requests from within the private network for the machines that have AppSignal installed.
 - If allowing outgoing DNS requests doesn't work, revert back to an older AppSignal integration. Recommended versions:
   - AppSignal for Ruby gem version `2.0.6`.
