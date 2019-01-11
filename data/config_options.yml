@@ -448,7 +448,21 @@ options:
       type:
         array:
           - string
-      default_value: []
+      default_value:
+        - HTTP_ACCEPT
+        - HTTP_ACCEPT_CHARSET
+        - HTTP_ACCEPT_ENCODING
+        - HTTP_ACCEPT_LANGUAGE
+        - HTTP_CACHE_CONTROL
+        - HTTP_CONNECTION
+        - CONTENT_LENGTH
+        - PATH_INFO
+        - HTTP_RANGE
+        - REQUEST_METHOD
+        - REQUEST_URI
+        - SERVER_NAME
+        - SERVER_PORT
+        - SERVER_PROTOCOL
       description: |
         The `request_headers` config option contains a list of HTTP request headers which are read and stored by the AppSignal Ruby gem.
 
@@ -490,7 +504,21 @@ options:
       type:
         list:
           - string
-      default_value: []
+      default_value:
+        - accept
+        - accept-charset
+        - accept-encoding
+        - accept-language
+        - cache-control
+        - connection
+        - content-length
+        - path-info
+        - range
+        - request-method
+        - request-uri
+        - server-name
+        - server-port
+        - server-protocol
       description: |
         The `request_headers` config option contains a list of HTTP request headers which are read and stored by the AppSignal Elixir package.
 
