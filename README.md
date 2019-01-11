@@ -43,6 +43,7 @@ To render notices we've added a custom markdown tag. Use it like so:
 
 # I'm a heading
 #^prefix I'm a heading
+#=anchor-override I'm a heading
 ```
 
 Which will render the following:
@@ -57,6 +58,7 @@ Which will render the following:
 
 <h1><span class="anchor" id="im-a-heading"></span><a href="#im-a-heading">I'm a heading</a></h1>
 <h1><span class="anchor" id="prefix-im-a-heading"></span><a href="#prefix-im-a-heading">I'm a heading</a></h1>
+<h1><span class="anchor" id="anchor-override"></span><a href="#anchor-override">I'm a heading</a></h1>
 ```
 
 For more information (and code) about these customizations, please see the
