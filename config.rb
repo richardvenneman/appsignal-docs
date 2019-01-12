@@ -14,9 +14,9 @@ set :layout, :article
 set :markdown_engine, :redcarpet
 set :markdown, AppsignalMarkdown::OPTIONS.merge(:renderer => AppsignalMarkdown)
 set :haml, :attr_wrapper => %(")
-set :css_dir, 'stylesheets'
-set :js_dir, 'javascripts'
-set :images_dir, 'images'
+set :css_dir, "stylesheets"
+set :js_dir, "javascripts"
+set :images_dir, "images"
 
 activate :syntax,
   :line_numbers => true,
@@ -32,7 +32,7 @@ helpers do
 
   def title
     if current_page.data.title
-      current_page.data.title.gsub(/<[^>]*>/, '').tap do |title|
+      current_page.data.title.gsub(/<[^>]*>/, "").tap do |title|
         unless current_page.data.title_no_brand
           title << " | AppSignal documentation"
         end
@@ -70,9 +70,9 @@ helpers do
   def edit_link
     page_path = current_page.source_file
     link_to(
-      'Create a pull request',
+      "Create a pull request",
       page_path.gsub(DOCS_ROOT, GITHUB_ROOT),
-      :class => 'button tiny outline-white'
+      :class => "button tiny outline-white"
     )
   end
 

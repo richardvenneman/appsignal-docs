@@ -1,7 +1,7 @@
 %header.mod-header
   .layout-wrap.full
     %h1
-      = link_to '/', :title => "return to the homepage of AppSignal" do
+      = link_to "/", :title => "return to the homepage of AppSignal" do
         = image_tag "dl_logo/appsignal-logo.svg", :alt => "Logo of AppSignal"
 
     .toggle.button.outline-dark.small
@@ -11,32 +11,32 @@
     %nav.main
       %ul
         %li
-          = link_to 'home', 'https://appsignal.com'
+          = link_to "home", "https://appsignal.com"
         %li.tour-toggle
           = link_to "#subnav" do
             tour
             %i.fa.fa-angle-down
           %ul.subnav-large
             - data.tours.tours.each do |tour|
-              %li.tour{class: tour['name']}
-                = link_to "https://appsignal.com/tour/#{tour['slug']}" do
-                  %figure= image_tag "dl_icons/#{tour['name']}.svg"
-                  %strong= tour['title']
-                  %p= tour['human_teaser']
+              %li.tour{class: tour["name"]}
+                = link_to "https://appsignal.com/tour/#{tour["slug"]}" do
+                  %figure= image_tag "dl_icons/#{tour["name"]}.svg"
+                  %strong= tour["title"]
+                  %p= tour["human_teaser"]
             %li.elixir
               %span.tag.green new
               %span Check out&nbsp;
               #{link_to "AppSignal for Elixir", "https://appsignal.com/elixir/"}
 
         %li
-          = link_to 'docs', 'http://docs.appsignal.com', :class => "active"
+          = link_to "docs", "http://docs.appsignal.com", :class => "active"
         %li
-          = link_to 'blog', 'http://blog.appsignal.com'
+          = link_to "blog", "http://blog.appsignal.com"
         %li
-          = link_to 'pricing', 'https://appsignal.com/plans/'
+          = link_to "pricing", "https://appsignal.com/plans/"
 
     %nav.cta
       %ul
-        %li.logged-in= link_to 'go to app', "https://appsignal.com/accounts", :class => "button outline-dark small"
-        %li.logged-out= link_to 'log in', 'http://appsignal.com/users/sign_in', :class => "button outline-dark small"
-        %li.logged-out= link_to 'sign up', 'http://appsignal.com/users/sign_up', :class => "button small"
+        %li.logged-in= link_to "go to app", "https://appsignal.com/accounts", :class => "button outline-dark small"
+        %li.logged-out= link_to "log in", "http://appsignal.com/users/sign_in", :class => "button outline-dark small"
+        %li.logged-out= link_to "sign up", "http://appsignal.com/users/sign_up", :class => "button small"

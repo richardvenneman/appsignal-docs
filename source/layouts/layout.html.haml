@@ -1,17 +1,17 @@
 !!! 5
 
-%html{:lang => 'en'}
+%html{:lang => "en"}
   %head
-    %meta{:charset => 'utf-8'}
+    %meta{:charset => "utf-8"}
     %link{:rel => "dns-prefetch", :href => "https://d33wubrfki0l68.cloudfront.net"}
-    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %link{:href => canonical_url(current_page), :rel => "canonical"}
     %title= title
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag "application"
     = partial "analytics"
 
   %body
-    = partial 'header'
+    = partial "header"
     .layout-wrapper
       %a.jump{href: "#navigation"}
         %i.fa.fa-book
@@ -19,11 +19,11 @@
       .layout-main#main
         .inner= yield
       .layout-side#navigation
-        = partial 'side_nav'
+        = partial "side_nav"
       .layout-footer
-        = partial 'footer'
-      = partial 'cookies'
+        = partial "footer"
+      = partial "cookies"
 
-    = javascript_include_tag 'application', :async => :async
+    = javascript_include_tag "application", :async => :async
     <script src="https://use.typekit.net/sdq1pbx.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
