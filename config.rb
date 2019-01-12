@@ -8,6 +8,8 @@ GITHUB_ROOT = "https://github.com/appsignal/appsignal-docs/tree/master"
 
 Time.zone = "Amsterdam"
 
+set :protocol, "https://"
+set :host, "docs.appsignal.com"
 set :layout, :article
 set :markdown_engine, :redcarpet
 set :markdown, AppsignalMarkdown::OPTIONS.merge(:renderer => AppsignalMarkdown)
@@ -22,6 +24,12 @@ activate :syntax,
 activate :sprockets
 
 helpers do
+  def canonical_url(page)
+    path = page.url.sub("index.html", "")
+    path = "/#{path}" unless path.start_with?("/")
+    "#{config[:protocol]}#{config[:host]}#{path}"
+  end
+
   def title
     if current_page.data.title
       current_page.data.title.gsub(/<[^>]*>/, '').tap do |title|
