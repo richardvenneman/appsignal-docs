@@ -8,11 +8,11 @@ title: "JIRA"
 
 Before we can link AppSignal to JIRA we need to configure JIRA to accept our OAuth request.
 
-Sign in to JIRA and open the "Hamburger" menu on the bottom of the sidebar. Then select "Edit".
+Sign in to JIRA and open the "Settings" (Cogwheel) menu on the bottom of the sidebar. Then select "Producs".
 
 ![Administration navigation](/images/screenshots/jira/navigation.png)
 
-On the "Applications administration" screen look for the "Application links" under the "Integrations" section in the navigation.
+In the "Product settings" screen look for the "Application links" under the "Integrations" section in the navigation.
 
 ![Application links navigation](/images/screenshots/jira/application_links.png)
 
