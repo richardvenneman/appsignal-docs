@@ -8,7 +8,7 @@ A list of Applications appears on the [Application index] and in the application
 
 ## Table of Contents
 
-- [Registering applications](#registering-applications)
+- [Adding applications](#adding-applications)
 - [Environments](#environments)
 - [Running multiple applications on one host](#running-multiple-applications-on-one-host)
 - [Namespaces](namespaces.html)
@@ -19,7 +19,7 @@ A list of Applications appears on the [Application index] and in the application
 - [Link templates](link-templates.html)
 - [Integrations (full list)](integrations/)
 
-## Registering applications
+## Adding applications
 
 To add a new Application to AppSignal, please follow the [setup wizard](/getting-started/new-application.html) by pressing the "Add app" button for the organization you wish to add an application to on the [Application index].
 
