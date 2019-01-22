@@ -34,9 +34,17 @@ An application can have multiple [environments](/appsignal/terminology.html#envi
 - "Demo application" - staging
 - "Demo application" - test
 
+## Namespaces
+
+Namespaces are a way to group error incidents, performance incidents, and host metrics in your app. By default AppSignal provides two namespaces: the "web" and "background" namespaces. You can add your own to separate parts of your app like the API and Admin panel.
+
+Namespaces can be used to group together incidents that are related to the same part of an application. It's also possible to configure notification settings on a per-namespace level.
+
+Read more about [namespaces](namespaces.html) and how to configure them for your app.
+
 ## Running multiple applications on one host
 
-When running multiple applications on one host some odd behavior may occur.  This is because the default configuration of our AppSignal libraries assume a one application per host setting.
+When running multiple applications on one host some odd behavior may occur. This is because the default configuration of our AppSignal libraries assume a one application per host setting.
 
 One common problem we've seen is that Applications start reporting under different names and/or environments. Such as an application switching between the staging and production environment after a deploy or restart of an application process or worker.
 

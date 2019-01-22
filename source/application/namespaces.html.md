@@ -14,6 +14,8 @@ part of an application. It's also possible to configure notification settings
 on a per-namespace level. You can find these settings under "App settings" ->
 "Notifications".
 
+You can add your own namespaces to separate parts of your app like the API and Admin panel.
+
 ## Custom namespaces
 
 -> The custom namespaces feature was introduced in AppSignal for Ruby gem
