@@ -305,7 +305,7 @@ options:
     ruby:
       since: 2.6.0
       since_notes:
-        - An upgrade to version `2.6.1` is recommended.
+        - An upgrade to version `2.6.1` or higher is recommended.
       type:
         array:
           - string
@@ -327,7 +327,7 @@ options:
     elixir:
       since: 1.6.0
       since_notes:
-        - An upgrade to version `1.6.3` is recommended.
+        - An upgrade to version `1.6.3` or higher is recommended.
       type:
         list:
           - string
@@ -444,7 +444,7 @@ options:
     ruby:
       since: 2.6.0
       since_notes:
-        - Upgrade to `2.6.1` is recommend.
+        - Upgrade to `2.6.1` or higher is recommend.
       type:
         array:
           - string
@@ -500,7 +500,7 @@ options:
     elixir:
       since: 1.6.0
       since_notes:
-        - Upgrade to `1.6.3` is recommend.
+        - Upgrade to `1.6.3` or higher is recommend.
       type:
         list:
           - string
@@ -657,7 +657,7 @@ options:
     ruby:
       since: 2.6.0
       since_notes:
-        - An upgrade to `2.6.1` is recommended when using this option.
+        - An upgrade to `2.6.1` or higher is recommended when using this option.
       type: string
       default_value: nil
     elixir:
