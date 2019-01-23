@@ -10,7 +10,6 @@ A list of Applications appears on the [Application index] and in the application
 
 - [Adding applications](#adding-applications)
 - [Environments](#environments)
-- [Running multiple applications on one host](#running-multiple-applications-on-one-host)
 - [Namespaces](namespaces.html)
 - [Markers](markers/)
   - [Deploy markers](markers/deploy-markers.html)
@@ -18,6 +17,8 @@ A list of Applications appears on the [Application index] and in the application
 - [Settings](settings.html)
 - [Link templates](link-templates.html)
 - [Integrations (full list)](integrations/)
+- [Running multiple applications on one host](#running-multiple-applications-on-one-host)
+- [Removing an application](#removing-an-application)
 
 ## Adding applications
 
@@ -51,5 +52,25 @@ One common problem we've seen is that Applications start reporting under differe
 To allow AppSignal to be used for multiple applications on one host we need to set the `working_directory_path` configuration option ([Ruby](/ruby/configuration/options.html#option-working_directory_path) / [Elixir](/elixir/configuration/options.html#option-working_directory_path)). Using this configuration option, set a working directory path per application so that the AppSignal agent will not stop agents for other Applications that are running.
 
 Read more about the AppSignal [working directory](/appsignal/how-appsignal-operates.html#working-directory).
+
+## Removing an application
+
+An application (app) in AppSignal is the combination of the application name and environment, e.g. "My app - production". You can only delete one environment at a time through the UI.
+
+To remove an app from AppSignal a couple things need to be done to make sure it's removed completely and won't continue to send data to AppSignal's servers.
+
+- First remove the AppSignal integration (Ruby gem / Elixir package) from your app.
+- Remove any AppSignal configuration files and system environment variables.
+- Redeploy your application. This will make sure the AppSignal servers won't continue to receive data from your app.
+  - Make sure all your webservers are restarted.
+  - Make sure no `appsignal-agent` processes are running in the background.
+- Then, on [AppSignal.com](https://appsignal.com/accounts), open the app you want to delete.
+  - Click on "App settings" to open the settings page.
+  - Scroll down to the bottom of the page.
+  - In the "Delete &lt;app name&gt;" section, click on the "delete &lt;app name&gt;" button and confirm the confirmation prompt.
+
+Your app is now scheduled for deletion. It and all its data will be removed from your organization and our servers. This may take a few minutes, after which it will disappear from your apps list.
+
+**Note**: If your app keeps pushing data, because one or more servers are still pushing app data or host metrics for this app, we will create a new app with the same name and environment. Make sure your servers have restarted and the `appsignal-agent` process is no longer running on any of the hosts.
 
 [Application index]: https://appsignal.com/accounts
