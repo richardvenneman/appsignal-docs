@@ -245,7 +245,7 @@ Per graph the following options can be configured.
 | Field | Type | Description  |
 | ------ | ------ | ----- |
 | `title`  | `String`<br>Required. | Title of the graph. Used for naming the dashboard tabs. |
-| [`line_label`](#dashboards-line-label-format) | `String`<br>Default: `"%name"` | Line label formatter for this graph. Supports replacements of metric names, kind and tags with percent symbols. |
+| [`line_label`](#dashboards-line-label-format) | `String`<br>Default: `"%name%"` | Line label formatter for this graph. Supports replacements of metric names, kind and tags with percent symbols. |
 | [`kind`](#dashboards-kind) | `String`<br>Required. | The kind of metrics to display in this graph. Available options are: `gauge`, `measurement` and `count`. |
 | [`fields`](#dashboards-fields) | `Array<String>` | An array of fields to graph. |
 | [`filter`](#dashboards-filter) | `String` supporting wildcard symbols (`*`) | Select metric by name using a wildcard symbol (`*`). |
