@@ -7,6 +7,7 @@ The AppSignal integrations for Ruby and Elixir contain native extensions and a s
 - [Support table](#support-table)
 - [Linux](#linux)
   - [Supported versions](#supported-versions)
+  - [Musl build override](#musl-build-override)
   - [Alpine Linux](#alpine-linux)
       - [Ruby](#alpine-linux-ruby)
       - [Elixir](#alpine-linux-elixir)
@@ -60,9 +61,24 @@ This is the list of version of libc/musl AppSignal was compiled against over the
   - libc `v2.15`
   - musl `v1.1.16` - see [Alpine Linux install problems after upgrading](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html).
 
-If your system uses an older libc version than we compile against you will experience problems installing or running the AppSignal agent. If this is the case you can instead opt-in to the musl build, which doesn't have this issue. This should no longer be a problem for AppSignal Ruby gem `v2.4.1` & Elixir package `v1.4.3` and higher, automatic detection for older libc versions was added and it will automatically switch to the musl build.
+If your system uses an older libc version than AppSignal extension is compiled against, you will experience problems installing or running the AppSignal agent. If this is the case you can instead [opt-in to the musl build](#musl-build-override), which doesn't have this issue. This should no longer be a problem for AppSignal Ruby gem `v2.4.1` & Elixir package `v1.4.3` and higher, in these packages automatic detection for older libc versions was added and they will automatically switch to the musl build.
 
-**Warning**: When an older libc version is detected or the musl build is selected manually, a dynamic build will be used. For JRuby this is supported since Ruby gem `2.8.0`. This scenario requires a dynamic build of the AppSignal extension, which was not previously supported for the musl build.
+**Warning for JRuby**: JRuby support on Alpine Linux (musl build) is supported since Ruby gem `2.8.0`. This scenario requires a dynamic build of the AppSignal extension, which is not supported for the musl build for older versions of the gem.
+
+You can see which version of libc your system uses by running the following command: `ldd --version 2>&1`
+
+Example of output on Ubuntu 12.04:
+
+```
+$ ldd --version 2>&1
+ldd (Ubuntu EGLIBC 2.15-0ubuntu10.18) 2.15
+Copyright (C) 2012 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+```
+
+### Musl build override
 
 To opt-in to the musl build manually, add the `APPSIGNAL_BUILD_FOR_MUSL` environment variable to your system environment before installing AppSignal and compiling your application.
 
@@ -77,19 +93,6 @@ bundle install
 export APPSIGNAL_BUILD_FOR_MUSL=1
 mix deps.get
 mix compile
-```
-
-You can see which version of libc your system uses by running the following command: `ldd --version 2>&1`
-
-Example of output on Ubuntu 12.04:
-
-```
-$ ldd --version 2>&1
-ldd (Ubuntu EGLIBC 2.15-0ubuntu10.18) 2.15
-Copyright (C) 2012 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-Written by Roland McGrath and Ulrich Drepper.
 ```
 
 ### Alpine Linux
