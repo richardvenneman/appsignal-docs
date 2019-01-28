@@ -10,7 +10,7 @@ The AppSignal gem detects Delayed Job when it's present and hooks into the stand
 
 Delayed Job allows any class that responds to `perform` to be queued and processed.
 
-If you use Procs with a perform method and `display_name` that doesn't return the default 'ClassName#method_name' format, AppSignal treats each Job as a separate entity, creating many Incidents and notifications.
+If you use Procs with a perform method and `display_name` that doesn't return the default `ClassName#method_name` format, AppSignal treats each Job as a separate entity, creating many Incidents and notifications.
 
 To counter this, define an `appsignal_name` method that returns the correct value, this way the Jobs will be grouped correctly.
 
