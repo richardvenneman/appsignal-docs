@@ -19,12 +19,12 @@ To counter this, define an `appsignal_name` method that returns the correct valu
 ```ruby
 class StructJobWithName < Struct.new(:id)
   def perform
-    return true
+    true
   end
 
   # This wil generate a new incident and graphs for each unique name.
   def display_name
-    return "StructJobWithName-#{id}"
+    "StructJobWithName-#{id}"
   end
 
   # This will group the jobs back to a single entity, allowing incidents
