@@ -1,14 +1,14 @@
 ---
-title: "JIRA"
+title: "Jira"
 ---
 
-[JIRA](https://www.atlassian.com/software/jira)  is the tracker for teams planning and building great products.
+[Jira](https://www.atlassian.com/software/jira)  is the tracker for teams planning and building great products.
 
-## Configuring JIRA
+## Configuring Jira
 
-Before we can link AppSignal to JIRA we need to configure JIRA to accept our OAuth request.
+Before we can link AppSignal to Jira we need to configure Jira to accept our OAuth request.
 
-Sign in to JIRA and open the "Settings" (Cogwheel) menu on the bottom of the sidebar. Then select "Producs".
+Sign in to Jira and open the "Settings" (Cogwheel) menu on the bottom of the sidebar. Then select "Producs".
 
 ![Administration navigation](/images/screenshots/jira/navigation.png)
 
@@ -62,13 +62,13 @@ And finally, save the OAuth configuration.
 
 ## Configuring AppSignal
 
-Now that the JIRA-end is setup up we can link it to AppSignal. Open the application in AppSignal you want to link JIRA to and go to "Integrations" (left-hand side navigation bar, "Configure" section).
+Now that the Jira-end is setup up we can link it to AppSignal. Open the application in AppSignal you want to link Jira to and go to "Integrations" (left-hand side navigation bar, "Configure" section).
 
-Choose "JIRA" from the list of integrations. Enter in the "JIRA installation location" the root path of your JIRA app, e.g. `https://appsignal-test-1.atlassian.net`. Press "Link AppSignal to JIRA".
+Choose "Jira" from the list of integrations. Enter in the "Jira installation location" the root path of your Jira app, e.g. `https://appsignal-test-1.atlassian.net`. Press "Link AppSignal to Jira".
 
 You'll be presented with an authentication confirmation screen.
 
-![JIRA OAuth confirmation](/images/screenshots/jira/authentication.png)
+![Jira OAuth confirmation](/images/screenshots/jira/authentication.png)
 
 Upon pressing "Allow" you'll be returned to AppSignal. Here you need to select which project and issue type you want to use for AppSignal issues.
 
@@ -85,7 +85,7 @@ Required fields are:
 * Summary
 * Description
 
-In order to fix these messages, you have to add the fields to the JIRA screens by going to the "Issues" tab in the "Settings" menu. First check which "screen" your issue type is using on the "Issue types" page, in the "Related Schemes" column for the issue type you selected in AppSignal.
+In order to fix these messages, you have to add the fields to the Jira screens by going to the "Issues" tab in the "Settings" menu. First check which "screen" your issue type is using on the "Issue types" page, in the "Related Schemes" column for the issue type you selected in AppSignal.
 
 Then navigate to the "Screens" page in the "Screens" section.
 
@@ -93,8 +93,8 @@ Then navigate to the "Screens" page in the "Screens" section.
 
 Click on "Configure" in the "Actions" column for the relevant "Screen".
 
-On this "Configure" page you'll be presented with a list of fields that are configured in this JIRA screen. Go to the bottom of the page where the new field dropdown is located and select the required fields, as listed in the ["Errors"](#errors) section, from the dropdown. Go back to AppSignal and relink the JIRA issue type.
+On this "Configure" page you'll be presented with a list of fields that are configured in this Jira screen. Go to the bottom of the page where the new field dropdown is located and select the required fields, as listed in the ["Errors"](#errors) section, from the dropdown. Go back to AppSignal and relink the Jira issue type.
 
 ![Issue fields](/images/screenshots/jira/fields.png)
 
-Getting JIRA working can be a bit of a hassle, but it should work if you follow the above steps with care. If you run into any issues, don't hesitate to contact us at [support@appsignal.com](mailto:support@appsignal.com) if other errors occur.
+Getting Jira working can be a bit of a hassle, but it should work if you follow the above steps with care. If you run into any issues, don't hesitate to contact us at [support@appsignal.com](mailto:support@appsignal.com) if other errors occur.

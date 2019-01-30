@@ -15,7 +15,7 @@ To enable notifications and issue tracker integration for external services, go 
 - [GitLab](#gitlab)
 - [HipChat](#hipchat)
 - [Intercom](#intercom)
-- [JIRA](#jira)
+- [Jira](#jira)
 - [OpsGenie](#opsgenie)
 - [PagerDuty](/application/integrations/pagerduty.html)
 - [Phabricator](#phabricator)
@@ -72,13 +72,13 @@ Website: [Intercom](https://intercom.io)
 
 For detailed information about setting up Intercom, visit the [Intercom page](/application/integrations/intercom.html).
 
-## JIRA
+## Jira
 
-[JIRA](https://www.atlassian.com/software/jira) by Atlassian is a tracker for teams that plan and build products. It’s available as a self-hosted and cloud hosted solution.
+[Jira](https://www.atlassian.com/software/jira) by Atlassian is a tracker for teams that plan and build products. It’s available as a self-hosted and cloud hosted solution.
 
-Website: [JIRA](https://www.atlassian.com/software/jira)
+Website: [Jira](https://www.atlassian.com/software/jira)
 
-For detailed information about setting up (self)hosted JIRA, visit the [JIRA page](/getting-started/integrations/jira.html).
+For detailed information about setting up (self)hosted Jira, visit the [Jira page](/application/integrations/jira.html).
 
 ## OpsGenie
 
