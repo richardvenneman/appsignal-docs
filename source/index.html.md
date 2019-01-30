@@ -19,7 +19,7 @@ In this documentation we aim to give you all the information you need to get sta
 - [AppSignal for Front-end <sup>Beta</sup>](/front-end/error-handling.html)
 - [Host metrics](/metrics/host.html)
 - [Custom metrics <sup>Beta</sup>](/metrics/custom.html)
-- [Workflow integrations](/application/integrations/index.html) (Slack, HipChat, JIRA, etc.)
+- [Workflow integrations](/application/integrations/index.html) (Slack, HipChat, Jira, etc.)
 - [AppSignal API](/api/index.html)
 
 ## Support
