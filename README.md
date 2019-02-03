@@ -69,13 +69,14 @@ For more information (and code) about these customizations, please see the
 Thinking of contributing to our documentation? Awesome! 🚀
 
 Please follow our [Contributing guide][contributing-guide] in our
-documentation.
+documentation and follow our [Code of Conduct][coc].
 
 Also, we would be very happy to send you Stroopwaffles. Have look at everyone
 we send a package to so far on our [Stroopwaffles page][waffles-page].
 
 [appsignal]: https://appsignal.com
 [contact]: mailto:support@appsignal.com
+[coc]: https://docs.appsignal.com/appsignal/code-of-conduct.html
 [waffles-page]: https://appsignal.com/waffles
 [docs]: https://docs.appsignal.com
 [contributing-guide]: https://docs.appsignal.com/contributing
