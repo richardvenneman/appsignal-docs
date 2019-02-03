@@ -11,10 +11,19 @@ questions about contributing to any of our projects.
 We're very happy sending anyone who contributes Stroopwaffles. Have look at
 everyone we sent a package to so far on our [Stroopwaffles page][waffles-page].
 
+## Table of Contents
+
+- [Open Source projects](#open-source-projects)
+- [Using git and GitHub](#using-git-and-github)
+- [Versioning](#versioning)
+- [Reporting bugs](#reporting-bugs)
+- [Feature requests](#feature-requests)
+- [Security issues](#security-issues)
+- [Code of Conduct][coc]
+
 ## Open Source projects
 
-All open source projects are available on our [AppSignal GitHub
-page][github-appsignal].
+All open source projects are available on our [AppSignal GitHub organization][github-appsignal].
 
 Our main projects include:
 
@@ -61,7 +70,7 @@ content, such as in which version a feature was introduced.
 Every stable and unstable release is tagged in git with a version tag and can
 be found on every project's GitHub page under "Releases".
 
-## Bugs
+## Reporting bugs
 
 Report a bug by opening an issue on the GitHub project page of the respective
 project. If the bug report contains some sensitive information that is
@@ -74,7 +83,7 @@ issues](#security-issues) section.
 When submitting a bug fix please create a Pull Request on the project's GitHub
 page please submit the change against the `master` branch.
 
-## Features
+## Feature requests
 
 Missing a feature or integration in AppSignal? Please let us know when
 something comes to mind by [sending us an email][contact] or submitting an
