@@ -136,7 +136,7 @@ helpers do
     case default
     when Hash
       inline_markdown default[:markdown]
-    when "nil"
+    when nil # null in the YAML file
       "nil (This is unset by default)"
     else
       content_tag :code, default.to_s

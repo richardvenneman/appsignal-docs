@@ -55,14 +55,14 @@ options:
     ruby:
       since: 1.0.0
       type: string
-      default_value: nil
+      default_value: null
       description: |
         Name of your application as it should be displayed on AppSignal.com. If you use Ruby on Rails the gem will auto-detect the name and you can leave this empty. For other frameworks setting this is mandatory.
 
         -> **Note**: Changing the name or [environment](#option-env) will create a new app on AppSignal.com.
     elixir:
       type: atom
-      default_value: nil
+      default_value: null
       description: |
         Name of your application as it should be displayed on AppSignal.com.
 
@@ -73,11 +73,11 @@ options:
     ruby:
       since: 0.1.0
       type: string
-      default_value: nil
+      default_value: null
     elixir:
       since: 0.1.0
       type: string
-      default_value: nil
+      default_value: null
     description: |
       The organization-level authentication key to authenticate with our Push API.
 
@@ -361,10 +361,10 @@ options:
     ruby:
       since: 0.11.13
       type: string
-      default_value: nil
+      default_value: null
     elixir:
       type: string
-      default_value: nil
+      default_value: null
     description: |
       If you require the agent to connect to the Internet via a proxy set the complete proxy URL in this configuration key.
   - config_key: ignore_actions
@@ -659,11 +659,11 @@ options:
       since_notes:
         - An upgrade to `2.6.1` or higher is recommended when using this option.
       type: string
-      default_value: nil
+      default_value: null
     elixir:
       since: 1.5.0
       type: string
-      default_value: nil
+      default_value: null
     description: |
       Set the app revision for the currently running version of your app. Used to create deploy markers and tag all incoming data to a certain deploy for the host.
 
