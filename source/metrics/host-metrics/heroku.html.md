@@ -15,13 +15,16 @@ To setup AppSignal to receive these metrics, please follow the guide below.
 
 !> **Note**: This is a beta feature, meaning that the logplex endpoint can change at any time, at which point you will need to re-add the logdrain.
 
-### 1. Update the agent to 2.6.x or better
+### 1. Update the AppSignal integration.
+
+First update the Ruby gem to version 2.6.0 or newer.  
+For Elixir, please update to version 1.6.0 or newer of the AppSignal integration.
 
 We switched from using the dyno's UUID to the name (e.g. `web.1`), to make sure we can match the metrics we get from the Logplex drain with the data we receive from the integration, please make sure to run `2.6.x` or better.
 
 ### 2. Disable AppSignal host metrics collection
 
-Either set the env var `APPSIGNAL_ENABLE_HOST_METRICS` or the yaml config `:enable_host_metrics` to false.
+Either set the env var `APPSIGNAL_ENABLE_HOST_METRICS` or the `:enable_host_metrics` config option to `false` ([Ruby](/ruby/configuration/options.html#enable_host_metrics) / [Elixir](/elixir/configuration/options.html#enable_host_metrics)).
 
 ### 3. Enable host runtime metrics on Heroku
 
@@ -46,15 +49,15 @@ Please see the [Heroku Logplex documentation](https://devcenter.heroku.com/artic
 
 ### 4. Add a Logplex drain
 
-In order to get the Dyno's host metrics to AppSignal you have to create a new Logplex drain.
-
 !> **Warning**: This will send **all** of your app's logs to our endpoint, not just the metrics. Our endpoint only parses the Dyno's host runtime metrics and ignores the rest of your logs.
+
+In order to get the Dyno's host metrics to AppSignal you have to create a new Logplex drain.
 
 ```
 heroku drains:add "https://push.appsignal.com/2/logplex?api_key=<push_api_key>&name=<app_name>&environment=<app_environment>"
 ```
 
-Replace the `<push_api_key>`, `<app_name>` and `<app_environment>` placeholders with your AppSignal organization's Push API key, your app's name and environment. Make sure your app's name and environment match exactly with your app's AppSignal configuration. These values are case sensitive.
+Make sure to replace the placeholders (`<push_api_key>`, `<app_name>` and `<app_environment>`) with your AppSignal organization's Push API key, your app's name and environment. Make sure your app's name and environment match exactly with your app's AppSignal configuration. These values are case sensitive.
 
 You can find your Push API key, app name and environment on AppSignal.com under "App settings" for an app in the sidebar navigation.
 

@@ -22,6 +22,8 @@ AppSignal uses a library called [probes-rs], created by AppSignal, to report hos
 
 No complete solution is available at this time.
 
+If you're using Heroku, please use our Logplex log drain for Heroku. For more information on the Heroku log drain, please view [this documentation page](/metrics/host-metrics/heroku.html).
+
 Memory host metrics were fixed in Ruby gem `2.8.0` and Elixir package `1.9.0`. The other metrics were be improved in the future.
 
 Let us know which metrics you are missing, are inaccurate or if you have a problem, at [support@appsignal.com].
