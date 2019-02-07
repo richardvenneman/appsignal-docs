@@ -22,6 +22,7 @@ To enable notifications and issue tracker integration for external services, go 
 - [Phabricator](#phabricator)
 - [Pivotal Tracker](#pivotal-tracker)
 - [Slack](#slack)
+- [Google Hangouts Chat](#google-hangouts-chat)
 - [Trello](#trello)
 - [Webhook](/application/integrations/webhooks.html)
 
@@ -104,6 +105,12 @@ Website: [http://www.pivotaltracker.com/](http://www.pivotaltracker.com/)
 Slack brings all your communication together in one place. It's real-time messaging, archiving and search for modern teams.
 
 Website: [https://www.slack.com](https://www.slack.com)
+
+## Google Hangouts Chat
+
+From direct messages to group conversations, Google Hangouts Chat helps teams collaborate easily and efficiently.
+
+Website: [https://chat.google.com](https://chat.google.com)
 
 ## Trello
 
