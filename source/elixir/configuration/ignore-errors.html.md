@@ -11,6 +11,8 @@ To prevent AppSignal from picking up these errors and alerting you, you can add
 exceptions that you want to ignore to the list of ignored errors in your
 configuration.
 
+More information about the [`ignore_errors`](/elixir/configuration/options.html#option-ignore_errors) configuration option.
+
 ```elixir
 # config/appsignal.exs
 use Mix.Config

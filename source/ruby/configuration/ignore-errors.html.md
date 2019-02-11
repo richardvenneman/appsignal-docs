@@ -6,6 +6,8 @@ Sometimes an error is raised which AppSignal shouldn't send an alert about. It's
 
 To prevent AppSignal from picking up these errors and alerting you, you can add exceptions that you want to ignore to the list of ignored errors in your configuration.
 
+More information about the [`ignore_errors`](/ruby/configuration/options.html#option-ignore_errors) configuration option.
+
 ```yaml
 # config/appsignal.yml
 default: &defaults
