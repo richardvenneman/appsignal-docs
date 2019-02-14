@@ -32,7 +32,7 @@ Also see our blog post [about custom metrics](http://blog.appsignal.com/blog/201
   - [Tags](#dashboards-tags)
   - [Value formatting](#dashboards-value-formatting)
   - [Size value format input](#dashboards-size-value-format-input)
-  - [Draw NULL as zero](#draw_null_as_zero)
+  - [Draw NULL as zero](#dashboards-draw-null-as-zero)
 
 ## Metric types
 
@@ -250,9 +250,9 @@ Per graph the following options can be configured.
 | [`fields`](#dashboards-fields) | `Array<String>` | An array of fields to graph. |
 | [`filter`](#dashboards-filter) | `String` supporting wildcard symbols (`*`) | Select metric by name using a wildcard symbol (`*`). |
 | [`tags`](#dashboards-tags) | `Object<Key, Value>` | Select metric by tags and their values. |
-| [`format`](#dashboards-format) | `String`<br>Default: `"number"` | The formatter for the line values. Available options are: number, size, percent, duration and throughput. |
+| [`format`](#dashboards-value-formatting) | `String`<br>Default: `"number"` | The formatter for the line values. Available options are: number, size, percent, duration and throughput. |
 | [`format_input`](#dashboards-size-value-format-input) | `String` (no default) | The format of the input of this metrics when using the size formatter. Available options are: bit, byte, kilobit, kilobyte and megabyte. |
-| [`draw_null_as_zero`](#draw-null-as-zero) | `Boolean`<br>Default: `true` | If `true` no data (`NULL`) will be rendered as `0`. If `false` it will repeat the last received value until a new value is registered. |
+| [`draw_null_as_zero`](#dashboards-draw-null-as-zero) | `Boolean`<br>Default: `true` | If `true` no data (`NULL`) will be rendered as `0`. If `false` it will repeat the last received value until a new value is registered. |
 
 ###^dashboards Kind
 
