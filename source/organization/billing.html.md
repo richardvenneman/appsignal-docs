@@ -16,7 +16,7 @@ There are a number of reasons for a declined charge. All banks have automated sy
 
 We hate to see you leave, but sometimes you need to cancel your subscription or have your account deleted.
 
-You can cancel the subscription for any organization you're an owner for in AppSignal (there can be multiple owners for any organization). When signed in, click "Profile & settings" in the top right corner of your screen, and go to the Billing section for the organization you'd like to cancel the subscription for. At the bottom of the page, you'll find the large "Go to cancellation form" button.
+You can [cancel the subscription](https://appsignal.com/redirect-to/organization?to=admin/cancellations/new) for any organization you're an owner for in AppSignal (there can be multiple owners for any organization).
 
 In the next step, you're asked to confirm the cancellation and provide a reason for doing so. While you could just enter "x", we do appreciate and manually process all of your feedback!
 

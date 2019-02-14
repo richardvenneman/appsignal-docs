@@ -36,7 +36,7 @@ In short: AppSignal doesn't wish to receive any personal data about your visitor
 
 We have created a Data Processing Agreement that explains eg. how we are a Data Processor, how we limit processing to the level needed to be able to provide the AppSignal service, that we will ensure that our vendors are compliant too, etc (this is an incomplete list for illustrative purposes only; please see the full Data Processing Agreement for all the details).
 
-The Data Processing Agreement is accessible to all owners for an organization on AppSignal. You can find it by going to your "[Profile & Settings](https://appsignal.com/users/edit)" and look for the agreement in the left navigation (there is one for each organization). You can digitally sign the Data Processing Agreement, and once signed we will display who signed it and when.
+The Data Processing Agreement is accessible to all owners for an organization on AppSignal. Open the Data Processing Agreement for [your organization](https://appsignal.com/redirect-to/organization?to=admin/data_processing_agreement) (there is one for each organization). You can digitally sign the Data Processing Agreement, and once signed we will display who signed it and when.
 
 #### Allowed request headers only
 
