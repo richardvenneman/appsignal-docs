@@ -93,7 +93,7 @@ Appsignal.increment_counter("login_count", 1)
 
 We recommend naming your metrics something easily recognizable and without too many dynamic elements. While you can wildcard parts of the metric name for dashboard creation, we recommend you only use this for small grouping and not use IDs for metric names.
 
-Metric names only support numbers, letters, dots and underscores (`[a-z0-9._]`) as valid characters. Any other characters will be replaced with an underscore by our processor. In the "Metrics" feature (as listed in the AppSignal navigation for your app) under "Edit dashboards" a list is displayed with all metrics received in the last hour. In this list you can see their names as sanitized by our processor.
+Metric names only support numbers, letters, dots and underscores (`[a-z0-9._]`) as valid characters. Any other characters will be replaced with an underscore by our processor. You can find the list of metrics as processed on the ["Edit Dashboards"](https://appsignal.com/redirect-to/app?to=metrics/edit). This is in the "Metrics" feature, as listed in the AppSignal navigation.
 
 Some examples of good metric names are:
 
@@ -143,7 +143,7 @@ Read about how to use the [`tags`](#dashboards-tags) dashboard config option to 
 
 ## Dashboards
 
-Custom metrics dashboards are in beta. Dashboards are currently configured using a YAML definition format which will change in the future.
+Custom metrics dashboards are in beta. Dashboards are currently configured using a YAML definition format (which will change in the future) on the ["Edit Dashboards"](https://appsignal.com/redirect-to/app?to=metrics/edit) page.
 
 ###^dashboards Example dashboard
 

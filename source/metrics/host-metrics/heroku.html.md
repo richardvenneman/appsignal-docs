@@ -59,6 +59,6 @@ heroku drains:add "https://push.appsignal.com/2/logplex?api_key=<push_api_key>&n
 
 Make sure to replace the placeholders (`<push_api_key>`, `<app_name>` and `<app_environment>`) with your AppSignal organization's Push API key, your app's name and environment. Make sure your app's name and environment match exactly with your app's AppSignal configuration. These values are case sensitive.
 
-You can find your Push API key, app name and environment on AppSignal.com under "App settings" for an app in the sidebar navigation.
+You can find your Push API key, app name and environment on AppSignal.com at ["App settings > Push & Deploy"](https://appsignal.com/redirect-to/app?to=info).
 
-After adding the drain host metrics for your app will appear after a few minutes in the "host metrics" section.
+After adding the drain host metrics for your app will appear after a few minutes in the ["host metrics" section](https://appsignal.com/redirect-to/app?to=host_metrics).

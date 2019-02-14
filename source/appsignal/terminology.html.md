@@ -164,7 +164,7 @@ We keep a full product changelog at
 All our new features, agent releases and other changes to the product can be
 found in this neatly organized list.
 
-We also have a small indicator in our left-hand-side navigation that notifies
+We also have a small indicator in our top navigation that notifies
 you if there's a new entry to the changelog.
 
 ## Configuration

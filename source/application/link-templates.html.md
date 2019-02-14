@@ -39,8 +39,7 @@ For more information about tagging requests, please read the tagging guide for
 
 Link templates can be defined on AppSignal.com per application.
 
-The "Link templates" configuration can be found in the "Configure" section in
-the left-hand side navigation under "App settings" for a site.
+The "Link templates" configuration can be found in the ["App settings" section](https://appsignal.com/redirect-to/app?to=edit) in the left-hand side navigation.
 
 ![link templates](/images/screenshots/link_templates.png)
 

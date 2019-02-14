@@ -25,7 +25,7 @@ Please see the documentation for [decorators][namespace_decorator] or
 [instrumentation helpers][namespace_helper] on how to configure a namespace.
 
 Once the namespace is set and the application is sending data to the AppSignal
-servers, the new namespace will appear in the navigation on AppSignal.com.
+servers, the new namespace will appear in the app navigation on AppSignal.com.
 Note: Data previously reported for the same action is not moved to the new
 namespace.
 

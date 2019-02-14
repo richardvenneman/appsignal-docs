@@ -8,7 +8,7 @@ title: "Jira"
 
 Before we can link AppSignal to Jira we need to configure Jira to accept our OAuth request.
 
-Sign in to Jira and open the "Settings" (Cogwheel) menu on the bottom of the sidebar. Then select "Producs".
+Sign in to Jira and open the "Settings" (Cogwheel) menu on the bottom of the sidebar. Then select "Products".
 
 ![Administration navigation](/images/screenshots/jira/navigation.png)
 
@@ -62,9 +62,9 @@ And finally, save the OAuth configuration.
 
 ## Configuring AppSignal
 
-Now that the Jira-end is setup up we can link it to AppSignal. Open the application in AppSignal you want to link Jira to and go to "Integrations" (left-hand side navigation bar, "Configure" section).
+Now that the Jira-end is setup up we can [link it to AppSignal](https://appsignal.com/redirect-to/app?to=integrations/jira/edit). (Open the application in AppSignal you want to link Jira to and go to "Integrations" (left-hand side navigation bar, "Configure" section).)
 
-Choose "Jira" from the list of integrations. Enter in the "Jira installation location" the root path of your Jira app, e.g. `https://appsignal-test-1.atlassian.net`. Press "Link AppSignal to Jira".
+Enter in the "Jira installation location" the root path of your Jira app, e.g. `https://appsignal-test-1.atlassian.net`. Press "Link AppSignal to Jira".
 
 You'll be presented with an authentication confirmation screen.
 

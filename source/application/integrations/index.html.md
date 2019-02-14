@@ -4,7 +4,7 @@ title: "Integrations"
 
 Besides email notifications we can send messages about new exceptions, performance issues and deploys to several 3rd parties. Below is a list of supported external services.
 
-To enable notifications and issue tracker integration for external services, go to the "Integrations" tab in the application's navigation sidebar (on [AppSignal.com](https://appsignal.com) and fill out the form for each service you'd like to enable.
+To enable notifications and issue tracker integration for external services, go to the ["Notifications" page](https://appsignal.com/redirect-to/app?to=notifiers) or the ["Integrations" page](https://appsignal.com/redirect-to/app?to=integrations) in the app navigation and fill out the form for each service you'd like to enable.
 
 ## Available integrations
 

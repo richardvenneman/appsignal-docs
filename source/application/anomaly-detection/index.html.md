@@ -38,9 +38,9 @@ In each email you receive about any alert, we'll send you a full overview of all
 
 ## Setting up triggers
 
-Anomaly detection can be configured per app in the "Anomaly detection" section in the main navigation. By default you will see the latest alerts created by triggers that you've configured for the app.
+Anomaly detection can be configured per app in the ["Anomaly detection" section](https://appsignal.com/redirect-to/app?to=alerts) in the app navigation. By default you will see the latest alerts created by triggers that you've configured for the app.
 
-In the top navigation you can switch to the triggers page to create new and edit existing triggers.
+In the top navigation you can switch to the [triggers page](https://appsignal.com/redirect-to/app?to=triggers) to create new and edit existing triggers.
 
 Triggers can be configured for a variety of metrics, such as, but not limited to:
 
