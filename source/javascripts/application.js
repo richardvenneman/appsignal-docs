@@ -50,12 +50,13 @@ $(document).ready(function() {
   });
   navigationElement.scrollTop(getScrollPosition());
 
-  if(Cookies.get("appsignal_signed_in") == "true") {
+  userSignedIn = Cookies.get("appsignal_signed_in") == "true";
+  if(userSignedIn) {
     $(".logged-in").show();
     $(".logged-out").hide();
   }
 
-  if (Cookies.get("cookie_consent") == "true") {
+  if (userSignedIn || Cookies.get("cookie_consent") == "true") {
     $(".mod-cookies").hide();
     loadAnalyticsScripts();
   }
