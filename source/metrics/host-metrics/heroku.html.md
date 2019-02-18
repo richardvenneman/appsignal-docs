@@ -3,7 +3,7 @@ title: "Heroku host metrics <sup>beta</sup>"
 ---
 
 Heroku provides a service to retrieve host metrics from a Dyno through their [Logplex system](https://devcenter.heroku.com/articles/logplex).
- AppSignal provide an endpoint to read these metrics from your app's logs. This is the only way to receive accurate host metrics in AppSignal for Heroku apps. The AppSignal [host metrics](/metrics/host.html) feature does not work reliable on Heroku as it doesn't directly expose runtime metrics for LXC containers in which their Dynos run. Using the normal host metrics collection your Heroku apps will report the host metrics for the parent system on which many Heroku apps run rather than metrics limited to your Dynos.
+ AppSignal provides an endpoint to read these metrics from your app's logs. This is the only way to receive accurate host metrics in AppSignal for Heroku apps. The AppSignal [host metrics](/metrics/host.html) feature does not work reliable on Heroku as it doesn't directly expose runtime metrics for LXC containers in which their Dynos run. Using the normal host metrics collection your Heroku apps will report the host metrics for the parent system on which many Heroku apps run rather than metrics limited to your Dynos.
 
 From the Logplex system we're able to receive the following metrics from your apps per dyno:
 
