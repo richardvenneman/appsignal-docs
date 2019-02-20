@@ -1,5 +1,5 @@
 ---
-title: "Standalone AppSignal Agent"
+title: "Standalone AppSignal Agent installation"
 ---
 
 When we introduced host metrics we knew that in order to provide a full picture of your infrastructure we needed not only to monitor your application servers, but also any servers your application depends on, for example database servers.
@@ -41,5 +41,9 @@ apt-get install appsignal-agent
 The agent has now been installed, you still need to edit the configuration file in `/etc/appsignal-agent.conf`. The push api key can be found by clicking `App app` in the [app list](https://appsignal.com/accounts). Pick an app name and environment that works for you. It can either be a separate app or you can group these hosts with an existing one by using the same name and environment.
 
 Once you edit the configuration file you need to restart the agent. On 14.04 use `service appsignal-agent restart`. On 16.04 and up use `systemctl restart appsignal-agent`.
+
+## Collected metrics
+
+The agent collects [host metrics](/metrics/host.html) by default. You can also send [StatsD](/standalone-agent/statsd.html) messages to it that will be processed as custom metrics.
 
 We are eager to get feedback on this, let us know via the chat in the app or [support@appsignal.com](mailto:support@appsignal.com).
