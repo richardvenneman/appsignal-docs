@@ -57,7 +57,7 @@ When configuring the standalone agent, pick an app name and environment that wor
 # /etc/appsignal-agent.conf
 push_api_key = "<YOUR PUSH API KEY>"
 app_name = "<YOUR APP NAME>"
-namespace = "<YOUR APP ENVIRONMENT>"
+environment = "<YOUR APP ENVIRONMENT>"
 ```
 
 For example:
@@ -66,7 +66,7 @@ For example:
 # /etc/appsignal-agent.conf
 push_api_key = "0000-0000-0000-000"
 app_name = "My app name"
-namespace = "production"
+environment = "production"
 ```
 
 Once you edit the configuration file you need to restart the agent.
