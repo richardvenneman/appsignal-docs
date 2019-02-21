@@ -2,7 +2,7 @@
 title: "StatsD in Standalone AppSignal Agent"
 ---
 
-The standalone AppSignal Agent runs a StatsD server over UDP on localhost by default. You can use this to ingest metrics from other components of your infrastructure. Any metrics added are usable as custom metrics within AppSignal.
+The standalone AppSignal Agent runs a StatsD server over UDP on localhost by default. You can use this to ingest metrics from other components of your infrastructure. Any metrics added are usable as [custom metrics](/metrics/custom.html) within AppSignal.
 
 The StatsD server supports the DogsD extension, so you can use tags. At the moment gauges, counters and timers are supported.
 
