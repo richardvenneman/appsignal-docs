@@ -2,9 +2,7 @@
 title: "Standalone AppSignal Agent installation"
 ---
 
-When we introduced host metrics we knew that in order to provide a full picture of your infrastructure we needed not only to monitor your application servers, but also any servers your application depends on, for example database servers.
-
-In order to do this we added a standalone mode to our AppSignal agent. This allows you to run the AppSignal agent without having to start it from a Ruby/Elixir process.
+In order to provide a full picture of your infrastructure, you should monitor not just application servers, but any server your application depends on (eg. database servers). In order to do this, we offer a standalone mode in our AppSignal agent. This allows you to run the AppSignal agent without having to start it from a Ruby/Elixir process.
 
 ## Table of Contents
 
@@ -51,9 +49,9 @@ The agent has now been installed. Next up is configuring it to report to the cor
 
 The standalone agent configuration can be found at `/etc/appsignal-agent.conf`.
 
-The required Push API key can be found in the ["Push & Deploy" section](https://appsignal.com/redirect-to/app?to=info) for any app in your organization and in the ["Add app" wizard](https://appsignal.com/redirect-to/app?to=sites/new) for your organization.
+The required Push API key can be found in the ["Push & Deploy" section](https://appsignal.com/redirect-to/app?to=info) for any app in your organization, and in the ["Add app" wizard](https://appsignal.com/redirect-to/app?to=sites/new) for your organization.
 
-When configuring the standalone agent, pick an app name and environment that works for you. It can either be a separate app or configure it for an existing app so that it reports as a new host to that app.
+When configuring the standalone agent, pick an app name and environment that works for you. It can either be a separate app, or you can configure it for an existing app so that it reports as a new host to that app.
 
 ```conf
 # /etc/appsignal-agent.conf
