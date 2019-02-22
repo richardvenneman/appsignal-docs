@@ -203,6 +203,16 @@ options:
       default_value: true
     description: |
       Set this option to `false` to disable [host metrics](/metrics/host.html) collection.
+  - config_key: enable_minutely_probes
+    env_key: APPSIGNAL_ENABLE_MINUTELY_PROBES
+    ruby:
+      since: 1.3.0
+      since_notes:
+        - "`2.9.0`: Default value was change to `true`."
+      type: bool
+      default_value: true
+    description: |
+      Enables the [minutely probes](/ruby/instrumentation/minutely-probes.html) system.
   - config_key: endpoint
     env_key: APPSIGNAL_PUSH_API_ENDPOINT
     ruby:
