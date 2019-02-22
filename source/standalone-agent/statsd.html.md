@@ -4,10 +4,23 @@ title: "StatsD in Standalone AppSignal Agent"
 
 The standalone AppSignal Agent runs a StatsD server over UDP on localhost by default. You can use this to ingest metrics from other components of your infrastructure. Any metrics added are usable as [custom metrics](/metrics/custom.html) within AppSignal.
 
-The StatsD server supports the DogsD extension, so you can use tags. At the moment gauges, counters and timers are supported.
+## Supported metrics
 
-The following example in Ruby demonstrates how this works using the
-`statsd-instrument` gem:
+The following StatsD metrics are currently supported:
+
+- gauge
+- counter
+- timers
+
+Other, unsupported metric types, will be ignored.
+
+## Tagging
+
+The StatsD server supports the DogsD extension, which means tags for metrics are supported.
+
+## Example
+
+The following example in Ruby demonstrates how this works using the [`statsd-instrument` gem](https://rubygems.org/gems/statsd-instrument).
 
 ```ruby
 require 'statsd-instrument'
@@ -34,4 +47,4 @@ end
 
 This is just to demonstrate, it is far more useful to use this from other technologies that are not directly supported by the AppSignal agent. You could use this to collect metrics from a PHP or Python app for example.
 
-There are numerous tools available that can extract StatsD metrics from the JVM or various databases and web servers. We're curious to see what use cases you find, do let us know!
+There are numerous tools available that can extract StatsD metrics from the JVM or various databases and web servers. We're curious to see what use cases you find, do [let us know](mailto:support@appsignal.com)!
