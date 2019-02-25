@@ -2,7 +2,7 @@
 title: "Minutely probes"
 ---
 
-Minutely probes are a mechanism to periodically send custom metrics to AppSignal. This is a system that is included in the AppSignal Ruby gem by default. At the start of every minute the minutely probes are triggered on by one to collect metrics and then snoozed until the next minute.
+Minutely probes are a mechanism to periodically send custom metrics to AppSignal. This is a system that is included in the AppSignal Ruby gem by default. At the start of every minute the minutely probes are triggered one by one to collect metrics and then snoozed until the next minute.
 
 By default the AppSignal Ruby gem enables probes for [libraries](/ruby/integrations) that are detected for your app.
 
@@ -25,13 +25,13 @@ By default the AppSignal Ruby gem enables probes for [libraries](/ruby/integrati
 
 ## Usage
 
-The minutely probes allows the AppSignal Ruby gem to collect [custom metrics](/metrics/custom.html) by default for [integrations](/ruby/integrations) and app specific metrics by [creating your own probe](#creating-probes).
+The minutely probes allow the AppSignal Ruby gem to collect [custom metrics](/metrics/custom.html) by default for [integrations](/ruby/integrations) and app-specific metrics by [creating your own probe](#creating-probes).
 
 ### Multiple instances
 
-Once activated the minutely probes system runs on every instance of an app. This means that if a probe report metrics without some kind of differentiating tag, global metrics may be overwritten by instance-level metrics. For example, there's a probe that tracks how large the local background job queue is for an app. The queue database runs locally on the instance and queue sizes may vary wildly. Each instances of an app report different metrics values for the same metric and tags, overwriting the metric value every minute with those of the last reporting instance.
+Once activated the minutely probes system runs on every instance of an app. This means that if a probe report metrics without some kind of differentiating tag, global metrics may be overwritten by instance-level metrics. For example, there's a probe that tracks how large the local background job queue is for an app. The queue database runs locally on the instance and queue sizes may vary wildly. Each instance of an app reports different metric values for the same metric and tags, overwriting the metric value every minute with those of the last reporting instance.
 
-To remedy this, we suggest [tagging](/metrics/custom.html#metric-tags) your metrics with the hostname or something else unique for each instance. For example, the [Sidekiq probe](/ruby/integrations/sidekiq.html#minutely-probe) tags metrics by default with the Redis hostname.
+To remedy this, we suggest [tagging](/metrics/custom.html#metric-tags) your metrics with the hostname or something else unique for each instance. For example, the [Sidekiq probe](/ruby/integrations/sidekiq.html#minutely-probe) tags metrics with the Redis hostname by default.
 
 Alternatively you can [disable minutely probes](/ruby/configuration/options.html#option-enable_minutely_probes) for all but one instance, on which the minutely probes process is run. We suggest using the [`APPSIGNAL_ENABLE_MINUTELY_PROBES`](/ruby/configuration/options.html#option-enable_minutely_probes) environment variable to only enable it on the instance of your choosing.
 
@@ -145,7 +145,7 @@ AppSignal minutely probes need to be registered while your Rails app boots. We r
 
 Register you probe in a file that's called on boot before `Appsignal.start` is called. For pure-Ruby/non-Rails apps probes needs to be registered in a file that's loaded on boot.
 
-See also [Integration AppSignal](/ruby/instrumentation/integrating-appsignal.html) for instructions how to integrate AppSignal in your app.
+See also [Integrating AppSignal](/ruby/instrumentation/integrating-appsignal.html) for instructions how to integrate AppSignal in your app.
 
 ### Deprecated registration method
 
