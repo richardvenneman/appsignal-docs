@@ -2,7 +2,7 @@
 title: "Minutely probes"
 ---
 
-Minutely probes are a method to periodically send custom metrics to AppSignal. This is a system that is included in the AppSignal Ruby gem by default. At the start of every minute the minutely probes are triggered on by one to collect metrics and then snoozed until the next minute.
+Minutely probes are a mechanism to periodically send custom metrics to AppSignal. This is a system that is included in the AppSignal Ruby gem by default. At the start of every minute the minutely probes are triggered on by one to collect metrics and then snoozed until the next minute.
 
 By default the AppSignal Ruby gem enables probes for [libraries](/ruby/integrations) that are detected for your app.
 
