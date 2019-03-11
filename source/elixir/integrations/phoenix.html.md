@@ -107,6 +107,9 @@ Telemetry.attach(
 )
 ```
 
+-> **Note**: If you're running an umbrella app, the first argument for
+`attach` needs to be an unique name withing the umbrella app.
+
 On Ecto 2, add the `Appsignal.Ecto` module to your Repo's logger configuration instead. The `Ecto.LogEntry` logger is the default logger for Ecto and needs to be set as well to keep the original Ecto logger behavior intact.
 
 ```elixir
