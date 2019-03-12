@@ -4,7 +4,7 @@ title: "Custom metric dashboards <sup>Beta</sup>"
 
 Custom metrics dashboards are in beta. Dashboards are currently configured using a YAML definition format (which will change in the future) on the ["Add Dashboards"](https://appsignal.com/redirect-to/app?to=metrics/new) page.
 
-These dashboards can be created based on [custom metrics](/metrics/custom.html) send to apps integrated with AppSignal. Some metrics are automatically created by AppSignal based on request and background job data.
+These dashboards can be created based on [custom metrics](/metrics/custom.html) send from apps integrated with AppSignal. Some metrics are automatically created by AppSignal based on request and background job data.
 
 This page describes how to create/edit dashboards for your apps using our YAML definition format.
 
