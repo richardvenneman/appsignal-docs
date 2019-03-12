@@ -20,7 +20,7 @@ This page describes how to create/edit dashboards for your apps using our YAML d
     - [Size value format input](#dashboard-graphs-size-value-format-input)
     - [Draw NULL as zero](#dashboard-graphs-draw-null-as-zero)
 - [Graph metrics](#dashboard-graph-metrics)
-    - [Name](#dashboard-graph-metrics-kind)
+    - [Name](#dashboard-graph-metrics-name)
     - [Fields](#dashboard-graph-metrics-fields)
     - [Tags](#dashboard-graph-metrics-tags)
 
@@ -141,7 +141,7 @@ graphs:
 | Field | Type | Description |
 | ------ | ------ | ----- |
 | `title`  | `String`<br>Required. | Title of the graph. Used for naming the dashboard navigation items. |
-| [`line_label`](#dashboard-graphs-line-label) | `String`<br>Default: `"%name%"` | Line label formatter for this graph. Supports replacements of metric names, kind and tags with percent symbols. |
+| [`line_label`](#dashboard-graphs-line-label) | `String`<br>Default: `"%name%"` | Line label formatter for this graph. Supports replacements of metric names, fields and tags with percent symbols. |
 | [`format`](#dashboard-graphs-format) | `String`<br>Default: `"number"` | The formatter for the line values. Available options are: number, size, percent, duration and throughput. |
 | [`format_input`](#dashboard-graphs-format-input) | `String` (no default) | The format of the input of this metrics when using the size formatter. Available options are: bit, byte, kilobit, kilobyte and megabyte. |
 | [`draw_null_as_zero`](#dashboard-graphs-draw-null-as-zero) | `Boolean`<br>Default: `true` | If `true` no data (`NULL`) will be rendered as `0`. If `false` it will repeat the last received value until a new value is registered. |
@@ -339,7 +339,7 @@ graphs:
 | Field | Type | Description |
 | ------ | ------ | ----- |
 | [`name`](#dashboard-graph-metrics-name) | `String` supporting wildcard symbols (`*`).<br>Required. | An array of metric names to graph. Select metric by name using a wildcard symbol (`*`). |
-| [`fields`](#dashboard-graph-metrics-fields) | `Array<String>`<br>Required. | The kind of metrics to display in this graph. Available options are: `GAUGE`, `COUNTER`, `MEAN`, `P90`, `P95` and `COUNT`. |
+| [`fields`](#dashboard-graph-metrics-fields) | `Array<String>`<br>Required. | The type of metrics to display in this graph. Available options are: `GAUGE`, `COUNTER`, `MEAN`, `P90`, `P95` and `COUNT`. |
 | [`tags`](#dashboard-graph-metrics-tags) | `Object<Key, Value>` | Select metric by tags and their values. |
 
 ###^dashboard-graph-metrics Name

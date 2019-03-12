@@ -28,7 +28,7 @@ Also see our blog post [about custom metrics](http://blog.appsignal.com/blog/201
 
 ## Metric types
 
-There are three kinds of metrics we collect all with their own purpose.
+There are three types of metrics we collect all with their own purpose.
 
 - [Gauge](#gauge)
 - [Measurement](#measurement)
