@@ -107,6 +107,8 @@ Telemetry.attach(
 )
 ```
 
+-> **Note**: Telemetry's handler ID (the first argument to the `:telemetry.attach/4` function) needs to be unique across your application. Make sure to use unique IDs when attaching the Ecto integration to multiple Repos.
+
 On Ecto 2, add the `Appsignal.Ecto` module to your Repo's logger configuration instead. The `Ecto.LogEntry` logger is the default logger for Ecto and needs to be set as well to keep the original Ecto logger behavior intact.
 
 ```elixir
