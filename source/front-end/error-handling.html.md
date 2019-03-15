@@ -23,7 +23,7 @@ For use with AppSignal for Elixir, there's an unofficial plug available on GitHu
   - [Elixir](#configuration-elixir)
 - [Request parameters](#request-parameters)
 - [Example of an error JSON POST](#example-of-an-error-json-post)
-- [A sample implementation in CoffeeScript](#a-sample-implementation-in-coffeescript)
+- [A sample implementation in EcmaScript 2017](#a-sample-implementation-in-ecmascript-2017)
 
 ## Installation
 
@@ -135,67 +135,78 @@ set the error will not be processed.
 }
 ```
 
-## A sample implementation in CoffeeScript
+## A sample implementation in EcmaScript 2017
 
-Currently we do not provide a JavaScript library that catches frontend errors.
-The (coffee)script below is something we use to test the functionality, use and modify at your own risk.
+Currently we do not provide a JavaScript package that catches frontend errors.
+The EcmaScript example below is something we use to test the functionality, use and modify at your own risk.
 
+```javascript
+// ES2017 example
+//
+// appsignal = new Appsignal
+// appsignal.tagRequest({ user_id: 123 })
+// appsignal.setAction("ErrorTest")
+//
+// try {
+//   adddlert("Welcome guest!")
+// } catch (error) {
+//   appsignal.sendError(error)
+// }
+class Appsignal {
+  constructor() {
+    this.action = null
+    this.tags = {}
+  }
 
-```coffeescript
-## Example ##
-##
-##  appsignal = new Appsignal
-##  appsignal.tag_request({user_id: 123})
-##  appsignal.set_action('ErrorTest')
-##
-##  try
-##    adddlert("Welcome guest!");
-##  catch err
-##    appsignal.sendError(err)
-##
+  setAction(action) {
+    this.action = action
+  }
 
-class @Appsignal
-  constructor: ->
-    @action = ""
-    @tags   = {}
-
-  set_action: (action) ->
-    @action = action
-
-  tag_request: (tags) ->
-    for key, value of tags
-      @tags[key] = value
-
-  sendError: (error) ->
-    data = {
-      action:    @action
-      message:   error.message
-      name:      error.name
-      backtrace: error.stack?.split("\n")
-      path:      window.location.pathname
-      tags:      @tags
-      environment: {
-        agent:         navigator.userAgent
-        platform:      navigator.platform
-        vendor:        navigator.vendor
-        screen_width:  screen.width
-        screen_height: screen.height
-      }
+  tagRequest(tags) {
+    const result = []
+    for (const key in tags) {
+      const value = tags[key]
+      this.tags[key] = value
+      result.push(this.tags[key])
     }
+    result
+  }
 
-    xhr = new XMLHttpRequest()
-    xhr.open('POST', '/appsignal_error_catcher', true)
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
+  sendError(error) {
+    this.pushData({
+      action:    this.action,
+      name:      error.name,
+      message:   error.message,
+      backtrace: (error.stack != null ? error.stack.split("\n") : undefined),
+      path:      window.location.pathname,
+      tags:      this.tags,
+      environment: {
+        agent:         window.navigator.userAgent,
+        platform:      window.navigator.platform,
+        vendor:        window.navigator.vendor,
+        screen_width:  window.screen.width,
+        screen_height: window.screen.height
+      }
+    })
+  }
+
+  pushData(data) {
+    const xhr = new XMLHttpRequest()
+    xhr.open("POST", "/appsignal_error_catcher", true)
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
     xhr.send(JSON.stringify(data))
+  }
+}
 
-appsignal        = new Appsignal
-window.appsignal = appsignal
+window.appsignal = new Appsignal
 
-window.onerror = (message, filename, lineno, colno, error) ->
-  if error
-    appsignal.sendError(error)
-  else
-    appsignal.sendError(new Error('Null error raised, no exception message available'))
+window.onerror = function(message, filename, lineno, colno, error) {
+  if (error) {
+    window.appsignal.sendError(error)
+  } else {
+    window.appsignal.sendError(new Error("Null error raised, no exception message available"))
+  }
+}
 ```
 
 Here at AppSignal we're very keen on "eating our own dogfood". This means we use AppSignal to monitor AppSignal and since we're rewriting most of our frontend code to ReactJS we decided that we need to monitor it.
