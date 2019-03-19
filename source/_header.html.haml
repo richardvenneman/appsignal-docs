@@ -11,10 +11,10 @@
     %nav.main
       %ul
         %li
-          = link_to "home", "https://appsignal.com"
+          = link_to "Home", "https://appsignal.com"
         %li.tour-toggle
           = link_to "#subnav" do
-            tour
+            Tour
             %i.fa.fa-angle-down
           %ul.subnav-large
             - data.tours.tours.each do |tour|
@@ -29,14 +29,14 @@
               #{link_to "AppSignal for Elixir", "https://appsignal.com/elixir/"}
 
         %li
-          = link_to "docs", "http://docs.appsignal.com", :class => "active"
+          = link_to "Docs", "http://docs.appsignal.com", :class => "active"
         %li
-          = link_to "blog", "http://blog.appsignal.com"
+          = link_to "Blog", "http://blog.appsignal.com"
         %li
-          = link_to "pricing", "https://appsignal.com/plans/"
+          = link_to "Pricing", "https://appsignal.com/plans/"
 
     %nav.cta
       %ul
-        %li.logged-in= link_to "go to app", "https://appsignal.com/accounts", :class => "button outline-dark small"
-        %li.logged-out= link_to "log in", "http://appsignal.com/users/sign_in", :class => "button outline-dark small"
-        %li.logged-out= link_to "sign up", "http://appsignal.com/users/sign_up", :class => "button small"
+        %li.logged-in= link_to "Go to app", "https://appsignal.com/accounts", :class => "button outline-dark small"
+        %li.logged-out= link_to "Log in", "http://appsignal.com/users/sign_in", :class => "button outline-dark small"
+        %li.logged-out= link_to "Sign up", "http://appsignal.com/users/sign_up", :class => "button small"
