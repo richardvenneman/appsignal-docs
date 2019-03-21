@@ -187,7 +187,7 @@ end
 
 -> **Note:** This feature was introduced in version `0.6.0` of the Ruby gem.
 
-AppSignal provides a mechanism to track errors that occur in code that's not in a web or background job context, such as separate Ruby tasks.
+AppSignal provides a mechanism to send errors to AppSignal without having to start a transaction. This is useful for tracking errors that occur in code that's not in a web or background job context, such as separate Rake tasks or Ruby scripts.
 
 This is useful for instrumentation that doesn't automatically create AppSignal transactions to profile, such as our [integrations](/ruby/integrations).
 
@@ -201,7 +201,19 @@ rescue => e
 end
 ```
 
-Exceptions sent with `Appsignal.send_error` will not have an extended context including the action name or Rake task name included in the error incident. This context can currently only be set in an [integration](/ruby/integrations) and all errors will be reported to the `web` namespace by default. See the [namespaces](#appsignal-send_error-namespaces) section for more information on how to customize this.
+In AppSignal for Ruby gem 2.9 and newer an additional block can be passed to the `Appsignal.send_error` method to add more metadata to the error transaction. This includes metadata such as the action name and parameters. Older versions of the Ruby gem will not allow additional metadata to be set.
+
+```ruby
+begin
+  # some code
+rescue => e
+  Appsignal.send_error(e) do |transaction|
+    transaction.set_action("my_action")
+    transaction.set_namespace("my_namespace")
+    transaction.params = { :time => Time.now.utc }
+  end
+end
+```
 
 ### Short-lived Ruby processes
 
