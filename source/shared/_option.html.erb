@@ -1,18 +1,25 @@
+<% config_key = option_value(:config_key, option, integration) %>
 <h2>
-  <%= content_tag :a, "", :class => :anchor, :name => "option-#{option[:config_key]}".downcase %>
   <%= content_tag :a, "", :class => :anchor, :name => "option-#{option[:env_key]}".downcase %>
   <%= content_tag :a, "", :class => :anchor, :name => "#{option[:env_key]}-#{option[:config_key]}".downcase %>
-  <%= link_to option[:config_key], "#option-#{option[:config_key]}".downcase %>
+  <% if config_key %>
+    <%= content_tag :a, "", :class => :anchor, :name => "option-#{config_key}".downcase %>
+    <%= link_to config_key, "#option-#{config_key}".downcase %>
+  <% else %>
+    <%= link_to option[:env_key], "#option-#{option[:env_key]}".downcase %>
+  <% end %>
 </h2>
 <% integration_details = option[integration] %>
 
 <table class="option">
-  <tr>
-    <th>Config file key</th>
-    <td>
-      <code title="Key used in the AppSignal configuration file format"><%= option[:config_key] %></code>
-    </td>
-  </tr>
+  <% if config_key %>
+    <tr>
+      <th>Config file key</th>
+      <td>
+        <code title="Key used in the AppSignal configuration file format"><%= config_key %></code>
+      </td>
+    </tr>
+  <% end %>
   <tr>
     <th>System environment key</th>
     <td>

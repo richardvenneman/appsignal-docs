@@ -85,6 +85,20 @@ helpers do
     markdown(content).sub(/^<p>(.*)<\/p>$/, "\\1")
   end
 
+  def option_value(key, option, integration)
+    option[integration][key] || option[key]
+  end
+
+  def link_for_option(option, integration)
+    config_key = option_value(:config_key, option, integration)
+    if config_key
+      link_to config_key, "#option-#{config_key}"
+    else
+      env_key = option_value(:env_key, option, integration)
+      link_to env_key, "#option-#{env_key.downcase}"
+    end
+  end
+
   def options_for(integration)
     integration = integration.to_s
     data[:config_options][:options].select do |option|

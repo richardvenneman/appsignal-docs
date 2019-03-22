@@ -21,7 +21,7 @@ options:
       Configure AppSignal to be active or not for a given environment. Most commonly used in the [file configuration](index.html) per environment.
 
       -> **Note**: When the [`APPSIGNAL_PUSH_API_KEY`](#option-push_api_key) environment variable is set, this defaults to `true`. Can be overridden by setting the system environment variable to `false`.
-  - config_key: env
+  - named_key: env
     env_key: APPSIGNAL_APP_ENV
     required: true
     ruby:
@@ -33,22 +33,49 @@ options:
       type: string
       default_value:
         markdown: "`\"\"` / detected by system"
+      description: |
+        The environment of the app to be reported to AppSignal. This config option will be automatically detected in Rails apps. For other frameworks, the `RACK_ENV` environment variable is used to detect the environment.
+
+        To override the automatic detecting, use the `APPSIGNAL_APP_ENV` environment variable.
+
+        ```sh
+        export APPSIGNAL_APP_ENV=staging
+        rackup
+        ```
+
+        This option will be used to load the configuration from the [config files](index.html) in which the AppSignal configuration is stored.
+
+        The environment variable option is commonly used on platforms where apps run in the `production` environment by default, such as Heroku. This setting allows an override to set the environment to `staging`, for example.
+
+        ```sh
+        heroku config:set APPSIGNAL_APP_ENV=staging
+        ```
+
+        !> **Warning**: Changing the environment or [name](#option-name) of an existing app will create a new app on AppSignal.com.
+
+        -> **Note**: This config option has no config file key equivilant. To set the environment on AppSignal initialization, you'll need to [initialize the configuration manually](/ruby/instrumentation/integrating-appsignal.html#configuration-file).
     elixir:
+      config_key: env
       since: 0.1.0
       since_notes:
         - "`0.9.2`: The environment variable name for this configuration option was renamed from `APPSIGNAL_ENVIRONMENT` to `APPSIGNAL_APP_ENV`."
       type: atom
       default_value: :dev
-    description: |
-      The environment of the app to be reported to AppSignal.
+      description: |
+        The environment of the app to be reported to AppSignal. To override the automatically detected value, use the `APPSIGNAL_APP_ENV` environment variable.
 
-      This option will also be used to load the configuration from the [config files](index.html) in which the AppSignal configuration is stored.
+        ```sh
+        export APPSIGNAL_APP_ENV=staging
+        mix run
+        ```
 
-      Setting this option overrides the app's default environment as reported to AppSignal.
+        The environment variable option is commonly used on platforms, such as Heroku, where apps run in the `production` environment by default. This setting allows an override to set the environment to `staging`, for example.
 
-      The environment variable option is commonly used on platforms, such as Heroku, where apps run in the `production` environment by default. This setting allows an override to set the environment to `staging`, for example.
+        ```sh
+        heroku config:set APPSIGNAL_APP_ENV=staging
+        ```
 
-      -> **Note**: Changing the environment or [name](#option-name) of an existing app will create a new app on AppSignal.com.
+        !> **Warning**: Changing the environment or [name](#option-name) of an existing app will create a new app on AppSignal.com.
   - config_key: name
     env_key: APPSIGNAL_APP_NAME
     required: true
