@@ -4,8 +4,8 @@ title: Incorrect container host metrics reported
 
 ## Affected components
 
-- AppSignal for Ruby gem versions `1.x` - most recent.
-- AppSignal for Elixir package versions `0.0.x` - most recent.
+- AppSignal for Ruby gem versions `1.x` - `2.9.0`.
+- AppSignal for Elixir package versions `0.0.x` - `1.10.0`.
 - Systems: Containerized systems such as Docker and Heroku (LXC).
 
 ## Description
@@ -20,17 +20,17 @@ AppSignal uses a library called [probes-rs], created by AppSignal, to report hos
 
 ## Solution
 
-No complete solution is available at this time.
+Please upgrade to the latest AppSignal for Ruby gem or Elixir package to receive accurate host metrics for container metrics.
 
-If you're using Heroku, please use our Logplex log drain for Heroku. For more information on the Heroku log drain, please view [this documentation page](/metrics/host-metrics/heroku.html).
+- Memory host metrics were fixed in Ruby gem `2.8.0` and Elixir package `1.9.0`.
+- CPU host metrics were fixed in Ruby gem `2.9.0` and Elixir package `1.10.0`.
+- Heroku is supported through our [Logplex log drain for Heroku](/metrics/host-metrics/heroku.html).
 
-Memory host metrics were fixed in Ruby gem `2.8.0` and Elixir package `1.9.0`. The other metrics were be improved in the future.
+**Warning**: For container host metrics to be accurate, limits need to be set for every container. This means, configuring your container to have a limited number of CPUs and memory allocated to it. Without these limits the container reports the maximum possible value of these metrics, resulting in the host reporting Terabytes of available memory for example. A container without swap configured, or unsupported on the host system, will report a `0` value. For more information on how to limit your container's CPU and memory, please read the [Docker](https://docs.docker.com/config/containers/resource_constraints/#memory) or [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/) documentation.
+
+Contact us if host metrics are not reported accurately for your system. In which case it would help us a lot if you could send us the `appsignal.log` file and some information about your app's container setup so we can reproduce the issue.
 
 Let us know which metrics you are missing, are inaccurate or if you have a problem, at [support@appsignal.com].
-
-Note that in our newer releases the AppSignal agent reads the container runtime metrics if a container is detected. If no limits for your container's memory, CPU, etc. have been configured, the container will report the maximum possible value. A container without swap (support) will report a 0 value. For more information on how to limit your container's memory see the [Docker](https://docs.docker.com/config/containers/resource_constraints/#memory) or [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/) documentation.
-
-Let us know if it's reporting the memory statistics accurately for your apps or if it doesn't. In which case it would help us a lot if you could send us the `appsignal.log` file and some information about your app's container setup so we can reproduce the issue.
 
 ## Workaround
 
