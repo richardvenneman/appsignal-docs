@@ -62,9 +62,24 @@ options:
       type: atom
       default_value: :dev
       description: |
-        The environment of the app to be reported to AppSignal. To override the automatically detected value, use the `APPSIGNAL_APP_ENV` environment variable.
+        The environment of the app to be reported to AppSignal. This option is set by default by our installer, to `Mix.env`. To override it, change the value in `config/appsignal.exs` (or your config file of choice).
+
+        ```elixir
+        # config/appsignal.exs
+        # or config/config.exs
+        config :appsignal, :config,
+          env: Mix.env # Installer default
+
+        # Set your own value
+        config :appsignal, :config,
+          env: :staging
+        ```
+
+
+        To override the config option in the system environment, use the `APPSIGNAL_APP_ENV` environment variable.
 
         ```sh
+        # The method of setting environment variables may differ on your system
         export APPSIGNAL_APP_ENV=staging
         mix run
         ```
