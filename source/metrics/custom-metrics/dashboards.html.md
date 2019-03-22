@@ -34,9 +34,11 @@ This dashboard **requires** that *some* request or background job data has been 
 
 ```yaml
 title: 'Example dashboard'
+description: 'An example dashboard with standard AppSignal metrics'
 graphs:
   -
     title: 'Error rate'
+    description: 'The error rates of all namespaces'
     line_label: '%namespace%'
     format: percent
     metrics:
@@ -48,6 +50,7 @@ graphs:
           namespace: "*"
   -
     title: 'Response time'
+    description: 'The response times of all namespaces'
     line_label: '%namespace%'
     format: duration
     metrics:
@@ -70,9 +73,11 @@ In this definition example some sections are annotated with their types, which c
 
 # Dashboard
 title: 'Dashboard title'
+description: 'Example dashboard description'
 graphs:
   - # Graph
     title: 'Graph title #1'
+    description: 'Graph #1 description'
     line_label: 'Configurable line label for %name%'
     format: percent
     draw_null_as_zero: true
@@ -87,6 +92,7 @@ graphs:
           - GAUGE
   - # Graph
     title: 'Graph title #2'
+    description: 'Graph #2 description'
     line_label: 'Configurable line label for %name% with %tag_1% %tag_2%'
     format: size
     format_input: kilobyte
@@ -116,6 +122,7 @@ graphs:
 | Field | Type | Description |
 | ------ | ------ | ----- |
 | title  | String | Title of the dashboard. |
+| description | String | Description of the dashboard. Not shown anywhere else but in the YAML. |
 | [graphs](#dashboard-graphs) | `Array<Graph>` | List of [Graphs](#dashboard-graphs) to show on the dashboard. |
 
 ##^dashboard Graphs
