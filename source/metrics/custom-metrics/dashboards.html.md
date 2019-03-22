@@ -16,6 +16,7 @@ This page describes how to create/edit dashboards for your apps using our YAML d
 - [Definition YAML](#definition-yaml)
 - [Dashboards](#dashboards)
 - [Graphs](#dashboard-graphs)
+    - [Description](#dashboard-graphs-description)
     - [Line label format](#dashboard-graphs-line-label)
     - [Value formatting](#dashboard-graphs-format)
     - [Size value format input](#dashboard-graphs-format-input)
@@ -127,6 +128,7 @@ title: 'Dashboard title'
 graphs:
   - # Graph
     title: 'Graph title #1'
+    description: "My graph description"
     line_label: 'Configurable line label for %name%'
     format: percent
     metrics:
@@ -142,11 +144,20 @@ graphs:
 | Field | Type | Description |
 | ------ | ------ | ----- |
 | `title`  | `String`<br>Required. | Title of the graph. Used for naming the dashboard navigation items. |
+| [`description`](#dashboard-graphs-description) | `String` | Optional description to show on the graph. |
 | [`line_label`](#dashboard-graphs-line-label) | `String`<br>Default: `"%name%"` | Line label formatter for this graph. Supports replacements of metric names, fields and tags with percent symbols. |
 | [`format`](#dashboard-graphs-format) | `String`<br>Default: `"number"` | The formatter for the line values. Available options are: number, size, percent, duration and throughput. |
 | [`format_input`](#dashboard-graphs-format-input) | `String` (no default) | The format of the input of this metrics when using the size formatter. Available options are: bit, byte, kilobit, kilobyte and megabyte. |
 | [`draw_null_as_zero`](#dashboard-graphs-draw-null-as-zero) | `Boolean`<br>Default: `true` | If `true` no data (`NULL`) will be rendered as `0`. If `false` it will repeat the last received value until a new value is registered. |
 | [`metrics`](#dashboard-graph-metrics) | `Metric` | Array of each metric that should be graphed. |
+
+###=dashboard-graphs-description Graph description
+
+Sometimes a graph title doesn't tell the whole story. If you need a place for a longer summary of what's being displayed in the graph it's possible to set a graph description.
+
+Set the `description` key with any string value to get a description in the graph as shown below. Multi line descriptions are wrapped on a single line and expanded on hover.
+
+![Graph description example](/images/screenshots/custom_metrics_graph_description.png)
 
 ###=dashboard-graphs-line-label Line label format
 
