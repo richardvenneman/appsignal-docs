@@ -5,7 +5,7 @@ title: "MongoDB instrumentation"
 ## Table of Contents
 
 - [Usage](#usage)
-- [Collected metrics](#collected-metrics)
+- [Metrics](#metrics)
 - [Older Mongoid versions and MongoMapper](#Older-Mongoid-versions-and-MongoMapper)
 
 ## Usage
@@ -14,7 +14,7 @@ The AppSignal gem version `1.0` and up supports the [Mongo Ruby Driver] gem and 
 
 The Mongoid gem relies on the Mongo Ruby Driver. AppSignal activates Mongo Ruby Driver instrumentation automatically if it is detected in the project. No manual setup is required.
 
-## Collected metrics
+## Metrics
 
 The Mongo Ruby Driver integration will report the following [metrics](/metrics/custom.html) for every query.
 
