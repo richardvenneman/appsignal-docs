@@ -25,7 +25,7 @@ documentation][hex-appsignal].
 ## Incoming HTTP requests
 
 We'll start out with a small Plug app that accepts `GET` requests to `/` and
-returns a welcome message. To start logging HTTP requests in this app, we'll 
+returns a welcome message. To start logging HTTP requests in this app, we'll
 use the `AppSignal.Plug` module to the end of our app.
 
 ``` elixir
