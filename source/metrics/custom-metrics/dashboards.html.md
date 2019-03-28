@@ -115,6 +115,7 @@ Each dashboard consists of a title and one or more [graphs](#dashboard-graphs).
 ```yaml
 # Dashboard
 title: "Dashboard title"
+description: "My dashboard description"
 graphs:
   - <Graph>
 ```
