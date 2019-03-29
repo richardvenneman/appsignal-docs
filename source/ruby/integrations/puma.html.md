@@ -18,6 +18,8 @@ The AppSignal Ruby gem automatically inserts a listener into the Puma server. No
 
 ## Minutely probe
 
+**Note**: Puma 3.11.4 or higher required.
+
 Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation/minutely-probes.html) is activated by default.
 
 This probe will report the following [metrics](/metrics/custom.html) grouped by `hostname` tag:
