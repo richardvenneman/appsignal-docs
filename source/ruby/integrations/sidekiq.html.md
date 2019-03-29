@@ -61,7 +61,7 @@ end
 
 The Sidekiq integration will report the following [metrics](/metrics/custom.html) for every processed job.
 
-- `sidekiq_queue_job_count` - counter
+- `sidekiq_queue_job_count` - [counter](/metrics/custom.html#counter)
   - Counter is incremented for every processed job.
   - Tags:
       - Tag `queue`: Name of the queue, e.g. `default` or `critical`. Will fall back on `unknown` if it cannot be detected.
@@ -75,17 +75,17 @@ Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation
 
 This probe will report the following [metrics](/metrics/custom.html) grouped by `hostname` tag:
 
-- `sidekiq_worker_count` - gauge
+- `sidekiq_worker_count` - [gauge](/metrics/custom.html#gauge)
   - The total number of works active for the Sidekiq processes.
-- `sidekiq_process_count` - gauge
+- `sidekiq_process_count` - [gauge](/metrics/custom.html#gauge)
   - The Sidekiq processes that are active.
-- `sidekiq_connection_count` - gauge
+- `sidekiq_connection_count` - [gauge](/metrics/custom.html#gauge)
   - How many connections were open to the Redis database.
-- `sidekiq_memory_usage` - gauge
+- `sidekiq_memory_usage` - [gauge](/metrics/custom.html#gauge)
   - The Virtual Memory Size memory usage of Sidekiq itself.
-- `sidekiq_memory_usage_rss` - gauge
+- `sidekiq_memory_usage_rss` - [gauge](/metrics/custom.html#gauge)
   - The Resident Set Size memory usage of Sidekiq itself.
-- `sidekiq_job_count` - gauge
+- `sidekiq_job_count` - [gauge](/metrics/custom.html#gauge)
   - Tag `status`:
       - `processed`: all processed jobs in this minute, this includes failed jobs.
       - `failed`: number of failed jobs in this minute.
@@ -93,9 +93,11 @@ This probe will report the following [metrics](/metrics/custom.html) grouped by 
       - `died`: number of jobs that died in this minute. They have been retried the maximum amount of times and Sidekiq will stop retrying them.
       - `scheduled`: number of jobs that were in the "scheduled" queue. They have not been processed yet.
       - `enqueued`: number of jobs that were in the queue to be processed.
-- `sidekiq_queue_length`: The queue length at the time of measurement.
+- `sidekiq_queue_length` - [gauge](/metrics/custom.html#gauge)
+  - The queue length at the time of measurement.
   - Tag `queue`: Name of the queue, e.g. `default` or `critical`.
-- `sidekiq_queue_latency`: The latency the queue experienced at the time of measurement.
+- `sidekiq_queue_latency` - [gauge](/metrics/custom.html#gauge)
+  - The latency the queue experienced at the time of measurement.
   - Tag `queue`: Name of the queue, e.g. `default` or `critical`.
 
 ###^minutely-probe Configuration

@@ -24,18 +24,18 @@ Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation
 
 This probe will report the following [metrics](/metrics/custom.html) grouped by `hostname` tag:
 
-- `puma_workers` - gauge
+- `puma_workers` - [gauge](/metrics/custom.html#gauge)
   - Tag `type`:
       - `count`: number of currently running threads for this server.
       - `booted`: the total number of currently booted workers for this server.
       - `old`: the number of workers running the previous configuration/code of the server at the moment in time. These will be phased out by Puma as new workers start.
-- `puma_threads` - gauge
+- `puma_threads` - [gauge](/metrics/custom.html#gauge)
   - Tag `type`:
       - `running`: number of currently running threads for this server.
       - `max`: maximum number of configured threads for this server.
-- `puma_connection_backlog` - gauge
+- `puma_connection_backlog` - [gauge](/metrics/custom.html#gauge)
   - The number of established but unaccepted connections that are in the server backlog queue and still need to be processed.
-- `puma_pool_capacity` - gauge
+- `puma_pool_capacity` - [gauge](/metrics/custom.html#gauge)
   - The total thread pool capacity of the Puma server, including the number of threads that are waiting to be booted.
 
 ###^minutely-probe Configuration
