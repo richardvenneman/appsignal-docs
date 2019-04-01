@@ -18,7 +18,8 @@ The AppSignal Ruby gem automatically inserts a listener into the Puma server. No
 
 ## Minutely probe
 
-**Note**: Puma 3.11.4 or higher required.
+**Note**: Puma 3.11.4 or higher required.  
+**Note**: When running in [clustered mode](https://github.com/puma/puma/#clustered-mode) `preload_app!` is required.
 
 Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation/minutely-probes.html) is activated by default.
 
