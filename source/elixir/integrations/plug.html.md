@@ -26,7 +26,7 @@ documentation][hex-appsignal].
 
 We'll start out with a small Plug app that accepts `GET` requests to `/` and
 returns a welcome message. To start logging HTTP requests in this app, we'll
-use the `AppSignal.Plug` module to the end of our app.
+use the `Appsignal.Plug` module to the end of our app.
 
 ``` elixir
 defmodule AppsignalPlugExample do
@@ -54,7 +54,7 @@ instrumentation.
 
 This example app looks like the one we used before, but it has a slow function
 (aptly named `slow/0`) we'd like to add instrumentation for. To do that, we need
-to 
+to
 
 1. `use Appsignal.Instrumentation.Decorators` to allow us to use AppSignal's
    instrumentation decorators
@@ -91,7 +91,7 @@ the [Elixir instrumentation](/elixir/instrumentation/index.html) documentation.
 
 Exceptions in included Plugs are automatically caught by AppSignal, but
 performance samples need to be set up manually using the custom instrumentation
-helpers or decorators. 
+helpers or decorators.
 
 ### Plug instrumentation with decorators
 
