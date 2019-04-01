@@ -11,7 +11,7 @@ The AppSignal for Elixir package integrates with the Erlang VM to provide metric
 
 ## Minutely probe
 
-Since AppSignal Elixir package `1.10.1` and up a [minutely probe](/elixir/instrumentation/minutely-probes.html) is activated by default.
+Since AppSignal Elixir package `1.10.1` and up a [minutely probe](/elixir/instrumentation/minutely-probes.html) is activated by default. Once we detect these metrics we'll add a [magic dashboard](https://blog.appsignal.com/2019/03/27/magic-dashboards.html) to your apps.
 
 This probe will report the following [metrics](/metrics/custom.html) grouped by `hostname` tag:
 

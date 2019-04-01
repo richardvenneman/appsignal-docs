@@ -16,7 +16,7 @@ The Mongoid gem relies on the Mongo Ruby Driver. AppSignal activates Mongo Ruby 
 
 ## Metrics
 
-The Mongo Ruby Driver integration will report the following [metrics](/metrics/custom.html) for every query.
+The Mongo Ruby Driver integration will report the following [metrics](/metrics/custom.html) for every query. Once we detect these metrics we'll add a [magic dashboard](https://blog.appsignal.com/2019/03/27/magic-dashboards.html) to your apps.
 
 - `mongodb_query_duration` - [measurement](/metrics/custom.html#measurement)
   - We monitor all queries and calculate mean/90th/95th percentiles per database
