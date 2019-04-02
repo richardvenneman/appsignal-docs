@@ -125,12 +125,12 @@ For example, you have databases running in the EU, US and Asia, you could tag yo
 
 ```ruby
 # Ruby
-AppSignal.set_gauge("database_size", 100, :region => "eu")
+Appsignal.set_gauge("database_size", 100, :region => "eu")
 ```
 
 ```elixir
 # Elixir
-AppSignal.set_gauge("database_size", 100, %{region: "eu"})
+Appsignal.set_gauge("database_size", 100, %{region: "eu"})
 ```
 
 Another example is how AppSignal uses [host metrics](host.html). Every host metric has a tag with a `hostname` to differentiate between different hosts. Some host metrics even have more tags such as the `state` tag for the `cpu` metric, `mountpoint` tag for the `disk_usage`, `disk` tag for `disk_io_read` and `disk_io_written`, etc.
