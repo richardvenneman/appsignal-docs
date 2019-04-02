@@ -98,6 +98,7 @@ This probe will report the following [metrics](/metrics/custom.html) grouped by 
   - Tag `queue`: Name of the queue, e.g. `default` or `critical`.
 - `sidekiq_queue_latency` - [gauge](/metrics/custom.html#gauge)
   - The latency the queue experienced at the time of measurement.
+  - **Note**: Please upgrade to AppSignal Ruby gem 2.9.4 for accurate reporting for this metric.
   - Tag `queue`: Name of the queue, e.g. `default` or `critical`.
 
 ###^minutely-probe Configuration
