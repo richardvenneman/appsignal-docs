@@ -124,5 +124,5 @@ Appsignal::EventFormatter.register("event.custom", MyCustomEventFormatter)
 
 This also means your EventFormatters no longer need to be a subclass of the `Appsignal::EventFormatter` class.
 
-[as_instrumentation]: http://localhost:4567/ruby/instrumentation/instrumentation.html#activesupport-notifications
+[as_instrumentation]: /ruby/instrumentation/instrumentation.html#activesupport-notifications
 [instrument_helper]: /ruby/instrumentation/instrumentation.html#appsignal-instrumentation-helpers
