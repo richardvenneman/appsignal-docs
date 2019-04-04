@@ -28,7 +28,13 @@ use Appsignal::Rack::GenericInstrumentation
 By default all HTTP requests/actions are grouped under the 'unknown' group. You can override this for an action by setting the route in the request environment.
 
 ```ruby
-env['appsignal.route'] = '/homepage'
+env["appsignal.route"] = "GET /homepage"
+```
+
+Or by using the `Appsignal.set_action` helper method in your Rack endpoints.
+
+```ruby
+Appsignal.set_action("GET /homepage")
 ```
 
 For better insights it's recommended to [add additional instrumentation][instrumentation] to the Rack application.
