@@ -49,8 +49,8 @@ See also the GitHub issue tracker for our [Ruby gem](https://github.com/appsigna
 - [Incorrect container host metrics](known-issues/incorrect-container-host-metrics.html)
   - Symptom: Host metrics reported by AppSignal in the host metrics feature are incorrect, reporting the data for the container's host system instead.
   - Affected components:
-      - AppSignal Ruby gem versions: `v1.x` - most recent
-      - AppSignal Elixir package versions: `v0.0.x` - most recent
+      - AppSignal for Ruby gem versions `1.x` - `2.9.0`.
+      - AppSignal for Elixir package versions `0.0.x` - `1.10.0`.
       - Systems: Containerized systems such as Docker and Heroku (LXC).
 - [Compile errors on Alpine Linux after upgrading](known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html)
   - Symptom: When upgrading to AppSignal Ruby gem 2.4 or Elixir package 1.4 AppSignal won't compile on Alpine Linux.
