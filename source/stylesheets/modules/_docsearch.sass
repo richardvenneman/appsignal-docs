@@ -3,9 +3,10 @@
   background: $border
 
   +min-width($full)
-    position: absolute
+    position: fixed
     width: $sidebar
     z-index: 1000
+    height: 80px
 
   .algolia-autocomplete
     width: 100%
@@ -18,6 +19,8 @@
     +shadow
     +br
     padding: 10px
+    font-size: 14px
+    color: $medium
 
   input:focus
     outline: none
@@ -55,7 +58,7 @@
 
   /* Description description (eg. Bootstrap currently works...) */
   .algolia-autocomplete .algolia-docsearch-suggestion--text
-    font-size: 0.8rem
+    font-size: 0.9rem
     color: $medium
 
   /* Highlighted text */
