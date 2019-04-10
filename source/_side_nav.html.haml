@@ -1,18 +1,17 @@
 %nav.mod-side_nav
   %ul
-    %li.section
-      %ul
-        %li
-          %h2
-            = link_with_active "/" do
-              %i.fa.fa-home
-              Start
-          %h2
-            = link_with_active "/faq.html" do
-              %i.fa.fa-question
-              FAQs
+    %li
+      %h2
+        = link_with_active "/" do
+          %i.fa.fa-home
+          Start
+    %li
+      %h2
+        = link_with_active "/faq.html" do
+          %i.fa.fa-question
+          FAQs
 
-    %li.section
+    %li
       %h2{:data => { :menu => "getting-started" } }
         %i.fa.fa-fw.fa-angle-right
         Getting started
@@ -20,7 +19,7 @@
         %li= link_with_active "Your first application", "/getting-started/new-application.html"
         %li= link_with_active "Your user account", "/getting-started/user-account.html"
 
-    %li.section
+    %li
       %h2{:data => { :menu => "application" } }
         %i.fa.fa-fw.fa-angle-right
         Your applications
@@ -45,7 +44,7 @@
             %li= link_with_active "PagerDuty", "/application/integrations/pagerduty.html"
             %li= link_with_active "Webhooks", "/application/integrations/webhooks.html"
 
-    %li.section
+    %li
       %h2{:data => { :menu => "organization" } }
         %i.fa.fa-fw.fa-angle-right
         Your organizations
@@ -59,15 +58,15 @@
             %li= link_with_active "Manage teams", "/organization/team/teams.html"
         %li= link_with_active "Billing", "/organization/billing.html"
 
-    %li.section
+    %li.space-bottom
       %h2{:data => { :menu => "account" } }
         %i.fa.fa-fw.fa-angle-right
         Your user account
       %ul
         %li= link_with_active "Email addresses", "/user-account/email-addresses.html"
         %li= link_with_active "Two-factor authentication", "/user-account/two-factor-authentication.html"
-
-    %li.section
+  %ul
+    %li
       %h2{:data => { :menu => "ruby" } }
         %i.fa.fa-fw.fa-angle-right
         AppSignal for Ruby
@@ -127,7 +126,7 @@
             %li= link_with_active "Demo", "/ruby/command-line/demo.html"
             %li= link_with_active "Notify of Deploy", "/ruby/command-line/notify_of_deploy.html"
 
-    %li.section
+    %li
       %h2{:data => { :menu => "elixir" } }
         %i.fa.fa-fw.fa-angle-right
         AppSignal for Elixir
@@ -166,22 +165,22 @@
             %li= link_with_active "Demo", "/elixir/command-line/demo.html"
         %li= link_with_active "Why a NIF?", "/elixir/why-nif.html"
 
-    %li.section
+    %li
       %h2{:data => { :menu => "front-end" } }
         %i.fa.fa-fw.fa-angle-right
         AppSignal for Front-end <sup>Beta</sup>
       %ul
         %li= link_with_active "Front-end error catching", "/front-end/error-handling.html"
 
-    %li.section
+  %ul
+    %li
       %h2{:data => { :menu => "standalone-agent" } }
         %i.fa.fa-fw.fa-angle-right
         Standalone agent<sup>Beta</sup>
       %ul
         %li= link_with_active "Installation", "/standalone-agent/installation.html"
         %li= link_with_active "StatsD", "/standalone-agent/statsd.html"
-
-    %li.section
+    %li
       %h2{:data => { :menu => "metrics" } }
         %i.fa.fa-fw.fa-angle-right
         Metrics
@@ -195,18 +194,7 @@
           %ul
             %li= link_with_active "Heroku host metrics", "/metrics/host-metrics/heroku.html"
 
-    %li.section
-      %h2{:data => { :menu => "support" } }
-        %i.fa.fa-fw.fa-angle-right
-        Support
-      %ul
-        %li= link_to "Contact us!", "mailto:support@appsignal.com"
-        %li= link_with_active "Debugging AppSignal", "/support/debugging.html"
-        %li= link_with_active "Supported Operating Systems", "/support/operating-systems.html"
-        %li= link_with_active "Known issues", "/support/known-issues.html", :parent_active => true
-        %li= link_to "Service status page", "https://status.appsignal.com"
-
-    %li.section
+    %li
       %h2{:data => { :menu => "api" } }
         %i.fa.fa-fw.fa-angle-right
         AppSignal API <sup>Beta</sup>
@@ -219,10 +207,22 @@
         %li= link_with_active "Samples", "/api/samples.html"
         %li= link_with_active "Event names", "/api/event-names.html"
 
-    %li.section
+  %ul
+    %li
+      %h2{:data => { :menu => "support" } }
+        %i.fa.fa-fw.fa-angle-right
+        Support
+      %ul
+        %li= link_to "Contact us!", "mailto:support@appsignal.com"
+        %li= link_with_active "Debugging AppSignal", "/support/debugging.html"
+        %li= link_with_active "Supported Operating Systems", "/support/operating-systems.html"
+        %li= link_with_active "Known issues", "/support/known-issues.html", :parent_active => true
+        %li= link_to "Service status page", "https://status.appsignal.com"
+
+    %li
       %h2{:data => { :menu => "appsignal" } }
         %i.fa.fa-fw.fa-angle-right
-        AppSignal <sup>Meta</sup>
+        About AppSignal
       %ul
         %li
           = link_with_active "Contributing", "/appsignal/contributing.html"
