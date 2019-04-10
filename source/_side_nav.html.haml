@@ -1,19 +1,11 @@
 %nav.mod-side_nav
   %ul
     %li
-      %h2
-        = link_with_active "/" do
-          %i.fa.fa-home
-          Start
+      %h2= link_with_active "Start", "/"
     %li
-      %h2
-        = link_with_active "/faq.html" do
-          %i.fa.fa-question
-          FAQs
-
+      %h2= link_with_active "FAQs", "/faq.html"
     %li
       %h2{:data => { :menu => "getting-started" } }
-        %i.fa.fa-fw.fa-angle-right
         Getting started
       %ul
         %li= link_with_active "Your first application", "/getting-started/new-application.html"
@@ -21,7 +13,6 @@
 
     %li
       %h2{:data => { :menu => "application" } }
-        %i.fa.fa-fw.fa-angle-right
         Your applications
       %ul
         %li= link_with_active "Overview", "/application/"
@@ -46,7 +37,6 @@
 
     %li
       %h2{:data => { :menu => "organization" } }
-        %i.fa.fa-fw.fa-angle-right
         Your organizations
       %ul
         %li= link_with_active "Overview", "/organization/"
@@ -60,7 +50,6 @@
 
     %li.space-bottom
       %h2{:data => { :menu => "account" } }
-        %i.fa.fa-fw.fa-angle-right
         Your user account
       %ul
         %li= link_with_active "Email addresses", "/user-account/email-addresses.html"
@@ -68,7 +57,6 @@
   %ul
     %li
       %h2{:data => { :menu => "ruby" } }
-        %i.fa.fa-fw.fa-angle-right
         AppSignal for Ruby
       %ul
         %li= link_with_active "Overview", "/ruby/"
@@ -128,7 +116,6 @@
 
     %li
       %h2{:data => { :menu => "elixir" } }
-        %i.fa.fa-fw.fa-angle-right
         AppSignal for Elixir
       %ul
         %li= link_with_active "Overview", "/elixir/"
@@ -167,7 +154,6 @@
 
     %li
       %h2{:data => { :menu => "front-end" } }
-        %i.fa.fa-fw.fa-angle-right
         AppSignal for Front-end <sup>Beta</sup>
       %ul
         %li= link_with_active "Front-end error catching", "/front-end/error-handling.html"
@@ -175,14 +161,12 @@
   %ul
     %li
       %h2{:data => { :menu => "standalone-agent" } }
-        %i.fa.fa-fw.fa-angle-right
         Standalone agent<sup>Beta</sup>
       %ul
         %li= link_with_active "Installation", "/standalone-agent/installation.html"
         %li= link_with_active "StatsD", "/standalone-agent/statsd.html"
     %li
       %h2{:data => { :menu => "metrics" } }
-        %i.fa.fa-fw.fa-angle-right
         Metrics
       %ul
         %li
@@ -196,7 +180,6 @@
 
     %li
       %h2{:data => { :menu => "api" } }
-        %i.fa.fa-fw.fa-angle-right
         AppSignal API <sup>Beta</sup>
       %ul
         %li= link_with_active "Overview", "/api/"
@@ -210,7 +193,6 @@
   %ul
     %li
       %h2{:data => { :menu => "support" } }
-        %i.fa.fa-fw.fa-angle-right
         Support
       %ul
         %li= link_to "Contact us!", "mailto:support@appsignal.com"
@@ -221,7 +203,6 @@
 
     %li
       %h2{:data => { :menu => "appsignal" } }
-        %i.fa.fa-fw.fa-angle-right
         About AppSignal
       %ul
         %li
