@@ -114,6 +114,6 @@ An example is listed below.
 
 Appsignal::Minutely.probes.register(
   :sidekiq, # Use the same key as the default Sidekiq probe to override it
-  Appsignal::Hooks::SidekiqProbe.new(:hostname => "my_sidekiq_hostne")
+  Appsignal::Hooks::SidekiqProbe.new(:hostname => "my_sidekiq_hostname")
 )
 ```
