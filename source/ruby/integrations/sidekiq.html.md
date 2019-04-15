@@ -103,15 +103,17 @@ This probe will report the following [metrics](/metrics/custom.html) grouped by 
 
 ###^minutely-probe Configuration
 
-This probe does its best to detect the hostname of the Redis instance your Sidekiq instance uses to store its queues. If the detection is not accurate ([let us know](mailto:support@appsignal.com)), you'll be able to set the hostname config by overriding the default Sidekiq probe.
+This probe does its best to detect the hostname of the Redis instance your Sidekiq instance uses to store its queues. If the detection is not accurate ([let us know](mailto:support@appsignal.com)), it's possible to customize the hostname config by overriding the default Sidekiq probe.
+
+First you'll need to [override the default sidekiq probe](/ruby/instrumentation/minutely-probes.html#overriding-default-probes) by registering a new probe with the same name (`:sidekiq`). This probe will need a configuration hash including the `:hostname` key, with the new hostname value. By specifying the `:hostname` config option the Sidekiq minutely probe, the metrics will be tagged with the given hostname value. The `:hostname` config option value is not used to establish a Redis or Sidekiq connection.
+
+An example is listed below.
 
 ```ruby
 # config/initializers/appsignal.rb or a file that's loaded on boot
 
 Appsignal::Minutely.probes.register(
   :sidekiq, # Use the same key as the default Sidekiq probe to override it
-  Appsignal::Hooks::SidekiqProbe.new(:hostname => ENV["REDIS_URL"])
+  Appsignal::Hooks::SidekiqProbe.new(:hostname => "my_sidekiq_hostne")
 )
 ```
-
-Note that you'll need to set the `REDIS_URL` environment variable yourself.
