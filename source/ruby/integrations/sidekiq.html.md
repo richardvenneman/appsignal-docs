@@ -71,6 +71,9 @@ The Sidekiq integration will report the following [metrics](/metrics/custom.html
 
 ## Minutely probe
 
+-> **Note**: Requires [Redis gem](https://rubygems.org/gems/redis/) 3.3.5 or higher.  
+-> **Note**: AppSignal Ruby gem 2.9.5 is recommended.
+
 Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation/minutely-probes.html) is activated by default. Once we detect these metrics we'll add a [magic dashboard](https://blog.appsignal.com/2019/03/27/magic-dashboards.html) to your apps.
 
 This probe will report the following [metrics](/metrics/custom.html) grouped by `hostname` tag:
