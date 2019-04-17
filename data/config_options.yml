@@ -594,7 +594,7 @@ options:
           )
         ```
 
-        To configure AppSignal to not store any HTTP request headers on AppSignal transactions, configure the option with an empty array.
+        To configure AppSignal to not store any HTTP request headers on AppSignal transactions, configure the option with an empty list.
 
         ```elixir
         # config/appsignal.exs
