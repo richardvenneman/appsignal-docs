@@ -75,7 +75,14 @@ To use host metrics on Heroku, head to the [Heroku host metrics](/metrics/host-m
 
 Host metrics for containerized systems are fully supported since AppSignal for Ruby gem 2.9 and Elixir package 1.10. All earlier versions are affected by the [incorrect container host metrics reported](/support/known-issues/incorrect-container-host-metrics.html) issue.
 
-**Warning**: For container host metrics to be accurate, limits need to be set for every container. This means, configuring your container to have a limited number of CPUs and memory allocated to it. Without these limits the container reports the maximum possible value of these metrics, resulting in the host reporting Terabytes of available memory for example. A container without swap configured, or unsupported on the host system, will report a `0` value. For more information on how to limit your container's CPU and memory, please read the [Docker](https://docs.docker.com/config/containers/resource_constraints/#memory) or [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/) documentation.
+**Warning**: For container host metrics to be accurate, limits need to be set for every container. This means, configuring your container to have a limited number of CPUs and memory allocated to it. Without these limits the container reports the maximum possible value of these metrics, resulting in the host reporting Terabytes of available memory for example. A container without swap configured, or unsupported on the host system, will report a `0` value. For more information on how to limit your container's CPU and memory, please read the documentation on:
+
+- Docker
+  - [CPU](https://docs.docker.com/config/containers/resource_constraints/#cpu)
+  - [memory](https://docs.docker.com/config/containers/resource_constraints/#memory)
+- Kubernetes
+  - [CPU](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+  - [memory](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
 
 On systems that expose the `/sys/fs` virtual file system the following metrics are supported.
 
