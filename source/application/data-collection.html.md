@@ -14,7 +14,7 @@ You can configure AppSignal to gather more, or less, information than it does by
 
 ## Request headers
 
-By default AppSignal does not gather all request headers from a request. We only include not user identifiable request headers. This is so you and AppSignal are [GDPR compliant by default](/appsignal/gdpr.html#allowed-request-headers-only). If you are missing some headers you really need for your app you can customize which request headers are collected in [Ruby](/ruby/configuration/options.html#option-request_headers) and [Elixir](/elixir/configuration/options.html#option-request_headers).
+By default AppSignal does not gather all request headers from a request. We only include non user identifiable request headers. This is so you and AppSignal are [GDPR compliant by default](/appsignal/gdpr.html#allowed-request-headers-only). If you are missing some headers you really need for your app you can customize which request headers are collected in [Ruby](/ruby/configuration/options.html#option-request_headers) and [Elixir](/elixir/configuration/options.html#option-request_headers).
 
 ## Parameters
 
