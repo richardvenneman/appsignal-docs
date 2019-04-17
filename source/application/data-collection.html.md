@@ -1,5 +1,5 @@
 ---
-title: "Data collection"
+title: "Customizing data collection"
 ---
 
 By default AppSignal gathers relevant data for errors and performance measurements to help you find the cause of the issue. Sometimes you need more information, app specific data or a custom request header your app uses.
