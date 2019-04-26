@@ -117,7 +117,7 @@ end
 # Registering an initialized Class probe
 Appsignal::Minutely.probes.register(
   :visit_tracking_probe,
-  VisitTrackingProbe.new(:database => "redis://localhost:6379")
+  BackgroundJobLibraryProbe.new(:database => "redis://localhost:6379")
 )
 ```
 
