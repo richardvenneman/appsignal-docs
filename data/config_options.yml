@@ -51,7 +51,7 @@ options:
         heroku config:set APPSIGNAL_APP_ENV=staging
         ```
 
-        !> **Warning**: Changing the environment or [name](#option-name) of an existing app will create a new app on AppSignal.com.
+        -> **Note**: Changing the [name](#option-name) or environment of an existing app will create a new app on AppSignal.com.
 
         -> **Note**: This config option has no config file key equivilant. To set the environment on AppSignal initialization, you'll need to [initialize the configuration manually](/ruby/instrumentation/integrating-appsignal.html#configuration-file).
     elixir:
@@ -90,7 +90,7 @@ options:
         heroku config:set APPSIGNAL_APP_ENV=staging
         ```
 
-        !> **Warning**: Changing the environment or [name](#option-name) of an existing app will create a new app on AppSignal.com.
+        -> **Note**: Changing the [name](#option-name) or environment of an existing app will create a new app on AppSignal.com.
   - config_key: name
     env_key: APPSIGNAL_APP_NAME
     required: true
@@ -101,7 +101,7 @@ options:
       description: |
         Name of your application as it should be displayed on AppSignal.com. If you use Ruby on Rails the gem will auto-detect the name and you can leave this empty. For other frameworks setting this is mandatory.
 
-        -> **Note**: Changing the name or [environment](#option-env) will create a new app on AppSignal.com.
+        -> **Note**: Changing the name or [environment](#option-appsignal_app_env) of an existing app will create a new app on AppSignal.com.
     elixir:
       type: atom
       default_value: null
