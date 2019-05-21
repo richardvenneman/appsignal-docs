@@ -8,7 +8,7 @@ In order to provide a full picture of your infrastructure, you should monitor no
 
 - [Installation](#installation)
   - [Ubuntu](#ubuntu)
-  - [Redhat Enterprise Linux/Centos](#redhat)
+  - [Redhat Enterprise Linux/Centos](#redhat-enterprise-linux-centos)
 - [Configuration](#configuration)
 - [Collected metrics](#collected-metrics)
 
