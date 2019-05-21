@@ -8,6 +8,7 @@ In order to provide a full picture of your infrastructure, you should monitor no
 
 - [Installation](#installation)
   - [Ubuntu](#ubuntu)
+  - [Redhat Enterprise Linux/Centos](#redhat)
 - [Configuration](#configuration)
 - [Collected metrics](#collected-metrics)
 
@@ -44,6 +45,41 @@ apt-get install appsignal-agent
 ```
 
 The agent has now been installed. Next up is configuring it to report to the correct app in AppSignal.
+
+### Redhat Enterprise Linux/Centos
+
+At the moment EL version 7 is supported. First make sure the following packages are installed. All the following commands need root permissions, you might have to use `sudo`.
+
+```bash
+yum install pygpgme yum-utils
+```
+
+Create a file named `/etc/yum.repos.d/appsignal_agent.repo` that contains the repository configuration below.
+
+```
+[appsignal_agent]
+name=appsignal_agent
+baseurl=https://packagecloud.io/appsignal/agent/el/7/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/appsignal/agent/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+```
+
+Update your local yum cache by running:
+
+```bash
+yum -q makecache -y --disablerepo='*' --enablerepo='appsignal_agent'
+```
+
+And you can then install the agent:
+
+```bash
+yum install appsignal-agent
+```
 
 ## Configuration
 
