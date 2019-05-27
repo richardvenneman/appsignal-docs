@@ -108,7 +108,7 @@ environment = "production"
 Once you edit the configuration file you need to restart the agent.
 
 - On Ubuntu 14.04 use `service appsignal-agent restart`
-- On Ubuntu 16.04 and up use `systemctl restart appsignal-agent`
+- On Centos/Redhat 7 and Ubuntu 16.04 and up use `systemctl restart appsignal-agent`
 
 ## Collected metrics
 
