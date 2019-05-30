@@ -2,9 +2,11 @@
 title: Google Hangouts Chat
 ---
 
-From direct messages to group conversations, [Google Hangouts Chat](https://chat.google.com) helps teams collaborate easily and efficiently.
+From direct messages to group conversations, Google Hangouts Chat helps teams collaborate easily and efficiently.
 
 Google Hangouts Chat is a global integration set up per App.
+
+Website: [chat.google.com](https://chat.google.com)
 
 ## Adding Google Hangouts Chat to your app
 
