@@ -9,6 +9,7 @@ To enable notifications and issue tracker integration for external services, go 
 ## Available integrations
 
 - [Asana](/application/integrations/asana.html)
+- [Clubhouse](/application/integrations/clubhouse.html)
 - [Discord](#discord)
 - [Flowdock](#flowdock)
 - [Geckoboard](#geckoboard)

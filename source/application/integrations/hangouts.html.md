@@ -34,4 +34,3 @@ You can test the integration after saving the form, a message should appear in y
 
 If anything went wrong while validating the integration your will be prompted with the error message.
 Feel free [contact us](mailto:support@appsignal.com) if you experience any problems while setting up this integration.
-
