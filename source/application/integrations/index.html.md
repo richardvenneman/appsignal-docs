@@ -59,6 +59,13 @@ Tools for modern developers.
 
 GitLab unifies issues, code review, CI and CD into a single UI.
 
+This integration does not automatically create issues on GitLab, to prevent story-overload.
+
+The following API scopes will be needed for the GitLab integration:
+
+- `read_user`
+- `api`
+
 Website: [https://gitlab.com](https://gitlab.com)
 
 ## HipChat
