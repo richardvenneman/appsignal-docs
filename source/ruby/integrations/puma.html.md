@@ -18,7 +18,7 @@ The AppSignal Ruby gem automatically inserts a listener into the Puma server. No
 
 ## Minutely probe
 
-**Note**: Puma 3.11.4 or higher required.  
+**Note**: Puma 3.11.4 or higher required.
 **Note**: When running in [clustered mode](https://github.com/puma/puma/#clustered-mode) `preload_app!` is required.
 
 Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation/minutely-probes.html) is activated by default. Once we detect these metrics we'll add a [magic dashboard](https://blog.appsignal.com/2019/03/27/magic-dashboards.html) to your apps.
@@ -42,3 +42,15 @@ This probe will report the following [metrics](/metrics/custom.html) grouped by 
 ###^minutely-probe Configuration
 
 This probe listens to the [`hostname` config option](/ruby/configuration/options.html#option-hostname) for the hostname tag added to all its metrics. If none is set it will try to detect it automatically. Use the `hostname` config option to set the hostname if you want to change the detected hostname.
+
+## Known issues
+
+When running puma in `daemonized` mode started by `rails server`, the minutely probe isn't started automatically. To get Puma metrics, add the following to the Puma config (puma.rb).
+
+```ruby
+# puma.rb
+
+before_fork do
+  Appsignal::Minutely.start
+end
+```
