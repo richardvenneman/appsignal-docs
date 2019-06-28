@@ -31,6 +31,13 @@
   .algolia-autocomplete
     font-size: 14px
 
+  +max-width(600px)
+    .algolia-autocomplete .ds-dropdown-menu
+      left: 0 !important
+      right: 0 !important
+      min-width: 100%
+      max-width: 100%
+
   /* Main category (eg. Getting Started) */
   .algolia-autocomplete .algolia-docsearch-suggestion--category-header
     color: $dark
