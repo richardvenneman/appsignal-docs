@@ -9,6 +9,7 @@
     %title= title
     = stylesheet_link_tag "application"
     = partial "analytics"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   %body
     = partial "header"
@@ -16,6 +17,8 @@
       %a.jump{href: "#navigation"}
         %i.fa.fa-book
         Docs navigation
+
+      = partial "docsearch"
       .layout-main#main
         .inner= yield
       .layout-side#navigation
@@ -25,3 +28,11 @@
       = partial "cookies"
 
     = javascript_include_tag "application", :async => :async
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+    apiKey: 'e364f905db3f6b6dd982bbc0e22a6891',
+    indexName: 'appsignal',
+    inputSelector: '#search',
+    debug: false // Set debug to true if you want to inspect the dropdown
+    });
+    </script>

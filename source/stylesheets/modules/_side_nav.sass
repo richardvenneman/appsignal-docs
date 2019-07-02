@@ -1,22 +1,20 @@
 .mod-side_nav
-  line-height: 2
-  padding: 50px 30px
+  padding: 30px 30px
+
+  > ul + ul
+    padding-top: 10px
+    border-top: 1px solid $border-dark
+    margin-top: 10px
 
   h2
     cursor: pointer
-    +font-weight(bold)
-    padding: 15px 20px 15px 25px
-    line-height: 1
+    font-weight: bold
+    padding: 5px 0
     display: flex
     user-select: none
     color: $dark
-
-    .fa
-      position: absolute
-      left: 25px
-      opacity: 0.6
-      margin-top: -1px
-      transition: transform 0.2s
+    font-size: 14px
+    position: relative
 
     a
       color: inherit
@@ -25,7 +23,8 @@
       display: none
       transition: opacity 0.5s
       opacity: 0
-      margin: -5px 0 10px 25px
+      margin: 0 0 10px 10px
+      font-size: 0.9em
 
       ul
         padding-left: 15px
@@ -45,7 +44,8 @@
   h2[data-menu]
     &.open
       .fa
-        transform: rotate(90deg)
+        transform-origin: right
+        transform: translateZ(-50%) rotate(90deg)
 
   a,
   span
@@ -61,4 +61,4 @@
 
     &.active
       color: $blue
-      +font-weight(bold)
+      font-weight: bold
