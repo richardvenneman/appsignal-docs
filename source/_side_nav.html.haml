@@ -1,17 +1,17 @@
 %nav.mod-side_nav
   %ul
-    %li
+    %li.section
       %h2= link_with_active "Start", "/"
-    %li
+    %li.section
       %h2= link_with_active "FAQs", "/faq.html"
-    %li
+    %li.section
       %h2{:data => { :menu => "getting-started" } }
         Getting started
       %ul
         %li= link_with_active "Your first application", "/getting-started/new-application.html"
         %li= link_with_active "Your user account", "/getting-started/user-account.html"
 
-    %li
+    %li.section
       %h2{:data => { :menu => "application" } }
         Your applications
       %ul
@@ -39,7 +39,7 @@
             %li= link_with_active "PagerDuty", "/application/integrations/pagerduty.html"
             %li= link_with_active "Webhooks", "/application/integrations/webhooks.html"
 
-    %li
+    %li.section
       %h2{:data => { :menu => "organization" } }
         Your organizations
       %ul
@@ -52,14 +52,14 @@
             %li= link_with_active "Manage teams", "/organization/team/teams.html"
         %li= link_with_active "Billing", "/organization/billing.html"
 
-    %li.space-bottom
+    %li.section
       %h2{:data => { :menu => "account" } }
         Your user account
       %ul
         %li= link_with_active "Email addresses", "/user-account/email-addresses.html"
         %li= link_with_active "Two-factor authentication", "/user-account/two-factor-authentication.html"
   %ul
-    %li
+    %li.section
       %h2{:data => { :menu => "ruby" } }
         AppSignal for Ruby
       %ul
@@ -118,7 +118,7 @@
             %li= link_with_active "Demo", "/ruby/command-line/demo.html"
             %li= link_with_active "Notify of Deploy", "/ruby/command-line/notify_of_deploy.html"
 
-    %li
+    %li.section
       %h2{:data => { :menu => "elixir" } }
         AppSignal for Elixir
       %ul
@@ -156,20 +156,20 @@
             %li= link_with_active "Demo", "/elixir/command-line/demo.html"
         %li= link_with_active "Why a NIF?", "/elixir/why-nif.html"
 
-    %li
+    %li.section
       %h2{:data => { :menu => "front-end" } }
         AppSignal for Front-end <sup>Beta</sup>
       %ul
         %li= link_with_active "Front-end error catching", "/front-end/error-handling.html"
 
   %ul
-    %li
+    %li.section
       %h2{:data => { :menu => "standalone-agent" } }
         Standalone agent<sup>Beta</sup>
       %ul
         %li= link_with_active "Installation", "/standalone-agent/installation.html"
         %li= link_with_active "StatsD", "/standalone-agent/statsd.html"
-    %li
+    %li.section
       %h2{:data => { :menu => "metrics" } }
         Metrics
       %ul
@@ -182,7 +182,7 @@
           %ul
             %li= link_with_active "Heroku host metrics", "/metrics/host-metrics/heroku.html"
 
-    %li
+    %li.section
       %h2{:data => { :menu => "api" } }
         AppSignal API <sup>Beta</sup>
       %ul
@@ -195,7 +195,7 @@
         %li= link_with_active "Event names", "/api/event-names.html"
 
   %ul
-    %li
+    %li.section
       %h2{:data => { :menu => "support" } }
         Support
       %ul
@@ -205,7 +205,7 @@
         %li= link_with_active "Known issues", "/support/known-issues.html", :parent_active => true
         %li= link_to "Service status page", "https://status.appsignal.com"
 
-    %li
+    %li.section
       %h2{:data => { :menu => "appsignal" } }
         About AppSignal
       %ul
