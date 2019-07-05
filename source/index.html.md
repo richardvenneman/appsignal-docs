@@ -20,6 +20,8 @@ In this documentation we aim to give you all the information you need to get sta
 - [Host metrics](/metrics/host.html)
 - [Custom metrics <sup>Beta</sup>](/metrics/custom.html)
 - [Workflow integrations](/application/integrations/index.html) (Slack, HipChat, Jira, etc.)
+- [Standalone agent](/standalone-agent/installation.html)
+  - [StatsD](/standalone-agent/statsd.html)
 - [AppSignal API](/api/index.html)
 
 ## Support
