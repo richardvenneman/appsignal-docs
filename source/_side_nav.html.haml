@@ -160,7 +160,18 @@
       %h2{:data => { :menu => "front-end" } }
         AppSignal for Front-end <sup>Beta</sup>
       %ul
-        %li= link_with_active "Front-end error catching", "/front-end/error-handling.html"
+        %li= link_with_active "Overview", "/front-end/"
+        %li= link_with_active "Installation", "/front-end/installation.html"
+        %li= link_with_active "Configuration", "/front-end/configuration/"
+        %li= link_with_active "Error handling", "/front-end/error-handling.html"
+        %li
+          = link_with_active "Integrations", "/front-end/integrations/"
+          %ul
+            %li= link_with_active "React", "/front-end/integrations/react.html"
+        %li
+          = link_with_active "Plugins", "/front-end/plugins/"
+          %ul
+            %li= link_with_active "plugin-window-events", "/front-end/plugins/plugin-window-events.html"
 
   %ul
     %li.section
