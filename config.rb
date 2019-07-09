@@ -24,8 +24,26 @@ activate :syntax,
 activate :sprockets
 
 helpers do
-  def canonical_url(page)
-    path = page.url.sub("index.html", "")
+  # Return and around 200 character description of the given file.
+  # It ensures the description is complete lines.
+  def description_of(file_descriptor)
+    source = file_descriptor.read
+    # Remove YAML frontmatter
+    source = source.gsub(/^(---\s*\n.*?\n?)^(---\s*$\n?)/m, "")
+    renderer = Redcarpet::Markdown.new(AppsignalMarkdownStripDown)
+    content = renderer.render(source)
+    description = []
+    content.split("\n").each do |line|
+      description << line
+      if description.sum(&:length) > 200
+        break # Keep the description short
+      end
+    end
+    description.join(" ")
+  end
+
+  def canonical_url(path)
+    path = path.sub("index.html", "")
     path = "/#{path}" unless path.start_with?("/")
     "#{config[:protocol]}#{config[:host]}#{path}"
   end
@@ -34,12 +52,16 @@ helpers do
     if current_page.data.title
       current_page.data.title.gsub(/<[^>]*>/, "").tap do |title|
         unless current_page.data.title_no_brand
-          title << " | AppSignal documentation"
+          title << " | #{site_name}"
         end
       end
     else
-      "AppSignal documentation"
+      site_name
     end
+  end
+
+  def site_name
+    "AppSignal documentation"
   end
 
   def link_with_active(*args, &block)

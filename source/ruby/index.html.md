@@ -2,12 +2,9 @@
 title: "AppSignal for Ruby"
 ---
 
-AppSignal supports the [Ruby language][ruby-lang] with a [Ruby
-gem][appsignal-gem]. The gem supports many frameworks and gems out-of-the-box.
-Some gems and frameworks might require some custom instrumentation.
+AppSignal supports the [Ruby language][ruby-lang] with a [Ruby gem][appsignal-gem]. The gem supports many frameworks and gems out-of-the-box. Some gems and frameworks might require some custom instrumentation.
 
-It's also supported to add custom instrumentation to your application and get
-even more insights into the performance of your code.
+It's also supported to add custom instrumentation to your application and get even more insights into the performance of your code.
 
 ## Table of Contents
 

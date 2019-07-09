@@ -1,5 +1,7 @@
 # From: https://github.com/hashicorp/middleman-hashicorp/blob/master/lib/middleman-hashicorp/redcarpet.rb
 
+require "redcarpet"
+require "redcarpet/render_strip"
 require "middleman-core"
 require "middleman-core/renderers/redcarpet"
 require "active_support/core_ext/module/attribute_accessors"
@@ -106,5 +108,11 @@ class AppsignalMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
     <<-EOH.gsub(/^ {8}/, "")
       <div class="custom-wrapper #{klass}">#{text}</div>
     EOH
+  end
+end
+
+class AppsignalMarkdownStripDown < Redcarpet::Render::StripDown
+  def link(link, title, content)
+    content
   end
 end

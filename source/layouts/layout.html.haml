@@ -6,18 +6,33 @@
     %link{:rel => "dns-prefetch", :href => "https://d33wubrfki0l68.cloudfront.net"}
     %link{:rel => "dns-prefetch", :href => "https://cdn.jsdelivr.net"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
-    %link{:href => canonical_url(current_page), :rel => "canonical"}
+    %link{:href => canonical_url(current_page.url), :rel => "canonical"}
     %title= title
     = stylesheet_link_tag "application"
-    = partial "analytics"
+    %link{:color => "#0961C4", :href => "/images/appsignal-safari-icon.svg", :rel => "mask-icon"}
+    %meta{:content => description_of(current_page.file_descriptor), :name => "description"}
+
+    %meta{:content => title, :property => "og:title"}
+    %meta{:content => site_name, :property => "og:site_name"}
+    %meta{:content => "en_US", :property => "og:locale"}
+    %meta{:content => canonical_url(current_page.url), :property => "og:url"}
+    %meta{:content => description_of(current_page.file_descriptor), :property => "og:description"}
+    %meta{:content => canonical_url("/images/logo-color.png"), :property => "og:image"}
+
+    %meta{:content => "@appsignal", :name => "twitter:site"}
+    %meta{:content => "summary", :name => "twitter:card"}
+    %meta{:content => canonical_url("/images/logo-color.png"), :name => "twitter:image"}
+    %meta{:content => "AppSignal logo icon", :name => "twitter:image:alt"}
+
     %link{:rel => "stylesheet", :href => "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"}
+    = partial "analytics"
 
   %body
     = partial "header"
     .layout-wrapper
       %a.jump{href: "#navigation"}
         %i.fa.fa-book
-        Docs navigation
+        Documentation navigation
 
       = partial "docsearch"
       .layout-main#main
