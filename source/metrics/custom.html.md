@@ -1,5 +1,5 @@
 ---
-title: "Custom metrics <sup>Beta</sup>"
+title: "Custom metrics"
 ---
 
 With AppSignal for both Ruby and Elixir, it's possible to add custom instrumentation to [transactions](/appsignal/terminology.html#transactions) ([Ruby](/ruby/instrumentation/index.html) / [Elixir](/elixir/instrumentation/index.html)) to get more details about your application's performance. This instrumentation is per sample and don't give a complete picture of your application. Instead, you can use custom metrics for application-wide metrics.
