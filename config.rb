@@ -24,10 +24,18 @@ activate :syntax,
 activate :sprockets
 
 helpers do
+  def description_of_page(page)
+    if page.data.description
+      page.data.description
+    else
+      auto_description(page)
+    end
+  end
+
   # Return and around 200 character description of the given file.
   # It ensures the description is complete lines.
-  def description_of(file_descriptor)
-    source = file_descriptor.read
+  def auto_description(page)
+    source = page.file_descriptor.read
     # Remove YAML frontmatter
     source = source.gsub(/^(---\s*\n.*?\n?)^(---\s*$\n?)/m, "")
     renderer = Redcarpet::Markdown.new(AppsignalMarkdownStripDown)

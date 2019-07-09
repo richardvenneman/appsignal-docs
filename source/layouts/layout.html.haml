@@ -10,13 +10,13 @@
     %title= title
     = stylesheet_link_tag "application"
     %link{:color => "#0961C4", :href => "/images/appsignal-safari-icon.svg", :rel => "mask-icon"}
-    %meta{:content => description_of(current_page.file_descriptor), :name => "description"}
+    %meta{:content => description_of_page(current_page), :name => "description"}
 
     %meta{:content => title, :property => "og:title"}
     %meta{:content => site_name, :property => "og:site_name"}
     %meta{:content => "en_US", :property => "og:locale"}
     %meta{:content => canonical_url(current_page.url), :property => "og:url"}
-    %meta{:content => description_of(current_page.file_descriptor), :property => "og:description"}
+    %meta{:content => description_of_page(current_page), :property => "og:description"}
     %meta{:content => canonical_url("/images/logo-color.png"), :property => "og:image"}
 
     %meta{:content => "@appsignal", :name => "twitter:site"}
