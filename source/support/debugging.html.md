@@ -1,14 +1,13 @@
 ---
 title: "Debugging AppSignal"
+description: "A debugging procedure used to debug problems with AppSignal or the setup in an application monitored by AppSignal."
 ---
 
-When a support request comes in at support@appsignal.com we have a couple
-procedures to debug where a problem might come from.
+When a support request comes in at support@appsignal.com we have a couple procedures to debug where a problem might come from.
 
 Since it's good to share, here are a couple of our procedures.
 
-Also see our list of [known issues](/support/known-issues.html) for a list of
-problems that might affect your application.
+Also see our list of [known issues](/support/known-issues.html) for a list of problems that might affect your application.
 
 ## Table of Contents
 
