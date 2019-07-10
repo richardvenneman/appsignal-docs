@@ -9,4 +9,4 @@ An integration is a module that can consume the `Appsignal` object to catch erro
 These currently include:
 
 - [React (beta) - `@appsignal/react`](/front-end/integrations/react.html)
-
+- [Vue.js](/front-end/integrations/vue.html)
