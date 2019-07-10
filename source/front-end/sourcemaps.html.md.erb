@@ -1,0 +1,45 @@
+---
+title: "Sourcemaps <sup>beta</sup>"
+---
+
+!> **Warning**: Beta implementation.
+
+This is a __Beta__ implementation, which means:
+
+* We do our best to process every front-end backtrace and enrich them with sourcemap data.
+* Specific scenario's might fail, but we'll try and fix those.
+
+Sourcemaps are a way to convert (minified) JavaScript backtraces such as `https://your.host/application-minified.js:53:9895
+` to something a bit more helpful. A sourcemap contains data about your front-end source code and given the minified file, line number and column number, we can ask a sourcemap for the original function, line/column number and even surrounding source code.
+
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Public sourcemaps](#public-sourcemaps)
+
+## Requirements
+
+Enhancing backtraces with sourcemaps has one requirement:
+
+* Each sample needs to tagged with a `revision` of your application. This is used to determine when to fetch new sourcemaps after a deploy has changed your (front-end) code. You can specify the revision in the options given when creating a new AppSignal instance.
+
+```js
+const appsignal = new Appsignal({
+  key: "<your frontend API key>",
+  revision: "<your current revision>"
+})
+```
+
+## Public sourcemaps
+
+With public sourcemaps the sourcemap is hosted next to the (minified) JavaScript file. At the bottom of the minified JavaScript there needs to be a special comment to indicate that a sourcemap is available for the code.
+
+```js
+//# sourceMappingURL=file.js.map
+```
+
+The URL in this comment can either be a full URL or a relative path to the sourcemap. If the URL is relative, we use the file path of the minified source to determine a full URL.
+
+For example, if the minified JS is hosted on: `https://your.app/assets/application.min.js` and the sourcemap comment looks like `//# sourceMappingURL=application.js.map`, we will attempt to retrieve the source map from the following URL: `https://your.app/assets/application.js.map`.
+
+Our system has limited caching of public sourcemaps, this means that we can request the minified version and the sourcemap file multiple times after a deploy.
