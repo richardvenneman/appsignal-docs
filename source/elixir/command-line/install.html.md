@@ -1,8 +1,16 @@
 ---
 title: "AppSignal for Elixir: Install"
+description: "Command line tool to install AppSignal in an Elixir application. Documentation on usage, options and configuration methods."
 ---
 
 Command line tool to install AppSignal in an Elixir application.
+
+## Table of Contents
+
+- [Description](#description)
+- [Configuration methods](#configuration-methods)
+- [Usage](#usage)
+- [Exit codes](#exit-codes)
 
 The command line tool is primarily used to help set up the configuration for AppSignal. Please follow the [installation guide](/getting-started/new-application.html) when adding a new application to AppSignal.
 
@@ -28,11 +36,15 @@ It's possible to configure AppSignal using only system environment variables. Wh
 
 ## Usage
 
-### On the command line in your project
+On the command line in your project run:
 
 ```bash
+mix appsignal.install <Push API key>
+# For example
 mix appsignal.install 1234-1234-1234-1234
 ```
+
+Where your "Push API key" can be found in the [installation wizard](https://appsignal.com/redirect-to/organization?to=sites/new) for your organization.
 
 ## Exit codes
 

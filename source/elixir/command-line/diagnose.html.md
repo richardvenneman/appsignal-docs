@@ -11,6 +11,8 @@ This tool has been available since version `0.12.0` of the AppSignal for Elixir 
 - [The diagnostic report](#the-diagnostic-report)
 - [Submitting the report](#submitting-the-report)
 - [Usage](#usage)
+  - [With a release binary](#with-a-release-binary)
+- [Options](#options)
   - [Environment option](#environment-option)
   - [Report submission option](#report-submission-option)
 - [Configuration output format](#configuration-output-format)
@@ -52,6 +54,21 @@ On the command line in your project:
 mix appsignal.diagnose
 ```
 
+### With a release binary
+
+If your Elixir app is packaged in a release binary with a tool such as [distillery](https://github.com/bitwalker/distillery) you will not be able to call the task using `mix`. Instead use the `command` command on your release binary to call the AppSignal task `diagnose` like so:
+
+```bash
+bin/your_app command appsignal_tasks diagnose
+```
+
+## Options
+
+| Option         | Description                            |
+| -------------- | -------------------------------------- |
+| [Environment option](#environment-option) | Set the environment to use in the command, e.g. `production` or `staging`. |
+| [`--[no-]send-report`](#report-submission-option) | Automatically send, or do not send the report. |
+
 ### Environment option
 
 Select a specific environment with the CLI.
@@ -76,14 +93,6 @@ Do not submit the report to AppSignal:
 
 ```bash
 mix appsignal.diagnose --no-send-report
-```
-
-### With a release binary
-
-If your Elixir app is packaged in a release binary with a tool such as [distillery](https://github.com/bitwalker/distillery) you will not be able to call the task using `mix`. Instead use the `command` command on your release binary to call the AppSignal task `diagnose` like so:
-
-```bash
-bin/your_app command appsignal_tasks diagnose
 ```
 
 ## Configuration output format
