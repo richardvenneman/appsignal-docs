@@ -60,6 +60,9 @@ td, th
 
 td
   color: $medium
+  &:first-child
+    code:only-child // Option tables
+      word-break: keep-all
 
 table.hover tr:hover td
   color: darken($medium, 20%)

@@ -19,27 +19,32 @@ Read more about how to use the demonstration command on the
 
 This tool is available since version 2.0.0 of the AppSignal Ruby gem.
 
+## Table of Contents
+
+- [Usage](#usage)
+  - [With a specific environment](#with-a-specific-environment)
+  - [Standalone run](#standalone-run)
+- [Options](#options)
+  - [Environment option](#options)
+- [Exit codes](#exit-codes)
+
 ## Usage
 
-### On the command line in your project
+On the command line in your project run:
 
 ```bash
 appsignal demo
 ```
 
-### With a specific environment
-
-By default no environment is selected. To make sure AppSignal can be started
-the correct environment needs to selected.
+To run it with a specific environment, see the [`--environment`](#environment-option) option.
 
 ```bash
-appsignal demo --environment=production
+appsignal --environment=production
 ```
 
 ### Standalone run
 
-It's also possible to run `appsignal demo` without having to install AppSignal
-in an application.
+It's also possible to run `appsignal demo` without having to install AppSignal in an application. Since most of the [config options](/ruby/configuration/options.html) do not have CLI options, you'll need to use environment variables to configure AppSignal.
 
 ```bash
 gem install appsignal
@@ -47,6 +52,20 @@ export APPSIGNAL_APP_NAME="My test app"
 export APPSIGNAL_APP_ENV="test"
 export APPSIGNAL_PUSH_API_KEY="xxxx-xxxx-xxxx-xxxx"
 appsignal demo
+```
+
+## Options
+
+| Option | Description |
+| ------ | ------------|
+| [`--environment=<environment>`](#environment-option) | Set the environment to use in the command, e.g. `production` or `staging`. |
+
+### Environment option
+
+By default no environment is selected. To make sure AppSignal can be started the correct environment needs to selected with the `--environment` option or the [`APPSIGNAL_APP_ENV` environment variable](/ruby/configuration/options.html#option-appsignal_app_env).
+
+```bash
+appsignal demo --environment=production
 ```
 
 ## Exit codes

@@ -11,6 +11,7 @@ This tool has been available since version `1.1.0` of the AppSignal Ruby gem.
 - [The diagnostic report](#the-diagnostic-report)
 - [Submitting the report](#submitting-the-report)
 - [Usage](#usage)
+- [Options](#options)
   - [Environment option](#environment-option)
   - [Report submission option](#report-submission-option)
 - [Configuration output format](#configuration-output-format)
@@ -46,11 +47,19 @@ In gem version `2.8.0` the option was added to view the report yourself on AppSi
 
 ## Usage
 
-On the command line in your project:
+On the command line in your project run:
 
 ```bash
 appsignal diagnose
 ```
+
+## Options
+
+| Option         | Description                            |
+| -------------- | -------------------------------------- |
+| [`--environment=<environment>`](#environment-option) | Set the environment to use in the command, e.g. `production` or `staging`. |
+| [`--[no-]send-report`](#report-submission-option) | Automatically send, or do not send the report. |
+| `--[no-]color` | Toggle the colorization of the output. |
 
 ### Environment option
 

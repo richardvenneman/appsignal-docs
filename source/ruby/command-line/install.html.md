@@ -1,8 +1,19 @@
 ---
 title: "AppSignal for Ruby: Install"
+description: "Command line tool to install AppSignal in a Ruby application. Documentation on usage, options and configuration methods."
 ---
 
 Command line tool to install AppSignal in a Ruby application.
+
+## Table of Contents
+
+- [Description](#description)
+- [Configuration methods](#configuration-methods)
+- [Usage](#usage)
+- [Options](#options)
+- [Exit codes](#exit-codes)
+
+## Description
 
 The command line tool is primarily used to help set up the configuration for AppSignal. Please follow the [installation guide](/getting-started/new-application.html) when adding a new application to AppSignal.
 
@@ -31,11 +42,21 @@ It's possible to configure AppSignal using only system environment variables. Wh
 
 ## Usage
 
-### On the command line in your project
+On the command line in your project run:
 
 ```bash
+appsignal install <Push API key>
+# For example
 appsignal install 1234-1234-1234-1234
 ```
+
+Where your "Push API key" can be found in the [installation wizard](https://appsignal.com/redirect-to/organization?to=sites/new) for your organization.
+
+## Options
+
+| Option | Description |
+| ------ | ----------- |
+| `--[no-]color` | Toggle the colorization of the output. |
 
 ## Exit codes
 
