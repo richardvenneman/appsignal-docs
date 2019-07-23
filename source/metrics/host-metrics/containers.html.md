@@ -1,0 +1,60 @@
+---
+title: Docker/container support
+---
+
+Host metrics for containerized systems are fully supported since AppSignal for Ruby gem 2.9.11 and Elixir package 1.10.11. All earlier versions are affected by the [incorrect container host metrics reported](/support/known-issues/incorrect-container-host-metrics.html) issue.
+
+**Warning**: For container host metrics to be accurate, limits need to be set for every container. This means, configuring your container to have a limited number of CPUs and memory allocated to it. Without these limits the container reports the maximum possible value of these metrics, resulting in the host reporting Terabytes of available memory for example. A container without swap configured, or unsupported on the host system, will report a `0` value. For more information on how to limit your container's CPU and memory, please read the documentation on:
+
+- Docker
+  - [CPU](https://docs.docker.com/config/containers/resource_constraints/#cpu)
+  - [memory](https://docs.docker.com/config/containers/resource_constraints/#memory)
+- Kubernetes
+  - [CPU](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+  - [memory](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+On systems that expose the `/sys/fs` virtual file system the following metrics are supported.
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CPU usage</td>
+      <td>
+        User and system in percentages.
+        <br>
+        Read more about <a href="https://blog.appsignal.com/2018/03/06/understanding-cpu-statistics.html">CPU metrics</a> in our academy article.
+      </td>
+    </tr>
+    <tr>
+      <td>Load average</td>
+      <td>1 minute load average on the host.</td>
+    </tr>
+    <tr>
+      <td>Memory usage</td>
+      <td>Available, free and used memory. Also includes swap total and swap used.</td>
+    </tr>
+    <tr>
+      <td>Disk usage</td>
+      <td>Percentage of every disk used.</td>
+    </tr>
+    <tr>
+      <td>Disk IO</td>
+      <td>Throughput of data read from and written to every disk.</td>
+    </tr>
+    <tr>
+      <td>Network traffic</td>
+      <td>Throughput of data received and transmitted through every network interface.</td>
+    </tr>
+    </tr>
+  </tbody>
+</table>
+
+Note that while Heroku also runs on a containerized system (LXC), we do not support host metrics in the same way. Instead, please see the [Heroku support][heroku support] section.
+
+[heroku support]: /metrics/host-metrics/heroku.html
