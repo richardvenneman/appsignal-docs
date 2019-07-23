@@ -19,16 +19,16 @@ Host metrics for containerized systems are fully supported since AppSignal for R
 
 For container host metrics to be accurate, limits need to be set for every container. This means, configuring your container to have a limited number of CPUs and memory allocated to it. Without these limits the container reports the maximum possible value of these metrics, resulting in the host reporting Terabytes of available memory for example. A container without swap configured, or unsupported on the host system, will report a `0` value. For more information on how to limit your container's CPU and memory, please read the documentation on:
 
-## Supported metrics
-
-On systems that expose the `/sys/fs` virtual file system the following metrics are supported.
-
 - Docker
   - [CPU](https://docs.docker.com/config/containers/resource_constraints/#cpu)
   - [memory](https://docs.docker.com/config/containers/resource_constraints/#memory)
 - Kubernetes
   - [CPU](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
   - [memory](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+## Supported metrics
+
+On systems that expose the `/sys/fs` virtual file system the following metrics are supported.
 
 <table>
   <thead>
