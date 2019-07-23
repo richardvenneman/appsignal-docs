@@ -14,6 +14,7 @@ Host metrics for containerized systems are fully supported since AppSignal for R
 
 - [Container limits](#container-limits)
 - [Supported metrics](#supported-metrics)
+  - [About CPU metrics](#cpu-metrics)
 
 ## Container limits
 
@@ -69,5 +70,11 @@ On systems that expose the `/sys/fs` virtual file system the following metrics a
     </tr>
   </tbody>
 </table>
+
+###=cpu-metrics About CPU metrics
+
+- AppSignal reports the same metrics as the [`docker stats`](https://docs.docker.com/engine/reference/commandline/stats/) command.
+- It has totals of more than 100%. 100% being the total of 1 (virtual) CPU. Multiple CPUs can result in CPU usage of more than 100%. This is different from the [normal host metrics](/metrics/host.html) where 100% is the maximum.
+- Other containers on the system impact the total CPU usage available to the container. [Limits](#container-limits) will help maintain a better balance of CPU usage between containers so the averages fluctuate less depending on busy neighbors.
 
 [heroku support]: /metrics/host-metrics/heroku.html
