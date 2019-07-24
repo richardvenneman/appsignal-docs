@@ -152,6 +152,9 @@ namespace :my_project do
       Appsignal.set_error(exception)
       raise exception
     ensure
+      # Set the action name. This is required for transactions without an error.
+      # It's also recommend to help distinguish between Rake tasks and other actions.
+      Appsignal.set_action("my_project:bake_bread")
       # Complete transaction
       Appsignal::Transaction.complete_current!
     end
@@ -161,11 +164,10 @@ end
 
 ### Sidekiq implementation
 
-A full example from the Sidekiq implementation (note: does not work with
-v1.1.2).
+A full example from the Sidekiq implementation. (Note: does not work with `v1.1.2`.)
 
 ```ruby
-def call(worker, item, queue)
+def perform(worker, item, queue)
   Appsignal::Transaction.create(
     SecureRandom.uuid,
     Appsignal::Transaction::BACKGROUND_JOB,
@@ -186,6 +188,10 @@ rescue => exception
   Appsignal.set_error(exception)
   raise exception
 ensure
+  # Set the action name. This is required for transactions without an error.
+  # It's also recommend to help distinguish between Rake tasks and other actions.
+  Appsignal.set_action("MyWorker#perform")
+  # Complete transaction
   Appsignal::Transaction.complete_current!
 end
 ```
