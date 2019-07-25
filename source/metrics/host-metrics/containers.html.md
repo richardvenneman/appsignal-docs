@@ -73,8 +73,24 @@ On systems that expose the `/sys/fs` virtual file system the following metrics a
 
 ###=cpu-metrics About CPU metrics
 
-- AppSignal reports the same metrics as the [`docker stats`](https://docs.docker.com/engine/reference/commandline/stats/) command.
-- It has totals of more than 100%. 100% being the total of 1 (virtual) CPU. Multiple CPUs can result in CPU usage of more than 100%. This is different from the [normal host metrics](/metrics/host.html) where 100% is the maximum.
-- Other containers on the system impact the total CPU usage available to the container. [Limits](#container-limits) will help maintain a better balance of CPU usage between containers so the averages fluctuate less depending on busy neighbors.
+In short:
+
+- AppSignal reports the same metrics as the [`docker stats`](https://docs.docker.com/engine/reference/commandline/stats/) command, but reported as an average on a minutely basis.
+- The reported CPU usage can go above 100%. 100% is equal to 1 full virtual CPU core.
+- [Container limits](#container-limits) are recommended to properly balance the available CPU resources between containers.
+- When multiple containers on the same host system share CPU resources, even with [container limits](#container-limits), containers that use more CPU can negatively impact the reported CPU usage for other containers.
+
+The container CPU metrics work a little differently than [normal CPU metrics](/metrics/host.html). They are affected by [container limits](#container-limits) and how many other containers are active on the system. This is because they share the container system's resources.
+
+Unlike normal host metrics the CPU usage can go above 100%. This is because a container can have more than 1 virtual CPU core available to it. Every full core amounts to 100%. If a container has three cores for example, the maximum is 300%.
+
+Other containers on the system can impact the total CPU time available to the container. [Limits](#container-limits) will help maintain a better balance of CPU usage between containers so the averages fluctuate less depending on busy neighbors. If all containers share all the host system's CPU resources, the usage on one host can negatively impact the available virtual CPU cores on another.
+
+For example:
+
+We have a Docker system on our host machine that has 3 virtual CPU cores available. We then start containers A, B and C without any specific CPU limits.
+
+- In the scenario of container A maxing out its available CPU cores, and the other containers B and C idling at 0%, it will be reported as 300% CPU usage for container A. Which is the total CPU time available on the host's container system.
+- When the three containers are all maxing out their available CPU cores it will be reported as 100% CPU usage for every container, as the resources are shared amongst them evenly.
 
 [heroku support]: /metrics/host-metrics/heroku.html
