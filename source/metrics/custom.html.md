@@ -135,6 +135,6 @@ Appsignal.set_gauge("database_size", 100, %{region: "eu"})
 
 Another example is how AppSignal uses [host metrics](host.html). Every host metric has a tag with a `hostname` to differentiate between different hosts. Some host metrics even have more tags such as the `state` tag for the `cpu` metric, `mountpoint` tag for the `disk_usage`, `disk` tag for `disk_io_read` and `disk_io_written`, etc.
 
-Read about how to use the [`tags`](/metrics/custom-metrics/dashboards.html#dashboard-graph-metrics-tags) dashboard config option to customize how tags are used in your graphs and how to use them in your [line labels](/metrics/custom-metric/dashboards.html#dashboard-graph-metrics-line-label).
+Read about how to use the [`tags`](/metrics/custom-metrics/dashboards.html#dashboard-graph-metrics-tags) dashboard config option to customize how tags are used in your graphs and how to use them in your [line labels](/metrics/custom-metrics/dashboards.html#dashboard-graphs-line-label).
 
 **Note**: We __do not__ recommend adding this context to your metric names like so: `eu.database_size`, `us.database_size` and `asia.database_size`. This creates multiple metrics that serve the same purpose. The same goes for any dynamic string that builds the metric key, e.g. `user_#{user.id}`.
