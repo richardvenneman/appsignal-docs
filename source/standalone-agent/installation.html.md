@@ -30,11 +30,11 @@ Then import the GPG key from [Packagecloud](https://packagecloud.io). This is a 
 curl -L https://packagecloud.io/appsignal/agent/gpgkey | sudo apt-key add -
 ```
 
-Create a file named `/etc/apt/sources.list.d/appsignal_agent.list` that contains the repository configuration below. Make sure to replace `trusty` in the config below with your Linux distribution and version. Use `xenial` for 16.04 or `bionic` for 18.04.
+Create a file named `/etc/apt/sources.list.d/appsignal_agent.list` that contains the repository configuration below. Make sure to replace `bionic` in the config below with your Linux distribution and version. Use `xenial` for 16.04 or `trusty` for 14.04.
 
 ```bash
-deb https://packagecloud.io/appsignal/agent/ubuntu/ trusty main
-deb-src https://packagecloud.io/appsignal/agent/ubuntu/ trusty main
+deb https://packagecloud.io/appsignal/agent/ubuntu/ bionic main
+deb-src https://packagecloud.io/appsignal/agent/ubuntu/ bionic main
 ```
 
 Then run `apt update` to get the newly added packages and install the agent.
