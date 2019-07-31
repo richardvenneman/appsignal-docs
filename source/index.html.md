@@ -18,7 +18,7 @@ In this documentation we aim to give you all the information you need to get sta
 - Error and performance monitoring for [Ruby](/ruby/index.html) and [Elixir](/elixir/index.html)
 - [AppSignal for Front-end <sup>Beta</sup>](/front-end/)
 - [Host metrics](/metrics/host.html)
-- [Custom metrics <sup>Beta</sup>](/metrics/custom.html)
+- [Custom metrics](/metrics/custom.html)
 - [Workflow integrations](/application/integrations/index.html) (Slack, HipChat, Jira, etc.)
 - [Standalone agent](/standalone-agent/installation.html)
   - [StatsD](/standalone-agent/statsd.html)
