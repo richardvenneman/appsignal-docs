@@ -1,5 +1,5 @@
 ---
-title: "AppSignal for JavaScript - React"
+title: "@appsignal/react"
 ---
 
 ## Installation

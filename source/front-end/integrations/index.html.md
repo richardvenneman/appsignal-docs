@@ -9,4 +9,8 @@ An integration is a module that can consume the `Appsignal` object to catch erro
 These currently include:
 
 - [React (beta) - `@appsignal/react`](/front-end/integrations/react.html)
-- [Vue.js](/front-end/integrations/vue.html)
+- [Vue (beta) - `@appsignal/vue`](/front-end/integrations/vue.html)
+- [Angular (beta) - `@appsignal/angular`](/front-end/integrations/angular.html)
+- [Ember (beta) - `@appsignal/ember`](/front-end/integrations/ember.html)
+- [Preact (beta) - `@appsignal/preact`](/front-end/integrations/preact.html)
+- [Stimulus (beta) - `@appsignal/stimulus`]("/front-end/integrations/stimulus.html)

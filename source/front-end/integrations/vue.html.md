@@ -1,37 +1,42 @@
 ---
-title: "AppSignal for JavaScript - Vue.js"
+title: "@appsignal/vue"
 ---
 
 ## Installation
 
-Add the `@appsignal/javascript` package to your `package.json`. Then, run `yarn install`/`npm install`.
+Add the `@appsignal/vue` and `@appsignal/javascript` packages to your `package.json`. Then, run `yarn install`/`npm install`.
 
-There is no plugin available right now, but adding error-tracking in Vue.js is straight forward:
+You can also add these packages to your `package.json` on the command line:
 
-```js
-// appsignal.js
-import Appsignal from "@appsignal/javascript"
-// in case you want to track global js errors:
-// import { plugin } from "@appsignal/plugin-window-events"
-import Vue from "vue"
-
-// add your frontend key to .env file entry in VUE_APP_APPSIGNAL=XYZ
-const appsignal = new Appsignal({ key: process.env.VUE_APP_APPSIGNAL })
-// in case you want to track global js errors:
-// appsignal.use(plugin({}))
-
-// add the appsignal handling
-Vue.config.errorHandler = error => appsignal.sendError(error)
-
-// export the singleton in case you would like to access in your app
-export default appsignal
+```
+yarn add @appsignal/javascript @appsignal/vue
+npm install --save @appsignal/javascript @appsignal/vue
 ```
 
-Import the code in your App:
+## Usage
+
+### `Vue.config.errorHandler`
+
+The default Vue integration is a function that binds to the `Vue.config.errorHandler` hook. In a new app created using `@vue/cli`, your `main.js`/`.ts` file would look something like this:
 
 ```js
-// main.js
-import "appsignal"
-// in case you would like to use the client in your app
-// import appsignal from "appsignal"
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+
+import Appsignal from "@appsignal/javascript"
+import { errorHandler } from "@appsignal/vue"
+
+const appsignal = new Appsignal({ 
+  key: "YOUR FRONTEND API KEY"
+})
+
+Vue.config.errorHandler = errorHandler(appsignal, Vue)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
 ```
