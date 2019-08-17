@@ -14,6 +14,8 @@ GitHub, or by linking your GitHub account in your [user
 setttings](/getting-started/your-user-account.html). An application linked to
 GitHub gives you additional features like direct links to commits.
 
+[Visit the "General" page for your app](https://appsignal.com/redirect-to/app?to=edit)
+
 ## Notifications
 
 AppSignal can send alert for a number of events. Configure when a notification
@@ -21,6 +23,8 @@ is sent on this page.
 
 See the [application integrations page](/application/integrations/index.html)
 to configure where the notification is sent to.
+
+[Visit the Notifications page for your app](https://appsignal.com/redirect-to/app?to=notifiers)
 
 ## Team permissions
 
@@ -31,9 +35,13 @@ the "Manage owners|this team" link.
 Read more about [team management](/organization/team/index.html) in the
 Organization topic.
 
+[Visit the Team permissions page for your app](https://appsignal.com/redirect-to/app?to=teams)
+
 ![App settings teams](/images/screenshots/app_teams.png)
 
 ## Push & Deploy
 
 On the "Push & Deploy" page you can find your application's "Push API Key" and
 some snippets to set up deploy notifications.
+
+[Visit the Push & Deploy page for your app](https://appsignal.com/redirect-to/app?to=info)
