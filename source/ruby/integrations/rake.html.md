@@ -16,6 +16,7 @@ Depending on what version of the AppSignal gem you use and in what context some 
   - [Rails applications](#rails-applications)
   - [Ruby applications](#ruby-applications)
 - [`Appsignal.stop` requirement](#appsignal-stop-requirement)
+- [Rake tasks and containers](#rake-tasks-and-containers)
 - [Examples](#examples)
 
 ## Integrations
@@ -92,6 +93,17 @@ task :foo do
   Appsignal.stop "rake"
 end
 ```
+
+## Rake tasks and containers
+
+When running a single Rake task in a container (e.g. with Kubernetes) there are two requirements:
+
+* [`Appsignal.stop`](#appsignal-stop-requirement) must be set in the Rake task
+* [`running_in_container`](/ruby/configuration/options.html#option-running_in_container) must be set to true in the config.
+
+For some containers `running_in_container` is automatically set to true when detected, for others manual configuration is required.
+
+These two options guarantee that the extension has time to push the data to the agent and the agent has time to send the data to our API before shutting (the container) down.
 
 ## Examples
 
