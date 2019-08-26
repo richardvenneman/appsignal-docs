@@ -4,7 +4,7 @@ title: "Sourcemaps API"
 
 Sourcemaps are used to get the original line and column number from a minified backtrace.
 
-This API provides an easy way to upload private sourcemaps for use with [frontend errors](/front-end/sourcemaps.html)
+This API provides an easy way to upload private sourcemaps for use with [frontend errors](/front-end/sourcemaps.html).
 
 ## Table of Contents
 
