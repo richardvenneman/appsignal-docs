@@ -16,6 +16,7 @@ Sourcemaps are a way to convert (minified) JavaScript backtraces such as `https:
 
 - [Requirements](#requirements)
 - [Public sourcemaps](#public-sourcemaps)
+- [Private sourcemaps](#private-sourcemaps)
 
 ## Requirements
 
@@ -43,3 +44,44 @@ The URL in this comment can either be a full URL or a relative path to the sourc
 For example, if the minified JS is hosted on: `https://your.app/assets/application.min.js` and the sourcemap comment looks like `//# sourceMappingURL=application.js.map`, we will attempt to retrieve the source map from the following URL: `https://your.app/assets/application.js.map`.
 
 Our system has limited caching of public sourcemaps, this means that we can request the minified version and the sourcemap file multiple times after a deploy.
+
+
+## Private sourcemaps
+
+When you don't want to make your sourcemap public, you can upload them to our [sourcemaps API endpoint](/api/sourcemaps.html).
+
+### Sending sourcemaps
+
+A CURL command would look like this:
+
+```bash
+curl -k -X POST -H 'Content-Type: multipart/form-data' \
+  -F 'name[]=https://test.local/main.abc123.js' \
+  -F 'revision=abcdef' \
+  -F 'file=@/~project/main.js.map' \
+  'https://appsignal.com/api/sourcemaps?push_api_key=xxx&app_name=AppSignal&environment=development'
+```
+
+We match the `name[]` fields against the full backtrace url e.g. the following backtrace line:
+
+```
+ at https://test.local/main.abc123.js:1:92623\"
+```
+
+Will match with the `name`: `https://test.local/main.abc123.js`.
+You can add multiple `name`'s in one curl request:
+
+```bash
+curl -k -X POST -H 'Content-Type: multipart/form-data' \
+  -F 'name[]=https://test.local/main.abc123.js' \
+  -F 'name[]=https://cdn.local/main.abc123.js' \
+  -F 'revision=abcdef' \
+  -F 'file=@/~project/main.js.map' \
+  'https://appsignal.com/api/sourcemaps?push_api_key=xxx&app_name=AppSignal&environment=development'
+```
+
+You can read more about the sourcemap API endpoint on the [documentation page](/api/sourcemaps.html).
+
+### Retention
+
+Sourcemaps are grouped into a "release" by the `revision` string and we will keep the last "release" until a new `revision` is uploaded. Older "releases" will be kept for up to sixty days.
