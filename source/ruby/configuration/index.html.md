@@ -94,57 +94,57 @@ options](/ruby/configuration/options.html) page.
 ```yaml
 # config/appsignal.yml
 default: &defaults
-  # Your push api key, it is possible to set this dynamically using ERB:
-  # push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
-  push_api_key: "65c91e2f-c0f2-4005-8064-ffffec5f7b20"
+  # Your Push API Key, it is possible to set this dynamically using ERB. Requred
+  push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
 
-  # Your app's name
+  # Your app's name as reported on AppSignal.com. Required
   name: "My App"
 
-  # Your server's hostname
+  # Your server's hostname. Optional, auto detected
   hostname: "frontend1.myapp.com"
 
-  # Add default instrumentation of net/http
+  # Add default instrumentation of net/http. Default: true
   instrument_net_http: true
 
-  # Skip session data, it contains private information.
+  # Skip session data, if it contains private information. Default: false
   skip_session_data: true
 
-  # Ignore these errors.
+  # Ignore these errors (Optional)
   ignore_errors:
     - SystemExit
 
-  # Ignore these actions, used by our Loadbalancer.
+  # Ignore these actions, used by our Loadbalancer. Optional
   ignore_actions:
     - IsUpController#index
 
-  # Enable allocation tracking for memory metrics:
+  # Enable allocation tracking for memory metrics. Default: true
   enable_allocation_tracking: true
-
-  # Enable Garbage Collection instrumentation
-  enable_gc_instrumentation: true
 
 # Configuration per environment, leave out an environment or set active
 # to false to not push metrics for that environment.
 development:
   <<: *defaults
   active: true
+  # Enable more logging in the `appsignal.log` file. Optional
   debug: true
 
 staging:
   <<: *defaults
-  active: <%= ENV['APPSIGNAL_ACTIVE'] == 'true' %>
+  # Configure AppSignal to be active for this environment. Required
+  active: true
 
 production:
   <<: *defaults
-  active: <%= ENV['APPSIGNAL_ACTIVE'] == 'true' %>
+  # Configure AppSignal to be active for this environment. Required
+  active: true
 
-  # Set different path for the log file
-  log_path: '/home/my_app/app/shared/log'
+  # Set different path for the log file. Optional, auto detected
+  log_path: "/home/my_app/app/shared/log"
 
-  # Set AppSignal working dir
-  working_directory_path: '/tmp/appsignal'
+  # Set AppSignal working dir. Optional, auto detected
+  working_directory_path: "/tmp/appsignal"
 
-  # When it's not possible to connect to the outside world without a proxy
-  http_proxy: 'proxy.mydomain.com:8080'
+  # When it's not possible to connect to the outside world without a proxy.
+  # Optional
+  http_proxy: "proxy.mydomain.com:8080"
 ```
