@@ -720,13 +720,18 @@ options:
       since: 2.6.0
       since_notes:
         - An upgrade to `2.6.1` or higher is recommended when using this option.
+        - "`2.9.13`: Auto detection for Heroku deploys with the Dyno Metadata labs feature enabled."
       type: string
       default_value: null
     elixir:
       since: 1.5.0
+      since_notes:
+        - "`1.10.12`: Auto detection for Heroku deploys with the Dyno Metadata labs feature enabled."
       type: string
       default_value: null
     description: |
       Set the app revision for the currently running version of your app. Used to create deploy markers and tag all incoming data to a certain deploy for the host.
+
+      When using Heroku with the [Heroku Labs: Dyno Metadata](https://devcenter.heroku.com/articles/dyno-metadata) enabled it will automatically set the `revision` config option to to the `HEROKU_SLUG_COMMIT` system environment variable. This will automatically report new deploys when the Heroku app gets deployed. The revision can still be overwritten by setting the `revision` config option yourself.
 
       Read more about deploy markers on the [deploy markers](/application/markers/deploy-markers.html).
