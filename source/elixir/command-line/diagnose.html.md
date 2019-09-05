@@ -11,6 +11,7 @@ This tool has been available since version `0.12.0` of the AppSignal for Elixir 
 - [The diagnostic report](#the-diagnostic-report)
 - [Submitting the report](#submitting-the-report)
 - [Usage](#usage)
+  - [With an Elixir release binary](#with-an-elixir-release-binary)
   - [With a release binary](#with-a-release-binary)
 - [Options](#options)
   - [Environment option](#environment-option)
@@ -52,6 +53,14 @@ On the command line in your project:
 
 ```bash
 mix appsignal.diagnose
+```
+
+### With an Elixir release binary
+
+If your Elixir app is packaged in an Elixir release binary, built with `mix release` you will not be able to call the task using `mix`. Instead use the `eval` command on your release binary to call the AppSignal task `diagnose` like so:
+
+```bash
+bin/your_app eval ":appsignal_tasks.diagnose()"
 ```
 
 ### With a release binary
