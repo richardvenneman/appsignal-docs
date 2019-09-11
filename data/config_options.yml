@@ -548,6 +548,10 @@ options:
             - SERVER_PROTOCOL
         ```
 
+        Note that AppSignal reads the headers from your app and they may not match 1 to 1 with what is being sent in the browser/client. In [Rack apps](https://rack.github.io/) ([Rails](/ruby/integrations/rails.html), [Sinatra](/ruby/integrations/sinatra.html), etc) all custom headers are prefixed with the `HTTP_` string, all header names are uppercased and dashes (`-`) are replaced with underscores (`_`).
+
+        For example, the `X-Hub-Signature` header can be access by your app and AppSignal with the `HTTP_X_HUB_SIGNATURE` name.
+
         To configure AppSignal to not store any HTTP request headers on AppSignal transactions, configure the option with an empty array.
 
         ```yml
