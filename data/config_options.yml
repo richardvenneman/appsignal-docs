@@ -725,6 +725,7 @@ options:
       since_notes:
         - An upgrade to `2.6.1` or higher is recommended when using this option.
         - "`2.9.13`: Auto detection for Heroku deploys with the Dyno Metadata labs feature enabled."
+        - "`2.9.14`: Do not use this release if you depend on the Heroku dyno metadata detection."
       type: string
       default_value: null
     elixir:
