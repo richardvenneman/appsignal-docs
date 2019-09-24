@@ -17,7 +17,7 @@ Parameters:
 |  from  |  string (ISO8601)  |  defaults to 1 day ago if nil  |
 |  to  |  string (ISO8601)  |   defaults to now if nil  |
 |  timeframe  |  string  |   Can be: [hour, day, month, year]  |
-|  field  |  array  |   Can be: [mean, count, ex_count, ex_rate, pct]  |
+|  fields  |  array  |   Can be: [mean, count, ex_count, ex_rate, pct]  |
 
 Either provide the `action_name` or `kind` parameter.
 You can either specify the from an to values, __or__ the timeframe value.
