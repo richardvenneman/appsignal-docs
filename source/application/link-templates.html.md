@@ -43,11 +43,11 @@ The "Link templates" configuration can be found in the ["App settings" section](
 
 ![link templates](/images/screenshots/link_templates.png)
 
-Link templates can contain variables, defined by wrapping them in curly
-brackets `{}`. For example, the `user_id` tag can be used in a link like so:
+Link templates can contain variables, defined by wrapping them in percentage signs
+`%%`. For example, the `user_id` tag can be used in a link like so:
 
 ```
-https://yourapp.com/backend/users/{user_id}
+https://yourapp.com/backend/users/%user_id%
 ```
 
 A link can contain as many variables as you like, but in order for a link to be
