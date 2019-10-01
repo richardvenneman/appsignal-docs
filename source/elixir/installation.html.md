@@ -24,11 +24,16 @@ Before you can compile the AppSignal gem make sure the build/compilation tools a
 -> **Note**: If you're running an umbrella application, see also our [umbrella installation guide](/elixir/installation/umbrella.html).
 
 1. Start by adding `appsignal` to your list of dependencies in `mix.exs`.
+   AppSignal requires you to depend on a JSON encoder. You can pick between
+   `jason` and `poison`, our recommendation is to use `jason`.
 
     ```elixir
     # mix.exs
     def deps do
-      [{:appsignal, "~> 1.0"}]
+      [
+        {:appsignal, "~> 1.0"},
+        {:jason, "~> 1.1"}
+      ]
     end
     ```
 
