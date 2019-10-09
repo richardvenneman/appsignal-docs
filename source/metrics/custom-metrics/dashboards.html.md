@@ -17,6 +17,7 @@ This page describes how to create/edit dashboards for your apps using our YAML d
 - [Dashboards](#dashboards)
 - [Graphs](#dashboard-graphs)
     - [Description](#dashboard-graphs-description)
+    - [Display](#dashboard-graphs-display)
     - [Line label format](#dashboard-graphs-line-label)
     - [Value formatting](#dashboard-graphs-format)
     - [Size value format input](#dashboard-graphs-format-input)
@@ -51,8 +52,9 @@ graphs:
   -
     title: 'Response time'
     description: 'The response times of all namespaces'
-    line_label: '%namespace%'
+    line_label: '%namespace% %field%'
     format: duration
+    display: AREA
     metrics:
       -
         name: transaction_duration
@@ -80,6 +82,7 @@ graphs:
     description: 'Graph #1 description'
     line_label: 'Configurable line label for %name%'
     format: percent
+    display: LINE
     draw_null_as_zero: true
     metrics:
       - # Metric
@@ -139,6 +142,7 @@ graphs:
     description: "My graph description"
     line_label: 'Configurable line label for %name%'
     format: percent
+    display: LINE
     metrics:
       - <Metric>
   - # Graph
@@ -153,6 +157,7 @@ graphs:
 | ------ | ------ | ----- |
 | `title`  | `String`<br>Required. | Title of the graph. Used for naming the dashboard navigation items. |
 | [`description`](#dashboard-graphs-description) | `String` | Optional description to show on the graph. |
+| [`display`](#dashboard-graphs-display) | `String/Enum` | Displays the data in one of three ways, valid options are: `LINE`, `AREA`, `AREA_RELATIVE`. The default value is `LINE`. |
 | [`line_label`](#dashboard-graphs-line-label) | `String`<br>Default: `"%name%"` | Line label formatter for this graph. Supports replacements of metric names, fields and tags with percent symbols. |
 | [`format`](#dashboard-graphs-format) | `String`<br>Default: `"number"` | The formatter for the line values. Available options are: number, size, percent, duration and throughput. |
 | [`format_input`](#dashboard-graphs-format-input) | `String` (no default) | The format of the input of this metrics when using the size formatter. Available options are: bit, byte, kilobit, kilobyte and megabyte. |
@@ -166,6 +171,16 @@ Sometimes a graph title doesn't tell the whole story. If you need a place for a 
 Set the `description` key with any string value to get a description in the graph as shown below. Multi line descriptions are wrapped on a single line and expanded on hover.
 
 ![Graph description example](/images/screenshots/custom_metrics_graph_description.png)
+
+###=dashboard-graphs-display Graph display
+
+Some data is better understood if the graph is rendered in a different way. We provide three options, `LINE`, `AREA` and `AREA_RELATIVE`.
+
+The default value is `LINE`. Use `AREA` to render areas beneath the lines and `AREA_RELATIVE` to render a graph with the relative values of each datapoint. This will render a "percentage" of each data point from 0-100 and fill out the graph accordingly. This can be used to easily show the relation between data points in a graph.
+
+The image below shows the value of the `AREA_RELATIVE` display type. In the `LINE`/`AREA` charts you can see that the amount of data has incrased, but the `AREA_RELATIVE` graph at the bottom shows that the relation between transmitted/received has not changed over time.
+
+![Graph display example](/images/screenshots/custom_metrics_graph_display.png)
 
 ###=dashboard-graphs-line-label Line label format
 
