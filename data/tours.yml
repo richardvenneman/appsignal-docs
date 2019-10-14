@@ -3,8 +3,8 @@ tours:
     slug: errors
     name: errors
     color: orange
-    title: Catch errors
-    human_title: Catch errors in your app
+    title: Error tracking
+    human_title: Error tracking
     human_teaser: "Catch errors and make sure they don't happen again."
     meta_title: "Error Tracking for Ruby and Elixir"
     meta_description: "Catch errors in your Ruby and Elixir applications. Get notified in tools like Slack or HipChat and easily create issues in your issue tracker of choice."
@@ -23,7 +23,7 @@ tours:
     name: performance
     color: green
     title: Track performance
-    human_title: Find performance issues
+    human_title: Performance monitoring
     human_teaser: "Find performance issues before they find you."
     meta_title: "Performance Monitoring for Ruby and Elixir"
     meta_description: "Improve the performance of your controllers and background jobs. Get notified when requests are taking longer than you expect and dive deep into the causes of the slow requests."
@@ -41,8 +41,8 @@ tours:
     slug: hosts
     name: hosts
     color: purple
-    title: Monitor your hosts
-    human_title: Monitor your hosts
+    title: Host monitoring
+    human_title: Host monitoring
     human_teaser: "Run healthy apps on healthy hardware."
     meta_title: "Host Monitoring for Ruby and Elixir"
     meta_description: "If you want to run a healthy app, you need to know how your hosts are doing. AppSignal gives you insight into load, disk I/O, disk usage, memory consumption and network utilization."
@@ -82,7 +82,7 @@ tours:
     color: blue
     title: Workflow features
     human_title: Works for your team
-    human_teaser: "AppSignal helps your team stay focused on building great apps."
+    human_teaser: "AppSignal keeps your team focused on building great apps."
     meta_title: "Integrations with issue trackers and communication tools"
     meta_description: "AppSignal is built so you can stay productive. It integrates with your favorite tools like Slack, Pivotal Tracker, GitHub, PagerDuty, Trello, GitLab, Phabricator, Flowdock, HipChat and OpsGenie. Not enough? Use the webhook!"
     usps:
