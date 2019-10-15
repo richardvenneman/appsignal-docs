@@ -49,10 +49,10 @@ To render notices we've added a custom markdown tag. Use it like so:
 Which will render the following:
 
 ```html
-<div class="warning">
+<div class="custom-wrapper warning">
   <p>This is a warning!</p>
 </div>
-<div class="notice">
+<div class="custom-wrapper notice">
   <p>This is a notice!</p>
 </div>
 
