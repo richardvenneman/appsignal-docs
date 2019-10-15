@@ -2,7 +2,7 @@
 title: "Add method instrumentation"
 ---
 <div class="notice">
-  This feature is available since Ruby gem version 1.3.
+  This feature is available since Ruby gem version 1.3 and only works for classes.
 </div>
 
 Sometimes the default instrumentation is just not accurate enough. Every
