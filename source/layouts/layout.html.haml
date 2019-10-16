@@ -8,7 +8,6 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %link{:href => canonical_url(current_page.url), :rel => "canonical"}
     %title= title
-    -# = stylesheet_link_tag "application"
     = javascript_include_tag "bundle"
     %link{:rel => "mask-icon", :href => "/assets/images/appsignal-safari-icon.svg", :color => "#21375A" }
     %meta{:content => description_of_page(current_page), :name => "description"}
@@ -44,7 +43,6 @@
         = partial "footer"
       = partial "cookies"
 
-    -# = javascript_include_tag "application", :async => :async
     %script{:type => "text/javascript", :src => "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"}
     :javascript
       docsearch({
