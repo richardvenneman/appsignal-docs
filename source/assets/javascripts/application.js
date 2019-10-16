@@ -2,7 +2,7 @@ import "./jquery"
 import Cookies from "./js.cookie"
 import "./navigation_store"
 import "./dl_header"
-import "./analytics"
+import { loadAnalyticsScripts } from "./analytics"
 
 $(document).ready(function() {
   var navigationElement = $("#navigation");
