@@ -34,10 +34,10 @@ It's also useful if you are part of multiple organizations within AppSignal.
 You can choose to have notifications sent to different email addresses per
 organization.
 
-![Email addresses](/images/screenshots/user_emails.png)
+![Email addresses](/assets/images/screenshots/user_emails.png)
 
 You can configure which email address AppSignal should use for notifications
 per organization. You can also choose whether you want to receive notifications
 per app. If you disable notifications you'll still be able to access the app.
 
-![Notifications](/images/screenshots/user_notifications.png)
+![Notifications](/assets/images/screenshots/user_notifications.png)

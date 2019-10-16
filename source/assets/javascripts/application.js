@@ -1,8 +1,8 @@
-//= require jquery
-//= require js.cookie
-//= require navigation_store
-//= require dl_header
-//= require analytics
+import "./jquery"
+import Cookies from "./js.cookie"
+import "./navigation_store"
+import "./dl_header"
+import "./analytics"
 
 $(document).ready(function() {
   var navigationElement = $("#navigation");
@@ -50,7 +50,7 @@ $(document).ready(function() {
   });
   navigationElement.scrollTop(getScrollPosition());
 
-  userSignedIn = Cookies.get("appsignal_signed_in") == "true";
+  let userSignedIn = Cookies.get("appsignal_signed_in") == "true";
   if(userSignedIn) {
     $(".logged-in").show();
     $(".logged-out").hide();

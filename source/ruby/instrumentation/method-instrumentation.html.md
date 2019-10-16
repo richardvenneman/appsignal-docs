@@ -64,7 +64,7 @@ Once a request has been processed by AppSignal with this type of
 instrumentation you will be able to see the method instrumentation in the event
 breakdown on the sample page.
 
-![Event tree with method instrumentation](/images/screenshots/method_instrumentation.png)
+![Event tree with method instrumentation](/assets/images/screenshots/method_instrumentation.png)
 
 You're also able to customize the name of the event that's send to us using the
 `:name` option.

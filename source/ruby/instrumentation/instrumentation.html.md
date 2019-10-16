@@ -12,7 +12,7 @@ to see all the instrumentation your application uses internally.
 Template rendering, ActiveRecord queries and caching are instrumented and
 will be shown in the sample.
 
-![Default event tree](/images/screenshots/app_performance_sample_timeline_1.png)
+![Default event tree](/assets/images/screenshots/app_performance_sample_timeline_1.png)
 
 That's already very useful, but wouldn't it be great if we could see
 measurements of specific pieces of code you suspect might influence your
@@ -66,7 +66,7 @@ Once you add custom instruments like this AppSignal will start picking them up
 and will show you how much time both an event group (`article_fetcher` in this
 case) and individual events took.
 
-![Event tree with fetcher](/images/screenshots/app_performance_sample_timeline_2.png)
+![Event tree with fetcher](/assets/images/screenshots/app_performance_sample_timeline_2.png)
 
 In this case you'll notice that this API call is a huge influence on the
 performance of our homepage, which was hidden before. We might want to consider
@@ -195,7 +195,7 @@ SELECT * FROM users WHERE email = ? AND password = ?
 
 -> In older versions of the AppSignal gem (1.2 and lower) the
    `Appsignal.instrument` is not available. If you cannot upgrade, it's still
-   possible to use `ActiveSupport::Notifications` instead.  
+   possible to use `ActiveSupport::Notifications` instead.
    If you don't want to use the `Appsignal.instrument` helper, but instead want to
    use `ActiveSupport::Notifications`, you can still do so in AppSignal for Ruby
    gem 1.3 and higher too.
@@ -204,7 +204,7 @@ The method for instrumenting your code using `ActiveSupport::Notifications`
 is very similar to how AppSignal does it. Using the article fetcher example
 again you can see the differences are quite small.
 
-Also see our documentation on AppSignal [event formatters](event-formatters.html) when using `ActiveSupport::Notifications`.  
+Also see our documentation on AppSignal [event formatters](event-formatters.html) when using `ActiveSupport::Notifications`.
 For more information about ActiveSupport::Notifications instrumentation, see the official Rails [`ActiveSupport::Notifications` documentation](http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html).
 
 ```ruby

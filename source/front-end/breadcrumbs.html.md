@@ -9,7 +9,7 @@ When debugging an issue in a UI, it can be useful to know what events occurred i
 - [Usage](#usage)
 - [Plugins](#plugins)
 
-![Breadcrumbs](/images/screenshots/frontend/breadcrumbs.svg)
+    ![Breadcrumbs](/assets/images/screenshots/frontend/breadcrumbs.svg)
 
 ## Usage
 
@@ -20,7 +20,7 @@ Wherever an interesting event, operation or state change occurs in your app, you
 ```js
 import Appsignal from "@appsignal/javascript"
 
-const appsignal = new Appsignal({ 
+const appsignal = new Appsignal({
   key: "YOUR FRONTEND API KEY"
 })
 

@@ -8,7 +8,7 @@ To track application-wide metrics, you can send custom metrics to AppSignal. The
 
 With different [types of metrics](#metric-types) (gauges, counters and measurements) you can track any kind of data from your apps and [tag](#metric-tags) them with metadata to easily spot the differences between contexts.
 
-![Custom metrics demo dashboard](/images/screenshots/custom_metrics_dashboard.png)
+![Custom metrics demo dashboard](/assets/images/screenshots/custom_metrics_dashboard.png)
 For the dashboard definition YAML, see our [dashboard definition page](/metrics/custom-metrics/dashboards.html).
 
 Also see our blog post [about custom metrics](http://blog.appsignal.com/blog/2016/01/26/custom-metrics.html) for more information.

@@ -8,7 +8,7 @@ A deploy marker indicates a change in the deployed version of an application. Th
 
 When a new deploy is detected, the list of incidents is empty for the newest deployment version. When an error, or any other issue, is reported by AppSignal in your application it gets listed for the newest deploy as well. On the sample page for an incident you can see in which deployments an incident occurred with the help of the rocket (🚀) separator icon.
 
-![Deploy markers in samples list](/images/screenshots/app_incident_samples_list.png)
+![Deploy markers in samples list](/assets/images/screenshots/app_incident_samples_list.png)
 
 ## Table of Contents
 

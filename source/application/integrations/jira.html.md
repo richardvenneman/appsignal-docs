@@ -10,11 +10,11 @@ Before we can link AppSignal to Jira we need to configure Jira to accept our OAu
 
 Sign in to Jira and open the "Settings" (Cogwheel) menu on the bottom of the sidebar. Then select "Products".
 
-![Administration navigation](/images/screenshots/jira/navigation.png)
+![Administration navigation](/assets/images/screenshots/jira/navigation.png)
 
 In the "Product settings" screen look for the "Application links" under the "Integrations" section in the navigation.
 
-![Application links navigation](/images/screenshots/jira/application_links.png)
+![Application links navigation](/assets/images/screenshots/jira/application_links.png)
 
 You'll be presented with a small form for a URL. Enter: `https://appsignal.com` in the field for a new Application Link.
 
@@ -24,11 +24,11 @@ If you receive a "No response was received from the URL you entered" error. Don'
 
 In the modal, only fill out the "Application Name".
 
-![Application setup](/images/screenshots/jira/setup.png)
+![Application setup](/assets/images/screenshots/jira/setup.png)
 
 After saving the integration, click the "Edit" icon for the newly created integration and go to the "Incoming Authentication" tab in the new modal.
 
-![OAuth navigation](/images/screenshots/jira/oauth_navigation.png)
+![OAuth navigation](/assets/images/screenshots/jira/oauth_navigation.png)
 
 ### OAuth setup
 
@@ -68,7 +68,7 @@ Enter in the "Jira installation location" the root path of your Jira app, e.g. `
 
 You'll be presented with an authentication confirmation screen.
 
-![Jira OAuth confirmation](/images/screenshots/jira/authentication.png)
+![Jira OAuth confirmation](/assets/images/screenshots/jira/authentication.png)
 
 Upon pressing "Allow" you'll be returned to AppSignal. Here you need to select which project and issue type you want to use for AppSignal issues.
 
@@ -89,12 +89,12 @@ In order to fix these messages, you have to add the fields to the Jira screens b
 
 Then navigate to the "Screens" page in the "Screens" section.
 
-![Issues screens page](/images/screenshots/jira/screens.png)
+![Issues screens page](/assets/images/screenshots/jira/screens.png)
 
 Click on "Configure" in the "Actions" column for the relevant "Screen".
 
 On this "Configure" page you'll be presented with a list of fields that are configured in this Jira screen. Go to the bottom of the page where the new field dropdown is located and select the required fields, as listed in the ["Errors"](#errors) section, from the dropdown. Go back to AppSignal and relink the Jira issue type.
 
-![Issue fields](/images/screenshots/jira/fields.png)
+![Issue fields](/assets/images/screenshots/jira/fields.png)
 
 Getting Jira working can be a bit of a hassle, but it should work if you follow the above steps with care. If you run into any issues, don't hesitate to contact us at [support@appsignal.com](mailto:support@appsignal.com) if other errors occur.
