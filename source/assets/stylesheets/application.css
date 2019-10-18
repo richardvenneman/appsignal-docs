@@ -2,4 +2,25 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "../design_language/css/defaults/all";
+@import "../design_language/css/defaults/fonts";
+
 @import "../design_language/css/components/avatar";
+@import "../design_language/css/components/bar";
+@import "../design_language/css/components/box";
+@import "../design_language/css/components/button";
+@import "../design_language/css/components/code";
+@import "../design_language/css/components/content";
+@import "../design_language/css/components/filter";
+@import "../design_language/css/components/grid";
+@import "../design_language/css/components/icon";
+@import "../design_language/css/components/message";
+@import "../design_language/css/components/nav";
+@import "../design_language/css/components/overlay";
+@import "../design_language/css/components/pagebar";
+@import "../design_language/css/components/pill";
+@import "../design_language/css/components/screenshot";
+@import "../design_language/css/components/table";
+@import "../design_language/css/components/toggle-text";
+@import "../design_language/css/components/toggle";
+@import "../design_language/css/components/type";
