@@ -1,5 +1,5 @@
-@tailwind "tailwindcss/base"
-@tailwind "tailwindcss/components"
-@tailwind "tailwindcss/utilities"
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@import "../design_language/css/components/avatar"
+@import "../design_language/css/components/avatar";
