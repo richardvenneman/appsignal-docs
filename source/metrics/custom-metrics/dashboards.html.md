@@ -8,7 +8,7 @@ These dashboards can be created based on [custom metrics](/metrics/custom.html) 
 
 This page describes how to create/edit dashboards for your apps using our YAML definition format.
 
-![Custom metrics demo dashboard](/images/screenshots/custom_metrics_dashboard.png)
+![Custom metrics demo dashboard](/assets/images/screenshots/custom_metrics_dashboard.png)
 
 ## Table of Contents
 
@@ -170,7 +170,7 @@ Sometimes a graph title doesn't tell the whole story. If you need a place for a 
 
 Set the `description` key with any string value to get a description in the graph as shown below. Multi line descriptions are wrapped on a single line and expanded on hover.
 
-![Graph description example](/images/screenshots/custom_metrics_graph_description.png)
+![Graph description example](/assets/images/screenshots/custom_metrics_graph_description.png)
 
 ###=dashboard-graphs-display Graph display
 
@@ -180,7 +180,7 @@ The default value is `LINE`. Use `AREA` to render areas beneath the lines and `A
 
 The image below shows the value of the `AREA_RELATIVE` display type. In the `LINE`/`AREA` charts you can see that the amount of data has incrased, but the `AREA_RELATIVE` graph at the bottom shows that the relation between transmitted/received has not changed over time.
 
-![Graph display example](/images/screenshots/custom_metrics_graph_display.png)
+![Graph display example](/assets/images/screenshots/custom_metrics_graph_display.png)
 
 ###=dashboard-graphs-line-label Line label format
 
@@ -281,7 +281,7 @@ The `draw_null_as_zero` option (`true` by default) allows configuration of the d
 
 See the difference in the graph below. With `draw_null_as_zero: true` the graph makes a sharp drop to `0` every time the app stopped reporting data. With `draw_null_as_zero: false` the graph looks less volatile in terms of lines moving up and down.
 
-![Draw NULL as zero option graph comparison screenshot](/images/screenshots/draw_null_as_zero.png)
+![Draw NULL as zero option graph comparison screenshot](/assets/images/screenshots/draw_null_as_zero.png)
 
 The configuration to generate the graphs above:
 

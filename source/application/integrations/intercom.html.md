@@ -59,14 +59,14 @@ Deploy this change to your server.
 
 In AppSignal, navigate to the site you want to enable Intercom for. Then go to "Notifiers" and activate the Intercom integration. Enter the App id and API key noted in step 2, and save.
 
-![intercom_ui](/images/screenshots/intercom/integration.png)
+![intercom_ui](/assets/images/screenshots/intercom/integration.png)
 
 On the integration page link AppSignal to Intercom.
 
-![intercom_ui](/images/screenshots/intercom/oauth.png)
+![intercom_ui](/assets/images/screenshots/intercom/oauth.png)
 
 Once completed, these steps will enable the Intercom integration. When a user experiences an error while on your app, an Intercom event will be created for that user.
 
-![events](/images/screenshots/intercom/events.png)
+![events](/assets/images/screenshots/intercom/events.png)
 
 You can use this as a segment filter too, for instance to target all users who experienced an error in the last 24 hours!

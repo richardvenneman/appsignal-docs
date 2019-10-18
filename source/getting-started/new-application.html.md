@@ -5,17 +5,17 @@ title: "Your first application"
 To get your app running on AppSignal you start by clicking the "add app"
 link on the application overview page.
 
-![Add app](/images/screenshots/dashboard.png)
+![Add app](/assets/images/screenshots/dashboard.png)
 
 You will first be asked for what language you want to install AppSignal. We
 currently support Ruby and Elixir.
 
-![Choose a language](/images/screenshots/language_chooser.png)
+![Choose a language](/assets/images/screenshots/language_chooser.png)
 
 After choosing a language you will see instructions on how to install AppSignal
 in your app. The following screenshot is for Ruby applications.
 
-![App blank slate](/images/screenshots/add_ruby_app.png)
+![App blank slate](/assets/images/screenshots/add_ruby_app.png)
 
 The installation instructions contain all the information needed to set
 up including easily copy-pastable commands that contain the correct

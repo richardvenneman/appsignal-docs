@@ -8,8 +8,8 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %link{:href => canonical_url(current_page.url), :rel => "canonical"}
     %title= title
-    = stylesheet_link_tag "application"
-    %link{:rel => "mask-icon", :href => "/images/appsignal-safari-icon.svg", :color => "#21375A" }
+    = javascript_include_tag "bundle"
+    %link{:rel => "mask-icon", :href => "/assets/images/appsignal-safari-icon.svg", :color => "#21375A" }
     %meta{:content => description_of_page(current_page), :name => "description"}
 
     %meta{:content => title, :property => "og:title"}
@@ -17,11 +17,11 @@
     %meta{:content => "en_US", :property => "og:locale"}
     %meta{:content => canonical_url(current_page.url), :property => "og:url"}
     %meta{:content => description_of_page(current_page), :property => "og:description"}
-    %meta{:content => canonical_url("/images/dl_logo/square-mark-dark.png"), :property => "og:image"}
+    %meta{:content => canonical_url("/assets/images/dl_logo/square-mark-dark.png"), :property => "og:image"}
 
     %meta{:content => "@appsignal", :name => "twitter:site"}
     %meta{:content => "summary", :name => "twitter:card"}
-    %meta{:content => canonical_url("/images/dl_logo/square-mark-dark.png"), :name => "twitter:image"}
+    %meta{:content => canonical_url("/assets/images/dl_logo/square-mark-dark.png"), :name => "twitter:image"}
     %meta{:content => "AppSignal logo icon", :name => "twitter:image:alt"}
 
     %link{:rel => "stylesheet", :href => "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"}
@@ -43,7 +43,6 @@
         = partial "footer"
       = partial "cookies"
 
-    = javascript_include_tag "application", :async => :async
     %script{:type => "text/javascript", :src => "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"}
     :javascript
       docsearch({

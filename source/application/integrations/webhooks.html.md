@@ -6,7 +6,7 @@ AppSignal can send notifications of new incidents to several services, see our f
 
 To receive a webhook, go to the "Notifications" tab the site's sidebar, click the "Add integration" and fill out the URL where you'd like to receive your webhook data.
 
-![Webhook](/images/screenshots/app_webhook.png)
+![Webhook](/assets/images/screenshots/app_webhook.png)
 
 ## Table of Contents
 

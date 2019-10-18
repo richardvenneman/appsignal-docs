@@ -10,4 +10,4 @@ invite other users and can determine which other users get to be owner.
 
 You can see the owners in the members screen. You can add change the role of users to member, owner or remove the user.
 
-![Members](/images/screenshots/org_members.png)
+![Members](/assets/images/screenshots/org_members.png)

@@ -26,7 +26,7 @@ Alerts can have four different states:
 - **Cooling down** means that an Alert is not over the threshold condition anymore, but will not be closed until the cooldown duration is over. If it reaches its threshold again within the cooldown period, it will move back to the "ongoing" status.
 - **Closed** means the Alert is not ongoing and not in the cooling down period. We don't call them "solved" because you still might want to look at what happened here.
 
-<img src="/images/anomaly_detection_alerts_flow.svg" class="full">
+    <img src="/assets/images/anomaly_detection_alerts_flow.svg" class="full">
 
 ### When will I be notified?
 

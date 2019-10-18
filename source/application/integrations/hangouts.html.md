@@ -15,22 +15,22 @@ Adding the integration consists of two steps, one on Google Hangouts Chat and on
 ### Google Hangouts Chat
 Head to the chat options and select "Configure webhooks'
 
-<img src="/images/screenshots/hangouts/hangouts_webhook.png" style="max-width: 650px" alt="Hangouts Webhook">
+<img src="/assets/images/screenshots/hangouts/hangouts_webhook.png" style="max-width: 650px" alt="Hangouts Webhook">
 
 Fill out the fields, for "Avatar url" we suggest: `https://appsignal.com/assets/appsignal-icon-square.png`
 
-<img src="/images/screenshots/hangouts/hangouts_webhook_configure.png" style="max-width: 650px" alt="Configure Hangouts Webhook">
+<img src="/assets/images/screenshots/hangouts/hangouts_webhook_configure.png" style="max-width: 650px" alt="Configure Hangouts Webhook">
 
 ### AppSignal
 
 On the desired app, head to "Notifiers" and select "Google Hangouts"
 
-<img src="/images/screenshots/hangouts/hangouts_appsignal.png" style="max-width: 650px" alt="Hangouts integration on AppSignal">
+<img src="/assets/images/screenshots/hangouts/hangouts_appsignal.png" style="max-width: 650px" alt="Hangouts integration on AppSignal">
 
 
 Fill out the form and paste the webhook url from step one in the "webhook ur" field. Make sure to pick a descriptive name for the integration such as "#errors channel on Hangouts"
 
-<img src="/images/screenshots/hangouts/hangouts_appsignal_form.png" style="max-width: 650px" alt="Hangouts integration on AppSignal">
+<img src="/assets/images/screenshots/hangouts/hangouts_appsignal_form.png" style="max-width: 650px" alt="Hangouts integration on AppSignal">
 
 You can test the integration after saving the form, a message should appear in your Hangouts chat.
 

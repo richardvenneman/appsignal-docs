@@ -14,14 +14,19 @@ set :layout, :article
 set :markdown_engine, :redcarpet
 set :markdown, AppsignalMarkdown::OPTIONS.merge(:renderer => AppsignalMarkdown)
 set :haml, :attr_wrapper => %(")
-set :css_dir, "stylesheets"
-set :js_dir, "javascripts"
-set :images_dir, "images"
+set :css_dir, "assets/stylesheets"
+set :js_dir, "assets/javascripts"
+set :images_dir, "assets/images"
 
 activate :syntax,
   :line_numbers => true,
   :css_class => "code-block"
-activate :sprockets
+
+activate :external_pipeline,
+  name: :webpack,
+  command: build? ? "yarn build" : "yarn dev",
+  source: ".tmp/dist",
+  latency: 1
 
 helpers do
   def description_of_page(page)

@@ -37,7 +37,7 @@ Organization topic.
 
 [Visit the Team permissions page for your app](https://appsignal.com/redirect-to/app?to=teams)
 
-![App settings teams](/images/screenshots/app_teams.png)
+![App settings teams](/assets/images/screenshots/app_teams.png)
 
 ## Push & Deploy
 

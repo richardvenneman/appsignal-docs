@@ -41,7 +41,7 @@ Link templates can be defined on AppSignal.com per application.
 
 The "Link templates" configuration can be found in the ["App settings" section](https://appsignal.com/redirect-to/app?to=edit) in the left-hand side navigation.
 
-![link templates](/images/screenshots/link_templates.png)
+![link templates](/assets/images/screenshots/link_templates.png)
 
 Link templates can contain variables, defined by wrapping them in percentage signs
 `%%`. For example, the `user_id` tag can be used in a link like so:
@@ -56,7 +56,7 @@ generated, all variables need to be present in the tags of a request.
 After adding tags in your app and defining link templates, links will be
 generated for each request in the "Overview" section.
 
-![link templates](/images/screenshots/link_templates_result.png)
+![link templates](/assets/images/screenshots/link_templates_result.png)
 
 [ruby-tagging]: /ruby/instrumentation/tagging.html
 [elixir-tagging]: /elixir/instrumentation/tagging.html

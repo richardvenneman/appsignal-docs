@@ -6,7 +6,7 @@ title: Asana
 
 Asana is a personal integration set up per user. This means it needs to be configured per user in AppSignal who want to use the Asana integration for AppSignal apps.
 
-<img src="/images/screenshots/asana/create_task.png" style="max-width: 650px" alt="Create an Asana task in AppSignal">
+<img src="/assets/images/screenshots/asana/create_task.png" style="max-width: 650px" alt="Create an Asana task in AppSignal">
 
 ## Adding Asana to your app
 
@@ -14,7 +14,7 @@ Asana is a personal integration set up per user. This means it needs to be confi
   - Open the "Apps" tab.
   - Click on the "Manage Developer Apps" link to get your API token.
 
-<img src="/images/screenshots/asana/profile_settings.png" style="max-width: 650px" alt="Asana profile settings - Apps tab">
+      <img src="/assets/images/screenshots/asana/profile_settings.png" style="max-width: 650px" alt="Asana profile settings - Apps tab">
 
 - Next, open your app on [AppSignal.com](https://appsignal.com/accounts).
   - Open the "Integrations" page for the app.

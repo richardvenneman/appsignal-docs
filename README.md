@@ -14,12 +14,13 @@ Run the following commands:
 ```sh
 git submodule init
 git submodule update
+yarn install
+bundle install
 ```
 
 ## Usage
 
 ```sh
-bundle install
 bundle exec middleman
 ```
 

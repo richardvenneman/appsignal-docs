@@ -15,7 +15,7 @@ You can create a `service_key` by adding a new "Service" under "Configuration" >
 Make sure that for "Integration type" the 3rd option (Use our API directly) is checked.
 The other details can be filled out at your own discretion.
 
-![Service key](/images/screenshots/pagerduty/service.png)
+![Service key](/assets/images/screenshots/pagerduty/service.png)
 
 After saving the form, you can see the `service_key`.
 
