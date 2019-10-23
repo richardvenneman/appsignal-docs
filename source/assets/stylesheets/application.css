@@ -1,6 +1,5 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
 @import "../design_language/css/defaults/all";
 @import "../design_language/css/defaults/fonts";
@@ -24,3 +23,5 @@
 @import "../design_language/css/components/toggle-text";
 @import "../design_language/css/components/toggle";
 @import "../design_language/css/components/type";
+
+@import "tailwindcss/utilities";
