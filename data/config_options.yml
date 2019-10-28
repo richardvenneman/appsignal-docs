@@ -34,7 +34,7 @@ options:
       default_value:
         markdown: "`\"\"` / detected by system"
       description: |
-        The environment of the app to be reported to AppSignal. This config option will be automatically detected in Rails apps. For other frameworks, the `RACK_ENV` environment variable is used to detect the environment.
+        The environment of the app to be reported to AppSignal. This config option will be automatically detected in Rails apps. For Rails apps the `RAILS_ENV` variable is used to detect the environment. For apps using other frameworks or none at all, the `RACK_ENV` environment variable is used.
 
         To override the automatic detecting, use the `APPSIGNAL_APP_ENV` environment variable.
 
@@ -53,7 +53,19 @@ options:
 
         -> **Note**: Changing the [name](#option-name) or environment of an existing app will create a new app on AppSignal.com.
 
-        -> **Note**: This config option has no config file key equivilant. To set the environment on AppSignal initialization, you'll need to [initialize the configuration manually](/ruby/instrumentation/integrating-appsignal.html#configuration-file).
+        -> **Note**: This config option has no config file key equivalent. To set the environment on AppSignal initialization, you'll need to [initialize the configuration manually](/ruby/instrumentation/integrating-appsignal.html#configuration-file).
+
+        ####^option-appsignal_app_env Custom environments in config file
+
+        There is no `env` key available in the `config/appsignal.yml` file. If you wish to dynamically set the environment name for an app in the config file it's possible to customize your config file to use the environment to create an environment.
+
+        ```yml
+        # config/appsignal.yml
+        <%= ENV["APPSIGNAL_APP_ENV"] %>:
+          active: true
+        ```
+
+        If you use another environment variable than `APPSIGNAL_APP_ENV` make sure that matches the value is any of the auto detected environment variable names (`RAILS_ENV` and `RACK_ENV`) or the value given to [`Appsignal::Config.new`](/ruby/instrumentation/integrating-appsignal.html#configuration-file).
     elixir:
       config_key: env
       since: 0.1.0
