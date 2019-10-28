@@ -1,8 +1,9 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
+
 @import "../design_language/css/defaults/all";
-@import "../design_language/css/defaults/fonts";
+@import  "./fonts";
 
 @import "../design_language/css/components/avatar";
 @import "../design_language/css/components/bar";
