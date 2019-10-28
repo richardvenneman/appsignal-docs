@@ -195,7 +195,7 @@ options:
         - Acceptable values: `8.8.8.8`, `my.custom.local.server`.
         - Not acceptable values: `foo`, `my.awesome.custom.local.dns.server`.
 
-        If the DNS server cannot be reached the agent will fall back on the host's DNS configuration and output a message in the `appsignal.log` file: `A problem occured while setting DNS servers`.
+        If the DNS server cannot be reached the agent will fall back on the host's DNS configuration and output a message in the `appsignal.log` file: `A problem occurred while setting DNS servers`.
     elixir:
       since: 1.3.0.beta.2
       type:
@@ -221,7 +221,7 @@ options:
         - Acceptable values: `8.8.8.8`, `my.custom.local.server`.
         - Not acceptable values: `foo`, `my.awesome.custom.local.dns.server`.
 
-        If the DNS server cannot be reached the agent will fall back on the host's DNS configuration and output a message in the `appsignal.log` file: `A problem occured while setting DNS servers`.
+        If the DNS server cannot be reached the agent will fall back on the host's DNS configuration and output a message in the `appsignal.log` file: `A problem occurred while setting DNS servers`.
   - config_key: enable_allocation_tracking
     env_key: APPSIGNAL_ENABLE_ALLOCATION_TRACKING
     ruby:

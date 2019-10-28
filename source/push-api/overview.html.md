@@ -91,7 +91,7 @@ An example of a log entry with an exception:
       "path":"/blog",
       "exception":[
         "RuntimeError",
-        "an error occured"
+        "an error occurred"
       ],
       "duration":1.4929999999999999,
       "time":"2012-08-22T15:30:45+02:00",
@@ -126,7 +126,7 @@ An example of a log entry with an exception:
         "script/rails:6:in `<main>'"
       ],
       "exception":"RuntimeError",
-      "message":"an error occured"
+      "message":"an error occurred"
     },
     "failed":true
   }
