@@ -20,7 +20,7 @@ options:
     description: |
       Configure AppSignal to be active or not for a given environment. Most commonly used in the [file configuration](index.html) per environment.
 
-      -> **Note**: When the [`APPSIGNAL_PUSH_API_KEY`](#option-push_api_key) environment variable is set, this defaults to `true`. Can be overridden by setting the system environment variable to `false`.
+      -> **Note**: When the [`APPSIGNAL_PUSH_API_KEY`](#option-push_api_key) environment variable is set, this defaults to `true`. This can be overridden by setting the `APPSIGNAL_ACTIVE` system environment variable to `false`: `APPSIGNAL_ACTIVE=false`.
   - named_key: env
     env_key: APPSIGNAL_APP_ENV
     required: true
@@ -136,6 +136,8 @@ options:
       The organization-level authentication key to authenticate with our Push API.
 
       Read more about the [AppSignal Push API key](/appsignal/terminology.html#push-api-key).
+
+      -> **Note**: When the [`APPSIGNAL_PUSH_API_KEY`](#option-push_api_key) system environment variable is set, the [`active`](#option-active) option will default to `true` instead of `false`. This means AppSignal will be consider active for the loaded environment even if `active` is set to `false` in the config file. For more information see the [`active`](#option-active) option.
   - config_key: ca_file_path
     env_key: APPSIGNAL_CA_FILE_PATH
     ruby:
