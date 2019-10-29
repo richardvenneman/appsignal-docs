@@ -7,7 +7,7 @@ title: "Integration gems"
    appsignal gem version 0.x.  
    When using the gem 1.x release and up no separate gems are required. Please
    consult the
-   [supported frameworks](/getting-started/supported-frameworks.html) page what
+   [supported integrations](/ruby/integrations/index.html) page what
    configuration integrations might need.
 
 Rails instruments ActiveRecord queries by default. But what if you use
