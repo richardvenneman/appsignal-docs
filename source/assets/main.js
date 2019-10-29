@@ -1,8 +1,8 @@
 // Legacy css
-import "./stylesheets/application-legacy.css.sass"
+import "./stylesheets/design-language-legacy.css.sass"
 
 // New css
-import "./stylesheets/application.css"
+import "./stylesheets/design-system.css"
 
 
 // All javascript
