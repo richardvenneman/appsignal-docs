@@ -60,7 +60,7 @@ config :appsignal, :config,
   ignore_namespaces: ["admin", "private"]
 ```
 
-You can also configure ignore actions using an environment variable.
+You can also configure ignore namespaces using an environment variable.
 
 ```bash
 export APPSIGNAL_IGNORE_NAMESPACES="admin,private"
