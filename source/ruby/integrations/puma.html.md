@@ -14,6 +14,7 @@ Support for Puma was added in AppSignal Ruby gem version `1.0`.
   - [Configuration](#minutely-probe-configuration)
       - [Secrets](#minutely-probe-configuration-secrets)
       - [Hostname](#minutely-probe-configuration-hostname)
+  - [Phased restart](#minutely-probe-phased-restart)
 
 ## Usage
 
@@ -27,7 +28,7 @@ The AppSignal Ruby gem automatically inserts a listener into the Puma server. No
 
 Since AppSignal Ruby gem `2.9.0` and up a [minutely probe](/ruby/instrumentation/minutely-probes.html) is activated by default. Once we detect these metrics we'll add a [magic dashboard](https://blog.appsignal.com/2019/03/27/magic-dashboards.html) to your apps.
 
-To enable the minutely probe, add the AppSignal plugin to your Puma configuration. This plugin will ensure AppSignal is started in Puma's main process. Which allows us to track Puma metrics in its single and [clustered mode](https://github.com/puma/puma/#clustered-mode).
+To enable the minutely probe, add the AppSignal plugin to your Puma configuration. This plugin will ensure AppSignal is started in Puma's main process. Which allows us to track Puma metrics in its single and [clustered mode][clustered mode].
 
 ```ruby
 # puma.rb
@@ -63,34 +64,50 @@ By default the Puma main process doesn't start your app. This means AppSignal is
 plugin :appsignal
 ```
 
-If you do not load this plugin AppSignal will still attempt to load automatically on boot, which only works in single mode and clustered mode when calling `preload_app!` in your `puma.rb` configuration file.
+If you do not load this plugin AppSignal will still attempt to load automatically on boot, which only works in [thread pool mode][thread pool] and [clustered mode][clustered mode] when calling `preload_app!` in your `puma.rb` configuration file.
 
 Additional configuration may be required to load your app config and/or [secrets](#minutely-probe-configuration-secrets) as well in order to load the AppSignal config.
 
 ####^minutely-probe-configuration Secrets
 
-If you use a library such as [Rails](https://guides.rubyonrails.org/security.html#custom-credentials) or [dotenv](https://github.com/bkeepers/dotenv) to manage your app's secrets and configure AppSignal, you will need to load these in your Puma configuration using the `before_fork` block. This is required because Puma won't load your app in its main process by default. Without this additional config the AppSignal config will fail to load and AppSignal will not start.
+If you use a library such as [Rails](https://guides.rubyonrails.org/security.html#custom-credentials) or [dotenv](https://github.com/bkeepers/dotenv) to manage your app's secrets and configure AppSignal, you will need to load these in your Puma configuration.
 
-The `before_fork` block is run in Puma's main process _before_ the AppSignal plugin is loaded. When the AppSignal plugin is loaded afterward it will load its configuration and start AppSignal with the minutely probes.
+Using the Puma plugin AppSignal loads a minutely probe in Puma's main process. The rest of your app is not loaded by default in Puma's main process (unless you use `preload_app!`, which may not be suitable for your app). Without additional configuration the AppSignal config will fail to load and AppSignal will not start.
+
+There are no hooks "on boot"-hook available in Puma to load your extra config in the main process. To load your additional config add it to the root of your `puma.rb` configuration file like in the example below.
 
 ```ruby
-# puma.rb
-plugin :appsignal
+# puma.rb / config/puma.rb
+plugin :appsignal # Add this plugin
 
-before_fork do # Triggered before the AppSignal plugin is loaded
-  # Rails secrets
-  # Add this line when using Rails secrets in your `config/appsignal.yml` file.
-  require "rails"
+# Rails secrets
+# Add this line when using Rails secrets in your `config/appsignal.yml` file.
+require "rails"
 
-  # Dotenv
-  # Add this section when using dotenv for secrets management
-  require "dotenv"
-  Dotenv.load
-  # or for Rails apps
-  require "'dotenv/rails-now"
-end
+# Dotenv
+# Add this section when using dotenv for secrets management
+require "dotenv"
+Dotenv.load
+# or for Rails apps
+require "dotenv/rails-now"
+
+# Rest of your Puma config...
 ```
 
 ####^minutely-probe-configuration Hostname
 
 This probe listens to the [`hostname` config option](/ruby/configuration/options.html#option-hostname) for the hostname tag added to all its metrics. If none is set it will try to detect it automatically. Use the `hostname` config option to set the hostname if you want to change the detected hostname.
+
+###^minutely-probe Phased restart
+
+Puma [phased restarts](https://github.com/puma/puma/blob/master/docs/restart.md) don't restart the main Puma process. This means that the AppSignal minutely probe does not get restarted either on a phased restart. If you have made changes to the AppSignal config, you will need to do a full restart of your Puma app afterward to have the configuration change take effect.
+
+```sh
+# Change AppSignal config, restart once using:
+pumactl restart
+# instead of
+pumactl phased-restart
+```
+
+[thread pool]: https://github.com/puma/puma/#thread-pool
+[clustered mode]: https://github.com/puma/puma/#clustered-mode
