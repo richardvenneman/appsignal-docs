@@ -19,7 +19,7 @@
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
-    "@appsignal/design-system": "appsignal/design-system#tailwind-toolchain"
+    "@appsignal/design-system": "appsignal/design-system#master"
   },
   "scripts": {
     "build": "webpack --bail",
