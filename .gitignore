@@ -3,6 +3,5 @@
 /.sass-cache
 .DS_Store
 .env
-bin
 /node_modules
 .tmp
