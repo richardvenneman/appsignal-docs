@@ -22,6 +22,7 @@ documentation][hex-appsignal].
 - [Channels](#channels)
   - [Channels instrumentation with a channel's handle](#channel-instrumentation-with-a-channel-39-s-handle)
   - [Channels instrumentation without decorators](#channel-instrumentation-without-decorators)
+  - [Adding channel payloads](#adding-channel-payloads)
 - [Instrumentation for custom Plugs](#instrumentation-for-included-plugs)
 - [Custom instrumentation](#custom-instrumentation)
 
@@ -161,6 +162,25 @@ defmodule SomeApp.MyChannel do
       reply = perform_work()
       {:reply, {:ok, reply}, socket}
     end)
+  end
+end
+```
+
+### Adding channel payloads
+
+Channel payloads aren't included by default, but can be added by using `Appsignal.Transaction.set_sample_data/2` using the "params" key:
+
+```elixir
+defmodule SomeApp.MyChannel do
+  use Appsignal.Instrumentation.Decorators
+
+  @decorate channel_action
+  def handle_in("ping", payload, socket) do
+    Appsignal.Transaction.set_sample_data(
+      "params", Appsignal.Utils.MapFilter.filter_parameters(payload)
+    )
+
+    # your code here..
   end
 end
 ```
