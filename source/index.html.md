@@ -9,7 +9,7 @@ In this documentation we aim to give you all the information you need to get sta
 
 ## Getting started
 
-- [Your first application](/getting-started/new-application.html)
+- [Add a new application](/application/new-application.html)
 - [AppSignal for Ruby](/ruby/index.html)
 - [AppSignal for Elixir](/elixir/index.html)
 - [AppSignal for Front-end](/front-end/index.html)

@@ -12,7 +12,10 @@
   to = "/organization/team/owners.html"
 [[redirects]]
   from = "/getting-started/set-up-a-new-app.html"
-  to = "/getting-started/new-application.html"
+  to = "/application/new-application.html"
+[[redirects]]
+  from = "/getting-started/new-application.html"
+  to = "/application/new-application.html"
 [[redirects]]
   from = "/getting-started/manage-app-settings.html"
   to = "/application/settings.html"

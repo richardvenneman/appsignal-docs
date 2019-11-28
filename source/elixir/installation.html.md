@@ -2,7 +2,7 @@
 title: "Installing AppSignal for Elixir"
 ---
 
-Please follow the [installation guide](/getting-started/new-application.html) when adding a new application to AppSignal.
+Please follow the [installation guide](/application/new-application.html) when adding a new application to AppSignal.
 
 Installing the AppSignal package in your Elixir application requires a couple
 manual steps. Currently pure Elixir applications and the Phoenix framework are

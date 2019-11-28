@@ -15,7 +15,7 @@ Command line tool to install AppSignal in a Ruby application.
 
 ## Description
 
-The command line tool is primarily used to help set up the configuration for AppSignal. Please follow the [installation guide](/getting-started/new-application.html) when adding a new application to AppSignal.
+The command line tool is primarily used to help set up the configuration for AppSignal. Please follow the [installation guide](/application/new-application.html) when adding a new application to AppSignal.
 
 Full integration works automatically for Rails. Other frameworks get referred to
 our documentation pages for [integrations](/ruby/integrations/).

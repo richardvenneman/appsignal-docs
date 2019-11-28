@@ -2,7 +2,7 @@
 title: "Applications"
 ---
 
-Applications (previously known as "sites", also referred to as "apps") are Ruby and Elixir applications monitored by AppSignal. Every application is unique by the combination of its name and environment.
+Applications (previously known as "sites", also referred to as "apps") are Ruby, Elixir and JavaScript front-end applications monitored by AppSignal. Every application is unique by the combination of its name and environment.
 
 A list of Applications appears on the [Application index] and in the application quick switcher. Every application has a parent [organization](/organization/index.html), which can have multiple applications. (Exception: Organizations created by the Heroku add-on only support one application.)
 
@@ -22,9 +22,7 @@ A list of Applications appears on the [Application index] and in the application
 
 ## Adding applications
 
-To add a new Application to AppSignal, please follow the [setup wizard](/getting-started/new-application.html) by pressing the "Add app" button for the organization you wish to add an application to on the [Application index].
-
-AppSignal will detect and register new applications when it receives data from the Application and not before it. Using the [Ruby](/ruby/installation.html) and [Elixir](/elixir/installation.html) installers this should be done automatically. When installing AppSignal manually, please use the demo command line tool ([Ruby](/ruby/command-line/demo.html) / [Elixir](/elixir/command-line/demo.html)) or start your application and perform some requests/jobs.
+To add a new Application to AppSignal, please follow the [add a new application setup wizard](/application/new-application.html).
 
 ## Environments
 
@@ -59,7 +57,7 @@ An application (app) in AppSignal is the combination of the application name and
 
 To remove an app from AppSignal a couple things need to be done to make sure it's removed completely and won't continue to send data to AppSignal's servers.
 
-- First remove the AppSignal integration (Ruby gem / Elixir package) from your app.
+- First remove the AppSignal integration (Ruby gem, Elixir package and JavaScript packages) from your app and deploy your app.
 - Remove any AppSignal configuration files and system environment variables.
 - Redeploy your application. This will make sure the AppSignal servers won't continue to receive data from your app.
   - Make sure all your webservers are restarted.

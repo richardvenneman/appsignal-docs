@@ -1,5 +1,5 @@
 ---
-title: "Your first application"
+title: "Add a new application"
 ---
 
 To get your app running on AppSignal you start by clicking the "add app" link on the application overview page, or use this link to the ["add app" wizard for your organization](https://appsignal.com/redirect-to/organization?to=sites/new).
@@ -19,3 +19,7 @@ Some language integrations and support for libraries require some manual steps t
 - [Ruby installation instructions](/ruby/installation.html)
 - [Elixir installation instructions](/elixir/installation.html)
 - [JavaScript installation instructions](/front-end/installation.html)
+
+AppSignal will detect and register new Ruby and Elixir applications when it receives data from the application and not before it. Using their installers this should be done automatically. When installing AppSignal manually, please use the demo command line tool ([Ruby](/ruby/command-line/demo.html) / [Elixir](/elixir/command-line/demo.html)) or start your application and perform some requests/jobs to send data to AppSignal.com.
+
+JavaScript applications will create an app beforehand that generate an application-specific Push API key to be used for that application.
