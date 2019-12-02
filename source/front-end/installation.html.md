@@ -17,7 +17,7 @@ You can then import and use the package in your bundle:
 import Appsignal from "@appsignal/javascript" // For ES Module
 const Appsignal = require("@appsignal/javascript").default // For CommonJS module
 
-const appsignal = new Appsignal({ 
+const appsignal = new Appsignal({
   key: "YOUR FRONTEND API KEY"
 })
 ```
@@ -33,6 +33,8 @@ export default new Appsignal({
 ```
 
 Currently, we have no plans to supply a CDN-hosted version of this library.
+
+!> **NOTE:** If you are running a CDN in front of your assets, you'll need to make [two changes](/front-end/troubleshooting.html) for error reporting to be able to send errors to our API endpoint. Read more about the [required changes](/front-end/troubleshooting.html).
 
 ### Supported browsers
 
