@@ -3,7 +3,10 @@
   to = "/appsignal/contributing.html"
 [[redirects]]
   from = "/getting-started/your-user-account.html"
-  to = "/getting-started/user-account.html"
+  to = "/user-account/index.html"
+[[redirects]]
+  from = "/getting-started/user-account.html"
+  to = "/user-account/index.html"
 [[redirects]]
   from = "/getting-started/invite-new-members.html"
   to = "/organization/team/members.html"

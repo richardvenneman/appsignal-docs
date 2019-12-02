@@ -5,12 +5,6 @@
     %li.section
       %h2= link_with_active "FAQs", "/faq.html"
     %li.section
-      %h2{:data => { :menu => "getting-started" } }
-        Getting started
-      %ul
-        %li= link_with_active "Your user account", "/getting-started/user-account.html"
-
-    %li.section
       %h2{:data => { :menu => "application" } }
         Your applications
       %ul
@@ -57,6 +51,7 @@
       %h2{:data => { :menu => "account" } }
         Your user account
       %ul
+        %li= link_with_active "Overview", "/user-account/index.html"
         %li= link_with_active "Email addresses", "/user-account/email-addresses.html"
         %li= link_with_active "Two-factor authentication", "/user-account/two-factor-authentication.html"
   %ul

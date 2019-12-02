@@ -100,7 +100,7 @@ internals you might need to pass along more data if you want event details to
 show up in AppSignal. This can be a descriptive title, or more specific
 information like the query from a database call. We already do this for
 ActiveRecord, Sequel, Redis, MongoDB, Sinatra, Grape,
-[and more](/getting-started/supported-frameworks.html).
+[and more](/ruby/integrations).
 
 There are two helpers to allow you to instrument your code with AppSignal.
 

@@ -11,7 +11,7 @@ If your app is not connected to a repository on GitHub you can connect it. If
 it is connected you can change the linked repository. You need to authenticate
 with GitHub to use this feature. You can either do this by signing in via
 GitHub, or by linking your GitHub account in your [user
-setttings](/getting-started/your-user-account.html). An application linked to
+settings](/user-account/index.html). An application linked to
 GitHub gives you additional features like direct links to commits.
 
 [Visit the "General" page for your app](https://appsignal.com/redirect-to/app?to=edit)

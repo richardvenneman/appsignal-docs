@@ -8,11 +8,6 @@ $(document).ready(function() {
   var navigationElement = $("#navigation");
   var navigationElements = $(".mod-side_nav h2");
 
-  // Open getting started on first visit
-  if(!NavigationStore.isSet("getting-started")) {
-    NavigationStore.set("getting-started", true);
-  }
-
   // Make sure the section of the current page is open
   var currentMenu = navigationElement.find("a.active").parents(".section").find("h2").data("menu");
   if(currentMenu) {
