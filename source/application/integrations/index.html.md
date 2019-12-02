@@ -10,7 +10,6 @@ To enable notifications and issue tracker integration for external services, go 
 
 - [Asana](/application/integrations/asana.html)
 - [Clubhouse](/application/integrations/clubhouse.html)
-- [Discord](#discord)
 - [Flowdock](#flowdock)
 - [Geckoboard](#geckoboard)
 - [GitHub](#github)
@@ -26,14 +25,6 @@ To enable notifications and issue tracker integration for external services, go 
 - [Slack](/application/integrations/slack.html)
 - [Trello](#trello)
 - [Webhook](/application/integrations/webhooks.html)
-
-## Discord
-
-All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
-
-We support Discord through their [Slack-compatible webhook](https://discordapp.com/developers/docs/resources/webhook#execute-slackcompatible-webhook). To enable it, [find your webhook URL](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks), append `/slack` to it, and use it as the webhook URL in our [Slack](#slack) integration.
-
-Website: [https://discordapp.com](https://discordapp.com)
 
 ## Flowdock
 
