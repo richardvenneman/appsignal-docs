@@ -12,7 +12,7 @@ by clicking the settings link at the top right of the screen.
 
 You can make the invitee an account owner by the checking the owner box.
 If you check one of the teams the invitee will become a member of those
-teams. See [Manage owners & teams](/getting-started/manage-owners-teams.html)
+teams. See [Manage owners & teams](/organization/team/)
 for more information about owners and teams.
 
 ![Invite a new user](/assets/images/screenshots/org_team_invitation.png)
