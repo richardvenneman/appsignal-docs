@@ -66,8 +66,10 @@ For more information about this config option, see the [`ignore_namespaces` conf
 ```yaml
 default: &defaults
   ignore_namespaces:
-    - "admin"
-    - "private"
+    - "http_request" # "web" namespace on AppSignal
+    - "background_job" # "background" namespace on AppSignal
+    - "action_cable"
+    - "frontend"
 ```
 
 You can also configure ignore namespaces using an environment variable.
