@@ -4,7 +4,7 @@ title: "Minutely probes"
 
 Minutely probes are a mechanism to periodically send [custom metrics](/metrics/custom.html) to AppSignal. This is a system that is included in the AppSignal Elixir package by default. At the start of every minute the minutely probes are triggered to collect metrics and then snoozed until the next minute.
 
-By default the AppSignal Elixir gem enables a probe for the ErlangVM.
+By default the AppSignal Elixir package enables a probe for the ErlangVM.
 
 -> **Note**: We recommend using AppSignal Elixir package `1.10.1` and up when using this feature.
 
@@ -55,7 +55,7 @@ end)
 
 A module based function can be useful if you have a more complex probe, or a probe that has dependencies.
 
-```ruby
+```elixir
 # lib/my_app/probes/my_probe.ex
 defmodule MyApp.MyProbe do
   def call do
@@ -99,7 +99,7 @@ end
 
 ## Overriding default probes
 
-AppSignal ships with default probes for certain [integrations](/ruby/integrations/). If for any reason this probe does not function properly or requires some additional configuration for your use case, you can override the default probe by registering a new probe with the same key.
+AppSignal ships with default probes for certain [integrations](/elixir/integrations/). If for any reason this probe does not function properly or requires some additional configuration for your use case, you can override the default probe by registering a new probe with the same key.
 
 ```elixir
 # lib/my_app/application.ex

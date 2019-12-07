@@ -29,7 +29,7 @@ servers, the new namespace will appear in the app navigation on AppSignal.com.
 Note: Data previously reported for the same action is not moved to the new
 namespace.
 
-```ruby
+```elixir
 # In a Phoenix controller
 defmodule AppsignalPhoenixExampleWeb.AdminController do
   use AppsignalPhoenixExampleWeb, :controller

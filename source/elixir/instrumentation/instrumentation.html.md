@@ -23,7 +23,7 @@ package](https://hexdocs.pm/appsignal/).
 
 -> **Note**: This page only describes how to add performance instrumentation to
    your code. To track errors please read our
-   [exception handling](/ruby/instrumentation/exception-handling.html) guide.
+   [exception handling](/elixir/instrumentation/exception-handling.html) guide.
 
 ## Table of Contents
 

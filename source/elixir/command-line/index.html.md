@@ -20,7 +20,7 @@ Read more about the [appsignal diagnose][cli-diagnose] command line tool.
 
 ## Demo
 
-A command to demonstrate and test the AppSignal for Elixir package gem. Useful for testing the AppSignal installation and configuration.
+A command to demonstrate and test the AppSignal for Elixir package. Useful for testing the AppSignal installation and configuration.
 
 Read more about the [appsignal demo][cli-demo] command line tool.
 
