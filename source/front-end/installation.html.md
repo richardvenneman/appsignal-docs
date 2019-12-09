@@ -5,12 +5,7 @@ title: "Installing AppSignal for JavaScript"
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Requirements](#requirements)
-  - [Configuration](#configuration)
-      - [Manual configuration](#manual-configuration)
-  - [Run your application!](#run-your-application)
-  - [Optional: Add Phoenix instrumentation](#optional-add-phoenix-instrumentation)
-  - [Optional: Add custom instrumentation](#optional-add-custom-instrumentation)
+  - [Supported browsers](#supported-browsers)
 - [Uninstall](#uninstall)
 
 ## Installation
