@@ -66,7 +66,9 @@ starting an AppSignal transaction first.
 try do
   raise "Oops!"
 rescue
-  e -> Appsignal.send_error(e)
+  e ->
+    stack = System.stacktrace
+    Appsignal.send_error(e, "error message", stack)
 end
 ```
 
