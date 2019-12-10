@@ -14,7 +14,7 @@ To make sure AppSignal has enough time to flush data to its agent, call `Appsign
 
 ## Catching errors
 
-To wrap errors in your task to be sent to AppSignal, add a `rescue` block to catch errors from your code. Pass the captured exception to `Appsignal.send_error/1` to report it to AppSignal. Add an `after` clause to your `rescue` block to call `Appsignal.Nif.stop/0`.
+To wrap errors in your task to be sent to AppSignal, add a `rescue` block to catch errors from your code. Pass the captured exception to `Appsignal.send_error/3` to report it to AppSignal. Add an `after` clause to your `rescue` block to call `Appsignal.Nif.stop/0`.
 
 ``` elixir
 defmodule Mix.Tasks.Rescue do
@@ -26,7 +26,7 @@ defmodule Mix.Tasks.Rescue do
     raise "rescue!"
   rescue
     exception ->
-      Appsignal.send_error(exception)
+      Appsignal.send_error(exception, "error message", System.stacktrace)
       reraise exception, __STACKTRACE__
   after
     Appsignal.Nif.stop
