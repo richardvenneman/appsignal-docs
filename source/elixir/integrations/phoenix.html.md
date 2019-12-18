@@ -87,7 +87,7 @@ config :phoenix, :template_engines,
 
 If you're using Ecto 3, attach `Appsignal.Ecto` to Telemetry query events in your application's `start/2` function by calling `:telemetry.attach/4`. In most Phoenix applications, the application's start function is located in a module named `YourAppName.Application`:
 
-```
+``` elixir
 defmodule AppsignalPhoenixExample.Application do
   use Application
 
