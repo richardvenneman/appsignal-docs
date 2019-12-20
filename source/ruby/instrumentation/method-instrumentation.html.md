@@ -1,11 +1,10 @@
 ---
 title: "Add method instrumentation"
 ---
+
 -> This feature is available since Ruby gem version 1.3 and only works for classes.
 
-Sometimes the default instrumentation is just not accurate enough. Every
-application is different, and so is the code that runs it. Developers know what
-code and, more accurately, what methods are slow.
+Sometimes [instrumentation blocks](/ruby/instrumentation/instrumentation.html) are not accurate enough. Every application is different, and so is the code that runs it. Developers know what code and, more accurately, what methods to instrument.
 
 It's possible to instrument methods in your Ruby code directly with AppSignal.
 Using the `appsignal` Ruby gem you can use our object integrations which
