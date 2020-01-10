@@ -32,7 +32,7 @@ To enable the minutely probe, add the AppSignal plugin to your Puma configuratio
 
 ```ruby
 # puma.rb
-plugin :appsignal
+plugin :appsignal # Available Ruby gem 2.9.17 and higher
 ```
 
 Your app may require [additional configuration](#minutely-probe-configuration) for AppSignal to start in the Puma main process to collect [metrics](#minutely-probe-metrics).
