@@ -39,6 +39,8 @@ This config option is set per instance of an application which has the benefit o
 
 For example: If one machine is still running an older version of the application all the errors from that instance are reported under the previous deploy marker rather than the last known deploy marker.
 
+AppSignal will create a new deploy marker when it receives [transaction data](/appsignal/terminology.html#transactions). When the revision config option is set for your app, the revision is stored on a transaction that tracks a web request / background job. When our processor on the AppSignal servers detects a new revision it will create a new deploy marker for the parent app with the revision from the transaction.
+
 ### Config option
 
 The `revision` config option has been released in [Ruby](/ruby/configuration/options.html#option-revision) gem version `2.6.1` and [Elixir](/elixir/configuration/options.html#option-revision) package version `1.6.3`.
