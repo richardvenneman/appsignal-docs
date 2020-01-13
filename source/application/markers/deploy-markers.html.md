@@ -78,9 +78,11 @@ When using Heroku with the [Heroku Labs: Dyno Metadata](https://devcenter.heroku
 
 ## Manually create a Deploy marker
 
-Manually creating a deploy marker is a method that's only really useful for small applications that use one application instance. It creates a new deploy marker at a specific time, regardless of the version the application is actually running. This also means it's also more error prone.
+-> Manually creating a deploy marker using this method is only useful for small applications that use one application instance. It creates a new deploy marker at a specific time, regardless of the version the application is actually running. This also means it's also more error prone to group data that shouldn't belong to it under the deploy. We recommend you use the [`revision` config option method](#revision-config-option).
 
-This method requires that you send a POST request to the AppSignal Push API markers endpoint. This can be done with a CLI tool (for Ruby) or with a manual HTTP POST request. There is no CLI tool available for our Elixir package.
+This method of reporting new deploys to AppSignal requires that you send a POST request to the AppSignal Push API markers endpoint. This can be done with a [(deprecated) CLI tool (for Ruby)][notify_of_deploy] or with a manual HTTP POST request for other languages. There is no CLI tool available for our other supported languages.
+
+When the deploy marker create/notify request is received by the AppSignal servers, all data that is processed by our servers after that time is tracked under the newly created deploy.
 
 To create a Deploy marker with a HTTP POST request you can use curl or some other tool like it. The payload of the request is a JSON object with data about the marker, such as the revision, user who deployed it and the application's repository.
 
@@ -88,4 +90,6 @@ Read more about how to create Deploy markers with our Push API in our [Push API 
 
 ### Ruby CLI tool
 
-For the AppSignal for Ruby gem we have included a CLI tool to allow creation of deploy markers from your app. See the [`notify_of_deploy` CLI command](/ruby/command-line/notify_of_deploy.html) documentation for more information.
+The AppSignal for Ruby gem includes a (deprecated) CLI tool to allow creation of deploy markers from your app. See the [`notify_of_deploy` CLI command][notify_of_deploy] documentation for more information.
+
+[notify_of_deploy]: /ruby/command-line/notify_of_deploy.html
