@@ -14,7 +14,11 @@ When a new deploy is detected, the list of incidents is empty for the newest dep
 
 - [Deploy methods](#deploy-methods)
   - [Revision config option](#revision-config-option) (recommended method)
+      - [Heroku support](#heroku-support)
+      - [Config option](#config-option)
+      - [System environment variable](#system-environment-variable)
   - [Manually create a Deploy marker](#manually-create-a-deploy-marker)
+      - [Ruby CLI tool](#ruby-cli-tool)
 
 ## Deploy methods
 
@@ -29,13 +33,11 @@ The second approach (creating a deploy marker manually) is a method only really 
 
 ## Revision config option
 
-The recommended approach of letting AppSignal know a new version of your application is deployed is by using the `revision` config option or the `APP_REVISION` environment variable ([Ruby](/ruby/configuration/options.html#option-revision)/[Elixir](/elixir/configuration/options.html#option-revision)).
+The recommended approach of letting AppSignal know a new version of your application is deployed is by using the `revision` config option or the `APP_REVISION` environment variable ([Ruby](/ruby/configuration/options.html#option-revision)/[Elixir](/elixir/configuration/options.html#option-revision)). This is automatically detected for [Heroku apps](#heroku-support) using the dyno metadata lab feature.
 
-This config option is set per instance of an application which has the benefit of every version of an application running at the same time reporting the errors under the correct deploy rather than the latest AppSignal knows about.
+This config option is set per instance of an application which has the benefit of every version of an application running at the same time reporting the errors under the correct deploy, rather than the latest deploy that [has been reported](#manually-create-a-deploy-marker) to AppSignal.
 
 For example: If one machine is still running an older version of the application all the errors from that instance are reported under the previous deploy marker rather than the last known deploy marker.
-
-When using Heroku with the [Heroku Labs: Dyno Metadata](https://devcenter.heroku.com/articles/dyno-metadata) enabled it will automatically set the `revision` config option to to the `HEROKU_SLUG_COMMIT` system environment variable. This will automatically report new deploys when the Heroku app gets deployed.
 
 ### Config option
 
@@ -67,6 +69,10 @@ export APP_REVISION="cf8bc42"
 # Start your application
 # bundle exec rackup app.rb
 ```
+
+### Heroku support
+
+When using Heroku with the [Heroku Labs: Dyno Metadata](https://devcenter.heroku.com/articles/dyno-metadata) enabled it will automatically set the `revision` config option to the `HEROKU_SLUG_COMMIT` system environment variable. This will automatically report new deploys when the Heroku app gets deployed.
 
 ## Manually create a Deploy marker
 
