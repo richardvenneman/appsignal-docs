@@ -1,8 +1,8 @@
 ---
-title: How AppSignal operates
+title: How AppSignal integrations operate
 ---
 
-AppSignal consists of many different systems working together. This page will explain what systems are part of the integrations we ship for Ruby and Elixir, and how they work together.
+AppSignal consists of many different systems working together. This page will explain what systems are part of the integrations we ship for [Ruby](/ruby) and [Elixir](/elixir), and how they work together.
 
 - [Language libraries](#language-libraries)
 - [Extension](#extension)
