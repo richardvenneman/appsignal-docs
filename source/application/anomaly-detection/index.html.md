@@ -2,9 +2,9 @@
 title: "Anomaly detection"
 ---
 
-With Anomaly detection you can configure Triggers to send notifications when a metric value goes over, or dips below, a threshold. For example: When the error rate of an application goes over 5 % or free memory dips below 100MB.
+With [Anomaly detection](https://appsignal.com/redirect-to/app?to=alerts) you can configure Triggers to send notifications when a metric value goes over, or dips below, a threshold value. For example: When the error rate of an application goes over 5 % or free memory dips below 100MB.
 
-Anomaly detection works by detecting changes in metric values on a minutely basis. When a threshold condition is reached we will notify you of the new alert created by this event, and we'll notify you again when the situation no longer occurs.
+Anomaly detection works by detecting changes in metric values on a minutely basis. When a threshold condition is reached we will notify you of the newly alert created by this event, and we'll notify you again when the situation no longer occurs.
 
 Sometimes it's good to know immediately when a threshold is reached, at other times it may be good to wait a few minutes before alerting you. For this you can use [warm-ups and cooldowns](#warm-up-and-cooldown).
 
@@ -71,7 +71,9 @@ Warm-up and cooldown settings can be configured on a per Trigger basis. The sett
 
 When a threshold condition is met an Alert is opened, e.g. the error rate is higher than 5%.
 
-When a warm-up duration is configured for a trigger it will wait with notifying you until after the warm-up time has passed. The threshold condition needs to be met for the entire warm-up duration before the alert is opened. The alert in warm-up is immediately closed if the condition is no longer met during this time.
+When a warm-up duration is configured for a trigger it will wait with opening the alert until after the warm-up time has passed. The threshold condition needs to be met for the entire warm-up duration before the alert is opened.
+
+When an alert's threshold condition is not met for the entire duration of the warm-up time, and thus not opened, the alert is removed. It will also not show as a closed alert in the [alerts table](https://appsignal.com/redirect-to/app?to=alerts). This is to avoid noise in the table from unopened alerts.
 
 Alerts that have only entered the warm-up phase are visible in the AppSignal web interface, but no notification will be send for these alerts.
 
