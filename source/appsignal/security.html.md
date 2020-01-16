@@ -42,9 +42,7 @@ our network is locked down with firewalls and limited access.
 
 ## Your data
 
-All the data we collect from your application is yours and can be retrieved at
-any point in time through [our API](/api/index.html). You
-can remove your data at any time in "App Settings > General".
+All the data we collect from your application is yours and can be retrieved at any point in time through [our API](/api/index.html). You can remove your data at any time in the [App Settings](https://appsignal.com/redirect-to/app?to=edit) for your app.
 
 ## Incidents
 
