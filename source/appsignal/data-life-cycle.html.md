@@ -55,9 +55,7 @@ Like transaction data from [language libraries](#language-libries), metrics data
 
 #### Clock drift on app servers
 
-The data that's processed has a timestamp attached to it which we use to determine when this data was created. This timestamp is based on the app instance server's date and time. Computers can experience [clock drift](https://en.wikipedia.org/wiki/Clock_drift), causing the server's time to diverge more and more from the reference clock, the current time. This means that a server's clock can be several minutes ahead or behind of the actual time. Since the data is using the server's timestamp, if the server is out of sync, the data that's being sent is also out of sync.
-
-To minimize clock drift we recommend you set up your servers to automatically synchronize with an [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol) server.
+ Read more about how AppSignal handles time, what clock drift is and how to set up NTP synchronization on our [about time page](/support/about-time.html).
 
 #### Processing of metrics data
 
