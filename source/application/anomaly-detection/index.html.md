@@ -16,6 +16,7 @@ Sometimes it's good to know immediately when a threshold is reached, at other ti
 - [Warm-up and cooldown](#warm-up-and-cooldown)
   - [Warm-up](#warm-up)
   - [Cooldown](#cooldown)
+- [Data processing](#data-processing)
 
 ## Alert states
 
@@ -84,3 +85,15 @@ When an Alert is opened by a Trigger it will automatically close when the Trigge
 In order to not get overwhelmed with notifications about a Trigger threshold condition that constantly dips below and above a certain value you can use Trigger cooldowns.
 
 Triggers with cooldowns wait for the specified amount of time in minutes before closing an Alert. When it doesn't occur again in the cooldown time the Alert is finally closed. If it does occur, the Alert is reopened without an explicit notification.
+
+## Data processing
+
+The metrics used by triggers to create alerts are not instantly processed when the metrics are sent in the app. The metrics data goes through multiple systems before it arrives in our processor. The data may also need to be sent from multiple servers, [sending data at different intervals](/appsignal/how-appsignal-operates.html#agent). The processor then waits* until all the data for a minute has arrived before processing that data and creating/updating alerts.
+
+If you experience problems with the metrics being reported by AppSignal for Anomaly detection, make sure the app's servers are all reporting the same time by configuring them using [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol). Incorrect or different reported times for data sent by multiple app servers can result in Alerts never being opened or closed.
+
+Learn more about how AppSignal processes data for Anomaly detection and what this means for the alerts on the [data life cycle page][data life cycle].
+
+*: For the specific wait time, consult our [data life cycle page][data life cycle].
+
+[data life cycle]: /appsignal/data-life-cycle.html
