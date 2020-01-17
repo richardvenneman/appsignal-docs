@@ -12,7 +12,7 @@ up.
 
 See also our announcement posts about Custom markers:
 
-- [Introducing custom metrics](http://blog.appsignal.com/2016/10/28/custom-markers.html)
+- [Introducing custom markers](http://blog.appsignal.com/2016/10/28/custom-markers.html)
 - [Add custom markers from any graph](http://blog.appsignal.com/2016/11/28/custom-markers-from-any-graph.html)
 
 ## Table of Contents
