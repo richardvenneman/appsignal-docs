@@ -5,6 +5,7 @@ title: "Terminology"
 At AppSignal we use a lot of technical terms. Read on to learn more about the
 language of AppSignal.
 
+- [Actions](#actions)
 - [Agent](#agent)
 - [Allocations](#allocations)
 - [Anomaly detection](#anomaly-detection)
@@ -48,6 +49,15 @@ language of AppSignal.
 - [Throughput](#throughput)
 - [Queue time](#queue-time)
 - [User account](#user-account)
+
+## Actions
+
+Actions are the location in the code that a HTTP request, background job or other, code execution in the app itself is started as determined by the parent framework. For Ruby on Rails Rails and Elixir Phoenix apps for example this is the controller and action combination, such as `BlogPostsController#create` or `Api::UsersController#index`.
+
+[Error](#errors) incidents also support errors without an action, as an error can occur outside of an action, such as in the app's framework before reaching the app's own code.
+Performance incidents without an action name set on the [transaction](#transactions) are ignored.
+
+Actions, along with the [namespace](#namespace), and for errors the error type, combined create the uniqueness marker for an incident. A different error that occurs on the same action in the same namespace as another incident, creates a new incident for that error.
 
 ## Agent
 

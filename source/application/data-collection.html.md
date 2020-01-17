@@ -11,6 +11,7 @@ You can configure AppSignal to gather more, or less, information than it does by
 - [Request headers](#request-headers)
 - [Parameters](#parameters)
 - [Session data](#session-data)
+- [Namespaces](#namespaces)
 
 ## Request headers
 
@@ -25,3 +26,11 @@ If you use any framework with automatic parameter filtering, AppSignal will use 
 AppSignal gathers session data for requests by default. This may help you track down errors or performance issues that were caused by some session data your app is using. However, your app's session data may contain sensitive user information which you do not want to the AppSignal servers.
 
 The session data can be filtered by the data's key name with our session data filtering for [Ruby](/ruby/configuration/session-data-filtering.html) and [Elixir](/elixir/configuration/session-data-filtering.html). It's also possible to disable session data collection entirely for [Ruby](/ruby/configuration/session-data-filtering.html#skip-sending-session-data) and [Elixir](/elixir/configuration/session-data-filtering.html#skip-sending-session-data).
+
+## Namespaces
+
+Namespaces allow grouping of [actions](/appsignal/terminology.html#actions). By default AppSignal uses the "web", "background" and "frontend" namespaces to group [transactions](/appsignal/terminology.html#transactions). It's possible to create a custom namespace such as "admin", "api" to group controllers in the same namespace.
+
+The grouped actions in the namespace can be configured with their own notification defaults, allowing a critical namespace to always notify about errors, while the "web" namespace does not. It's also possible to configure the AppSignal integration to ignore a namespace to
+
+Read more about namespaces in the [namespaces section](/application/namespaces.html).

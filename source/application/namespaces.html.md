@@ -2,17 +2,11 @@
 title: "Namespaces"
 ---
 
-Namespaces are a way to group error incidents, performance incidents, and host
-metrics in your app. By default AppSignal provides two namespaces: the "web"
-and "background" namespaces.
+Namespaces are a way to group error incidents, performance incidents from [actions](/appsignal/terminology.html#actions), and host metrics in your app. By default AppSignal provides three namespaces: the "web", "background" and "frontend" namespaces. You can add your own namespaces to separate parts of your app like the API or Admin panel.
 
-The "web" namespace holds all data for HTTP requests while the "background"
-namespace contains metrics from background job libraries and tasks.
+The "web" namespace holds all data for HTTP requests while the "background" namespace contains metrics from background job libraries and tasks. The "frontend" namespace is created by the [JavaScript front-end integration](/front-end).
 
-Namespaces can be used to group together incidents that are related to the same
-part of an application. It's also possible to configure notification settings
-on a per-namespace level. You can find these settings under "App settings" ->
-"Notifications".
+Namespaces can be used to group together actions that are related to the same part of an application. It's also possible to configure notification settings on a per-namespace level. You can find these settings on the [Notifications settings page](https://appsignal.com/redirect-to/app?to=notifications).
 
 You can add your own namespaces to separate parts of your app like the API and Admin panel.
 

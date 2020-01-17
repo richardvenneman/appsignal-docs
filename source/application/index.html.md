@@ -35,7 +35,7 @@ An application can have multiple [environments](/appsignal/terminology.html#envi
 
 ## Namespaces
 
-Namespaces are a way to group error incidents, performance incidents, and host metrics in your app. By default AppSignal provides two namespaces: the "web" and "background" namespaces. You can add your own to separate parts of your app like the API and Admin panel.
+Namespaces are a way to group error incidents, performance incidents from [actions](/appsignal/terminology.html#actions), and host metrics in your app. By default AppSignal provides three namespaces: the "web", "background" and "frontend" namespaces. You can add your own namespaces to separate parts of your app like the API or Admin panel.
 
 Namespaces can be used to group together incidents that are related to the same part of an application. It's also possible to configure notification settings on a per-namespace level.
 
