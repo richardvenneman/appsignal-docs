@@ -67,7 +67,7 @@ The agent is started by the language specific [library](#libraries) and runs as 
 
 The transaction instrumentation data collected by the agent is sent to the AppSignal servers. The [transaction](#transactions) data is processed and used to detect events worth [alerting](#alerting) users about.
 
-Read more about how the AppSignal [agent operates](/appsignal/how-appsignal-operates.html) and the [life cycle of an AppSignal request](/appsignal/request-lifecycle.html).
+Read more about how the AppSignal [agent operates](/appsignal/how-appsignal-operates.html) and the [life cycle of an AppSignal request](/appsignal/data-life-cycle.html).
 
 ## Allocations
 
@@ -259,7 +259,7 @@ Also see [instrumentation events](#instrumentation-events).
 
 The AppSignal [libraries](#libraries) and [agent](#agent) are in constant communication with each other. The libraries send data to the agent over a UNIX socket. To do so the libraries use an extension for the programming language they're written in. This extension is written in C and Rust, and installed when the language specific agent is installed.
 
-Read more about the AppSignal [extension operates](/appsignal/how-appsignal-operates.html) and the [life cycle of an AppSignal request](/appsignal/request-lifecycle.html).
+Read more about the AppSignal [extension operates](/appsignal/how-appsignal-operates.html) and the [life cycle of an AppSignal request](/appsignal/data-life-cycle.html).
 
 ## Impact
 
@@ -314,7 +314,7 @@ Every library is specialized in instrumentation of its subject language. Most
 AppSignal libraries also includes an "[agent](#agent)" which the libraries use
 to communicate with the AppSignal servers.
 
-Read more about how the AppSignal [agent operates](/appsignal/how-appsignal-operates.html) and the [life cycle of an AppSignal request](/appsignal/request-lifecycle.html).
+Read more about how the AppSignal [agent operates](/appsignal/how-appsignal-operates.html) and the [life cycle of an AppSignal request](/appsignal/data-life-cycle.html).
 
 ### Library integrations
 

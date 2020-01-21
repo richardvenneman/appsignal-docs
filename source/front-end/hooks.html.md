@@ -2,7 +2,7 @@
 title: "Hooks"
 ---
 
-In the lifecycle of a `Span`, we provide a number of opportunities to update or modify its internal state. Hooks are the mechanism for this. Using specifically formed functions, we are able to augment any outgoing `Span` with additional information before it is sent to the Push API.
+In the life cycle of a `Span`, we provide a number of opportunities to update or modify its internal state. Hooks are the mechanism for this. Using specifically formed functions, we are able to augment any outgoing `Span` with additional information before it is sent to the Push API.
 
 Both types of hooks are an array of composed functions that are applied from right to left. In other words, the hooks that are added last are always the first to be applied.
 

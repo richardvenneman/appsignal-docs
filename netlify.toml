@@ -24,7 +24,10 @@
   to = "/application/settings.html"
 [[redirects]]
   from = "/getting-started/lifecycle.html"
-  to = "/appsignal/request-lifecycle.html"
+  to = "/appsignal/data-life-cycle.html"
+[[redirects]]
+  from = "/appsignal/request-lifecycle.html"
+  to = "/appsignal/data-life-cycle.html"
 [[redirects]]
   from = "/getting-started/how-appsignal-operates.html"
   to = "/appsignal/how-appsignal-operates.html"

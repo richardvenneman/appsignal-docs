@@ -314,10 +314,10 @@ AppSignal doesn't seem to be working or there are no logs available.
 - What does the AppSignal agent logs say with log-level "debug"?
 - Is the [Operating System](/support/operating-systems.html) supported?
 - Did the "extension" install and load correctly?  
-  Answers are in the "diagnose" output.
+  Answers should be in the ["diagnose" output](#diagnose).
 - Is the application running inside a containerized system?
-- Is your problem mentioned in our list of [known
-  issues](/support/known-issues.html)?
+- Are the application servers's synced using [NTP](/support/about-time.html) to prevent clock drift?
+- Is your problem mentioned in our list of [known issues](/support/known-issues.html)?
 
 ## Creating a reproducible state
 
