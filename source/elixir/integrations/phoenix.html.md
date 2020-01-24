@@ -110,7 +110,7 @@ defmodule AppsignalPhoenixExample.Application do
 end
 ```
 
-For more information on query instrumentation and installation instructions for Telemetry < 0.3.0 and Ecto < 3.0, check out the [AppSignal Ecto documentation](/elixir/integration/ecto.html).
+For more information on query instrumentation and installation instructions for Telemetry < 0.3.0 and Ecto < 3.0, check out the [AppSignal Ecto documentation](/elixir/integrations/ecto.html).
 
 ## Channels
 
