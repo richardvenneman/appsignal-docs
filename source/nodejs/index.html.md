@@ -149,30 +149,41 @@ A key benefit of the new API is that it works aynchronously. Here's an example o
 
 ```js
 async function () {
-  // the `RootSpan` 
+  // the `RootSpan` represents the top-most level `Span` that
+  // contains all others
   const rootSpan = tracer.createSpan("rootSpanName")
 
-  await tracer.instrument(rootSpan, async span => {
+  await tracer.withSpan(rootSpan, async span => {
     span
       .set("key", value)
       .setNamespace("namespace")
       .setSampleData("key", value)
 
-    await tracer.instrument(
-      tracer.createSpan("childSpan1Name", span),
+    await tracer.withSpan(
+      span.child("childSpan1Name"),
       async child => {
         // add code to instrument here!
-        // `tracer.instrument` will return any value that you return
-        // in this callback
+        // `tracer.withSpan` will return a Promise for any value 
+        // that you return in this callback
+
+        // spans must be closed explicitly!
+        child.close()
       }
     )
 
-    await tracer.instrument(
-      tracer.createSpan("childSpan2Name", span),
-      async () => {
-        // multiple functions can be intrumented at once
+    tracer.withSpanSync(
+      span.child("childSpan2Name"),
+      child => {
+        // multiple functions can be intrumented at once, 
+        // as well as purely synchrounous functions
+
+        // spans must be closed explicitly!
+        child.close()
       }
     )
+
+    // the `RootSpan` must also be closed explicitly!
+    span.close()
   })
 }
 ```
