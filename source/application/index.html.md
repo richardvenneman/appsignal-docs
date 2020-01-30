@@ -15,6 +15,7 @@ A list of Applications appears on the [Application index] and in the application
   - [Deploy markers](markers/deploy-markers.html)
   - [Custom markers](markers/custom-markers.html)
 - [Settings](settings.html)
+- [Incident notification settings](incident-notification-settings.html)
 - [Link templates](link-templates.html)
 - [Integrations (full list)](integrations/)
 - [Running multiple applications on one host](#running-multiple-applications-on-one-host)
