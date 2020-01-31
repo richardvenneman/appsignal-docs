@@ -57,7 +57,7 @@ The following host metrics are collected by the AppSignal agent for every minute
     </tr>
     <tr>
       <td>Disk IO</td>
-      <td>tdroughput of data read from and written to every disk.</td>
+      <td>Throughput of data read from and written to every disk.</td>
     </tr>
     <tr>
       <td>Network traffic</td>
