@@ -4,7 +4,7 @@ title: "Deploy markers"
 
 Markers are little icons used in graphs on AppSignal.com to indicate a change. This can be a code deploy using a "Deploy marker" or a special event with a ["Custom marker"](custom-markers.html). Deploy markers can also be found in the ["Deploys" section](https://appsignal.com/redirect-to/app?to=markers) in the app navigation which provides a performance overview per deploy.
 
-A deploy marker indicates a change in the deployed version of an application. This can be used to group together occurrences of errors and performance issues within a certain time frame. From when the version was deployed until a newer version was deployed.
+A deploy marker indicates a change in the deployed version of an application. This can be used to group together occurrences of errors and performance issues within a certain time frame. From when the version was deployed until a newer version was deployed. Deploy markers are also required to enable [backtrace links] for an app.
 
 When a new deploy is detected, the list of incidents is empty for the newest deployment version. When an error, or any other issue, is reported by AppSignal in your application it gets listed for the newest deploy as well. On the sample page for an incident you can see in which deployments an incident occurred with the help of the rocket (🚀) separator icon.
 
@@ -93,3 +93,4 @@ Read more about how to create Deploy markers with our Push API in our [Push API 
 The AppSignal for Ruby gem includes a (deprecated) CLI tool to allow creation of deploy markers from your app. See the [`notify_of_deploy` CLI command][notify_of_deploy] documentation for more information.
 
 [notify_of_deploy]: /ruby/command-line/notify_of_deploy.html
+[backtrace links]: /application/backtrace-links.html
