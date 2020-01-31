@@ -8,10 +8,28 @@ You can configure AppSignal to gather more, or less, information than it does by
 
 ## Table of Contents
 
+- [Ignore actions](#ignore-actions)
+- [Ignore errors](#ignore-errors)
 - [Request headers](#request-headers)
 - [Parameters](#parameters)
 - [Session data](#session-data)
 - [Namespaces](#namespaces)
+
+## Ignore actions
+
+Noisy actions (web endpoints, background jobs, scheduled tasks) sometimes do more harm than good. To filter out these actions it's possible to ignore them in AppSignal by updating the AppSignal configuration in an app.
+
+By configuring the `ignore_actions` option it's possible to not record any data for the configured actions, requests, background jobs, etc.
+
+- [Ruby gem `ignore_actions` config option](/ruby/configuration/ignore-actions.html)
+- [Elixir package `ignore_actions` config option](/elixir/configuration/ignore-actions.html)
+
+## Ignore errors
+
+By configuring the `ignore_errors` option it's possible to ignore errors matching the exact name of an error for the entire app.
+
+- [Ruby gem `ignore_errors` config option](/ruby/configuration/ignore-errors.html)
+- [Elixir package `ignore_errors` config option](/elixir/configuration/ignore-errors.html)
 
 ## Request headers
 

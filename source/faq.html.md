@@ -25,16 +25,16 @@ AppSignal supports the [Ruby](https://www.ruby-lang.org/en/) and [Elixir](https:
 
 #### How to ignore actions from your app?
 
-By configuring the `ignore_actions` option for the [Ruby gem](/ruby/configuration/ignore-actions.html) and [Elixir package](/elixir/configuration/ignore-actions.html) it's possible to not record any data for the configured actions, requests, background jobs, etc.
+By [ignoring actions](/application/data-collection.html#ignore-actions) for the it's possible to not record any data for the configured actions, requests, background jobs, etc.
 
 #### How to ignore errors in your app?
 
-By configuring the `ignore_actions` option for the [Ruby gem](/ruby/configuration/ignore-errors.html) and [Elixir package](/elixir/configuration/ignore-errors.html) you can ignore errors matching the exact name of an error.
+By [ignoring errors](/application/data-collection.html#ignore-errors) AppSignal will ignore errors matching the exact name of an error.
 
 #### How to filter data that's being send to AppSignal?
 
-- Filter parameters and background job arguments for the [Ruby gem](/ruby/configuration/ignore-errors.html) and [Elixir package](/elixir/configuration/ignore-errors.html).
-- Skip sending session data from requests for the [Ruby gem](/ruby/configuration/options.html#option-skip_session_data) and [Elixir package](/elixir/configuration/options.html#option-skip_session_data).
+- [Filter parameters and background job arguments](/application/data-collection.html#parameters).
+- [Skip sending session data for requests](/application/data-collection.html#session-data).
 
 ### How to add additional instrumentation to my app?
 
