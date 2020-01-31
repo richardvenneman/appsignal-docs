@@ -7,6 +7,12 @@ AppSignal supports tagging of requests, as described in our tagging guides for
 to generate URLs to your own application to deep link to pages in your own
 system, such as related user profiles or blog posts.
 
+## Table of contents
+
+- [Tagging requests](#tagging-requests)
+- [Creating a link template](#creating-a-link-template)
+  - [Customizing link names](#customizing-link-names)
+
 ## Tagging requests
 
 For link templates to work AppSignal needs to have the data necessary to create
@@ -57,6 +63,14 @@ After adding tags in your app and defining link templates, links will be
 generated for each request in the "Overview" section.
 
 ![link templates](/assets/images/screenshots/link_templates_result.png)
+
+### Customizing link names
+
+By default the tags and links table will increment links, e.g. "Link 1", "Link 2", "Link 3". If you want to use more descriptive link names you can do so with this format:
+
+```
+[Backend]https://yourapp.com/backend/users/%user_id%
+```
 
 [ruby-tagging]: /ruby/instrumentation/tagging.html
 [elixir-tagging]: /elixir/instrumentation/tagging.html
