@@ -31,7 +31,7 @@ There are four notification options available:
 - **First after close**
   - A notification is sent at the first occurrence of an incident after the incident was previously closed. Incidents can opened and closed in the sidebar in the Incident detail page. This option is is a good option for incidents that aren't triggered by a code bug, but out an outside source (e.g. 3rd party has a connection issue) and can't be closed by deploying a new version of the app.
 - **Never notify**
-  - No notification is ever sent out when the incident is triggered. Mostly used for errors that will continue to happen and you'd like to keep track of, but aren't getting fixed soon. If you don't want to receive the incident at all, [ignoring the action](/application/data-collection.html#ignoring-actions) or [ignoring the error](/application/data-collection.html#ignoring-errors) may help.
+  - No notification is ever sent out when the incident is triggered. Mostly used for errors that will continue to happen and you'd like to keep track of, but aren't getting fixed soon. If you don't want to receive the incident at all, [ignoring the action](/application/data-collection.html#ignore-actions) or [ignoring the error](/application/data-collection.html#ignore-errors) may help.
 
 ## Error incident notification settings
 
