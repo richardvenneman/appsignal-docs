@@ -47,7 +47,7 @@ The integration supports loading configuration via options passed to the `Appsig
 ```js
 const appsignal = new Appsignal({
   active: true,
-  name: "<YOUR APPLICATION NAME>"
+  name: "<YOUR APPLICATION NAME>",
   apiKey: "<YOUR API KEY>"
 })
 ```
