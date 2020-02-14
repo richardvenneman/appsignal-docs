@@ -39,7 +39,7 @@ appsignal demo
 To run it with a specific environment, see the [`--environment`](#environment-option) option.
 
 ```bash
-appsignal --environment=production
+appsignal demo --environment=production
 ```
 
 ### Standalone run
