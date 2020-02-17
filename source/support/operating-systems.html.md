@@ -17,6 +17,7 @@ The AppSignal integrations for Ruby and Elixir contain native extensions and a s
 - [FreeBSD](#freebsd)
 - [macOS / OS X](#macos)
 - [Microsoft Windows](#microsoft-windows)
+  - [Microsoft Windows Subsystem for Linux](#microsoft-windows-subsystem-for-linux)
 
 ## Support table
 
@@ -30,13 +31,15 @@ The AppSignal integrations for Ruby and Elixir contain native extensions and a s
 | &nbsp;&nbsp;&nbsp;&nbsp; - Fedora                      | ✓              | ✓              |
 | FreeBSD <sup>1</sup>                                   |                | ✓              |
 | Microsoft Windows <sup>6</sup>                         |                |                |
+| Microsoft Windows Subsystem for Linux <sup>7</sup>     |                | ? <sup>7</sup> |
 
 - `1`: Does not support [host metrics][host-metrics] (yet).
 - `2`: Depending on the integration version some older versions of the Operating System are supported. See the [Linux](#linux) section for more information.
 - `3`: Older systems may require a dynamic builds, which is required for JRuby, which are supported since Ruby gem `2.8.0`. See the [Linux](#linux) section for more information.
 - `4`: Supported since AppSignal for [Ruby](/ruby) version `2.1.x` and AppSignal for [Elixir](/elixir) version `0.11.0`.
 - `5`: Dynamic builds (which are required for JRuby) are supported since Ruby gem `2.8.0`.
-- `6`: Untested with the Windows subsystem for Linux.
+- `6`: Does not work directly on Microsoft Window's system. See also point 7.
+- `7`: We do not provide support for this setup. May work with the Windows subsystem for Linux. See also the [Microsoft Windows WSL section](#microsoft-windows-subsystem-for-linux) for more information.
 
 ## Linux
 
@@ -222,7 +225,7 @@ If you use Microsoft Windows and would like us to support it, [send us an e-mail
 
 ### Ruby
 
-Do make sure you have the [RubyInstaller](https://rubyinstaller.org/) DevKit installed before installing AppSignal. Otherwise there will be the following error during installation of our C-extension.
+To install the AppSignal Ruby gem on Microsoft Windows, make sure you have the [RubyInstaller](https://rubyinstaller.org/) DevKit installed before installing AppSignal. Otherwise there will be the following error during installation of our C-extension. We will not install the C-extension on Microsoft Windows, but the Ruby installation detects it's part of the gem and will not continue without the DevKit.
 
 ```sh
 $ gem install appsignal
@@ -233,6 +236,22 @@ Please update your PATH to include build tools or download the DevKit
 from 'http://rubyinstaller.org/downloads' and follow the instructions
 at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
 ```
+
+### Microsoft Windows Subsystem for Linux
+
+!> We do not provide support for the Microsoft Windows Subsystem for Linux.
+
+The [Microsoft Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) (WSL) is a layer between Microsoft Windows and a [Linux](#linux) distribution. This allows users to run certain GNU/Linux distributions, that are available in the Microsoft Store, on their Microsoft Windows computer.
+
+Running an app on WSL using an AppSignal integration will not cause any errors or build issues, as described in the [Microsoft Windows section](#microsoft-windows).
+
+Running AppSignal on WSL will work as well as the WSL supports it. Follow the steps for your [Linux distribution](#linux) on this page in the WSL environment to properly install the AppSignal dependencies, before installing AppSignal in your app.
+
+In our testing using the Ubuntu WSL, we've found that most AppSignal features will work, but we can't say how accurate the information gathered from it is. Some small differences between WSL's implementation and our Linux test setups, may cause odd behavior or inaccurately reporting of metrics. We do not actively test against WSL and cannot guarantee its successful operation. <u>We do not provide support for AppSignal on the WSL.</u>
+
+Not all AppSignal features will work on the WSL system, in our testing we've confirmed [host metrics](/metrics/host.html) for disks (usage and IO) do not work.
+
+Use AppSignal in our app on the WSL system to test AppSignal's integration in your app in a development environment, but not do not use this setup in a production environment. Always test your app using AppSignal on a staging environment with a similar environment (Operating System) to the app's production environment first.
 
 [Alpine Linux]: https://alpinelinux.org/
 [musl]: https://www.musl-libc.org/
