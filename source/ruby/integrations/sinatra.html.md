@@ -26,6 +26,19 @@ AppSignal.
    `Appsignal::Rack::SinatraInstrumentation` middleware in your application.
    Please remove it from your application.
 
+## Ignoring errors
+
+To ignore a specific Sinatra error set the `sinatra.skip_appsignal_error` flag in the request environment. This will tell AppSignal to ignore the error that occurs during the request. This allows you to stop reporting of errors to AppSignal.
+
+Only ignore errors like this if you need to ignore errors from a Sinatra app using code. See the [`ignore_errors` option](/ruby/configuration/ignore-errors.html) to ignore it for the entire app. If you don't want to be notified about an error, see [our notification settings](/application/notification-settings.html).
+
+```ruby
+get "/" do
+  env["sinatra.skip_appsignal_error"] = true # Add this line to an endpoint or callback
+  raise "uh oh" # Example error, don't copy this
+end
+```
+
 ## Example applications
 
 We have two example applications in our examples repository on GitHub. The
