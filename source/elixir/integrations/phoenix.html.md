@@ -156,17 +156,15 @@ end
 
 ### Adding channel payloads
 
-Channel payloads aren't included by default, but can be added by using `Appsignal.Transaction.set_sample_data/2` using the "params" key:
+Channel payloads aren't included by default, but can be added by using [tagging]:
 
 ```elixir
 defmodule SomeApp.MyChannel do
   use Appsignal.Instrumentation.Decorators
 
   @decorate channel_action
-  def handle_in("ping", payload, socket) do
-    Appsignal.Transaction.set_sample_data(
-      "params", Appsignal.Utils.MapFilter.filter_parameters(payload)
-    )
+  def handle_in("ping", %{"body" => body}, socket) do
+    Appsignal.Transaction.set_sample_data("tags", %{body: body})
 
     # your code here..
   end
@@ -190,3 +188,4 @@ requests.
 [phoenix]: http://www.phoenixframework.org/
 [hex-appsignal]: https://hexdocs.pm/appsignal/
 [hex-phoenix-channels]: https://hexdocs.pm/appsignal/Appsignal.Phoenix.Channel.html
+[tagging]:/elixir/instrumentation/tagging.html
