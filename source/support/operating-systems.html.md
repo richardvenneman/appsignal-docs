@@ -51,15 +51,15 @@ AppSignal support for versions of libc has changed over the past few versions of
 
 This is the list of version of libc/musl AppSignal was compiled against over the last version of our integrations:
 
-- AppSignal for Ruby `v1.0.0` - `v2.0.x`  
+- AppSignal for Ruby `v1.0.0` - `v2.0.x`
   AppSignal for Elixir `v0.0.x` - `v0.10.x`
   - libc `v2.5`
   - musl `N/A`
-- AppSignal for Ruby `v2.1.x` - `v2.3.x`  
+- AppSignal for Ruby `v2.1.x` - `v2.3.x`
   AppSignal for Elixir `v0.11.x` - `v1.3.x`
   - libc `N/A` - see [DNS timeouts known issue](/support/known-issues/dns-timeouts.html).
   - musl `v1.1.16`
-- AppSignal for Ruby `v2.4.x` and higher  
+- AppSignal for Ruby `v2.4.x` and higher
   AppSignal for Elixir `v1.4.x` and higher
   - libc `v2.15`
   - musl `v1.1.16` - see [Alpine Linux install problems after upgrading](/support/known-issues/alpine-linux-ruby-gem-2-4-elixir-package-1-4-upgrade-problems.html).
@@ -209,7 +209,7 @@ pkg install gcc gmake openssl-devel
 
 ## macOS
 
-macOS (OS X) is supported by AppSignal for Ruby and Elixir. It currently does not support the [host metrics][host-metrics] feature.
+macOS (OS X) `10.14.x` and up is supported by AppSignal for Ruby and Elixir. It currently does not support the [host metrics][host-metrics] feature.
 
 Please make sure Xcode is installed with the command line build tools.
 
