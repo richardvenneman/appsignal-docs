@@ -92,11 +92,7 @@ AppSignal likes to know when you have deployed your app. We use deploys to measu
 
 ### Add a deploy hook in Heroku
 
-`YOUR-API-KEY` is your AppSignal api-key, retrieve this using `heroku config:get APPSIGNAL_PUSH_API_KEY`. Make sure to replace it in the code below.
-
-    :::term
-    $ heroku addons:add deployhooks:http \
-     --url="https://push.appsignal.com/1/markers/heroku?api_key=YOUR-API-KEY"
+Use the [Heroku Labs: Dyno Metadata](https://devcenter.heroku.com/articles/dyno-metadata) feature to automatically set the `revision` config option to the `HEROKU_SLUG_COMMIT` system environment variable. This will automatically report new deploys when the Heroku app gets deployed.
 
 ### Using multiple deploy hooks
 
