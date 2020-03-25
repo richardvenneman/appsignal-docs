@@ -49,7 +49,7 @@ try {
   // error has already been sent to AppSignal
 }
 
-// Alternatave usage
+// Alternative usage
 appsignal.wrap(() => {
   // catch any error from sync or async code here
 })
