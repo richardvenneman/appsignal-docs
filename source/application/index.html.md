@@ -15,7 +15,7 @@ A list of Applications appears on the [Application index] and in the application
   - [Deploy markers](markers/deploy-markers.html)
   - [Custom markers](markers/custom-markers.html)
 - [Settings](settings.html)
-- [Incident notification settings](incident-notification-settings.html)
+- [Incident notification settings](notification-settings.html)
 - [Link templates](link-templates.html)
 - [Backtrace links](backtrace-links.html)
 - [Integrations (full list)](integrations/)
