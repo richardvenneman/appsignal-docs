@@ -20,7 +20,7 @@ In this documentation we aim to give you all the information you need to get sta
 - Error monitoring [Front-end](/front-end/)
 - [Host metrics](/metrics/host.html)
 - [Custom metrics](/metrics/custom.html)
-- [Workflow integrations](/application/integrations/index.html) (Slack, HipChat, Jira, etc.)
+- [Workflow integrations](/application/integrations/index.html) (Slack, Jira, etc.)
 - [Standalone agent](/standalone-agent/installation.html)
   - [StatsD](/standalone-agent/statsd.html)
 - [AppSignal API](/api/index.html)

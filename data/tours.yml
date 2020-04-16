@@ -7,11 +7,11 @@ tours:
     human_title: Error tracking
     human_teaser: "Catch errors and make sure they don't happen again."
     meta_title: "Error Tracking for Ruby and Elixir"
-    meta_description: "Catch errors in your Ruby and Elixir applications. Get notified in tools like Slack or HipChat and easily create issues in your issue tracker of choice."
+    meta_description: "Catch errors in your Ruby and Elixir applications. Get notified in tools like Slack or Discord and easily create issues in your issue tracker of choice."
     usps:
       -
         title: Real-time notifications
-        text: When an errors happens in your application, you need to know instantly. Receive alerts where your team works, whether that is email, Slack, HipChat or another messaging platform.
+        text: When an errors happens in your application, you need to know instantly. Receive alerts where your team works, whether that is email, Slack, Discord or another messaging platform.
       -
         title: Detailed error reports
         text: We save details error details and provide you with the information to drill down to the root cause. Look at other occurrences of the same error to discover patterns.
@@ -84,11 +84,11 @@ tours:
     human_title: Works for your team
     human_teaser: "AppSignal keeps your team focused on building great apps."
     meta_title: "Integrations with issue trackers and communication tools"
-    meta_description: "AppSignal is built so you can stay productive. It integrates with your favorite tools like Slack, Pivotal Tracker, GitHub, PagerDuty, Trello, GitLab, Phabricator, Flowdock, HipChat and OpsGenie. Not enough? Use the webhook!"
+    meta_description: "AppSignal is built so you can stay productive. It integrates with your favorite tools like Slack, Pivotal Tracker, GitHub, PagerDuty, Trello, GitLab, Phabricator, Flowdock, Discord and OpsGenie. Not enough? Use the webhook!"
     usps:
       -
         title: Communication tools
-        text: You don't want to chase after information. So we bring it to your doorstep, whether that's email or Slack. We support integrations with Flowdock, HipChat, OpsGenie and Slack.
+        text: You don't want to chase after information. So we bring it to your doorstep, whether that's email or Slack. We support integrations with Flowdock, Discord, OpsGenie and Slack.
       -
         title: Issue tracking
         text: Use AppSignal's built-in issue states or send issues to your issue tracker of choice. We offer integrations with GitHub, GitLab, Pivotal Tracker and Trello.

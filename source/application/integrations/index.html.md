@@ -15,7 +15,6 @@ To enable notifications and issue tracker integration for external services, go 
 - [GitHub](#github)
 - [GitLab](#gitlab)
 - [Google Hangouts Chat](#google-hangouts-chat)
-- [HipChat](#hipchat)
 - [Intercom](#intercom)
 - [Jira](#jira)
 - [OpsGenie](#opsgenie)
@@ -58,12 +57,6 @@ The following API scopes will be needed for the GitLab integration:
 - `api`
 
 Website: [https://gitlab.com](https://gitlab.com)
-
-## HipChat
-
-Group chat and video chat built for teams.
-
-Website: [https://www.hipchat.com](https://www.hipchat.com)
 
 ## Intercom
 
