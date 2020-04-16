@@ -3,7 +3,7 @@ title: Discord
 description: "Learn more about how to set up the AppSignal Discord integration."
 ---
 
-Discord is the easiest way to communicate over voice, video, and text, whether you’re part of a school club, a nightly gaming group, a worldwide art community, or just a handful of friends that want to hang out.
+Discord describes themselves as the easiest way to communicate over voice, video, and text, whether you’re part of a school club, a nightly gaming group, a worldwide art community, or just a handful of friends that want to hang out.
 
 With this integration you will be able to receive notifications for deploys, errors, performance issues and alerts from AppSignal on Discord.
 
