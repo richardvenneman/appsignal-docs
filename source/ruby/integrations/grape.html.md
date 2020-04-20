@@ -13,6 +13,7 @@ Madsen](https://github.com/idyll).
 
 - [Installation](#installation)
 - [Grape on Rails](#grape-on-rails)
+- [Ignoring errors](#ignoring-errors)
 - [Example app](#example-app)
 
 ## Installation
@@ -96,6 +97,36 @@ module Acme
     get "/" do
       { :message => "Hello world!" }
     end
+  end
+end
+```
+
+## Ignoring errors
+
+-> **Note**: Ignoring errors from Grape apps this way is supported since AppSignal Ruby gem version 2.10.5.
+
+To ignore a specific Grape error set the `grape.skip_appsignal_error` flag in the request environment. This will tell AppSignal to ignore the error that occurs during the request. This allows you to stop reporting of errors to AppSignal.
+
+Only ignore errors like this if you need to ignore errors from a Grape app using code. See the [`ignore_errors` option](/ruby/configuration/ignore-errors.html) to ignore it for the entire app. If you don't want to be notified about an error, see [our notification settings](/application/notification-settings.html).
+
+```ruby
+get "/" do
+  env["grape.skip_appsignal_error"] = true # Add this line to an endpoint or callback
+  raise "uh oh" # Example error, don't copy this
+end
+```
+
+Note that if an error is rescued in the app itself using `rescue_from` AppSignal will not receive and track the error. The error will need to be manually set on the AppSignal transaction.
+
+```ruby
+class Api < ::Grape::API
+  insert_before Grape::Middleware::Error, Appsignal::Grape::Middleware
+
+  format :json
+
+  base.rescue_from :all do |error|
+    Appsignal.set_error(error)
+    error!({ :foo => "bar" }.to_json, 500)
   end
 end
 ```
