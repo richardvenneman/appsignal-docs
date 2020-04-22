@@ -9,7 +9,7 @@ Add the  `@appsignal/plugin-path-decorator` and `@appsignal/javascript` packages
 You can also add these packages to your `package.json` on the command line:
 
 ```
-yarn add -D @appsignal/javascript @appsignal/plugin-path-decorator
+yarn add @appsignal/javascript @appsignal/plugin-path-decorator
 npm install --save @appsignal/javascript @appsignal/plugin-path-decorator
 ```
 
