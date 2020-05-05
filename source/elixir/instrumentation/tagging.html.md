@@ -26,7 +26,7 @@ tracked by AppSignal. There are a few limitations on tagging though.
 
 Tags that do not meet these limitations are dropped without warning.
 
-`set_sample_data` can be called multiple times, the given data will be merged, for example:
+`set_sample_data` can be called multiple times, but only the last value will be retained:
 
 ```elixir
 Appsignal.Transaction.set_sample_data("tags", %{locale: "en"})
@@ -37,7 +37,6 @@ will result in the following data:
 
 ```elixir
 %{
-  user: "bob",
   locale: "de"
 }
 ```
