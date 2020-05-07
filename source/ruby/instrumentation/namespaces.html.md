@@ -55,6 +55,8 @@ transaction = Appsignal::Transaction.create(
 transaction.set_namespace("slow_admin")
 ```
 
+-> Note: When setting custom namespace we only accept letters and underscored for namespace names.
+
 ## Ignore by namespace
 
 To ignore all actions in a namespace you can configure AppSignal to ignore one or more namespaces in your app's configuration. It's also possible to only [ignore one or more specific actions](/ruby/configuration/ignore-actions.html).

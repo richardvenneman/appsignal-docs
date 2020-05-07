@@ -43,6 +43,8 @@ For more documentation on how to configure a namespace please see the
 documentation for our [Ruby](/ruby/instrumentation/namespaces.html) and
 [Elixir](/elixir/instrumentation/namespaces.html) packages.
 
+-> Note: When setting custom namespace we only accept letters and underscored for namespace names.
+
 ## Ignoring namespaces
 
 -> The `ignore_namespaces` feature was introduced in AppSignal for Ruby gem version 2.3.0 and AppSignal for Elixir package version 1.3.0.

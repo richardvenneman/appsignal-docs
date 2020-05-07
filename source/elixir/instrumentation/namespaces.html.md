@@ -44,6 +44,8 @@ defmodule AppsignalPhoenixExampleWeb.AdminController do
   # ...
 ```
 
+-> Note: When setting custom namespace we only accept letters and underscored for namespace names.
+
 ## Ignore by namespace
 
 To ignore all actions in a namespace you can configure AppSignal to ignore one or more namespaces in your app's configuration. It's also possible to only [ignore one or more specific actions](/elixir/configuration/ignore-actions.html).
