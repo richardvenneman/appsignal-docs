@@ -199,7 +199,7 @@ defmodule AppsignalPhoenixExampleWeb.ClockLive do
     # Wrap the contents of the mount/2 function with a call to
     # Appsignal.Phoenix.LiveView.live_view_action/4
 
-    live_view_action(__MODULE__, :mount, socket, fn ->
+    live_view_action(__MODULE__, "mount", socket, fn ->
       :timer.send_interval(1000, self(), :tick)
       {:ok, assign(socket, state: Time.utc_now())}
     end)
@@ -209,7 +209,7 @@ defmodule AppsignalPhoenixExampleWeb.ClockLive do
     # Wrap the contents of the handle_info/2 function with a call to
     # Appsignal.Phoenix.LiveView.live_view_action/4:
 
-    live_view_action(__MODULE__, :mount, socket, fn ->
+    live_view_action(__MODULE__, "mount", socket, fn ->
       {:ok, assign(socket, state: Time.utc_now())}
     end)
   end
