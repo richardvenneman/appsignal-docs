@@ -79,7 +79,7 @@ SANITIZED_VALUE = '[FILTERED]'.freeze
 
 Rails.application.config.filter_parameters << lambda do |key, value|
   unless key.match(ALLOWED_KEYS_MATCHER)
-    value.replace(SANITIZED_VALUE)
+    value.replace(SANITIZED_VALUE) if value.is_a?(String)
   end
 end
 ```
