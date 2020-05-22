@@ -77,7 +77,7 @@ If you use a lambda instead of a list of keys you get a lot of flexibility. In t
 ALLOWED_KEYS_MATCHER = /((^|_)ids?|action|controller|code$)/.freeze
 SANITIZED_VALUE = '[FILTERED]'.freeze
 
-config.filter_parameters << lambda do |key, value|
+Rails.application.config.filter_parameters << lambda do |key, value|
   unless key.match(ALLOWED_KEYS_MATCHER)
     value.replace(SANITIZED_VALUE)
   end
